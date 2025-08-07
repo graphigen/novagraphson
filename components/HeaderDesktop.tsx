@@ -1,19 +1,12 @@
 "use client"
 
-import type React from "react"
 import { useState, useEffect, useRef, useCallback } from "react"
 import Link from "next/link"
 import { Search, X, ChevronDown, Globe } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/contexts/LanguageContext"
 import MegaMenu from "@/components/MegaMenu"
 
 type Language = "en" | "tr"
-
-interface NavigationItem {
-  name: string
-  href: string
-}
 
 interface SearchResult {
   title: string
@@ -135,7 +128,6 @@ export const HeaderDesktop = () => {
   const solutionsRef = useRef<HTMLDivElement>(null)
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const languagePopupRef = useRef<HTMLDivElement>(null)
 
   const popularSearchTerms = ["Web Tasarım", "SEO", "Dijital Pazarlama", "Grafik Tasarım", "VPS Sunucu", "CRM"]
 
@@ -218,6 +210,12 @@ export const HeaderDesktop = () => {
   const handleLanguageToggle = useCallback(() => {
     setIsLanguageOpen(!isLanguageOpen)
   }, [isLanguageOpen])
+
+  const handlePopularSearchClick = useCallback((term: string) => {
+    setSearchQuery(term)
+    const searchInput = searchRef.current?.querySelector('input')
+    searchInput?.focus()
+  }, [])
 
   // Search functionality
   useEffect(() => {
@@ -320,34 +318,6 @@ export const HeaderDesktop = () => {
         clearTimeout(searchTimeoutRef.current)
       }
     }
-  }, [])
-
-  const smoothScrollTo = useCallback((elementId: string) => {
-    const element = document.querySelector(elementId)
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      })
-    }
-  }, [])
-
-  const handleNavClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-      e.preventDefault()
-      if (href.startsWith("#")) {
-        smoothScrollTo(href)
-      } else {
-        window.location.href = href
-      }
-    },
-    [smoothScrollTo],
-  )
-
-  const handlePopularSearchClick = useCallback((term: string) => {
-    setSearchQuery(term)
-    const searchInput = searchRef.current?.querySelector('input')
-    searchInput?.focus()
   }, [])
 
   return (
@@ -574,7 +544,6 @@ export const HeaderDesktop = () => {
               
               {/* Popup */}
               <div 
-                ref={languagePopupRef}
                 className="absolute right-0 top-full mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-200 py-4 z-50 animate-in slide-in-from-top-2 duration-200"
                 style={{
                   boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
