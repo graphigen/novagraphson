@@ -1,5 +1,9 @@
 # NovaGraph Website
 
+<!-- Vercel deployment fix: Updated pnpm-lock.yaml to resolve build issues -->
+
+## 🚀 Quick Start
+
 NovaGraph'ın resmi web sitesi - Dijital güvenlik ve web tasarım çözümleri.
 
 ## 🚀 Zeabur + AWS EC2 Deployment
