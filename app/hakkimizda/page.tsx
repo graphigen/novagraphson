@@ -1,4 +1,8 @@
+"use client"
+
 import type { Metadata } from "next"
+import Head from "next/head"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ContactForm } from "@/components/ContactForm"
