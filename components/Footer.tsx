@@ -9,12 +9,14 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
           {/* Hizmetler */}
           <div>
-            <details className="md:[&_summary]:hidden md:open">
-              <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
-                <span>Hizmetler</span>
-                <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-              </summary>
-              <ul className="space-y-3">
+            {/* Mobile accordion */}
+            <div className="md:hidden">
+              <details>
+                <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none">
+                  <span>Hizmetler</span>
+                  <svg className="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <ul className="space-y-3">
               <li>
                 <Link href="/web-tasarim" className="text-gray-600 hover:text-blue-600 transition-colors">
                   Web Tasarım
@@ -60,18 +62,71 @@ export const Footer = () => {
                   Teknik Servis
                 </Link>
               </li>
+                </ul>
+              </details>
+            </div>
+            {/* Desktop static list */}
+            <div className="hidden md:block">
+              <h3 className="font-semibold text-gray-900 mb-4">Hizmetler</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/web-tasarim" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Web Tasarım
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dijital-pazarlama" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Dijital Pazarlama
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/seo" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    SEO
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/video-produksiyon" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Video Prodüksiyon
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/crm-sistemleri" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    CRM Sistemleri
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/network-solutions" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Ağ Çözümleri
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/server-systems" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Sunucu Sistemleri
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/cloud-backup" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Bulut & Backup
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/technical-service" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Teknik Servis
+                  </Link>
+                </li>
               </ul>
-            </details>
+            </div>
           </div>
 
           {/* Şirket */}
           <div>
-            <details className="md:[&_summary]:hidden md:open">
-              <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
-                <span>Şirket</span>
-                <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-              </summary>
-              <ul className="space-y-3">
+            <div className="md:hidden">
+              <details>
+                <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none">
+                  <span>Şirket</span>
+                  <svg className="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <ul className="space-y-3">
               <li>
                 <Link href="/hakkimizda" className="text-gray-600 hover:text-blue-600 transition-colors">
                   Hakkımızda
@@ -92,18 +147,45 @@ export const Footer = () => {
                   Blog
                 </a>
               </li>
+                </ul>
+              </details>
+            </div>
+            <div className="hidden md:block">
+              <h3 className="font-semibold text-gray-900 mb-4">Şirket</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/hakkimizda" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Hakkımızda
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/referanslar" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Referanslar
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/iletisim" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    İletişim
+                  </Link>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Blog
+                  </a>
+                </li>
               </ul>
-            </details>
+            </div>
           </div>
 
           {/* En Çok Okunanlar */}
           <div>
-            <details className="md:[&_summary]:hidden md:open">
-              <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
-                <span>En Çok Okunanlar</span>
-                <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-              </summary>
-              <ul className="space-y-3">
+            <div className="md:hidden">
+              <details>
+                <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none">
+                  <span>En Çok Okunanlar</span>
+                  <svg className="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <ul className="space-y-3">
               <li>
                 <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
                   Web Sitesi Nasıl Yapılır?
@@ -135,18 +217,56 @@ export const Footer = () => {
                   Web Sitesi SEO
                 </a>
               </li>
+                </ul>
+              </details>
+            </div>
+            <div className="hidden md:block">
+              <h3 className="font-semibold text-gray-900 mb-4">En Çok Okunanlar</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Web Sitesi Nasıl Yapılır?
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center">
+                    Web Sitesi Kurma
+                    <span className="ml-2 bg-green-500 text-white text-xs px-2 py-1 rounded font-medium">POPÜLER</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Web Yazılımı Nedir?
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    En Çok Satılan Ürünler
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Mikro İhracat Nedir?
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Web Sitesi SEO
+                  </a>
+                </li>
               </ul>
-            </details>
+            </div>
           </div>
 
           {/* İş Ortakları */}
           <div>
-            <details className="md:[&_summary]:hidden md:open">
-              <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
-                <span>İş Ortakları</span>
-                <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-              </summary>
-              <ul className="space-y-3">
+            <div className="md:hidden">
+              <details>
+                <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none">
+                  <span>İş Ortakları</span>
+                  <svg className="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <ul className="space-y-3">
               <li>
                 <Link href="/is-ortaklari/ahrefs" className="text-gray-600 hover:text-blue-600 transition-colors">
                   Ahrefs
@@ -182,8 +302,49 @@ export const Footer = () => {
                   PayPal
                 </Link>
               </li>
+                </ul>
+              </details>
+            </div>
+            <div className="hidden md:block">
+              <h3 className="font-semibold text-gray-900 mb-4">İş Ortakları</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/is-ortaklari/ahrefs" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Ahrefs
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/amazon-aws" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Amazon AWS
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/cloudflare" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Cloudflare
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/zoho" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Zoho
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/bitrix24" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Bitrix24
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/jivochat" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    JivoChat
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/paypal" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    PayPal
+                  </Link>
+                </li>
               </ul>
-            </details>
+            </div>
           </div>
         </div>
 
