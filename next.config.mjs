@@ -33,7 +33,13 @@ const nextConfig = {
       '@/contexts': './contexts',
       '@/lib': './lib',
       '@/app': './app',
+      '@/hooks': './hooks',
+      '@/styles': './styles',
     }
+    
+    // Improve module resolution
+    config.resolve.modules = ['node_modules', '.']
+    
     return config
   },
   // Production headers for security and performance
