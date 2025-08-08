@@ -72,10 +72,6 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=31536000; includeSubDomains; preload',
-          },
         ],
       },
       {
@@ -122,19 +118,7 @@ const nextConfig = {
       },
     ]
   },
-  // Rewrites for production
-  async rewrites() {
-    return [
-      {
-        source: '/robots.txt',
-        destination: '/api/robots',
-      },
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
-      },
-    ]
-  },
+
 }
 
 export default nextConfig
