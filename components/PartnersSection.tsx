@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useEffect, useRef } from "react"
 import Image from "next/image"
 
 const partners = [
@@ -103,19 +103,35 @@ const partners = [
 ]
 
 export const PartnersSection = () => {
-  const [scrollPosition, setScrollPosition] = useState(0)
+  // Smooth, jank-free ticker using requestAnimationFrame and translate3d
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const positionRef = useRef(0)
+  const rafRef = useRef<number | null>(null)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setScrollPosition((prev) => {
-        const newPosition = prev - 0.5
-        const totalWidth = partners.length * 176 // Her kart 176px (160px + 16px gap)
-        // Sonsuz döngü için: kartlar bittiğinde baştan başla
-        return newPosition < -totalWidth ? 0 : newPosition
-      })
-    }, 30)
+    const speedPxPerSec = 30 // adjust for desired speed
+    const totalWidth = partners.length * 176 // card width + gap
+    let lastTs = 0
 
-    return () => clearInterval(interval)
+    const step = (ts: number) => {
+      if (!lastTs) lastTs = ts
+      const dt = (ts - lastTs) / 1000 // seconds
+      lastTs = ts
+
+      positionRef.current -= speedPxPerSec * dt
+      if (positionRef.current < -totalWidth) positionRef.current = 0
+
+      const x = positionRef.current
+      if (containerRef.current) {
+        containerRef.current.style.transform = `translate3d(${x}px,0,0)`
+      }
+      rafRef.current = requestAnimationFrame(step)
+    }
+
+    rafRef.current = requestAnimationFrame(step)
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
   }, [])
 
   return (
@@ -135,18 +151,16 @@ export const PartnersSection = () => {
         </motion.div>
 
         {/* Kayan Partner Logoları Container */}
-        <div className="relative h-24 overflow-hidden">
+        <div className="relative h-24 overflow-hidden will-change-transform">
           {/* Kayan Partner Logoları */}
-          <div 
-            className="flex space-x-4 absolute top-0"
-            style={{ 
-              transform: `translateX(${scrollPosition}px)`,
-              transition: 'transform 0.1s ease-out'
-            }}
+          <div
+            ref={containerRef}
+            className="flex space-x-4 absolute top-0 left-0 will-change-transform"
+            style={{ transform: `translate3d(0,0,0)` }}
           >
             {/* İlk set */}
             {partners.map((partner, index) => {
-              const cardPosition = scrollPosition + (index * 176) // 160px + 16px gap
+              const cardPosition = positionRef.current + (index * 176)
               // Kartın ekranın sol kenarından ne kadar uzakta olduğunu hesapla
               const distanceFromLeft = cardPosition + 200
               // Opacity'yi 0-200px aralığında hesapla (kart ekranın solundan çıkarken)
@@ -158,7 +172,7 @@ export const PartnersSection = () => {
                   className="flex-shrink-0 w-40 bg-white rounded-xl p-1 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md group"
                   style={{
                     opacity: opacity,
-                    transform: `translateX(${scrollPosition}px) scale(${Math.max(0.8, opacity)})`
+                    transform: `scale(${Math.max(0.9, opacity)})`
                   }}
                 >
                   <div className="flex items-center justify-center h-full">
@@ -182,7 +196,7 @@ export const PartnersSection = () => {
             
             {/* İkinci set (sonsuz döngü için) */}
             {partners.map((partner, index) => {
-              const cardPosition = scrollPosition + ((index + partners.length) * 176) // 160px + 16px gap
+              const cardPosition = positionRef.current + ((index + partners.length) * 176)
               // Kartın ekranın sol kenarından ne kadar uzakta olduğunu hesapla
               const distanceFromLeft = cardPosition + 200
               // Opacity'yi 0-200px aralığında hesapla (kart ekranın solundan çıkarken)
@@ -194,7 +208,7 @@ export const PartnersSection = () => {
                   className="flex-shrink-0 w-40 bg-white rounded-xl p-1 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md group"
                   style={{
                     opacity: opacity,
-                    transform: `translateX(${scrollPosition}px) scale(${Math.max(0.8, opacity)})`
+                    transform: `scale(${Math.max(0.9, opacity)})`
                   }}
                 >
                   <div className="flex items-center justify-center h-full">
@@ -218,7 +232,7 @@ export const PartnersSection = () => {
             
             {/* Üçüncü set (daha smooth sonsuz döngü için) */}
             {partners.map((partner, index) => {
-              const cardPosition = scrollPosition + ((index + partners.length * 2) * 176) // 160px + 16px gap
+              const cardPosition = positionRef.current + ((index + partners.length * 2) * 176)
               // Kartın ekranın sol kenarından ne kadar uzakta olduğunu hesapla
               const distanceFromLeft = cardPosition + 200
               // Opacity'yi 0-200px aralığında hesapla (kart ekranın solundan çıkarken)
@@ -230,7 +244,7 @@ export const PartnersSection = () => {
                   className="flex-shrink-0 w-40 bg-white rounded-xl p-1 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md group"
                   style={{
                     opacity: opacity,
-                    transform: `translateX(${scrollPosition}px) scale(${Math.max(0.8, opacity)})`
+                    transform: `scale(${Math.max(0.9, opacity)})`
                   }}
                 >
                   <div className="flex items-center justify-center h-full">

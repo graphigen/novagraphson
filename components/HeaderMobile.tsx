@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X, Search, Phone } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -39,6 +39,19 @@ export const HeaderMobile = () => {
     }
   }
 
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = previousOverflow || ""
+    }
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [isMobileMenuOpen])
+
   return (
     <div className="md:hidden flex w-full items-center justify-between">
       {/* Logo */}
@@ -59,7 +72,12 @@ export const HeaderMobile = () => {
       {isMobileMenuOpen && (
         <>
           <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={closeMobileMenu} />
-          <div className="fixed inset-y-0 right-0 w-80 bg-white z-50 shadow-xl">
+          <div
+            className="fixed inset-y-0 right-0 w-80 bg-white z-50 shadow-xl"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobil menü"
+          >
             <div className="flex flex-col h-full">
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200">
