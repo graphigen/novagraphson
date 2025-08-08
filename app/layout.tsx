@@ -1,34 +1,70 @@
-import type React from "react"
-import type { Metadata } from "next"
-import "./globals.css"
-import { LanguageProvider } from "@/contexts/LanguageContext"
-import { ContactFormProvider } from "@/contexts/ContactFormContext"
-import { CookieConsent } from "@/components/CookieConsent"
-import { ContactFormWrapper } from "@/components/ContactFormWrapper"
-import { SecurityProtection } from "@/components/SecurityProtection"
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
+import { LanguageProvider } from '@/contexts/LanguageContext'
+import { ContactFormProvider } from '@/contexts/ContactFormContext'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import { Toaster } from '@/components/ui/toaster'
+import { CookieConsent } from '@/components/CookieConsent'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "NovaGraph - Advanced Graph Analytics Platform",
-  description:
-    "Transform your data into actionable insights with NovaGraph's powerful graph analytics and visualization tools.",
-  generator: "v0.dev",
-  icons: {
-    icon: [
+  title: {
+    default: 'NovaGraph - Dijital Güvenlik ve Web Tasarım Çözümleri',
+    template: '%s | NovaGraph'
+  },
+  description: 'NovaGraph, dijital güvenlik, web tasarım, SEO ve IT çözümleri sunan profesyonel bir teknoloji şirketidir. İstanbul merkezli olarak Türkiye genelinde hizmet vermekteyiz.',
+  keywords: ['dijital güvenlik', 'web tasarım', 'SEO', 'IT çözümleri', 'NovaGraph', 'İstanbul'],
+  authors: [{ name: 'NovaGraph' }],
+  creator: 'NovaGraph',
+  publisher: 'NovaGraph',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://novagraph.com.tr'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'tr_TR',
+    url: 'https://novagraph.com.tr',
+    title: 'NovaGraph - Dijital Güvenlik ve Web Tasarım Çözümleri',
+    description: 'NovaGraph, dijital güvenlik, web tasarım, SEO ve IT çözümleri sunan profesyonel bir teknoloji şirketidir.',
+    siteName: 'NovaGraph',
+    images: [
       {
-        url: "/logo/Favicon.svg",
-        type: "image/svg+xml",
+        url: '/logo/NG-NovaGraph-Logo.svg',
+        width: 1200,
+        height: 630,
+        alt: 'NovaGraph Logo',
       },
     ],
-    shortcut: "/logo/Favicon.svg",
-    apple: "/logo/Favicon.svg",
   },
-  // Güvenlik meta tag'leri
-  other: {
-    'X-Frame-Options': 'DENY',
-    'X-Content-Type-Options': 'nosniff',
-    'X-XSS-Protection': '1; mode=block',
-    'Referrer-Policy': 'strict-origin-when-cross-origin',
-    'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'NovaGraph - Dijital Güvenlik ve Web Tasarım Çözümleri',
+    description: 'NovaGraph, dijital güvenlik, web tasarım, SEO ve IT çözümleri sunan profesyonel bir teknoloji şirketidir.',
+    images: ['/logo/NG-NovaGraph-Logo.svg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
 }
 
@@ -38,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="tr">
       <head>
         <link rel="icon" href="/logo/Favicon.svg" type="image/svg+xml" />
         <link rel="shortcut icon" href="/logo/Favicon.svg" />
@@ -49,16 +85,15 @@ export default function RootLayout({
         <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
         <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
-        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-        <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
       </head>
-      <body className="antialiased" suppressHydrationWarning>
-        <SecurityProtection />
+      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         <LanguageProvider>
           <ContactFormProvider>
+            <Header />
             {children}
-            <ContactFormWrapper />
+            <Footer />
             <CookieConsent />
+            <Toaster />
           </ContactFormProvider>
         </LanguageProvider>
       </body>

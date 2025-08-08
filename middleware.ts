@@ -17,56 +17,43 @@ export function middleware(request: NextRequest) {
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
   response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload')
 
-  // Hotlink koruması
+  // Zeabur ve Cloudflare için CORS headers
+  response.headers.set('Access-Control-Allow-Origin', 'https://novagraph.com.tr')
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+
+  // Zeabur için cache headers
+  if (request.nextUrl.pathname.startsWith('/_next/static/')) {
+    response.headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+  } else if (request.nextUrl.pathname.startsWith('/_next/image/')) {
+    response.headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+  } else if (request.nextUrl.pathname.startsWith('/api/')) {
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+  } else {
+    response.headers.set('Cache-Control', 'public, max-age=3600, must-revalidate')
+  }
+
+  // Zeabur ve Cloudflare için hotlink koruması
   const referer = request.headers.get('referer')
   const host = request.headers.get('host')
   
-  // Resim dosyaları için hotlink koruması
-  if (request.nextUrl.pathname.match(/\.(jpg|jpeg|png|gif|svg|webp|ico)$/i)) {
-    if (referer && !referer.includes(host || '') && !referer.includes('localhost')) {
-      // Hotlink tespit edildi - 403 Forbidden döndür
+  if (referer && !referer.includes('novagraph.com.tr') && !referer.includes('localhost') && !referer.includes('zeabur.app') && !referer.includes('cloudflare.com') && !referer.includes('clusters.zeabur.com')) {
+    // Hotlink koruması - sadece resim dosyaları için
+    if (request.nextUrl.pathname.match(/\.(jpg|jpeg|png|gif|webp|svg)$/i)) {
       return new NextResponse('Forbidden', { status: 403 })
     }
   }
 
-  // API güvenliği
-  if (request.nextUrl.pathname.startsWith('/api/')) {
-    // API rate limiting için basit kontrol
-    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown'
-    
-    // CORS başlıkları
-    response.headers.set('Access-Control-Allow-Origin', '*')
-    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-    response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+  // Cloudflare için güvenlik başlıkları
+  const cfConnectingIp = request.headers.get('cf-connecting-ip')
+  if (cfConnectingIp) {
+    response.headers.set('X-Real-IP', cfConnectingIp)
   }
 
-  // Directory listing engelleme
-  if (request.nextUrl.pathname.endsWith('/') && request.nextUrl.pathname !== '/') {
-    return new NextResponse('Forbidden', { status: 403 })
-  }
-
-  // Güvenlik için belirli dosya türlerini engelleme
-  const blockedExtensions = ['.env', '.git', '.htaccess', '.htpasswd', '.ini', '.log', '.sql', '.bak', '.backup']
-  const pathname = request.nextUrl.pathname.toLowerCase()
-  
-  for (const ext of blockedExtensions) {
-    if (pathname.includes(ext)) {
-      return new NextResponse('Forbidden', { status: 403 })
-    }
-  }
-
-  // User-Agent kontrolü (bot engelleme)
-  const userAgent = request.headers.get('user-agent') || ''
-  const suspiciousBots = [
-    'bot', 'crawler', 'spider', 'scraper', 'httrack', 'wget', 'curl', 'python', 'java', 'perl'
-  ]
-  
-  const isSuspiciousBot = suspiciousBots.some(bot => 
-    userAgent.toLowerCase().includes(bot)
-  )
-  
-  if (isSuspiciousBot) {
-    return new NextResponse('Forbidden', { status: 403 })
+  // Zeabur için güvenlik başlıkları
+  const xForwardedFor = request.headers.get('x-forwarded-for')
+  if (xForwardedFor) {
+    response.headers.set('X-Forwarded-For', xForwardedFor)
   }
 
   return response
@@ -76,10 +63,11 @@ export const config = {
   matcher: [
     /*
      * Match all request paths except for the ones starting with:
+     * - api (API routes)
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ],
 }

@@ -1,0 +1,21 @@
+[build]
+builder = "nixpacks"
+buildCommand = "npm run build"
+
+[deploy]
+startCommand = "npm start"
+healthcheckPath = "/"
+healthcheckTimeout = 300
+
+[env]
+NODE_ENV = "production"
+NEXT_TELEMETRY_DISABLED = "1"
+NEXT_PUBLIC_APP_URL = "https://novagraph.com.tr"
+
+[[services]]
+name = "web"
+type = "web"
+
+# Zeabur'un resmi dokümantasyonuna göre custom domain yapılandırması
+# Custom domain'ler Zeabur Dashboard'da "Domains" sekmesinden eklenir
+# DNS kayıtları Zeabur tarafından sağlanacak (örn: hkg1.clusters.zeabur.com)

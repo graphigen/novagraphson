@@ -187,18 +187,18 @@ export default function IsOrtaklariPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center justify-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6 lg:mb-8 shadow-sm">
+            <div className="inline-flex items-center justify-center space-x-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 lg:mb-8 shadow-sm border border-white/30">
               <Users className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortaklarımız</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 lg:mb-6 leading-tight px-4">
-              Güçlü <span className="text-blue-600">İş Ortaklarımız</span> ile Hizmetinizdeyiz
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-4 lg:mb-6 leading-tight px-4">
+              Güçlü <span className="text-blue-200">İş Ortaklarımız</span> ile Hizmetinizdeyiz
             </h1>
             
             {/* Description */}
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 lg:mb-10 max-w-2xl mx-auto px-4">
+            <p className="text-lg sm:text-xl text-blue-100 mb-8 lg:mb-10 max-w-2xl mx-auto px-4">
               Dünyanın önde gelen teknoloji şirketleri ile işbirliği yaparak müşterilerimize en kaliteli 
               ve güncel çözümleri sunuyoruz.
             </p>
@@ -207,7 +207,7 @@ export default function IsOrtaklariPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
               <Button 
                 size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+                className="bg-white hover:bg-gray-100 text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 onClick={() => openForm("İş Ortaklığı Hizmetleri")}
               >
                 İş Ortaklığı Danışmanlığı Al
