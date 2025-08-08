@@ -23,6 +23,19 @@ const nextConfig = {
   basePath: '',
   // Asset prefix
   assetPrefix: '',
+  // Webpack configuration for module resolution
+  webpack: (config, { isServer }) => {
+    // Add module resolution
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': '.',
+      '@/components': './components',
+      '@/contexts': './contexts',
+      '@/lib': './lib',
+      '@/app': './app',
+    }
+    return config
+  },
   // Production headers for security and performance
   async headers() {
     return [

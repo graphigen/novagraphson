@@ -38,4 +38,6 @@ export function useContactForm() {
     throw new Error("useContactForm must be used within a ContactFormProvider")
   }
   return context
-} 
+}
+
+export { ContactFormContext } 
