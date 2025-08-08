@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
           {/* Hizmetler */}
           <div>
-            <details className="md:open">
+            <details className="md:[&_summary]:hidden md:open">
               <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
                 <span>Hizmetler</span>
                 <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
@@ -66,7 +66,7 @@ export const Footer = () => {
 
           {/* Şirket */}
           <div>
-            <details className="md:open">
+            <details className="md:[&_summary]:hidden md:open">
               <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
                 <span>Şirket</span>
                 <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
@@ -98,7 +98,7 @@ export const Footer = () => {
 
           {/* En Çok Okunanlar */}
           <div>
-            <details className="md:open">
+            <details className="md:[&_summary]:hidden md:open">
               <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
                 <span>En Çok Okunanlar</span>
                 <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
@@ -141,7 +141,7 @@ export const Footer = () => {
 
           {/* İş Ortakları */}
           <div>
-            <details className="md:open">
+            <details className="md:[&_summary]:hidden md:open">
               <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
                 <span>İş Ortakları</span>
                 <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
