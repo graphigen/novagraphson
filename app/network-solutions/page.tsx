@@ -2,11 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Shield, CheckCircle, ArrowRight, Zap, Globe, Users, Phone, Mail, MessageCircle, Network, Wifi, Router, Server, HardDrive, Database, Lock, Eye, Bell, Flame, UserCheck, Cpu, Settings, Monitor } from "lucide-react"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 import { useContactForm } from "@/contexts/ContactFormContext"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CTABanner } from "@/components/CTABanner"
 
@@ -129,7 +126,6 @@ export default function NetworkSolutionsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100">
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-blue-100 overflow-hidden">
@@ -478,7 +474,6 @@ export default function NetworkSolutionsPage() {
       {/* CTA Section - Ana sayfadaki gibi */}
       <CTABanner />
 
-      <Footer />
     </div>
   )
 }

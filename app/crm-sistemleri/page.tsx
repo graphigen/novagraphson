@@ -1,13 +1,11 @@
 "use client"
 
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { ContactForm } from "@/components/ContactForm"
 import { useContactForm } from "@/contexts/ContactFormContext"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { 
   Users, 
   BarChart3, 
@@ -377,7 +375,6 @@ export default function CRMSistemleriPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
@@ -603,7 +600,6 @@ export default function CRMSistemleriPage() {
         </div>
       </section>
 
-      <Footer />
       <ContactForm isOpen={isOpen} onClose={closeForm} service={service} />
     </div>
   )

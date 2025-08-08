@@ -1,11 +1,9 @@
 import type { Metadata } from "next"
-import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
 import { FeaturesSection } from "@/components/FeaturesSection"
 import { NovaGraphFeatures } from "@/components/NovaGraphFeatures"
 import { CTABanner } from "@/components/CTABanner"
 import { PartnersSection } from "@/components/PartnersSection"
-import { Footer } from "@/components/Footer"
 import { ContactFormWrapper } from "@/components/ContactFormWrapper"
 
 export const metadata: Metadata = {
@@ -100,8 +98,7 @@ export default function Home() {
     "@id": `${baseUrl}/#webpage`,
     url: baseUrl,
     name: "NovaGraph - Dijital Güvenlik ve Web Tasarım Çözümleri",
-    description:
-      "NovaGraph ile dijital dünyada başarınızı büyütün! Web tasarım, siber güvenlik, IT danışmanlık hizmetleri.",
+    description: "NovaGraph ile dijital dünyada başarınızı büyütün! Web tasarım, siber güvenlik, IT danışmanlık hizmetleri.",
     isPartOf: {
       "@type": "WebSite",
       "@id": `${baseUrl}/#website`,
@@ -219,13 +216,11 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
-      <Header />
       <Hero />
       <FeaturesSection />
       <NovaGraphFeatures />
       <CTABanner />
       <PartnersSection />
-      <Footer />
       <ContactFormWrapper />
     </>
   )

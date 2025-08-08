@@ -1,18 +1,112 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { Shield, Lock, Eye, FileText, Mail, Phone, Globe } from "lucide-react"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
+import { ContactForm } from "@/components/ContactForm"
 import { useContactForm } from "@/contexts/ContactFormContext"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { 
+  Shield, 
+  Lock, 
+  Eye, 
+  FileText,
+  Zap, 
+  Users, 
+  Target, 
+  Sparkles, 
+  ArrowRight,
+  CheckCircle,
+  Star,
+  Globe,
+  Smartphone,
+  TrendingUp,
+  Monitor,
+  Mail,
+  MessageSquare,
+  Phone,
+  MessageCircle,
+  Clock,
+  DollarSign,
+  BarChart3,
+  Activity,
+  Users2,
+  Calendar,
+  Folder,
+  Download,
+  Upload,
+  Share2,
+  Unlock,
+  Key,
+  Database,
+  Server,
+  Cloud,
+  Wifi,
+  Bluetooth,
+  Camera,
+  Video,
+  Mic,
+  Headphones,
+  Speaker,
+  Volume2,
+  VolumeX,
+  Play,
+  Pause,
+  SkipBack,
+  SkipForward,
+  Repeat,
+  Shuffle,
+  Heart,
+  ThumbsUp,
+  ThumbsDown,
+  Bookmark,
+  Share,
+  Flag,
+  AlertCircle,
+  Info,
+  HelpCircle,
+  X,
+  Minus,
+  Plus,
+  Check,
+  ChevronDown,
+  ChevronUp,
+  ChevronLeft,
+  ChevronRight,
+  ArrowUp,
+  ArrowDown,
+  ArrowLeft,
+  Home,
+  Menu,
+  Grid,
+  List,
+  Filter,
+  SortAsc,
+  SortDesc,
+  Navigation,
+  Compass,
+  Signal,
+  Battery,
+  Power,
+  Sun,
+  Moon,
+  CloudRain,
+  CloudSnow,
+  Wind,
+  Thermometer,
+  Droplets,
+  Umbrella,
+  Snowflake,
+  Sunrise,
+  Sunset
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 
 export default function PrivacyPage() {
-  const { openForm } = useContactForm()
+  const { isOpen, service, closeForm, openForm } = useContactForm()
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -346,7 +440,7 @@ export default function PrivacyPage() {
         </div>
       </section>
 
-      <Footer />
+      <ContactForm isOpen={isOpen} onClose={closeForm} service={service} />
     </div>
   )
 } 

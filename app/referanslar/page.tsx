@@ -2,10 +2,9 @@
 
 import { useState, useMemo, useCallback, Suspense } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 import { ContactForm } from "@/components/ContactForm"
 import { useContactForm } from "@/contexts/ContactFormContext"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { 
   ChevronDown, 
   ChevronUp, 
@@ -37,7 +36,6 @@ import {
   Factory,
   Briefcase
 } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 interface Reference {
@@ -363,7 +361,6 @@ export default function ReferanslarPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -486,7 +483,6 @@ export default function ReferanslarPage() {
         </div>
       </section>
 
-      <Footer />
       <ContactForm isOpen={isOpen} onClose={closeForm} service={service} />
     </div>
   )

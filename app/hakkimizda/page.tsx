@@ -1,29 +1,48 @@
-"use client"
-
-import { motion } from "framer-motion"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
+import type { Metadata } from "next"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { ContactForm } from "@/components/ContactForm"
 import { useContactForm } from "@/contexts/ContactFormContext"
-import Head from "next/head"
 import { 
-  CheckCircle, 
   Users, 
-  Globe, 
-  BarChart3, 
+  Award, 
+  Target, 
+  Zap, 
+  ArrowRight, 
+  Star, 
+  CheckCircle,
+  Shield,
+  Globe,
+  Smartphone,
+  Monitor,
+  Tablet,
+  Camera,
+  Video,
+  Image,
+  FileText,
+  Settings,
+  Heart,
+  ShoppingCart,
+  Instagram,
+  Download,
+  User,
+  MessageCircle,
+  Phone,
+  MoreHorizontal,
+  Smile,
+  Send,
+  Wifi,
+  Signal,
+  Battery,
+  BarChart3,
   Code,
   Search,
   Palette,
-  Video,
   Server,
-  Shield,
-  Wifi,
   Filter,
   Lock,
-  Activity,
-  Monitor
+  Activity
 } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
 import { useEffect, useState } from "react"
 
 const features = [
@@ -72,7 +91,6 @@ export default function HakkimizdaPage() {
         <meta name="description" content="NovaGraph olarak işletmenizin dijital dönüşümü için kapsamlı çözümler sunuyoruz. Web tasarım, dijital pazarlama, güvenlik ve daha fazlası." />
         <meta name="keywords" content="NovaGraph, hakkımızda, dijital çözümler, web tasarım, dijital pazarlama, güvenlik" />
       </Head>
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -262,7 +280,6 @@ export default function HakkimizdaPage() {
         </div>
       </section>
 
-      <Footer />
       <ContactForm isOpen={isOpen} onClose={closeForm} service={service} />
     </div>
   )

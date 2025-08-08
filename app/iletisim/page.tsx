@@ -1,14 +1,12 @@
 "use client"
 
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { ContactForm } from "@/components/ContactForm"
 import { useContactForm } from "@/contexts/ContactFormContext"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Head from "next/head"
 import { 
   Phone, 
@@ -92,7 +90,6 @@ export default function IletisimPage() {
         <meta name="description" content="NovaGraph ile iletişime geçin. Telefon, e-posta veya adres bilgilerimizle size ulaşabilirsiniz." />
         <meta name="keywords" content="NovaGraph, iletişim, telefon, e-posta, adres, destek" />
       </Head>
-      <Header />
       
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -484,7 +481,6 @@ export default function IletisimPage() {
         </div>
       </section>
 
-      <Footer />
       <ContactForm isOpen={isOpen} onClose={closeForm} service={service} />
     </div>
   )

@@ -2,9 +2,8 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 import { ContactForm } from "@/components/ContactForm"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { 
   Server, 
   Shield, 
@@ -30,7 +29,6 @@ import {
   MessageCircle
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useContactForm } from "@/contexts/ContactFormContext"
 
@@ -218,7 +216,6 @@ export default function SunucuPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -537,7 +534,6 @@ export default function SunucuPage() {
         </div>
       </section>
 
-      <Footer />
       
       {/* Contact Form */}
       <ContactForm isOpen={isOpen} onClose={closeForm} service={service} />

@@ -2,11 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Settings, CheckCircle, ArrowRight, Zap, Shield, Globe, Users, Phone, Mail, MessageCircle, Wrench, Monitor, Database, Server, HardDrive, Activity, AlertTriangle, Clock, TrendingUp } from "lucide-react"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 import { useContactForm } from "@/contexts/ContactFormContext"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CTABanner } from "@/components/CTABanner"
 
@@ -136,7 +133,6 @@ export default function ITMaintenancePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-blue-100 overflow-hidden">
@@ -313,7 +309,6 @@ export default function ITMaintenancePage() {
       {/* CTA Section - Ana sayfadaki gibi */}
       <CTABanner />
 
-      <Footer />
     </div>
   )
 }

@@ -1,13 +1,13 @@
 "use client"
 
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
+import { useState, useRef, useEffect } from "react"
+import { motion, useInView, useAnimation } from "framer-motion"
+import { ContactForm } from "@/components/ContactForm"
+import { useContactForm } from "@/contexts/ContactFormContext"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ContactForm } from "@/components/ContactForm"
-import { useContactForm } from "@/contexts/ContactFormContext"
 import { 
   Search, 
   TrendingUp, 
@@ -41,8 +41,6 @@ import {
   CheckCircle as CheckCircleIcon2,
   Heart
 } from "lucide-react"
-import { motion, useInView, useAnimation } from "framer-motion"
-import { useRef, useState, useEffect } from "react"
 
 export default function GrafikTasarimPage() {
   const [activeTab, setActiveTab] = useState("logo")
@@ -188,32 +186,37 @@ export default function GrafikTasarimPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-      
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
         {/* Smooth Transition Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 via-gray-50/80 to-transparent"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-6">
-              <Palette className="w-4 h-4 mr-2" />
-              Grafik Tasarım Uzmanı
+          <div className="text-center max-w-4xl mx-auto">
+            {/* Badge */}
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-8">
+              <Palette className="w-4 h-4" />
+              <span>Grafik Tasarım Hizmetleri</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Grafik Tasarım Hizmetleri
+
+            {/* Main Heading */}
+            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Yaratıcı ve <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Profesyonel</span> Grafik Tasarım
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Markanızı görsel olarak güçlendiren yaratıcı tasarım çözümleri. Logo, kurumsal kimlik, ambalaj ve dijital tasarımlarla fark yaratın.
+            
+            {/* Description */}
+            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+              Markanızı öne çıkaran etkileyici grafik tasarım çözümleri.
             </p>
+
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={() => openForm("Grafik Tasarım")}
               >
-                İletişime Geç
+                Teklif Al
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </div>
@@ -571,7 +574,6 @@ export default function GrafikTasarimPage() {
         </div>
       </section>
 
-      <Footer />
       <ContactForm isOpen={isOpen} onClose={closeForm} service={service} />
     </div>
   )

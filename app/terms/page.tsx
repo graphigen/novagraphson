@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion"
 import { FileText, Shield, AlertTriangle, Link, Edit, CheckCircle, Globe } from "lucide-react"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 import { useContactForm } from "@/contexts/ContactFormContext"
 import { Button } from "@/components/ui/button"
 
@@ -12,7 +10,6 @@ export default function TermsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -285,7 +282,6 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 } 

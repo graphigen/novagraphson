@@ -1,7 +1,5 @@
 "use client"
 
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -11,20 +9,45 @@ import {
   Search, 
   TrendingUp, 
   Target, 
-  Users, 
-  Globe, 
+  Zap, 
   ArrowRight, 
   Star, 
-  Award, 
-  Clock, 
-  DollarSign,
-  Shield,
-  ChevronDown,
   CheckCircle,
+  BarChart3,
   Eye,
-  GraduationCap,
+  MousePointer,
+  Calendar,
+  DollarSign,
+  Award,
+  Shield,
+  Globe,
+  Smartphone,
+  Monitor,
+  Tablet,
+  Camera,
+  Video,
+  Image,
+  FileText,
+  Settings,
+  Heart,
+  ShoppingCart,
+  Instagram,
+  Download,
+  User,
+  MessageCircle,
+  Phone,
+  MoreHorizontal,
+  Smile,
+  Send,
+  Wifi,
+  Signal,
+  Battery,
+  Users,
   ArrowUpRight,
-  Link
+  Clock,
+  Link,
+  GraduationCap,
+  ChevronDown
 } from "lucide-react"
 import { motion, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
@@ -296,8 +319,6 @@ export default function SEOPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Header />
-      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
         {/* Smooth Transition Overlay */}
@@ -1016,7 +1037,6 @@ export default function SEOPage() {
         </div>
       </section>
 
-      <Footer />
       <ContactForm isOpen={isOpen} onClose={closeForm} service={service} />
     </main>
   )

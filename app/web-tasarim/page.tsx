@@ -1,7 +1,5 @@
 "use client"
 
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -86,7 +84,6 @@ export default function WebTasarimPage() {
         <meta name="description" content="Modern ve dönüşüm odaklı web tasarım hizmetleri. Kurumsal web sitesi, e-ticaret, landing page ve daha fazlası." />
         <meta name="keywords" content="web tasarım, NovaGraph, kurumsal web sitesi, e-ticaret, landing page, responsive tasarım" />
       </Head>
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
@@ -889,7 +886,6 @@ export default function WebTasarimPage() {
         </div>
       </section>
 
-      <Footer />
       <ContactForm isOpen={isOpen} onClose={closeForm} service={service} />
     </main>
   )

@@ -1,7 +1,5 @@
 "use client"
 
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -12,31 +10,43 @@ import {
   Search, 
   TrendingUp, 
   Target, 
-  Globe, 
+  Users, 
+  Zap, 
   ArrowRight, 
-  DollarSign,
+  Star, 
   CheckCircle,
+  BarChart3,
+  Mail,
+  MessageSquare,
+  Share2,
   Eye,
   MousePointer,
-  Instagram,
+  Calendar,
+  DollarSign,
+  Award,
+  Shield,
+  Globe,
   Smartphone,
   Monitor,
-  Phone,
-  Mail,
-  MessageCircle,
-  User,
-  Download,
-  Heart,
-  Send,
+  Tablet,
+  Camera,
   Video,
-  Smile,
-  MoreHorizontal,
-  Wifi,
-  Battery,
-  Signal,
+  Image,
+  FileText,
+  Settings,
+  Heart,
   ShoppingCart,
-  Share2,
-  BarChart3
+  Instagram,
+  Download,
+  User,
+  MessageCircle,
+  Phone,
+  MoreHorizontal,
+  Smile,
+  Send,
+  Wifi,
+  Signal,
+  Battery
 } from "lucide-react"
 import { motion, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
@@ -139,8 +149,6 @@ export default function DijitalPazarlamaPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-      
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
         {/* Smooth Transition Overlay */}
@@ -1285,7 +1293,6 @@ export default function DijitalPazarlamaPage() {
         </div>
       </section>
 
-      <Footer />
       <ContactForm isOpen={isOpen} onClose={closeForm} service={service} />
     </div>
   )

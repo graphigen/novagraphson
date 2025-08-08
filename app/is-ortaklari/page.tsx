@@ -2,12 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Users, CheckCircle, ArrowRight, Globe, Shield, TrendingUp } from "lucide-react"
-import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { useContactForm } from "@/contexts/ContactFormContext"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CTABanner } from "@/components/CTABanner"
 import Link from "next/link"
 import Image from "next/image"
@@ -180,7 +179,6 @@ export default function IsOrtaklariPage() {
         <meta name="description" content="NovaGraph'ın güvenilir iş ortakları ile müşterilerinize en iyi hizmeti sunuyoruz. SEO, bulut altyapısı, ödeme çözümleri ve daha fazlası." />
         <meta name="keywords" content="iş ortakları, NovaGraph, partner, güvenilir, hizmet, çözümler" />
       </Head>
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden">
