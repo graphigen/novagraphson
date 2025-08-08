@@ -20,7 +20,8 @@ export const metadata: Metadata = {
     "firewall hizmetleri",
     "veri koruma",
     "KVKV uyumlu",
-    "responsive web tasarım",
+    "responsive web tasarım",11001100
+    
   ],
   openGraph: {
     title: "NovaGraph - Dijital Güvenlik ve Web Tasarım Çözümleri",
