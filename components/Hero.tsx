@@ -13,8 +13,11 @@ export const Hero = () => {
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
       </div>
+
+      {/* Smooth Transition Overlay */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -103,7 +106,7 @@ export const Hero = () => {
                 {/* Chart Area */}
                 <div className="bg-gray-50 rounded-lg p-4 h-32 relative overflow-hidden">
                   <div className="text-sm font-medium text-gray-700 mb-2">Trafik Analizi</div>
-                  <svg className="w-full h-full" viewBox="0 0 300 80">
+                  <svg className="w-full h-full" viewBox="0 0 300 80" preserveAspectRatio="none" style={{ width: '100%', height: '100%', display: 'block' }}>
                     <defs>
                       <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.8" />

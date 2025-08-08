@@ -12,77 +12,33 @@ import {
   Search, 
   TrendingUp, 
   Target, 
-  BarChart3, 
-  Users, 
-  Zap, 
   Globe, 
   ArrowRight, 
-  Star, 
-  Award, 
-  Clock, 
   DollarSign,
-  Shield,
-  FileText,
-  MessageSquare,
-  ChevronDown,
   CheckCircle,
   Eye,
   MousePointer,
-  Code2,
-  TestTube,
-  GraduationCap,
-  ArrowUpRight,
-  Link,
-  Facebook,
   Instagram,
-  Youtube,
-  Twitter,
-  Linkedin,
   Smartphone,
   Monitor,
-  Tablet,
-  RefreshCw,
-  BarChart,
-  PieChart,
-  Activity,
-  Users2,
-  ShoppingCart,
-  CreditCard,
-  Calendar,
-  MapPin,
   Phone,
   Mail,
   MessageCircle,
   User,
-  Settings,
-  Bell,
-  Filter,
   Download,
-  Share2,
-  Plus,
-  Minus,
-  Play,
-  Pause,
-  RotateCcw,
-  Maximize2,
-  Minimize2,
-  ExternalLink,
   Heart,
-  ThumbsUp,
-  MessageSquare as ChatIcon,
   Send,
-  Image,
   Video,
-  Music,
-  Camera,
-  Mic,
   Smile,
   MoreHorizontal,
   Wifi,
   Battery,
-  Signal
+  Signal,
+  ShoppingCart,
+  Share2,
+  BarChart3
 } from "lucide-react"
-import { motion, useInView, useAnimation } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 
 export default function DijitalPazarlamaPage() {
@@ -162,13 +118,16 @@ export default function DijitalPazarlamaPage() {
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
     
-    if (isRemarketingInView && isPlaying) {
+    if (isRemarketingInView) {
+      setIsPlaying(true);
       interval = setInterval(() => {
         setCurrentStep((prev) => {
           const nextStep = (prev + 1) % remarketingSteps.length;
           return nextStep;
         });
       }, 3000);
+    } else {
+      setIsPlaying(false);
     }
     
     return () => {
@@ -176,15 +135,18 @@ export default function DijitalPazarlamaPage() {
         clearInterval(interval);
       }
     };
-  }, [isRemarketingInView, isPlaying, remarketingSteps.length]);
+  }, [isRemarketingInView, remarketingSteps.length]);
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+        {/* Smooth Transition Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-6">
               <Target className="w-4 h-4 mr-2" />

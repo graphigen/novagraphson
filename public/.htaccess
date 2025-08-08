@@ -1,0 +1,108 @@
+# Güvenlik Yapılandırması
+# NovaGraph Web Sitesi
+
+# Directory listing engelleme
+Options -Indexes
+
+# Güvenlik başlıkları
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "DENY"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
+    Header always set X-Powered-By "NovaGraph"
+</IfModule>
+
+# Hotlink koruması
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Resim dosyaları için hotlink koruması
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?novagraph\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?localhost [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|svg|webp|ico)$ - [F,L]
+    
+    # Belirli dosya türlerini engelleme
+    RewriteRule \.(env|git|htaccess|htpasswd|ini|log|sql|bak|backup)$ - [F,L]
+    
+    # Directory traversal koruması
+    RewriteCond %{THE_REQUEST} \.\. [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# Dosya erişim kısıtlamaları
+<Files "*.env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.git">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.htpasswd">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.ini">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.log">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.sql">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# PHP dosyalarını engelleme (eğer kullanılmıyorsa)
+<Files "*.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# User-Agent kontrolü
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_USER_AGENT} (bot|crawler|spider|scraper|httrack|wget|curl|python|java|perl) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# Rate limiting (eğer mod_ratelimit mevcutsa)
+<IfModule mod_ratelimit.c>
+    <Location />
+        SetOutputFilter RATE_LIMIT
+        SetEnv rate-limit 400
+    </Location>
+</IfModule>
+
+# SSL yönlendirmesi
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Güvenlik için belirli HTTP metodlarını engelleme
+<LimitExcept GET POST>
+    Deny from all
+</LimitExcept>
+
+# Güvenlik için belirli dosya uzantılarını engelleme
+<FilesMatch "\.(env|git|htaccess|htpasswd|ini|log|sql|bak|backup|php|asp|aspx|jsp)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

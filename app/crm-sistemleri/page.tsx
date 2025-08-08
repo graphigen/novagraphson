@@ -102,8 +102,9 @@ import {
   RotateCcw as RotateIcon,
   Layers,
   Printer,
-  Star,
-  Award,
+  Star as StarIcon,
+  Target as TargetIcon,
+  Award as AwardIcon,
   Shield as ShieldIcon,
   TrendingUp as TrendingUpIcon,
   BarChart3 as BarChart3Icon,
@@ -175,66 +176,10 @@ import {
   Sparkles,
   Lightbulb,
   Brain,
-  Target as TargetIcon,
+  Target as TargetIcon2,
   Zap as ZapIcon2,
   CheckCircle as CheckCircleIcon2,
-  Database as DatabaseIcon,
-  FileText as FileTextIcon,
-  Globe as GlobeIcon,
-  Smartphone as SmartphoneIcon3,
-  Monitor as MonitorIcon3,
-  Tablet as TabletIcon3,
-  RefreshCw as RefreshCwIcon3,
-  BarChart as BarChartIcon3,
-  PieChart as PieChartIcon4,
-  Activity as ActivityIcon4,
-  Users2 as Users2Icon3,
-  ShoppingCart as ShoppingCartIcon3,
-  CreditCard as CreditCardIcon3,
-  Calendar as CalendarIcon3,
-  MapPin as MapPinIcon2,
-  Phone as PhoneIcon3,
-  Mail as MailIcon3,
-  MessageCircle as MessageCircleIcon2,
-  User as UserIcon2,
-  Settings as SettingsIcon3,
-  Bell as BellIcon2,
-  Filter as FilterIcon2,
-  Download as DownloadIcon2,
-  Share2 as Share2Icon2,
-  Plus as PlusIcon2,
-  Minus as MinusIcon2,
-  Play as PlayIcon2,
-  Pause as PauseIcon2,
-  RotateCcw as RotateCcwIcon2,
-  Maximize2 as Maximize2Icon2,
-  Minimize2 as Minimize2Icon2,
-  ExternalLink as ExternalLinkIcon2,
-  Heart as HeartIcon2,
-  ThumbsUp as ThumbsUpIcon2,
-  MessageSquare as ChatIcon3,
-  Send as SendIcon2,
-  Image as ImageIcon2,
-  Video as VideoIcon2,
-  Music as MusicIcon2,
-  Camera as CameraIcon2,
-  Mic as MicIcon2,
-  Smile as SmileIcon2,
-  MoreHorizontal as MoreHorizontalIcon2,
-  Wifi as WifiIcon2,
-  Battery as BatteryIcon2,
-  Signal as SignalIcon2,
-  Info as InfoIcon,
-  Grid as GridIcon,
-  Layout as LayoutIcon,
-  Type as TypeIcon,
-  Droplets as DropletsIcon,
-  Sparkles as SparklesIcon,
-  Lightbulb as LightbulbIcon,
-  Brain as BrainIcon,
-  Target as TargetIcon2,
-  Zap as ZapIcon3,
-  CheckCircle as CheckCircleIcon3
+  Star
 } from "lucide-react"
 import { motion, useInView, useAnimation } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
@@ -435,8 +380,11 @@ export default function CRMSistemleriPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+        {/* Smooth Transition Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-6">
               <Database className="w-4 h-4 mr-2" />

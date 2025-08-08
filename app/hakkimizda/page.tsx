@@ -5,6 +5,7 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { ContactForm } from "@/components/ContactForm"
 import { useContactForm } from "@/contexts/ContactFormContext"
+import Head from "next/head"
 import { 
   CheckCircle, 
   Users, 
@@ -66,6 +67,11 @@ export default function HakkimizdaPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Head>
+        <title>NovaGraph - Hakkımızda</title>
+        <meta name="description" content="NovaGraph olarak işletmenizin dijital dönüşümü için kapsamlı çözümler sunuyoruz. Web tasarım, dijital pazarlama, güvenlik ve daha fazlası." />
+        <meta name="keywords" content="NovaGraph, hakkımızda, dijital çözümler, web tasarım, dijital pazarlama, güvenlik" />
+      </Head>
       <Header />
       
       {/* Hero Section */}

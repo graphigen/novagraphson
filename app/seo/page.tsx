@@ -11,9 +11,7 @@ import {
   Search, 
   TrendingUp, 
   Target, 
-  BarChart3, 
   Users, 
-  Zap, 
   Globe, 
   ArrowRight, 
   Star, 
@@ -21,14 +19,9 @@ import {
   Clock, 
   DollarSign,
   Shield,
-  FileText,
-  MessageSquare,
   ChevronDown,
   CheckCircle,
   Eye,
-  MousePointer,
-  Code2,
-  TestTube,
   GraduationCap,
   ArrowUpRight,
   Link
@@ -237,13 +230,13 @@ export default function SEOPage() {
       step: "02", 
       title: "Teknik SEO Analizi",
       description: "Sitenizin teknik SEO sorunlarını analiz ediyoruz",
-      icon: Code2
+      icon: Search
     },
     {
       step: "03",
       title: "İçerik Optimizasyonu", 
       description: "İçeriklerinizi SEO uyumlu hale getiriyoruz",
-      icon: FileText
+      icon: Search
     },
     {
       step: "04",
@@ -255,7 +248,7 @@ export default function SEOPage() {
       step: "05",
       title: "Raporlama ve İzleme",
       description: "Sürekli izleme ve detaylı raporlama yapıyoruz",
-      icon: BarChart3
+      icon: Search
     }
   ]
 
@@ -266,12 +259,12 @@ export default function SEOPage() {
       description: "Deneyimli SEO uzmanlarımızla en güncel teknikleri uyguluyoruz."
     },
     {
-      icon: Zap,
+      icon: Search,
       title: "Güncel Algoritma Bilgisi", 
       description: "Google'ın en son algoritma güncellemelerini takip ediyoruz."
     },
     {
-      icon: BarChart3,
+      icon: Search,
       title: "Şeffaf Raporlama",
       description: "Düzenli raporlarla SEO performansınızı şeffaf şekilde takip edin."
     },
@@ -306,8 +299,11 @@ export default function SEOPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+        {/* Smooth Transition Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 via-gray-50/80 to-transparent"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
             <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-8">
@@ -722,7 +718,7 @@ export default function SEOPage() {
                             </div>
                             <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
                               <div className="flex items-center space-x-2">
-                                <BarChart3 className="w-4 h-4 text-purple-600" />
+                                <TrendingUp className="w-4 h-4 text-purple-600" />
                                 <span className="text-sm font-medium text-gray-900">CTR Oranı</span>
                               </div>
                               <div className="flex items-center space-x-2">
@@ -898,7 +894,7 @@ export default function SEOPage() {
                         <div className="space-y-3">
                           <div className="flex items-center space-x-3">
                             <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                              <BarChart3 className="w-4 h-4 text-purple-600" />
+                              <TrendingUp className="w-4 h-4 text-purple-600" />
                             </div>
                             <div className="flex-1">
                               <div className="text-sm font-medium text-gray-900">Rapor Detayı</div>

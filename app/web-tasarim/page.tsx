@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ContactForm } from "@/components/ContactForm"
 import { useContactForm } from "@/contexts/ContactFormContext"
+import Head from "next/head"
 import { 
   Globe, 
   Smartphone, 
@@ -20,12 +21,9 @@ import {
   Palette, 
   Code, 
   CheckCircle,
-  BarChart3,
   Users,
-  Settings,
   Shield,
   Mail,
-  MessageSquare,
   Plus,
   ArrowUpRight,
   Laptop,
@@ -38,17 +36,11 @@ import {
   FileText,
   Image,
   Settings as SettingsIcon,
-  Edit,
-  Eye as EyeIcon,
   Search,
   Send,
   Phone,
   MessageCircle,
-  ClipboardList,
-  PenTool,
-  Code2,
-  TestTube,
-  GraduationCap
+  TestTube
 } from "lucide-react"
 
 export default function WebTasarimPage() {
@@ -89,11 +81,19 @@ export default function WebTasarimPage() {
 
   return (
     <main className="min-h-screen bg-white">
+      <Head>
+        <title>NovaGraph - Web Tasarım</title>
+        <meta name="description" content="Modern ve dönüşüm odaklı web tasarım hizmetleri. Kurumsal web sitesi, e-ticaret, landing page ve daha fazlası." />
+        <meta name="keywords" content="web tasarım, NovaGraph, kurumsal web sitesi, e-ticaret, landing page, responsive tasarım" />
+      </Head>
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+        {/* Smooth Transition Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 via-gray-50/80 to-transparent"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
             <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-8">
@@ -507,7 +507,7 @@ export default function WebTasarimPage() {
                         <span>Ürünler</span>
                       </div>
                       <div className="flex items-center space-x-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-600 p-2 rounded cursor-pointer transition-colors">
-                        <BarChart3 className="w-4 h-4" />
+                        <TrendingUp className="w-4 h-4" />
                         <span>Raporlar</span>
                       </div>
                       <div className="flex items-center space-x-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-600 p-2 rounded cursor-pointer transition-colors">
@@ -597,7 +597,7 @@ export default function WebTasarimPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <BarChart3 className="w-8 h-8 text-blue-600" />
+                <TrendingUp className="w-8 h-8 text-blue-600" />
               </div>
               <div className="text-3xl font-bold text-blue-600 mb-2">250%</div>
               <div className="text-gray-600 font-medium">Trafik Artışı</div>

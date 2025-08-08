@@ -22,7 +22,6 @@ import {
   Globe,
   Smartphone,
   TrendingUp,
-  BarChart3,
   Monitor,
   Shield,
   Mail,
@@ -190,6 +189,9 @@ export default function VideoProduksiyonPage() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-600 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
           <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
         </div>
+
+        {/* Smooth Transition Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
