@@ -3,7 +3,6 @@
 import { HeaderDesktop } from "@/components/HeaderDesktop"
 import { HeaderMobile } from "@/components/HeaderMobile"
 import { TopBar } from "@/components/TopBar"
-import { MobileRevealMenu } from "@/components/MobileRevealMenu"
 
 export function Header() {
   return (
@@ -22,8 +21,6 @@ export function Header() {
           </div>
         </div>
       </header>
-      {/* Sliding Menu Panel */}
-      <MobileRevealMenu />
     </>
   )
 }
