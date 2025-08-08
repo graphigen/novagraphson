@@ -9,13 +9,19 @@ module.exports = {
     env: {
       NODE_ENV: 'production',
       PORT: 3000,
+      HOSTNAME: '0.0.0.0',
       NEXT_PUBLIC_APP_URL: 'https://novagraph.com.tr',
+      NEXT_PUBLIC_DOMAIN: 'novagraph.com.tr',
+      NEXT_PUBLIC_SITE_URL: 'https://novagraph.com.tr',
       AWS_EC2_IP: '13.49.75.107'
     },
     env_production: {
       NODE_ENV: 'production',
       PORT: 3000,
+      HOSTNAME: '0.0.0.0',
       NEXT_PUBLIC_APP_URL: 'https://novagraph.com.tr',
+      NEXT_PUBLIC_DOMAIN: 'novagraph.com.tr',
+      NEXT_PUBLIC_SITE_URL: 'https://novagraph.com.tr',
       AWS_EC2_IP: '13.49.75.107'
     },
     error_file: '/var/log/pm2/novagraph-error.log',
@@ -27,6 +33,10 @@ module.exports = {
     max_restarts: 10,
     autorestart: true,
     watch: false,
-    ignore_watch: ['node_modules', 'logs', '.git', '.next']
+    ignore_watch: ['node_modules', 'logs', '.git', '.next'],
+    // Production specific settings
+    node_args: '--max-old-space-size=2048',
+    instances: 2,
+    exec_mode: 'cluster'
   }]
 }

@@ -11,19 +11,19 @@ const nextConfig = {
   },
   images: {
     domains: ['placeholder.svg', 'novagraph.com.tr', 'www.novagraph.com.tr'],
-    unoptimized: false, // Zeabur için optimize edilmiş resimler
+    unoptimized: false,
   },
-  // Zeabur için output yapılandırması
+  // Production output configuration
   output: 'standalone',
-  // Zeabur için powered by header'ı kaldır
+  // Remove powered by header
   poweredByHeader: false,
-  // Zeabur için trailing slash'i kaldır
+  // Remove trailing slash
   trailingSlash: false,
-  // Zeabur için base path yapılandırması
+  // Base path configuration
   basePath: '',
-  // Zeabur için asset prefix
+  // Asset prefix
   assetPrefix: '',
-  // Cloudflare için headers
+  // Production headers for security and performance
   async headers() {
     return [
       {
@@ -53,6 +53,10 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains; preload',
+          },
         ],
       },
       {
@@ -72,6 +76,43 @@ const nextConfig = {
             value: 'public, max-age=31536000, immutable',
           },
         ],
+      },
+      {
+        source: '/api/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+    ]
+  },
+  // Redirects for production
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/index.html',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
+  // Rewrites for production
+  async rewrites() {
+    return [
+      {
+        source: '/robots.txt',
+        destination: '/api/robots',
+      },
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
       },
     ]
   },

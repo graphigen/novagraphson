@@ -1,0 +1,25 @@
+# NovaGraph Robots.txt
+# Domain: novagraph.com.tr
+
+User-agent: *
+Allow: /
+
+# Disallow admin and sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /temp/
+
+# Allow important pages
+Allow: /hakkimizda/
+Allow: /iletisim/
+Allow: /hizmetler/
+Allow: /referanslar/
+Allow: /blog/
+
+# Sitemap
+Sitemap: https://novagraph.com.tr/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
