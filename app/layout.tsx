@@ -6,10 +6,10 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 import { ContactFormProvider } from '@/contexts/ContactFormContext'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { AppShell } from '@/components/AppShell'
-import { MobileMenuProvider } from '@/contexts/MobileMenuContext'
+ 
 import { Toaster } from '@/components/ui/toaster'
 import { CookieConsent } from '@/components/CookieConsent'
+import { ContactFormWrapper } from '@/components/ContactFormWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -91,13 +91,10 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         <LanguageProvider>
           <ContactFormProvider>
-            <MobileMenuProvider>
-              <AppShell>
-                <Header />
-                {children}
-                <Footer />
-              </AppShell>
-            </MobileMenuProvider>
+            <Header />
+            {children}
+            <Footer />
+            <ContactFormWrapper />
             <CookieConsent />
             <Toaster />
           </ContactFormProvider>
