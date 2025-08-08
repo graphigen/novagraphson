@@ -39,9 +39,8 @@ print_status "🔍 Domain erişilebilirlik kontrolü..."
 if nslookup $DOMAIN &> /dev/null; then
     print_success "Domain erişilebilir: $DOMAIN"
 else
-    print_error "Domain erişilebilir değil: $DOMAIN"
-    print_status "DNS ayarlarının yayılması için birkaç dakika bekleyin."
-    exit 1
+    print_warning "Domain henüz erişilebilir değil: $DOMAIN"
+    print_status "DNS ayarlarının yayılması için bekleniyor..."
 fi
 
 # Step 2: Check if certbot is installed
@@ -54,35 +53,65 @@ else
     print_success "Certbot zaten kurulu"
 fi
 
-# Step 3: Test domain connectivity
+# Step 3: Test domain connectivity with retry mechanism
 print_status "🌐 Domain bağlantı testi..."
-if curl -f http://$DOMAIN > /dev/null 2>&1; then
-    print_success "Domain HTTP erişilebilir"
-else
-    print_warning "Domain HTTP erişilebilir değil, DNS yayılması için bekleniyor..."
-    print_status "DNS ayarlarının yayılması 5-10 dakika sürebilir."
-    read -p "Devam etmek istiyor musunuz? (y/n): " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        print_status "SSL kurulumu iptal edildi."
-        exit 0
+MAX_RETRIES=5
+RETRY_COUNT=0
+
+while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+    if curl -f --connect-timeout 10 http://$DOMAIN > /dev/null 2>&1; then
+        print_success "Domain HTTP erişilebilir: $DOMAIN"
+        break
+    else
+        RETRY_COUNT=$((RETRY_COUNT + 1))
+        print_warning "Deneme $RETRY_COUNT/$MAX_RETRIES: Domain HTTP erişilebilir değil"
+        
+        if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+            print_status "30 saniye bekleniyor... (DNS yayılması için)"
+            sleep 30
+        else
+            print_warning "Domain henüz erişilebilir değil, ancak SSL kurulumuna devam ediliyor..."
+            print_status "DNS ayarlarının yayılması 5-10 dakika sürebilir."
+            read -p "SSL kurulumuna devam etmek istiyor musunuz? (y/n): " -n 1 -r
+            echo
+            if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+                print_status "SSL kurulumu iptal edildi."
+                exit 0
+            fi
+        fi
     fi
-fi
+done
 
 # Step 4: Stop Nginx temporarily for SSL setup
 print_status "🔄 Nginx geçici olarak durduruluyor..."
 sudo systemctl stop nginx
 
-# Step 5: Request SSL certificate
+# Step 5: Request SSL certificate with retry mechanism
 print_status "🔒 SSL sertifikası talep ediliyor..."
-if sudo certbot certonly --standalone -d $DOMAIN -d www.$DOMAIN --non-interactive --agree-tos --email $EMAIL; then
-    print_success "SSL sertifikası başarıyla kuruldu"
-else
-    print_error "SSL sertifikası kurulamadı"
-    print_status "Nginx yeniden başlatılıyor..."
-    sudo systemctl start nginx
-    exit 1
-fi
+CERT_RETRY_COUNT=0
+MAX_CERT_RETRIES=3
+
+while [ $CERT_RETRY_COUNT -lt $MAX_CERT_RETRIES ]; do
+    if sudo certbot certonly --standalone -d $DOMAIN -d www.$DOMAIN --non-interactive --agree-tos --email $EMAIL; then
+        print_success "SSL sertifikası başarıyla kuruldu"
+        break
+    else
+        CERT_RETRY_COUNT=$((CERT_RETRY_COUNT + 1))
+        print_warning "SSL sertifikası kurulumu başarısız (Deneme $CERT_RETRY_COUNT/$MAX_CERT_RETRIES)"
+        
+        if [ $CERT_RETRY_COUNT -lt $MAX_CERT_RETRIES ]; then
+            print_status "60 saniye bekleniyor... (DNS yayılması için)"
+            sleep 60
+        else
+            print_error "SSL sertifikası kurulamadı"
+            print_status "Nginx yeniden başlatılıyor..."
+            sudo systemctl start nginx
+            print_status "DNS ayarlarının yayılmasını bekleyin ve daha sonra tekrar deneyin:"
+            print_status "sudo certbot certonly --standalone -d $DOMAIN -d www.$DOMAIN --non-interactive --agree-tos --email $EMAIL"
+            exit 1
+        fi
+    fi
+done
 
 # Step 6: Update Nginx configuration for SSL
 print_status "🌐 Nginx SSL konfigürasyonu güncelleniyor..."
@@ -206,11 +235,26 @@ print_success "SSL otomatik yenileme ayarlandı"
 print_status "🔍 SSL sertifikası test ediliyor..."
 sleep 5
 
-if curl -f https://$DOMAIN > /dev/null 2>&1; then
-    print_success "✅ HTTPS erişilebilir: https://$DOMAIN"
-else
-    print_warning "⚠️ HTTPS henüz erişilebilir değil, DNS yayılması için bekleniyor..."
-fi
+# Test SSL with retry mechanism
+SSL_RETRY_COUNT=0
+MAX_SSL_RETRIES=3
+
+while [ $SSL_RETRY_COUNT -lt $MAX_SSL_RETRIES ]; do
+    if curl -f --connect-timeout 10 https://$DOMAIN > /dev/null 2>&1; then
+        print_success "✅ HTTPS erişilebilir: https://$DOMAIN"
+        break
+    else
+        SSL_RETRY_COUNT=$((SSL_RETRY_COUNT + 1))
+        print_warning "HTTPS test başarısız (Deneme $SSL_RETRY_COUNT/$MAX_SSL_RETRIES)"
+        
+        if [ $SSL_RETRY_COUNT -lt $MAX_SSL_RETRIES ]; then
+            print_status "30 saniye bekleniyor..."
+            sleep 30
+        else
+            print_warning "⚠️ HTTPS henüz erişilebilir değil, DNS yayılması için bekleniyor..."
+        fi
+    fi
+done
 
 # Step 11: Final status check
 print_status "🔍 Final durum kontrolü..."
