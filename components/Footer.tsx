@@ -10,8 +10,9 @@ export const Footer = () => {
           {/* Hizmetler */}
           <div>
             <details className="md:open">
-              <summary className="font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
-                Hizmetler
+              <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
+                <span>Hizmetler</span>
+                <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
               </summary>
               <ul className="space-y-3">
               <li>
@@ -66,8 +67,9 @@ export const Footer = () => {
           {/* Şirket */}
           <div>
             <details className="md:open">
-              <summary className="font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
-                Şirket
+              <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
+                <span>Şirket</span>
+                <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
               </summary>
               <ul className="space-y-3">
               <li>
@@ -97,8 +99,9 @@ export const Footer = () => {
           {/* En Çok Okunanlar */}
           <div>
             <details className="md:open">
-              <summary className="font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
-                En Çok Okunanlar
+              <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
+                <span>En Çok Okunanlar</span>
+                <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
               </summary>
               <ul className="space-y-3">
               <li>
@@ -139,8 +142,9 @@ export const Footer = () => {
           {/* İş Ortakları */}
           <div>
             <details className="md:open">
-              <summary className="font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
-                İş Ortakları
+              <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none md:cursor-default md:mb-4">
+                <span>İş Ortakları</span>
+                <svg className="w-4 h-4 text-gray-400 md:hidden group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
               </summary>
               <ul className="space-y-3">
               <li>

@@ -8,22 +8,17 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { LogoMobile } from "@/components/LogoMobile"
+import { useMobileMenu } from "@/contexts/MobileMenuContext"
 
 type Language = "en" | "tr"
 
 export const HeaderMobile = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { isOpen: isMobileMenuOpen, toggle: toggleMobileMenu, close: closeMobileMenu } = useMobileMenu()
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const { language, setLanguage, t } = useLanguage()
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
-  }
+  // toggling handled by context
 
   const handleLanguageChange = (newLanguage: Language) => {
     setLanguage(newLanguage)
