@@ -358,13 +358,17 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Partner Logos */}
-        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 md:gap-4 mb-8 opacity-80">
-          <span className="text-xs md:text-sm text-gray-500">Ana Sponsor</span>
-          <span className="text-xs md:text-sm text-gray-500">Resmi Eşleştiricisi</span>
-          <span className="text-xs md:text-sm text-gray-500">Göztepe Basketbol</span>
-          <span className="text-xs md:text-sm text-gray-500">Sivasspor A.C.E Awards</span>
-          <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-[11px] md:text-xs font-medium">50 Technology Fast 50</span>
+        {/* Quick Links Row */}
+        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 md:gap-3 mb-8">
+          <Link href="/pazarlama-strateji-basvurusu" className="inline-flex items-center px-3 py-1.5 rounded-full bg-green-600 text-white text-xs md:text-sm font-semibold hover:bg-green-700 transition-colors">
+            Ücretsiz Pazarlama Stratejisi
+          </Link>
+          <Link href="/is-ortaklari" className="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs md:text-sm font-semibold hover:bg-blue-100 transition-colors">
+            İş Ortakları
+          </Link>
+          <Link href="/sunucu" className="inline-flex items-center px-3 py-1.5 rounded-full bg-gray-100 text-gray-800 text-xs md:text-sm font-semibold hover:bg-gray-200 transition-colors">
+            NovaXCore
+          </Link>
         </div>
 
         {/* Bottom Footer */}
