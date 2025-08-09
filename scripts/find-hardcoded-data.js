@@ -10,7 +10,7 @@ function analyzeHardcodedData() {
     "components/ContactForm.tsx",
     "components/Footer.tsx",
     "components/HeaderDesktop.tsx",
-    "components/HeaderMobile.tsx",
+    // removed: "components/HeaderMobile.tsx",
     "components/MegaMenu.tsx",
     "components/NovaGraphFeatures.tsx",
     "components/QuestionsSection.tsx",

@@ -20,7 +20,7 @@ const importAnalysis: ImportUsage[] = [
     usedInFiles: [
       "components/ContactForm.tsx",
       "components/HeaderDesktop.tsx",
-      "components/HeaderMobile.tsx",
+      // removed: "components/HeaderMobile.tsx",
       "components/MegaMenu.tsx",
     ],
     importPath: "@/components/ui/button",
@@ -70,7 +70,7 @@ const importAnalysis: ImportUsage[] = [
   {
     component: "Sheet",
     importedFrom: "@/components/ui/sheet",
-    usedInFiles: ["components/HeaderMobile.tsx", "components/MobileSidebarMenu.tsx"],
+    usedInFiles: [],
     importPath: "@/components/ui/sheet",
   },
   {

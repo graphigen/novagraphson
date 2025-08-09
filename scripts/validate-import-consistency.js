@@ -10,7 +10,7 @@ function validateImportConsistency() {
     "app/layout.tsx",
     "app/page.tsx",
     "components/HeaderDesktop.tsx",
-    "components/HeaderMobile.tsx",
+    // removed: "components/HeaderMobile.tsx",
     "components/ContactForm.tsx",
     "components/Footer.tsx",
     "components/MegaMenu.tsx",

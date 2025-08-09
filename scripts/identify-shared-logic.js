@@ -7,7 +7,7 @@ function identifySharedLogic() {
   const duplicatedPatterns = {
     searchLogic: {
       description: "Search functionality with query state, results, and submission",
-      foundIn: ["HeaderDesktop.tsx", "HeaderMobile.tsx"],
+      foundIn: ["HeaderDesktop.tsx"],
       codeBlocks: [
         'const [searchQuery, setSearchQuery] = useState("")',
         "const [searchResults, setSearchResults] = useState<SearchResult[]>([])",
@@ -21,7 +21,7 @@ function identifySharedLogic() {
 
     languageSwitching: {
       description: "Language dropdown state and switching logic",
-      foundIn: ["HeaderDesktop.tsx", "HeaderMobile.tsx"],
+      foundIn: ["HeaderDesktop.tsx"],
       codeBlocks: [
         "const [isLanguageOpen, setIsLanguageOpen] = useState(false)",
         "const handleLanguageToggle = useCallback(() => {",
@@ -33,7 +33,7 @@ function identifySharedLogic() {
 
     clickOutsideLogic: {
       description: "Click outside detection for dropdowns and popups",
-      foundIn: ["HeaderDesktop.tsx", "HeaderMobile.tsx", "MegaMenu.tsx"],
+      foundIn: ["HeaderDesktop.tsx", "MegaMenu.tsx"],
       codeBlocks: [
         "useEffect(() => {",
         "const handleClickOutside = (event: MouseEvent) => {",
@@ -46,7 +46,7 @@ function identifySharedLogic() {
 
     escapeKeyHandling: {
       description: "Escape key handling for closing modals and dropdowns",
-      foundIn: ["HeaderDesktop.tsx", "HeaderMobile.tsx"],
+      foundIn: ["HeaderDesktop.tsx"],
       codeBlocks: [
         "useEffect(() => {",
         "const handleEscapeKey = (event: KeyboardEvent) => {",
@@ -72,7 +72,7 @@ function identifySharedLogic() {
 
     navigationHandling: {
       description: "Navigation link handling with smooth scrolling",
-      foundIn: ["HeaderDesktop.tsx", "HeaderMobile.tsx"],
+      foundIn: ["HeaderDesktop.tsx"],
       codeBlocks: [
         "const smoothScrollTo = useCallback((elementId: string) => {",
         "const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {",

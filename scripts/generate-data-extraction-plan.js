@@ -12,13 +12,13 @@ function generateExtractionPlan() {
       {
         filename: "data/navigation.json",
         description: "All navigation menus and links",
-        sourceComponents: ["HeaderDesktop.tsx", "HeaderMobile.tsx", "Footer.tsx"],
+        sourceComponents: ["HeaderDesktop.tsx", "Footer.tsx"],
         dataTypes: ["navigation items", "footer links", "quick links"],
       },
       {
         filename: "data/search.json",
         description: "Search data and popular terms",
-        sourceComponents: ["HeaderDesktop.tsx", "HeaderMobile.tsx"],
+        sourceComponents: ["HeaderDesktop.tsx"],
         dataTypes: ["search results", "popular search terms"],
       },
       {

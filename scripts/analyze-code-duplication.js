@@ -86,7 +86,6 @@ function analyzeDuplication() {
 
   const componentsToAnalyze = [
     "components/HeaderDesktop.tsx",
-    "components/HeaderMobile.tsx",
     "components/MegaMenu.tsx",
     "contexts/LanguageContext.tsx",
   ]
@@ -107,24 +106,7 @@ function analyzeDuplication() {
 
   console.log("\n📊 Duplication Analysis Results:\n")
 
-  // Compare HeaderDesktop vs HeaderMobile
-  if (componentBlocks.HeaderDesktop && componentBlocks.HeaderMobile) {
-    const similarities = findSimilarPatterns(
-      componentBlocks.HeaderDesktop,
-      componentBlocks.HeaderMobile,
-      "HeaderDesktop",
-      "HeaderMobile",
-    )
-
-    console.log("🔄 HeaderDesktop vs HeaderMobile Duplications:")
-    console.log(`- Shared imports: ${similarities.duplicatedImports.length}`)
-    console.log(`- Similar state patterns: ${similarities.duplicatedState.length}`)
-
-    // Log specific duplications
-    similarities.duplicatedImports.forEach((dup) => {
-      console.log(`  📦 ${dup.code}`)
-    })
-  }
+  // Mobile header removed; skip HeaderDesktop vs HeaderMobile
 
   // Identify common patterns
   console.log("\n🎯 Common Patterns Identified:")
