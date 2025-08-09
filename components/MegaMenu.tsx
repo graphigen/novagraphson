@@ -148,7 +148,7 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
 
                   {/* Price line */}
                   <div className="mb-2 flex items-center gap-2">
-                    <span className="text-sm text-gray-400 line-through">19.000 ₺</span>
+                    <span className="text-sm text-gray-400 line-through">14.000 ₺</span>
                     <span className="text-xs text-gray-400">→</span>
                     <span className="text-lg font-bold text-green-700">0 ₺</span>
                   </div>
