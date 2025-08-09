@@ -139,52 +139,19 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
               {/* Right Column - CTA */}
               <div className="col-span-3">
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 h-full border border-blue-100">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Dijital Çözümler</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">Markanızı geleceğe taşıyan entegre hizmetler.</p>
-
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-sm text-gray-700 font-medium">7/24 Destek</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-sm text-gray-700 font-medium">Danışmanlık</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-sm text-gray-700 font-medium">Hızlı Teslimat</span>
-                    </div>
-                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Ücretsiz Pazarlama Stratejisi</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    İşletmeniz için en uygun dijital kanalları ve bütçe dağılımını içeren ön analiz. Başvurun,
+                    48 saat içinde size özel bir plan önerelim.
+                  </p>
 
                   <div className="space-y-3">
                     <button
                       className="w-full bg-blue-600 text-white rounded-xl px-6 py-3 font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
-                      onClick={() => {
-                        openForm("Teklif")
-                        onClose()
-                      }}
+                      onClick={() => handleServiceClick("/pazarlama-strateji-basvurusu")}
                     >
-                      Teklif Al
-                    </button>
-                    <button
-                      className="w-full bg-white text-blue-600 border border-blue-200 rounded-xl px-6 py-3 font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-sm hover:shadow-md"
-                      onClick={() => handleServiceClick("/referanslar")}
-                    >
-                      Referanslar
-                    </button>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-blue-200 text-center">
-                    <p className="text-xs text-gray-600 mb-2">Hemen arayın</p>
-                    <button
-                      onClick={() => {
-                        openForm("Sizi Arayalım")
-                        onClose()
-                      }}
-                      className="text-lg font-bold text-blue-600 hover:text-blue-700 transition-colors"
-                    >
-                      0545 664 2302
+                      Hemen Başvur
+                      <ArrowRight className="inline-block w-4 h-4 ml-2" />
                     </button>
                   </div>
                 </div>
