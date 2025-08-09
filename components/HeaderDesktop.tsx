@@ -227,7 +227,7 @@ export const HeaderDesktop = () => {
     searchInput?.focus()
   }, [])
 
-  // Sitemap'ten dinamik index (sayfa listesi) yükle
+  // Sitemap + DOM iç linklerinden dinamik index (sayfa listesi) yükle
   useEffect(() => {
     let cancelled = false
     const load = async () => {
@@ -252,15 +252,28 @@ export const HeaderDesktop = () => {
             return path
           }
         }
-        const items: SearchResult[] = locs.map(loc => ({
+        const itemsFromSitemap: SearchResult[] = locs.map(loc => ({
           title: toTitle(loc),
           type: 'Sayfa',
           href: new URL(loc, window.location.origin).pathname,
           description: undefined,
           category: 'Sayfa'
         }))
-        // Filtre: sadece site içi geçerli yollar
-        const filtered = items.filter(i => i.href && i.href.startsWith('/'))
+        // DOM'daki iç linkleri de ekle (menüler/footerdan gelen yeni sayfalar)
+        const anchors = Array.from(document.querySelectorAll('a[href^="/"]')) as HTMLAnchorElement[]
+        const hrefs = anchors
+          .map(a => a.getAttribute('href') || '')
+          .filter(href => href && !href.startsWith('/#') && !href.startsWith('/api'))
+        const itemsFromDom: SearchResult[] = hrefs.map(href => ({
+          title: toTitle(href),
+          type: 'Sayfa',
+          href,
+          description: undefined,
+          category: 'Sayfa'
+        }))
+        // Birleştir ve filtrele: sadece site içi geçerli yollar
+        const merged = [...itemsFromSitemap, ...itemsFromDom]
+        const filtered = merged.filter(i => i.href && i.href.startsWith('/'))
         if (!cancelled) setDynamicIndex(filtered)
       } catch (e) {
         // noop
