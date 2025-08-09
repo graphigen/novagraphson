@@ -1,7 +1,8 @@
 "use client"
 
+import React from "react"
 import type { Metadata } from "next"
-import Head from "next/head"
+ 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -90,11 +91,7 @@ export default function HakkimizdaPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Head>
-        <title>NovaGraph - Hakkımızda</title>
-        <meta name="description" content="NovaGraph olarak işletmenizin dijital dönüşümü için kapsamlı çözümler sunuyoruz. Web tasarım, dijital pazarlama, güvenlik ve daha fazlası." />
-        <meta name="keywords" content="NovaGraph, hakkımızda, dijital çözümler, web tasarım, dijital pazarlama, güvenlik" />
-      </Head>
+      
       
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50">

@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { Users, MessageSquare, Calendar, FileText, BarChart3, ShoppingCart, CheckCircle, ArrowRight, Zap, Shield, Database, Monitor, Activity, TrendingUp, Globe, Settings, Target, ArrowLeft, Building } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Head from "next/head"
+ 
 
 export default function UnicaPage() {
   const { openForm } = useContactForm()
@@ -120,11 +121,7 @@ export default function UnicaPage() {
 
   return (
     <div className="min-h-screen bg-blue-900">
-      <Head>
-        <title>NovaGraph - Unica Müşteri Deneyimi</title>
-        <meta name="description" content="Unica müşteri deneyimi platformu ile müşterilerinizin ihtiyaçlarını anlayın, kişiselleştirilmiş deneyimler sunun ve müşteri sadakatini artırın." />
-        <meta name="keywords" content="Unica, müşteri deneyimi, NovaGraph, kişiselleştirme, müşteri sadakati, deneyim platformu" />
-      </Head>
+      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-blue-800">
         <div className="absolute inset-0 bg-blue-900/20"></div>

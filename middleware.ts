@@ -9,13 +9,6 @@ export function middleware(request: NextRequest) {
 
   const response = NextResponse.next()
 
-  // Güvenlik başlıkları
-  response.headers.set('X-Frame-Options', 'DENY')
-  response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('X-XSS-Protection', '1; mode=block')
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
-
   // Cache headers
   if (request.nextUrl.pathname.startsWith('/_next/static/')) {
     response.headers.set('Cache-Control', 'public, max-age=31536000, immutable')

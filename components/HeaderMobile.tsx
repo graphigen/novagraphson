@@ -1,13 +1,14 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 
 import { useState, useEffect } from "react"
-import { Menu, X, Search, Phone } from "lucide-react"
+import { Menu, X, Search, Phone, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { LogoMobile } from "@/components/LogoMobile"
 import { solutionGroups } from "@/lib/solutions"
+import MegaMenu from "@/components/MegaMenu"
 
 type Language = "en" | "tr"
 
@@ -16,8 +17,16 @@ export const HeaderMobile = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const { language, setLanguage, t } = useLanguage()
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)
+  const [activeSolutionGroup, setActiveSolutionGroup] = useState(
+    "digital" as "digital" | "it-security"
+  )
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen((v) => !v)
+  const toggleMobileMenu = () => {
+    // Ensure solutions mega menu is not open at the same time
+    setIsSolutionsOpen(false)
+    setIsMobileMenuOpen((v) => !v)
+  }
   const closeMobileMenu = () => setIsMobileMenuOpen(false)
 
   const handleLanguageChange = (newLanguage: Language) => {
@@ -34,12 +43,23 @@ export const HeaderMobile = () => {
     }
   }
 
-  // Prevent background scroll when menu open
+  // Prevent background scroll when menu open & close on Escape
   useEffect(() => {
     const prev = document.body.style.overflow
-    document.body.style.overflow = isMobileMenuOpen ? "hidden" : prev || ""
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = prev || ""
+    }
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeMobileMenu()
+      }
+    }
+    window.addEventListener("keydown", onKeyDown)
     return () => {
       document.body.style.overflow = prev
+      window.removeEventListener("keydown", onKeyDown)
     }
   }, [isMobileMenuOpen])
 
@@ -61,20 +81,19 @@ export const HeaderMobile = () => {
         <Menu className="w-6 h-6" />
       </button>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay (Full-screen) */}
       {isMobileMenuOpen && (
-        <>
-          <div className="fixed inset-0 bg-black/50 z-40" onClick={closeMobileMenu} />
-          <div
-            id="mobile-menu-panel"
-            className="fixed inset-y-0 right-0 w-80 max-w-[88vw] z-50 bg-white shadow-2xl"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobil menü"
-          >
-            <div className="flex flex-col h-full">
+        <div
+          id="mobile-menu-panel"
+          className="fixed inset-0 z-[70] bg-white animate-in fade-in pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobil menü"
+          onClick={closeMobileMenu}
+        >
+          <div className="flex flex-col h-full" onClick={(e) => e.stopPropagation()}>
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200 sticky top-0 bg-white">
+              <div className="flex items-center justify-between p-6 border-b border-gray-200 sticky top-0 bg-white z-[71] pt-[env(safe-area-inset-top)]">
                 <h2 className="text-lg font-bold text-gray-900">Menü</h2>
                 <button onClick={closeMobileMenu} className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100" aria-label="Menüyü kapat">
                   <X className="w-5 h-5" />
@@ -102,19 +121,21 @@ export const HeaderMobile = () => {
                 </form>
               </div>
 
-              {/* Navigation */}
+              {/* Navigation (mirror desktop main menu) */}
               <div className="flex-1 p-6 space-y-6 overflow-y-auto">
-                {/* Çözümler */}
-                <div>
-                  <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Çözümler</h3>
-                  <div className="space-y-2">
-                    {solutionGroups.flatMap((g) => g.services).map((service) => (
-                      <Link key={service.name} href={service.href} onClick={closeMobileMenu} className="block rounded-lg p-3 border border-gray-200 hover:bg-blue-50 hover:border-blue-200 text-gray-700 hover:text-blue-700">
-                        {service.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+                <button
+                  onClick={() => {
+                    // Close the primary mobile panel first, then open solutions
+                    closeMobileMenu()
+                    setActiveSolutionGroup("digital")
+                    // Defer to the next frame to avoid two overlays racing
+                    requestAnimationFrame(() => setIsSolutionsOpen(true))
+                  }}
+                  className="w-full flex items-center justify-between p-3 rounded-lg border border-gray-200 hover:bg-blue-50 hover:border-blue-200 text-gray-900 font-medium"
+                >
+                  <span>Çözümler</span>
+                  <ChevronRight className="w-4 h-4 text-gray-500" />
+                </button>
                 <div>
                   <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Sayfalar</h3>
                   <div className="space-y-2">
@@ -142,10 +163,17 @@ export const HeaderMobile = () => {
                 </a>
                 <button className="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors" onClick={closeMobileMenu}>Danışmanlık</button>
               </div>
-            </div>
           </div>
-        </>
+        </div>
       )}
+
+      {/* Mobile Mega Menu for Solutions */}
+      <MegaMenu
+        isOpen={isSolutionsOpen}
+        onClose={() => setIsSolutionsOpen(false)}
+        activeSolutionGroup={activeSolutionGroup}
+        setActiveSolutionGroup={setActiveSolutionGroup}
+      />
     </div>
   )
 }

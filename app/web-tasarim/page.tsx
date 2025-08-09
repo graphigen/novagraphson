@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ContactForm } from "@/components/ContactForm"
 import { useContactForm } from "@/contexts/ContactFormContext"
-import Head from "next/head"
+ 
 import { 
   Globe, 
   Smartphone, 
@@ -79,11 +79,7 @@ export default function WebTasarimPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Head>
-        <title>NovaGraph - Web Tasarım</title>
-        <meta name="description" content="Modern ve dönüşüm odaklı web tasarım hizmetleri. Kurumsal web sitesi, e-ticaret, landing page ve daha fazlası." />
-        <meta name="keywords" content="web tasarım, NovaGraph, kurumsal web sitesi, e-ticaret, landing page, responsive tasarım" />
-      </Head>
+      
       
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">

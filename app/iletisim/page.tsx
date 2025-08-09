@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -7,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { ContactForm } from "@/components/ContactForm"
 import { useContactForm } from "@/contexts/ContactFormContext"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import Head from "next/head"
+ 
 import { 
   Phone, 
   Mail, 
@@ -85,11 +86,7 @@ export default function IletisimPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Head>
-        <title>NovaGraph - İletişim</title>
-        <meta name="description" content="NovaGraph ile iletişime geçin. Telefon, e-posta veya adres bilgilerimizle size ulaşabilirsiniz." />
-        <meta name="keywords" content="NovaGraph, iletişim, telefon, e-posta, adres, destek" />
-      </Head>
+      
       
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50">

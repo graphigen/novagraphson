@@ -1,7 +1,9 @@
+import path from 'path'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['lucide-react'],
+    // optimizePackageImports can cause runtime/vendor chunk mismatches with some libraries in dev
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -10,7 +12,10 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['placeholder.svg', 'novagraph.com.tr', 'www.novagraph.com.tr'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'novagraph.com.tr' },
+      { protocol: 'https', hostname: 'www.novagraph.com.tr' },
+    ],
     unoptimized: false,
   },
   // Production output configuration
@@ -24,21 +29,21 @@ const nextConfig = {
   // Asset prefix
   assetPrefix: '',
   // Webpack configuration for module resolution
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, dev }) => {
     // Add module resolution
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': '.',
-      '@/components': './components',
-      '@/contexts': './contexts',
-      '@/lib': './lib',
-      '@/app': './app',
-      '@/hooks': './hooks',
-      '@/styles': './styles',
+      '@': path.resolve(process.cwd()),
+      '@/components': path.resolve(process.cwd(), 'components'),
+      '@/contexts': path.resolve(process.cwd(), 'contexts'),
+      '@/lib': path.resolve(process.cwd(), 'lib'),
+      '@/app': path.resolve(process.cwd(), 'app'),
+      '@/hooks': path.resolve(process.cwd(), 'hooks'),
+      '@/styles': path.resolve(process.cwd(), 'styles'),
     }
-    
-    // Improve module resolution
-    config.resolve.modules = ['node_modules', '.']
+
+    // Avoid ambiguous resolution that can confuse Next's dev bundler
+    // Leave default modules resolution
     
     return config
   },
@@ -60,10 +65,7 @@ const nextConfig = {
             key: 'X-Frame-Options',
             value: 'DENY',
           },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
+          // X-XSS-Protection modern tarayıcılarda etkisiz, kaldırıldı
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
@@ -71,6 +73,11 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
+          },
+          // Temel bir CSP (görseli bozmayacak şekilde gevşek bırakıldı)
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none'",
           },
         ],
       },

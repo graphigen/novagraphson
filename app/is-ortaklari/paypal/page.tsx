@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { CreditCard, Shield, Globe, Users, CheckCircle, ArrowRight, Zap, Database, Monitor, Activity, TrendingUp, Settings, Target, ArrowLeft } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Head from "next/head"
+ 
 
 export default function PayPalPage() {
   const { openForm } = useContactForm()
@@ -120,11 +121,7 @@ export default function PayPalPage() {
 
   return (
     <div className="min-h-screen bg-blue-900">
-      <Head>
-        <title>NovaGraph - PayPal Ödeme Çözümleri</title>
-        <meta name="description" content="PayPal ödeme çözümleri ile müşterilerinize güvenli ödeme seçenekleri sunun, satışlarınızı artırın ve işletmenizi büyütün." />
-        <meta name="keywords" content="PayPal, ödeme çözümleri, NovaGraph, güvenli ödeme, e-ticaret, online ödeme" />
-      </Head>
+      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-blue-800">
         <div className="absolute inset-0 bg-blue-900/20"></div>

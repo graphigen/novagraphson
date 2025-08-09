@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { Shield, Zap, Globe, Users, CheckCircle, ArrowRight, Activity, Lock, Database, Monitor, TrendingUp, Scale, ArrowLeft } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Head from "next/head"
+ 
 
 export default function CloudflarePage() {
   const { openForm } = useContactForm()
@@ -120,10 +121,7 @@ export default function CloudflarePage() {
 
   return (
     <div className="min-h-screen bg-orange-900">
-      <Head>
-        <title>NovaGraph - Cloudflare İş Ortağı</title>
-        <meta name="description" content="Dünyanın en güvenilir CDN ve güvenlik platformu Cloudflare ile web sitenizin performansını artırın, güvenliğinizi sağlayın ve kullanıcı deneyimini optimize edin." />
-      </Head>
+      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-orange-800">
         <div className="absolute inset-0 bg-orange-900/20"></div>

@@ -123,7 +123,7 @@ export const CookieConsent = () => {
     <>
       {/* Cookie Banner */}
       {!showSettings && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 p-4 sm:p-6 animate-in slide-in-from-bottom duration-300">
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-[60] p-4 sm:p-6 animate-in slide-in-from-bottom duration-300 pb-[max(env(safe-area-inset-bottom),1rem)]">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex-1">
@@ -197,7 +197,7 @@ export const CookieConsent = () => {
 
       {/* Cookie Settings Modal */}
       {showSettings && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-[90] flex items-center justify-center p-4 animate-in fade-in duration-200">
           <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-in slide-in-from-bottom duration-300">
             <div className="p-6 border-b border-gray-200">
               <div className="flex items-center justify-between">

@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { Users, Shield, Globe, BarChart3, CheckCircle, ArrowRight, Activity, Target, ArrowLeft, ShoppingCart, Building, FileText, Zap, Lock, TrendingUp, Scale, Cloud } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Head from "next/head"
+ 
 
 export default function SalesforcePage() {
   const { openForm } = useContactForm()
@@ -120,11 +121,7 @@ export default function SalesforcePage() {
 
   return (
     <div className="min-h-screen bg-blue-900">
-      <Head>
-        <title>NovaGraph - Salesforce CRM Hizmetleri</title>
-        <meta name="description" content="Salesforce CRM platformu ile müşteri ilişkilerinizi güçlendirin, satışlarınızı artırın ve iş süreçlerinizi optimize edin." />
-        <meta name="keywords" content="Salesforce, CRM, NovaGraph, müşteri ilişkileri, satış optimizasyonu, iş süreçleri" />
-      </Head>
+      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-blue-800">
         <div className="absolute inset-0 bg-blue-900/20"></div>

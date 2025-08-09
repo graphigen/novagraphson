@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { CreditCard, Shield, Zap, Globe, Users, CheckCircle, ArrowRight, Activity, Lock, Database, Monitor, TrendingUp, Scale, ArrowLeft } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Head from "next/head"
+ 
 
 export default function StripePage() {
   const { openForm } = useContactForm()
@@ -120,11 +121,7 @@ export default function StripePage() {
 
   return (
     <div className="min-h-screen bg-purple-900">
-      <Head>
-        <title>NovaGraph - Stripe Ödeme Süreçleri</title>
-        <meta name="description" content="Stripe ile ödeme süreçlerinizi NovaGraph ile optimize edin. Güvenli, hızlı ve kapsamlı ödeme çözümleri." />
-        <meta name="keywords" content="Stripe, ödeme, ödeme süreçleri, NovaGraph, güvenli ödeme, hızlı ödeme, kapsamlı ödeme çözümleri" />
-      </Head>
+      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-purple-800">
         <div className="absolute inset-0 bg-purple-900/20"></div>

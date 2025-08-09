@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { Cloud, Server, Database, Shield, Zap, Globe, Users, CheckCircle, ArrowRight, Activity, Lock, Cpu, HardDrive, Network, Monitor, TrendingUp, Scale, Globe2, ArrowLeft, ShoppingCart } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Head from "next/head"
+ 
 
 export default function GoogleCloudPage() {
   const { openForm } = useContactForm()
@@ -120,11 +121,7 @@ export default function GoogleCloudPage() {
 
   return (
     <div className="min-h-screen bg-blue-900">
-      <Head>
-        <title>NovaGraph - Google Cloud İş Ortağı</title>
-        <meta name="description" content="Google Cloud ile işletmenizin bulut stratejisini NovaGraph ile güçlendirin. Ölçeklenebilir altyapı, güvenlik ve maliyet optimizasyonu ile dijital dönüşümü hızlandırın." />
-        <meta name="keywords" content="Google Cloud, bulut altyapı, NovaGraph, iş ortağı, işletme, ölçeklenebilir, güvenlik, maliyet optimizasyonu" />
-      </Head>
+      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-blue-800">
         <div className="absolute inset-0 bg-blue-900/20"></div>

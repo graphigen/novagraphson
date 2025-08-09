@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { Users, Mail, Calendar, FileText, BarChart3, ShoppingCart, CheckCircle, ArrowRight, Zap, Shield, Database, Monitor, Activity, TrendingUp, Globe, Settings, Target, ArrowLeft } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"

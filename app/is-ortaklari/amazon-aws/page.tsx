@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { Cloud, Server, Database, Shield, Zap, Globe, Users, CheckCircle, ArrowRight, Activity, Lock, Cpu, HardDrive, Network, Monitor, TrendingUp, Scale, Globe2, ArrowLeft, ShoppingCart } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Head from "next/head"
+ 
 
 export default function AmazonAWSPage() {
   const { openForm } = useContactForm()
@@ -120,11 +121,7 @@ export default function AmazonAWSPage() {
 
   return (
     <div className="min-h-screen bg-orange-900">
-      <Head>
-        <title>NovaGraph - Amazon AWS İş Ortağı</title>
-        <meta name="description" content="Amazon AWS ile bulut altyapınızı NovaGraph ile optimize edin. Güvenli, ölçeklenebilir ve maliyet etkin çözümler sunuyoruz." />
-        <meta name="keywords" content="Amazon AWS, bulut altyapı, NovaGraph, iş ortağı, AWS çözümleri, bulut hizmetleri" />
-      </Head>
+      
       {/* Hero Section - Dark Background */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-orange-800">
         <div className="absolute inset-0 bg-orange-900/20"></div>

@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { MessageSquare, Users, Phone, Mail, CheckCircle, ArrowRight, Zap, Shield, Database, Monitor, Activity, TrendingUp, Globe, Settings, Target, ArrowLeft, MessageCircle } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Head from "next/head"
+ 
 
 export default function JivoChatPage() {
   const { openForm } = useContactForm()
@@ -120,11 +121,7 @@ export default function JivoChatPage() {
 
   return (
     <div className="min-h-screen bg-purple-900">
-      <Head>
-        <title>NovaGraph - Jivochat Canlı Sohbet</title>
-        <meta name="description" content="Jivochat canlı sohbet platformu ile müşterilerinizle anında iletişim kurun, satışlarınızı artırın ve müşteri memnuniyetini yükseltin." />
-        <meta name="keywords" content="Jivochat, canlı sohbet, NovaGraph, müşteri iletişimi, satış optimizasyonu, müşteri memnuniyeti" />
-      </Head>
+      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-purple-800">
         <div className="absolute inset-0 bg-purple-900/20"></div>

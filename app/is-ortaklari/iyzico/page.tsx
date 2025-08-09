@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { CreditCard, Shield, Zap, Globe, Users, CheckCircle, ArrowRight, Activity, Lock, Database, Monitor, TrendingUp, Scale, ArrowLeft } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Head from "next/head"
+ 
 
 export default function IyzicoPage() {
   const { openForm } = useContactForm()
@@ -120,11 +121,7 @@ export default function IyzicoPage() {
 
   return (
     <div className="min-h-screen bg-green-900">
-      <Head>
-        <title>NovaGraph - iyzico Ödeme Çözümleri</title>
-        <meta name="description" content="Türkiye'nin önde gelen ödeme çözümleri sağlayıcısı iyzico ile müşterilerinize güvenli ödeme deneyimi sunun, satışlarınızı artırın ve işletmenizi büyütün." />
-        <meta name="keywords" content="iyzico, ödeme, online ödeme, taksitli ödeme, güvenli ödeme, iyzico checkout, iyzico business, iyzico taksitli ödeme, iyzico b2b ödeme" />
-      </Head>
+      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-green-800">
         <div className="absolute inset-0 bg-green-900/20"></div>

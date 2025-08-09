@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { Users, CheckCircle, ArrowRight, Globe, Shield, TrendingUp } from "lucide-react"
 import { Footer } from "@/components/Footer"
@@ -10,7 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { CTABanner } from "@/components/CTABanner"
 import Link from "next/link"
 import Image from "next/image"
-import Head from "next/head"
+ 
 
 export default function IsOrtaklariPage() {
   const { openForm } = useContactForm()
@@ -174,11 +175,7 @@ export default function IsOrtaklariPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Head>
-        <title>NovaGraph - İş Ortaklarımız</title>
-        <meta name="description" content="NovaGraph'ın güvenilir iş ortakları ile müşterilerinize en iyi hizmeti sunuyoruz. SEO, bulut altyapısı, ödeme çözümleri ve daha fazlası." />
-        <meta name="keywords" content="iş ortakları, NovaGraph, partner, güvenilir, hizmet, çözümler" />
-      </Head>
+      
       
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden">

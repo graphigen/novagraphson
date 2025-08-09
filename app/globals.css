@@ -143,6 +143,28 @@ body {
   animation: fade-in 0.2s ease-out;
 }
 
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-out {
+  animation: fade-out 0.2s ease-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in,
+  .fade-in,
+  .fade-out,
+  .slide-in-from-top-2,
+  .animate-blob,
+  .animate-spin-slow,
+  .animate-bounce {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 .animate-blob {
   animation: blob 7s infinite;
 }

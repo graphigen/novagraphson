@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { Search, TrendingUp, Target, BarChart3, Globe, Users, CheckCircle, ArrowRight, Zap, Shield, Database, Monitor, Activity, Eye, Star, ShoppingCart, MapPin, FileText, ArrowLeft, Building } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Head from "next/head"
+ 
 
 export default function SEMrushPage() {
   const { openForm } = useContactForm()
@@ -120,11 +121,7 @@ export default function SEMrushPage() {
 
   return (
     <div className="min-h-screen bg-orange-900">
-      <Head>
-        <title>NovaGraph - SEMrush SEO Hizmetleri</title>
-        <meta name="description" content="SEMrush SEO Hizmetleri ile web sitenizin arama motoru performansını optimize edin, rakiplerinizi analiz edin ve organik trafiğinizi artırın." />
-        <meta name="keywords" content="SEMrush SEO, SEO Hizmetleri, NovaGraph, SEO Analizi, Performans İzleme, Hedef Kitle Analizi, Raporlama" />
-      </Head>
+      
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-orange-800">
         <div className="absolute inset-0 bg-orange-900/20"></div>

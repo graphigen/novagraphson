@@ -1,6 +1,6 @@
 "use client"
 import { ArrowRight, X } from "lucide-react"
-import type React from "react"
+import React from "react"
 
 import Link from "next/link"
 import { useContactForm } from "@/contexts/ContactFormContext"
@@ -33,6 +33,18 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
     }
     onClose()
   }
+
+  // Escape close for mobile (scroll lock is handled by the opener panel)
+  React.useEffect(() => {
+    if (!isOpen) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [isOpen, onClose])
 
   if (!isOpen) return null
 
@@ -184,8 +196,13 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
 
       {/* Mobile Mega Menu */}
       <div className="lg:hidden">
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={onClose} />
-        <div className="fixed inset-x-0 top-16 bottom-0 bg-white z-50 flex flex-col">
+        <div className="fixed inset-0 bg-black/40 z-[60]" onClick={onClose} />
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobil mega menü"
+          className="fixed inset-x-0 top-[calc(4rem+env(safe-area-inset-top))] bottom-0 bg-white z-[70] flex flex-col pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+        >
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
             <h2 className="text-lg font-bold text-gray-900">Çözümler</h2>
             <button

@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { useState, useRef, useEffect } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
 import { ContactForm } from "@/components/ContactForm"

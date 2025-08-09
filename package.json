@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "postbuild": "node scripts/fix-standalone-static.js && node scripts/ensure-public.js",
+    "prestart": "node scripts/fix-standalone-static.js && node scripts/ensure-public.js",
     "dev": "next dev -p 3001",
     "lint": "next lint",
-    "start": "next start"
+    "start": "node .next/standalone/server.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -32,37 +34,36 @@
     "@radix-ui/react-slider": "latest",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-switch": "latest",
-    "@radix-ui/react-tabs": "latest",
-    "@radix-ui/react-toast": "latest",
+    "@radix-ui/react-tabs": "^1.1.12",
+    "@radix-ui/react-toast": "^1.2.14",
     "@radix-ui/react-toggle": "latest",
     "@radix-ui/react-toggle-group": "latest",
     "@radix-ui/react-tooltip": "latest",
     "@tailwindcss/aspect-ratio": "latest",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "latest",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "10.4.21",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "latest",
     "date-fns": "4.1.0",
     "embla-carousel-react": "latest",
-    "framer-motion": "^12.23.12",
+    "framer-motion": "12.23.12",
     "lucide-react": "^0.454.0",
     "next": "15.2.4",
-    "next-themes": "latest",
-    "react": "^19",
-    "react-dom": "^19",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "react-hook-form": "latest",
-    "tailwind-merge": "^2.6.0",
+    "tailwind-merge": "2.6.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "postcss": "^8.5",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.9.2"
+    "postcss": "8.4.47",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.6.3"
   },
   "engines": {
     "node": ">=18.0.0"

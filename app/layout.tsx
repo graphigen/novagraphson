@@ -81,12 +81,6 @@ export default function RootLayout({
         <link rel="icon" href="/logo/Favicon.svg" type="image/svg+xml" />
         <link rel="shortcut icon" href="/logo/Favicon.svg" />
         <link rel="apple-touch-icon" href="/logo/Favicon.svg" />
-        {/* Güvenlik meta tag'leri */}
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-        <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-        <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
       </head>
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         <LanguageProvider>
