@@ -810,7 +810,7 @@ export default function SEOPage() {
       {/* Why Choose Us Section */}
       <section className="mobile-section bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 mobile-grid-gap gap-8">
             {whyChooseUs.map((item, index) => (
               <Card key={index} className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col">
                 <CardHeader className="p-6 flex-shrink-0">
@@ -1018,8 +1018,8 @@ export default function SEOPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="mobile-section bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
             Web Sitenizi Zirveye Taşıyacak Stratejiyi Öğrenin
           </h2>

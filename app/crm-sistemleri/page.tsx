@@ -410,7 +410,7 @@ export default function CRMSistemleriPage() {
       {/* CRM'in Faydaları */}
       <section className="mobile-section bg-white" ref={benefitsRef}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20 space-y-5">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <TrendingUp className="w-4 h-4 mr-2" />
               CRM Faydaları
@@ -455,7 +455,7 @@ export default function CRMSistemleriPage() {
       {/* Kullandığımız CRM'ler */}
       <section className="mobile-section bg-gray-50" ref={crmSystemsRef}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20 space-y-5">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Globe className="w-4 h-4 mr-2" />
               Partner CRM'ler
@@ -550,7 +550,7 @@ export default function CRMSistemleriPage() {
       <section className="mobile-section bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20 space-y-5">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">CRM ile Süreçlerinizi Güçlendirin</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Hangi CRM'in size uygun olduğunu birlikte belirleyelim.
