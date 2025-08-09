@@ -146,13 +146,12 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
                     48 saat içinde size özel bir plan önerelim.
                   </p>
 
-                  {/* Price line and countdown */}
+                  {/* Price line */}
                   <div className="mb-2 flex items-center gap-2">
                     <span className="text-sm text-gray-400 line-through">19.000 ₺</span>
                     <span className="text-xs text-gray-400">→</span>
                     <span className="text-lg font-bold text-green-700">0 ₺</span>
                   </div>
-                  <CountdownBadge />
 
                   <div className="space-y-3 mt-3">
                     <button
@@ -162,6 +161,11 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
                       Hemen Başvur
                       <ArrowRight className="inline-block w-4 h-4 ml-2" />
                     </button>
+                  </div>
+
+                  {/* Countdown moved below button */}
+                  <div className="mt-3">
+                    <CountdownBadge />
                   </div>
                 </div>
               </div>
