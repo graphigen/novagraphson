@@ -130,7 +130,7 @@ export default function GoogleCloudPage() {
             {/* Back Button */}
             <div className="flex justify-start mb-8">
               <Link href="/is-ortaklari">
-                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-white hover:bg-white/30">
+                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-gray-900 hover:bg-white/30">
                   <ArrowLeft className="w-4 h-4" />
                   Geri Dön
                 </Button>
@@ -142,7 +142,7 @@ export default function GoogleCloudPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
+              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-gray-900 px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
             >
               <Cloud className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortağımız</span>
@@ -153,7 +153,7 @@ export default function GoogleCloudPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-100">Google Cloud</span> ile Bulut Altyapınızı Güçlendirin
             </motion.h1>
@@ -219,7 +219,7 @@ export default function GoogleCloudPage() {
               >
                 <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0 p-8">
                   <div className="w-20 h-20 bg-blue-500 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                    <feature.icon className="w-10 h-10 text-white" />
+                    <feature.icon className="w-10 h-10 text-gray-900" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
@@ -244,7 +244,7 @@ export default function GoogleCloudPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph ile Google Cloud Çözümleri
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
@@ -263,7 +263,7 @@ export default function GoogleCloudPage() {
               >
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-white mb-4">
+                    <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
                       {solution.title}
                     </CardTitle>
                     <CardDescription className="text-blue-100 text-lg">
@@ -322,7 +322,7 @@ export default function GoogleCloudPage() {
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-blue-500 rounded-2xl shadow-xl flex items-center justify-center">
-                      <useCase.icon className="w-8 h-8 text-white" />
+                      <useCase.icon className="w-8 h-8 text-gray-900" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
@@ -358,7 +358,7 @@ export default function GoogleCloudPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Neden NovaGraph ile Google Cloud?
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
@@ -394,9 +394,9 @@ export default function GoogleCloudPage() {
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-blue-400 rounded-2xl shadow-xl flex items-center justify-center">
-                      <benefit.icon className="w-8 h-8 text-white" />
+                      <benefit.icon className="w-8 h-8 text-gray-900" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-white">
+                    <CardTitle className="text-xl font-bold text-gray-900">
                       {benefit.title}
                     </CardTitle>
                   </CardHeader>
@@ -462,7 +462,7 @@ export default function GoogleCloudPage() {
               </div>
               <div className="text-center">
                 <div className="w-32 h-32 mx-auto mb-4 bg-blue-500 rounded-full shadow-2xl flex items-center justify-center">
-                  <Cloud className="w-16 h-16 text-white" />
+                  <Cloud className="w-16 h-16 text-gray-900" />
                 </div>
                 <p className="text-gray-600">
                   Bulut altyapınızı NovaGraph'in uzmanlığı ile optimize edin

@@ -184,7 +184,7 @@ export default function ZohoPage() {
             >
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-gray-900 px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
                 onClick={() => openForm("Zoho İş Uygulamaları")}
               >
                 İletişime Geç
@@ -224,7 +224,7 @@ export default function ZohoPage() {
                 className="text-center group"
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                  <feature.icon className="w-10 h-10 text-white" />
+                  <feature.icon className="w-10 h-10 text-gray-900" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{feature.description}</p>
@@ -376,7 +376,7 @@ export default function ZohoPage() {
               className="text-center group"
             >
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                <Settings className="w-10 h-10 text-white" />
+                <Settings className="w-10 h-10 text-gray-900" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Entegrasyon</h3>
               <p className="text-gray-600 text-lg">Tüm uygulamalar arasında sorunsuz entegrasyon</p>
@@ -390,7 +390,7 @@ export default function ZohoPage() {
               className="text-center group"
             >
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                <Shield className="w-10 h-10 text-white" />
+                <Shield className="w-10 h-10 text-gray-900" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Güvenlik</h3>
               <p className="text-gray-600 text-lg">Endüstri standardı güvenlik ve veri koruması</p>
@@ -404,7 +404,7 @@ export default function ZohoPage() {
               className="text-center group"
             >
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                <TrendingUp className="w-10 h-10 text-white" />
+                <TrendingUp className="w-10 h-10 text-gray-900" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Ölçeklenebilirlik</h3>
               <p className="text-gray-600 text-lg">İşletmenizin büyümesine uygun ölçeklenebilir çözümler</p>
