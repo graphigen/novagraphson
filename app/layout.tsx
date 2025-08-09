@@ -4,8 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 import { ContactFormProvider } from '@/contexts/ContactFormContext'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
+import { Chrome } from '@/components/Chrome'
  
 import { Toaster } from '@/components/ui/toaster'
 import { CookieConsent } from '@/components/CookieConsent'
@@ -85,9 +84,9 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         <LanguageProvider>
           <ContactFormProvider>
-            <Header />
-            {children}
-            <Footer />
+            <Chrome>
+              {children}
+            </Chrome>
             <ContactFormWrapper />
             <CookieConsent />
             <Toaster />
