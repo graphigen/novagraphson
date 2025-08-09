@@ -152,6 +152,10 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
                     <span className="text-xs text-gray-400">→</span>
                     <span className="text-lg font-bold text-green-700">0 ₺</span>
                   </div>
+                  {/* Countdown above button */}
+                  <div className="mt-2">
+                    <CountdownBadge />
+                  </div>
 
                   <div className="space-y-3 mt-3">
                     <button
@@ -163,10 +167,6 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
                     </button>
                   </div>
 
-                  {/* Countdown moved below button */}
-                  <div className="mt-3">
-                    <CountdownBadge />
-                  </div>
                 </div>
               </div>
             </div>
@@ -205,9 +205,6 @@ function CountdownBadge() {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
-        Sınırlı süre ücretsiz
-      </span>
       <div className="flex items-center gap-2 text-green-900">
         <div className="flex flex-col items-center">
           <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
