@@ -33,8 +33,8 @@ export const TopBar = () => {
   }, [])
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white shadow-lg border-b border-blue-500">
-      <div className="container flex h-16 items-center justify-between">
+    <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white border-b border-blue-500 z-[80] relative">
+      <div className="container flex h-12 sm:h-14 items-center justify-between">
         {/* Sol Taraf - Promosyon Metni ve Zaman Sayacı */}
         <div className="flex items-center space-x-6 flex-1 min-w-0">
           {/* Promosyon Metni */}

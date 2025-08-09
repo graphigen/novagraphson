@@ -123,13 +123,13 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[200] p-3">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg md:max-w-xl max-h-[85vh] overflow-y-auto">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+        <div className="flex items-center justify-between p-4 border-b border-gray-200">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">İletişim Formu</h2>
-            <p className="text-gray-600 mt-1">Size en kısa sürede dönüş yapacağız</p>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900">İletişim Formu</h2>
+            <p className="text-gray-600 mt-0.5 text-sm">Size en kısa sürede dönüş yapacağız</p>
           </div>
           <button
             onClick={onClose}
@@ -140,15 +140,15 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+        <form onSubmit={handleSubmit} className="p-4 space-y-5 text-sm">
           {/* Kurumsal Bilgiler */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2 mb-4">
+            <div className="flex items-center space-x-2 mb-3">
               <Building2 className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-semibold text-gray-900">Kurumsal Bilgiler</h3>
+              <h3 className="text-base md:text-lg font-semibold text-gray-900">Kurumsal Bilgiler</h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="space-y-2">
                 <Label htmlFor="companyName">Firma Ünvanı *</Label>
                 <Input
@@ -196,12 +196,12 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
 
           {/* Kişisel Bilgiler */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2 mb-4">
+            <div className="flex items-center space-x-2 mb-3">
               <User className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-semibold text-gray-900">Kişisel Bilgiler</h3>
+              <h3 className="text-base md:text-lg font-semibold text-gray-900">Kişisel Bilgiler</h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="space-y-2">
                 <Label htmlFor="name">Ad Soyad *</Label>
                 <Input
@@ -271,19 +271,19 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
           </div>
 
           {/* Submit Button */}
-          <div className="flex justify-end space-x-4 pt-6 border-t border-gray-200">
+          <div className="flex justify-end space-x-3 pt-5 border-t border-gray-200">
             <Button
               type="button"
               variant="outline"
               onClick={onClose}
-              className="px-6 py-2"
+              className="px-5 py-2"
             >
               İptal
             </Button>
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="px-6 py-2 bg-blue-600 hover:bg-blue-700"
+              className="px-5 py-2 bg-blue-600 hover:bg-blue-700"
             >
               {isSubmitting ? "Gönderiliyor..." : "Gönder"}
             </Button>
