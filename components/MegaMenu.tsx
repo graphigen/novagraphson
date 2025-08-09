@@ -257,7 +257,7 @@ function CountdownBadge() {
 function LimitedTimeBadge() {
   // Sınırlı Süre rozeti: yavaş yavaş yanıp sönen animasyon
   return (
-    <span className="inline-flex items-center px-2 py-1 text-xs font-bold rounded-full bg-green-100 text-green-800 animate-glow-pulse-slow">
+    <span className="inline-flex items-center px-2 py-1 text-xs font-bold limited-badge-anim">
       Sınırlı Süre
     </span>
   )

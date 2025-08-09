@@ -190,7 +190,7 @@ export const HeaderMobile: React.FC = () => {
               <div className="rounded-xl border border-green-200 bg-gradient-to-br from-emerald-50 to-green-50 p-4 shadow-sm">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="inline-flex items-center px-2 py-1 text-[11px] font-bold rounded-full bg-green-100 text-green-800">Ücretsiz</span>
-                  <span className="inline-flex items-center px-2 py-1 text-[11px] font-bold rounded-full bg-green-100 text-green-800 animate-glow-pulse-slow">Sınırlı Süre</span>
+                  <span className="inline-flex items-center px-2 py-1 text-[11px] font-bold limited-badge-anim">Sınırlı Süre</span>
                 </div>
                 <div className="mb-1">
                   <div className="text-[15px] font-semibold text-gray-900">Pazarlama Stratejisi</div>

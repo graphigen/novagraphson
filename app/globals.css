@@ -211,3 +211,26 @@ body {
 .animate-glow-pulse-slow {
   animation: glow-pulse-slow 1.6s ease-in-out infinite;
 }
+
+/* Inverting color pulse for limited-time badge */
+@keyframes invert-pulse {
+  0%, 100% {
+    background-color: #dcfce7; /* green-100 */
+    color: #065f46; /* green-800 */
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0);
+    transform: scale(1);
+  }
+  50% {
+    background-color: #065f46; /* green-800 */
+    color: #ecfdf5; /* green-50 */
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
+    transform: scale(1.02);
+  }
+}
+
+.limited-badge-anim {
+  background-color: #dcfce7; /* green-100 */
+  color: #065f46; /* green-800 */
+  border-radius: 9999px;
+  animation: invert-pulse 1.8s ease-in-out infinite;
+}
