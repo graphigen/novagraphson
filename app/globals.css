@@ -184,3 +184,30 @@ body {
 .animate-bounce {
   animation: bounce 2s infinite;
 }
+
+/* Limited-time badge animations */
+@keyframes fade-pulse-slow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-fade-pulse-slow {
+  animation: fade-pulse-slow 1.8s ease-in-out infinite;
+}
+
+@keyframes glow-pulse-slow {
+  0%, 100% {
+    opacity: 0.95;
+    transform: scale(1);
+    box-shadow: 0 0 0px rgba(16, 185, 129, 0.0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+    box-shadow: 0 0 14px rgba(16, 185, 129, 0.25);
+  }
+}
+
+.animate-glow-pulse-slow {
+  animation: glow-pulse-slow 1.6s ease-in-out infinite;
+}
