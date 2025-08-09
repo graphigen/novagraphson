@@ -130,7 +130,7 @@ export default function Bitrix24Page() {
             {/* Back Button */}
             <div className="flex justify-start mb-8">
               <Link href="/is-ortaklari">
-                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-orange-200 text-white hover:bg-white/30">
+                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-white hover:bg-white/30">
                   <ArrowLeft className="w-4 h-4" />
                   Geri Dön
                 </Button>
@@ -142,7 +142,7 @@ export default function Bitrix24Page() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-orange-200"
+              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
             >
               <Users className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortağımız</span>
@@ -199,7 +199,7 @@ export default function Bitrix24Page() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Bitrix24 ile Neler Yapabilirsiniz?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -221,7 +221,7 @@ export default function Bitrix24Page() {
                   <div className="w-20 h-20 bg-green-500 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
                     <feature.icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
                   <p className="text-gray-600">
@@ -261,7 +261,7 @@ export default function Bitrix24Page() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-orange-200 p-8 hover:bg-white transition-all duration-300">
+                <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="text-2xl font-bold text-white mb-4">
                       {solution.title}
@@ -279,7 +279,7 @@ export default function Bitrix24Page() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-6 p-4 bg-white backdrop-blur-md rounded-2xl border border-orange-200">
+                    <div className="mt-6 p-4 bg-white backdrop-blur-md rounded-2xl border border-white/20">
                       <p className="text-green-100 font-medium">
                         <strong>NovaGraph Kullanımı:</strong> {solution.novaGraphUsage}
                       </p>
@@ -302,7 +302,7 @@ export default function Bitrix24Page() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -324,7 +324,7 @@ export default function Bitrix24Page() {
                     <div className="w-16 h-16 mx-auto mb-4 bg-green-500 rounded-2xl shadow-xl flex items-center justify-center">
                       <useCase.icon className="w-8 h-8 text-white" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-800">
+                    <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
                     <CardDescription className="text-gray-600">
@@ -391,7 +391,7 @@ export default function Bitrix24Page() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-orange-200 p-8 hover:bg-white transition-all duration-300">
+                <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-green-400 rounded-2xl shadow-xl flex items-center justify-center">
                       <benefit.icon className="w-8 h-8 text-white" />
@@ -422,7 +422,7 @@ export default function Bitrix24Page() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in Bitrix24 Kullanımı
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -433,7 +433,7 @@ export default function Bitrix24Page() {
           <div className="bg-green-50 rounded-2xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   İş Süreçleri Dijitalleştirme Stratejisi
                 </h3>
                 <p className="text-gray-700 mb-6">

@@ -159,7 +159,7 @@ export default function ZohoPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-800 mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Zoho</span> ile İş Süreçlerinizi Dijitalleştirin
             </motion.h1>
@@ -205,7 +205,7 @@ export default function ZohoPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Zoho ile Neler Yapabilirsiniz?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -226,7 +226,7 @@ export default function ZohoPage() {
                 <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
                   <feature.icon className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{feature.title}</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
@@ -244,7 +244,7 @@ export default function ZohoPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph ile Zoho Çözümleri
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -267,14 +267,14 @@ export default function ZohoPage() {
                     <Users className="w-10 h-10 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-3xl font-bold text-gray-800 mb-2">{solution.title}</h3>
+                    <h3 className="text-3xl font-bold text-gray-900 mb-2">{solution.title}</h3>
                     <p className="text-gray-600 text-lg">{solution.description}</p>
                   </div>
                 </div>
                 
                 <div className="space-y-8">
                   <div>
-                    <h4 className="font-bold text-gray-800 mb-4 text-lg">Faydalar</h4>
+                    <h4 className="font-bold text-gray-900 mb-4 text-lg">Faydalar</h4>
                     <ul className="space-y-3">
                       {solution.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-center gap-3">
@@ -306,7 +306,7 @@ export default function ZohoPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -328,12 +328,12 @@ export default function ZohoPage() {
                   <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
                     <useCase.icon className="w-10 h-10 text-blue-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">{useCase.title}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{useCase.title}</h3>
                   <p className="text-gray-600 text-lg">{useCase.description}</p>
                 </div>
                 
                 <div>
-                  <h4 className="font-bold text-gray-800 mb-4 text-lg">Faydalar</h4>
+                  <h4 className="font-bold text-gray-900 mb-4 text-lg">Faydalar</h4>
                   <ul className="space-y-3">
                     {useCase.benefits.map((benefit, benefitIndex) => (
                       <li key={benefitIndex} className="flex items-center gap-3">
@@ -359,7 +359,7 @@ export default function ZohoPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Neden Zoho?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -378,7 +378,7 @@ export default function ZohoPage() {
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
                 <Settings className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Entegrasyon</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Entegrasyon</h3>
               <p className="text-gray-600 text-lg">Tüm uygulamalar arasında sorunsuz entegrasyon</p>
             </motion.div>
 
@@ -392,7 +392,7 @@ export default function ZohoPage() {
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
                 <Shield className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Güvenlik</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Güvenlik</h3>
               <p className="text-gray-600 text-lg">Endüstri standardı güvenlik ve veri koruması</p>
             </motion.div>
 
@@ -406,7 +406,7 @@ export default function ZohoPage() {
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
                 <TrendingUp className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Ölçeklenebilirlik</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ölçeklenebilirlik</h3>
               <p className="text-gray-600 text-lg">İşletmenizin büyümesine uygun ölçeklenebilir çözümler</p>
             </motion.div>
           </div>
