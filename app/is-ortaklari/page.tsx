@@ -182,7 +182,7 @@ export default function IsOrtaklariPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center justify-center space-x-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 lg:mb-8 shadow-sm border border-white/30">
+            <div className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 lg:mb-8 shadow-sm border border-orange-200">
               <Users className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortaklarımız</span>
             </div>
@@ -217,7 +217,7 @@ export default function IsOrtaklariPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               İş Ortaklarımız
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -247,7 +247,7 @@ export default function IsOrtaklariPage() {
                           className="object-contain max-w-full max-h-full"
                         />
                       </div>
-                      <CardTitle className="text-xl font-bold text-gray-900">
+                      <CardTitle className="text-xl font-bold text-gray-800">
                         {partner.name}
                       </CardTitle>
                       <CardDescription className="text-gray-600">
@@ -256,7 +256,7 @@ export default function IsOrtaklariPage() {
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-3">
-                        <h4 className="font-semibold text-gray-900 mb-2">Öne Çıkan Özellikler</h4>
+                        <h4 className="font-semibold text-gray-800 mb-2">Öne Çıkan Özellikler</h4>
                         <ul className="space-y-2">
                           {partner.features.map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-center gap-2">
@@ -288,7 +288,7 @@ export default function IsOrtaklariPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Neden İş Ortaklarımızı Seçiyoruz?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -309,7 +309,7 @@ export default function IsOrtaklariPage() {
                 <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-all duration-300 shadow-lg">
                   <benefit.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.description}</p>
               </motion.div>
             ))}

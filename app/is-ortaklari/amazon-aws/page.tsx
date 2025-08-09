@@ -120,11 +120,11 @@ export default function AmazonAWSPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-orange-900">
+    <div className="min-h-screen bg-orange-50">
       
       {/* Hero Section - Dark Background */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-orange-800">
-        <div className="absolute inset-0 bg-orange-900/20"></div>
+      <section className="relative py-20 lg:py-32 overflow-hidden bg-orange-100">
+        <div className="absolute inset-0 bg-orange-50/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Back Button */}
@@ -135,7 +135,7 @@ export default function AmazonAWSPage() {
               className="flex justify-start mb-8"
             >
               <Link href="/is-ortaklari">
-                <Button variant="outline" className="flex items-center gap-2 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30">
+                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-orange-200 text-white hover:bg-white/30">
                   <ArrowLeft className="w-4 h-4" />
                   Geri Dön
                 </Button>
@@ -147,7 +147,7 @@ export default function AmazonAWSPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center justify-center space-x-2 bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/30"
+              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-orange-200"
             >
               <Cloud className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortağımız</span>
@@ -160,7 +160,7 @@ export default function AmazonAWSPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
             >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-200 to-orange-100">Amazon AWS</span> ile Bulut Altyapınızı Güçlendirin
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-400">Amazon AWS</span> ile Bulut Altyapınızı Güçlendirin
             </motion.h1>
             
             {/* Description */}
@@ -168,7 +168,7 @@ export default function AmazonAWSPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl sm:text-2xl text-orange-100 mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl sm:text-2xl text-orange-700 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Dünyanın en güvenilir ve ölçeklenebilir bulut altyapısı olan Amazon AWS ile işletmenizin dijital dönüşümünü hızlandırın, 
               maliyetlerinizi optimize edin ve güvenliğinizi artırın.
@@ -204,7 +204,7 @@ export default function AmazonAWSPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">
               Amazon AWS ile Neler Yapabilirsiniz?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -223,10 +223,10 @@ export default function AmazonAWSPage() {
               >
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-3xl shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-20 h-20 mx-auto mb-4 bg-orange-400 rounded-3xl shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <feature.icon className="w-10 h-10 text-white" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900">
+                    <CardTitle className="text-xl font-bold text-gray-800">
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
@@ -243,7 +243,7 @@ export default function AmazonAWSPage() {
       </section>
 
       {/* Solutions Section - Dark Background */}
-      <section className="py-20 bg-orange-800">
+      <section className="py-20 bg-orange-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -255,7 +255,7 @@ export default function AmazonAWSPage() {
             <h2 className="text-4xl font-bold text-white mb-6">
               NovaGraph ile Amazon AWS Çözümleri
             </h2>
-            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+            <p className="text-xl text-orange-700 max-w-3xl mx-auto">
               Bulut altyapınızı NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -269,12 +269,12 @@ export default function AmazonAWSPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white/20 transition-all duration-300">
+                <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-orange-200 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="text-2xl font-bold text-white mb-4">
                       {solution.title}
                     </CardTitle>
-                    <CardDescription className="text-orange-100 text-lg">
+                    <CardDescription className="text-orange-700 text-lg">
                       {solution.description}
                     </CardDescription>
                   </CardHeader>
@@ -282,13 +282,13 @@ export default function AmazonAWSPage() {
                     <ul className="space-y-3">
                       {solution.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
-                          <span className="text-orange-100">{benefit}</span>
+                          <CheckCircle className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-orange-700">{benefit}</span>
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-6 p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
-                      <p className="text-orange-100 font-medium">
+                    <div className="mt-6 p-4 bg-white backdrop-blur-md rounded-2xl border border-orange-200">
+                      <p className="text-orange-700 font-medium">
                         <strong>NovaGraph Kullanımı:</strong> {solution.novaGraphUsage}
                       </p>
                     </div>
@@ -310,7 +310,7 @@ export default function AmazonAWSPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">
               Kullanım Alanları
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -329,10 +329,10 @@ export default function AmazonAWSPage() {
               >
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-orange-500 rounded-2xl shadow-xl flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-orange-400 rounded-2xl shadow-xl flex items-center justify-center">
                       <useCase.icon className="w-8 h-8 text-white" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900">
+                    <CardTitle className="text-xl font-bold text-gray-800">
                       {useCase.title}
                     </CardTitle>
                     <CardDescription className="text-gray-600">
@@ -357,7 +357,7 @@ export default function AmazonAWSPage() {
       </section>
 
       {/* Why Choose Section - Dark Background */}
-      <section className="py-20 bg-orange-700">
+      <section className="py-20 bg-orange-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -369,7 +369,7 @@ export default function AmazonAWSPage() {
             <h2 className="text-4xl font-bold text-white mb-6">
               Neden NovaGraph ile Amazon AWS?
             </h2>
-            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+            <p className="text-xl text-orange-700 max-w-3xl mx-auto">
               Bulut altyapınızı uzman ekibimizle optimize edin
             </p>
           </motion.div>
@@ -399,7 +399,7 @@ export default function AmazonAWSPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white/20 transition-all duration-300">
+                <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-orange-200 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-orange-400 rounded-2xl shadow-xl flex items-center justify-center">
                       <benefit.icon className="w-8 h-8 text-white" />
@@ -409,7 +409,7 @@ export default function AmazonAWSPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-orange-100 text-center">
+                    <CardDescription className="text-orange-700 text-center">
                       {benefit.description}
                     </CardDescription>
                   </CardContent>
@@ -430,7 +430,7 @@ export default function AmazonAWSPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">
               NovaGraph'in Amazon AWS Kullanımı
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -441,7 +441,7 @@ export default function AmazonAWSPage() {
           <div className="bg-orange-50 rounded-2xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">
                   Bulut Stratejisi Dönüşümü
                 </h3>
                 <p className="text-gray-700 mb-6">
@@ -469,7 +469,7 @@ export default function AmazonAWSPage() {
                 </ul>
               </div>
               <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-4 bg-orange-500 rounded-full shadow-2xl flex items-center justify-center">
+                <div className="w-32 h-32 mx-auto mb-4 bg-orange-400 rounded-full shadow-2xl flex items-center justify-center">
                   <Cloud className="w-16 h-16 text-white" />
                 </div>
                 <p className="text-gray-600">
