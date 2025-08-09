@@ -130,7 +130,7 @@ export default function SimilarWebPage() {
             {/* Back Button */}
             <div className="flex justify-start mb-8">
               <Link href="/is-ortaklari">
-                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-white hover:bg-white/30">
+                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-[#1565c0] hover:bg-white/30">
                   <ArrowLeft className="w-4 h-4" />
                   Geri Dön
                 </Button>
@@ -142,7 +142,7 @@ export default function SimilarWebPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
+              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-[#1565c0] px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
             >
               <Globe className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortağımız</span>
@@ -153,7 +153,7 @@ export default function SimilarWebPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-[#1565c0] mb-6 leading-tight"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-purple-100">SimilarWeb</span> ile Rakip Analizinizi Güçlendirin
             </motion.h1>
@@ -202,7 +202,7 @@ export default function SimilarWebPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               SimilarWeb ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#2e5599] max-w-3xl mx-auto">
               Rakip analizinizi güçlendirmek için ihtiyacınız olan tüm araçlar SimilarWeb'de.
             </p>
           </motion.div>
@@ -219,12 +219,12 @@ export default function SimilarWebPage() {
               >
                 <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0 p-8">
                   <div className="w-20 h-20 bg-purple-500 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                    <feature.icon className="w-10 h-10 text-white" />
+                    <feature.icon className="w-10 h-10 text-[#1565c0]" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-200">
+                  <p className="text-[#2e5599]">
                     {feature.description}
                   </p>
                 </div>
@@ -244,7 +244,7 @@ export default function SimilarWebPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#1565c0] mb-6">
               NovaGraph ile SimilarWeb Çözümleri
             </h2>
             <p className="text-xl text-purple-100 max-w-3xl mx-auto">
@@ -263,7 +263,7 @@ export default function SimilarWebPage() {
               >
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-white mb-4">
+                    <CardTitle className="text-2xl font-bold text-[#1565c0] mb-4">
                       {solution.title}
                     </CardTitle>
                     <CardDescription className="text-purple-100 text-lg">
@@ -305,7 +305,7 @@ export default function SimilarWebPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#2e5599] max-w-3xl mx-auto">
               SimilarWeb ile farklı sektörlerde rakip analizi çözümleri
             </p>
           </motion.div>
@@ -322,12 +322,12 @@ export default function SimilarWebPage() {
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-purple-500 rounded-2xl shadow-xl flex items-center justify-center">
-                      <useCase.icon className="w-8 h-8 text-white" />
+                      <useCase.icon className="w-8 h-8 text-[#1565c0]" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-200">
+                    <CardDescription className="text-[#2e5599]">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -336,7 +336,7 @@ export default function SimilarWebPage() {
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-100">{benefit}</span>
+                          <span className="text-[#2e5599]">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -358,7 +358,7 @@ export default function SimilarWebPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#1565c0] mb-6">
               Neden NovaGraph ile SimilarWeb?
             </h2>
             <p className="text-xl text-purple-100 max-w-3xl mx-auto">
@@ -394,9 +394,9 @@ export default function SimilarWebPage() {
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-purple-400 rounded-2xl shadow-xl flex items-center justify-center">
-                      <benefit.icon className="w-8 h-8 text-white" />
+                      <benefit.icon className="w-8 h-8 text-[#1565c0]" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-white">
+                    <CardTitle className="text-xl font-bold text-[#1565c0]">
                       {benefit.title}
                     </CardTitle>
                   </CardHeader>
@@ -425,7 +425,7 @@ export default function SimilarWebPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in SimilarWeb Kullanımı
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#2e5599] max-w-3xl mx-auto">
               Rakip analizi stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -436,7 +436,7 @@ export default function SimilarWebPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Rakip Analizi Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-100 mb-6">
+                <p className="text-[#2e5599] mb-6">
                   NovaGraph olarak SimilarWeb platformunu kullanarak müşterilerinizin rakip analizi stratejilerini 
                   dönüştürüyoruz. Kapsamlı dijital istihbarat, pazar analizi ve fırsat belirleme ile 
                   rekabet avantajı sağlıyoruz.
@@ -444,27 +444,27 @@ export default function SimilarWebPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-100">Rakip analizi ve pazar araştırması</span>
+                    <span className="text-[#2e5599]">Rakip analizi ve pazar araştırması</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-100">Dijital istihbarat ve trend analizi</span>
+                    <span className="text-[#2e5599]">Dijital istihbarat ve trend analizi</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-100">Fırsat belirleme ve strateji geliştirme</span>
+                    <span className="text-[#2e5599]">Fırsat belirleme ve strateji geliştirme</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-100">Sürekli izleme ve raporlama</span>
+                    <span className="text-[#2e5599]">Sürekli izleme ve raporlama</span>
                   </li>
                 </ul>
               </div>
               <div className="text-center">
                 <div className="w-32 h-32 mx-auto mb-4 bg-purple-500 rounded-full shadow-2xl flex items-center justify-center">
-                  <Globe className="w-16 h-16 text-white" />
+                  <Globe className="w-16 h-16 text-[#1565c0]" />
                 </div>
-                <p className="text-gray-200">
+                <p className="text-[#2e5599]">
                   Rakip analizi stratejinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

@@ -130,7 +130,7 @@ export default function UnicaPage() {
             {/* Back Button */}
             <div className="flex justify-start mb-8">
               <Link href="/is-ortaklari">
-                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-white hover:bg-white/30">
+                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-[#003366] hover:bg-white/30">
                   <ArrowLeft className="w-4 h-4" />
                   Geri Dön
                 </Button>
@@ -142,7 +142,7 @@ export default function UnicaPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
+              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-[#003366] px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
             >
               <Users className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortağımız</span>
@@ -153,7 +153,7 @@ export default function UnicaPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-[#003366] mb-6 leading-tight"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-100">Unica</span> ile Müşteri Deneyimini Güçlendirin
             </motion.h1>
@@ -202,7 +202,7 @@ export default function UnicaPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Unica ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#2c4b81] max-w-3xl mx-auto">
               Müşteri deneyiminizi güçlendirmek için ihtiyacınız olan tüm araçlar Unica'da.
             </p>
           </motion.div>
@@ -219,12 +219,12 @@ export default function UnicaPage() {
               >
                 <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0 p-8">
                   <div className="w-20 h-20 bg-blue-500 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                    <feature.icon className="w-10 h-10 text-white" />
+                    <feature.icon className="w-10 h-10 text-[#003366]" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-200">
+                  <p className="text-[#2c4b81]">
                     {feature.description}
                   </p>
                 </div>
@@ -244,7 +244,7 @@ export default function UnicaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#003366] mb-6">
               NovaGraph ile Unica Çözümleri
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
@@ -263,7 +263,7 @@ export default function UnicaPage() {
               >
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-white mb-4">
+                    <CardTitle className="text-2xl font-bold text-[#003366] mb-4">
                       {solution.title}
                     </CardTitle>
                     <CardDescription className="text-blue-100 text-lg">
@@ -305,7 +305,7 @@ export default function UnicaPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#2c4b81] max-w-3xl mx-auto">
               Unica ile farklı sektörlerde müşteri deneyimi çözümleri
             </p>
           </motion.div>
@@ -322,12 +322,12 @@ export default function UnicaPage() {
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-blue-500 rounded-2xl shadow-xl flex items-center justify-center">
-                      <useCase.icon className="w-8 h-8 text-white" />
+                      <useCase.icon className="w-8 h-8 text-[#003366]" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-200">
+                    <CardDescription className="text-[#2c4b81]">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -336,7 +336,7 @@ export default function UnicaPage() {
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-100">{benefit}</span>
+                          <span className="text-[#2c4b81]">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -358,7 +358,7 @@ export default function UnicaPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#003366] mb-6">
               Neden NovaGraph ile Unica?
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
@@ -394,9 +394,9 @@ export default function UnicaPage() {
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-blue-400 rounded-2xl shadow-xl flex items-center justify-center">
-                      <benefit.icon className="w-8 h-8 text-white" />
+                      <benefit.icon className="w-8 h-8 text-[#003366]" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-white">
+                    <CardTitle className="text-xl font-bold text-[#003366]">
                       {benefit.title}
                     </CardTitle>
                   </CardHeader>
@@ -425,7 +425,7 @@ export default function UnicaPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in Unica Kullanımı
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#2c4b81] max-w-3xl mx-auto">
               Müşteri deneyimi stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -436,7 +436,7 @@ export default function UnicaPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Müşteri Deneyimi Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-100 mb-6">
+                <p className="text-[#2c4b81] mb-6">
                   NovaGraph olarak Unica platformunu kullanarak müşterilerinizin müşteri deneyimi stratejilerini 
                   dönüştürüyoruz. Kişiselleştirilmiş deneyimler, müşteri analizi ve sadakat programları ile 
                   müşteri memnuniyetini artırıyoruz.
@@ -444,27 +444,27 @@ export default function UnicaPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-100">Müşteri analizi ve segmentasyonu</span>
+                    <span className="text-[#2c4b81]">Müşteri analizi ve segmentasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-100">Kişiselleştirilmiş deneyim tasarımı</span>
+                    <span className="text-[#2c4b81]">Kişiselleştirilmiş deneyim tasarımı</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-100">Müşteri sadakat programları</span>
+                    <span className="text-[#2c4b81]">Müşteri sadakat programları</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-100">Sürekli optimizasyon ve izleme</span>
+                    <span className="text-[#2c4b81]">Sürekli optimizasyon ve izleme</span>
                   </li>
                 </ul>
               </div>
               <div className="text-center">
                 <div className="w-32 h-32 mx-auto mb-4 bg-blue-500 rounded-full shadow-2xl flex items-center justify-center">
-                  <Users className="w-16 h-16 text-white" />
+                  <Users className="w-16 h-16 text-[#003366]" />
                 </div>
-                <p className="text-gray-200">
+                <p className="text-[#2c4b81]">
                   Müşteri deneyimi stratejinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

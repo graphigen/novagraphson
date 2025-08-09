@@ -120,17 +120,17 @@ export default function CloudflarePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#ffe8d6]">
+    <div className="min-h-screen bg-[#fff6e1]">
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-[#ffe8d6]">
-        <div className="absolute inset-0 bg-[#ffe8d6]/20"></div>
+      <section className="relative py-20 lg:py-32 overflow-hidden bg-[#fff6e1]">
+        <div className="absolute inset-0 bg-[#fff6e1]/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Back Button */}
             <div className="flex justify-start mb-8">
               <Link href="/is-ortaklari">
-                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-white hover:bg-white/30">
+                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-[#a85400] hover:bg-white/30">
                   <ArrowLeft className="w-4 h-4" />
                   Geri Dön
                 </Button>
@@ -142,7 +142,7 @@ export default function CloudflarePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
+              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-[#a85400] px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
             >
               <Shield className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortağımız</span>
@@ -153,7 +153,7 @@ export default function CloudflarePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-[#a85400] mb-6 leading-tight"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-400">Cloudflare</span> ile Web Güvenliğinizi Güçlendirin
             </motion.h1>
@@ -163,7 +163,7 @@ export default function CloudflarePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl sm:text-2xl text-[#805600] mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Dünyanın en güvenilir CDN ve güvenlik platformu Cloudflare ile web sitenizin performansını artırın, 
               güvenliğinizi sağlayın ve kullanıcı deneyimini optimize edin.
@@ -178,7 +178,7 @@ export default function CloudflarePage() {
             >
               <Button 
                 size="lg" 
-                className="bg-white text-orange-800 hover:bg-[#ffe8d6] px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
+                className="bg-white text-orange-800 hover:bg-[#fff6e1] px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
                 onClick={() => openForm("Cloudflare Güvenlik Hizmetleri")}
               >
                 İletişime Geç
@@ -202,7 +202,7 @@ export default function CloudflarePage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Cloudflare ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#805600] max-w-3xl mx-auto">
               Web sitenizin güvenliğini ve performansını artırmak için ihtiyacınız olan tüm araçlar Cloudflare'de.
             </p>
           </motion.div>
@@ -218,15 +218,15 @@ export default function CloudflarePage() {
               >
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-20 h-20 mx-auto mb-4 bg-orange-400 rounded-3xl shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <feature.icon className="w-10 h-10 text-white" />
+                    <div className="w-20 h-20 mx-auto mb-4 bg-[#fff0cc] rounded-3xl shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <feature.icon className="w-10 h-10 text-[#a85400]" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-200 text-center">
+                    <CardDescription className="text-[#805600] text-center">
                       {feature.description}
                     </CardDescription>
                   </CardContent>
@@ -238,7 +238,7 @@ export default function CloudflarePage() {
       </section>
 
       {/* Solutions Section - Dark Background */}
-      <section className="py-20 bg-[#ffe8d6]">
+      <section className="py-20 bg-[#fff6e1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -247,10 +247,10 @@ export default function CloudflarePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#a85400] mb-6">
               NovaGraph ile Cloudflare Çözümleri
             </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-xl text-[#805600] max-w-3xl mx-auto">
               Web güvenliğinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -266,10 +266,10 @@ export default function CloudflarePage() {
               >
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-white mb-4">
+                    <CardTitle className="text-2xl font-bold text-[#a85400] mb-4">
                       {solution.title}
                     </CardTitle>
-                    <CardDescription className="text-white/90 text-lg">
+                    <CardDescription className="text-[#805600] text-lg">
                       {solution.description}
                     </CardDescription>
                   </CardHeader>
@@ -277,13 +277,13 @@ export default function CloudflarePage() {
                     <ul className="space-y-3">
                       {solution.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 flex-shrink-0" />
-                          <span className="text-white/90">{benefit}</span>
+                          <CheckCircle className="w-5 h-5 text-[#805600] mt-0.5 flex-shrink-0" />
+                          <span className="text-[#805600]">{benefit}</span>
                         </li>
                       ))}
                     </ul>
                     <div className="mt-6 p-4 bg-white backdrop-blur-md rounded-2xl border border-white/20">
-                      <p className="text-white/90 font-medium">
+                      <p className="text-[#805600] font-medium">
                         <strong>NovaGraph Kullanımı:</strong> {solution.novaGraphUsage}
                       </p>
                     </div>
@@ -308,7 +308,7 @@ export default function CloudflarePage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#805600] max-w-3xl mx-auto">
               Cloudflare ile farklı web siteleriniz için güvenlik ve performans çözümleri
             </p>
           </motion.div>
@@ -324,13 +324,13 @@ export default function CloudflarePage() {
               >
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-orange-400 rounded-2xl shadow-xl flex items-center justify-center">
-                      <useCase.icon className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-[#fff0cc] rounded-2xl shadow-xl flex items-center justify-center">
+                      <useCase.icon className="w-8 h-8 text-[#a85400]" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-200">
+                    <CardDescription className="text-[#805600]">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -338,8 +338,8 @@ export default function CloudflarePage() {
                     <ul className="space-y-3">
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-100">{benefit}</span>
+                          <CheckCircle className="w-5 h-5 text-[#f38020]" />
+                          <span className="text-[#805600]">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -352,7 +352,7 @@ export default function CloudflarePage() {
       </section>
 
       {/* Why Choose Section - Dark Background */}
-      <section className="py-20 bg-[#ffe8d6]">
+      <section className="py-20 bg-[#fff6e1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -361,10 +361,10 @@ export default function CloudflarePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#a85400] mb-6">
               Neden NovaGraph ile Cloudflare?
             </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-xl text-[#805600] max-w-3xl mx-auto">
               Web güvenliğinizi uzman ekibimizle optimize edin
             </p>
           </motion.div>
@@ -396,15 +396,15 @@ export default function CloudflarePage() {
               >
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-orange-400 rounded-2xl shadow-xl flex items-center justify-center">
-                      <benefit.icon className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-[#fff0cc] rounded-2xl shadow-xl flex items-center justify-center">
+                      <benefit.icon className="w-8 h-8 text-[#a85400]" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-white">
+                    <CardTitle className="text-xl font-bold text-[#a85400]">
                       {benefit.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-white/90 text-center">
+                    <CardDescription className="text-[#805600] text-center">
                       {benefit.description}
                     </CardDescription>
                   </CardContent>
@@ -428,46 +428,46 @@ export default function CloudflarePage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in Cloudflare Kullanımı
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#805600] max-w-3xl mx-auto">
               Web güvenliğinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
 
-          <div className="bg-[#ffe8d6] rounded-2xl p-8">
+          <div className="bg-[#fff6e1] rounded-2xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Güvenlik Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-100 mb-6">
+                <p className="text-[#805600] mb-6">
                   NovaGraph olarak Cloudflare platformunu kullanarak müşterilerinizin web güvenlik stratejilerini 
                   dönüştürüyoruz. DDoS koruması, CDN optimizasyonu ve güvenlik çözümleri ile 
                   web sitelerini koruyoruz.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-100">DDoS koruması ve güvenlik çözümleri</span>
+                    <CheckCircle className="w-5 h-5 text-[#f38020]" />
+                    <span className="text-[#805600]">DDoS koruması ve güvenlik çözümleri</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-100">CDN optimizasyonu ve performans artırımı</span>
+                    <CheckCircle className="w-5 h-5 text-[#f38020]" />
+                    <span className="text-[#805600]">CDN optimizasyonu ve performans artırımı</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-100">SSL sertifika yönetimi</span>
+                    <CheckCircle className="w-5 h-5 text-[#f38020]" />
+                    <span className="text-[#805600]">SSL sertifika yönetimi</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-100">Sürekli destek ve izleme</span>
+                    <CheckCircle className="w-5 h-5 text-[#f38020]" />
+                    <span className="text-[#805600]">Sürekli destek ve izleme</span>
                   </li>
                 </ul>
               </div>
               <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-4 bg-orange-400 rounded-full shadow-2xl flex items-center justify-center">
-                  <Shield className="w-16 h-16 text-white" />
+                <div className="w-32 h-32 mx-auto mb-4 bg-[#fff0cc] rounded-full shadow-2xl flex items-center justify-center">
+                  <Shield className="w-16 h-16 text-[#a85400]" />
                 </div>
-                <p className="text-gray-200">
+                <p className="text-[#805600]">
                   Web güvenliğinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

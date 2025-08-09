@@ -43,7 +43,7 @@ export default function ZendeskPage() {
           {/* Back Button */}
           <div className="mb-8">
             <Link href="/is-ortaklari">
-              <Button variant="outline" className="bg-white backdrop-blur-md border-white/20 text-white hover:bg-white/30">
+              <Button variant="outline" className="bg-white backdrop-blur-md border-white/20 text-[#5c7a00] hover:bg-white/30">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Geri Dön
               </Button>
@@ -57,7 +57,7 @@ export default function ZendeskPage() {
               transition={{ duration: 0.6 }}
               className="mb-8"
             >
-              <Badge className="px-6 py-3 bg-white backdrop-blur-md border-white/20 text-white shadow-lg">
+              <Badge className="px-6 py-3 bg-white backdrop-blur-md border-white/20 text-[#5c7a00] shadow-lg">
                 İş Ortağımız
               </Badge>
             </motion.div>
@@ -68,7 +68,7 @@ export default function ZendeskPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6"
             >
-              <span className="text-white">Müşteri Deneyimi Platformu</span>
+              <span className="text-[#5c7a00]">Müşteri Deneyimi Platformu</span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-100">
                 Zendesk
@@ -123,7 +123,7 @@ export default function ZendeskPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Zendesk'in Güçlü Özellikleri
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#3e5500] max-w-3xl mx-auto">
               Müşteri deneyimini dönüştüren kapsamlı platform özellikleri
             </p>
           </motion.div>
@@ -170,14 +170,14 @@ export default function ZendeskPage() {
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
                     <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <feature.icon className="w-10 h-10 text-white" />
+                      <feature.icon className="w-10 h-10 text-[#5c7a00]" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-200 text-center">
+                    <CardDescription className="text-[#3e5500] text-center">
                       {feature.description}
                     </CardDescription>
                   </CardContent>
@@ -197,7 +197,7 @@ export default function ZendeskPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold text-[#5c7a00] mb-4">
               NovaGraph ile Zendesk Çözümleri
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
@@ -256,7 +256,7 @@ export default function ZendeskPage() {
               >
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-white mb-4">
+                    <CardTitle className="text-2xl font-bold text-[#5c7a00] mb-4">
                       {solution.title}
                     </CardTitle>
                     <CardDescription className="text-blue-100 text-lg">
@@ -293,7 +293,7 @@ export default function ZendeskPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#3e5500] max-w-3xl mx-auto">
               Zendesk ile farklı sektörlerde müşteri hizmetleri çözümleri
             </p>
           </motion.div>
@@ -332,7 +332,7 @@ export default function ZendeskPage() {
                     <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-200 text-lg">
+                    <CardDescription className="text-[#3e5500] text-lg">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -341,7 +341,7 @@ export default function ZendeskPage() {
                       {useCase.metrics.map((metric, metricIndex) => (
                         <div key={metricIndex} className="flex items-center space-x-3">
                           <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                          <span className="text-gray-100 font-medium">{metric}</span>
+                          <span className="text-[#3e5500] font-medium">{metric}</span>
                         </div>
                       ))}
                     </div>
@@ -362,7 +362,7 @@ export default function ZendeskPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold text-[#5c7a00] mb-4">
               Neden NovaGraph ile Zendesk?
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
@@ -412,9 +412,9 @@ export default function ZendeskPage() {
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl shadow-xl flex items-center justify-center">
-                      <benefit.icon className="w-8 h-8 text-white" />
+                      <benefit.icon className="w-8 h-8 text-[#5c7a00]" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-white">
+                    <CardTitle className="text-xl font-bold text-[#5c7a00]">
                       {benefit.title}
                     </CardTitle>
                   </CardHeader>
@@ -442,7 +442,7 @@ export default function ZendeskPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               NovaGraph'in Zendesk Kullanımı
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#3e5500] max-w-3xl mx-auto">
               Müşteri deneyimi platformunuzu NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -453,7 +453,7 @@ export default function ZendeskPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Müşteri Deneyimi Dönüşümü
                 </h3>
-                <p className="text-gray-100 mb-6">
+                <p className="text-[#3e5500] mb-6">
                   NovaGraph olarak Zendesk platformunu kullanarak müşterilerinizin müşteri deneyimi 
                   süreçlerini dönüştürüyoruz. Kapsamlı analitik, AI destekli otomasyon ve 
                   çoklu kanal entegrasyonu ile müşteri memnuniyetini artırıyoruz.
@@ -461,27 +461,27 @@ export default function ZendeskPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-100">Platform kurulumu ve konfigürasyonu</span>
+                    <span className="text-[#3e5500]">Platform kurulumu ve konfigürasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-100">Özelleştirilmiş iş akışları tasarımı</span>
+                    <span className="text-[#3e5500]">Özelleştirilmiş iş akışları tasarımı</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-100">AI destekli chatbot entegrasyonu</span>
+                    <span className="text-[#3e5500]">AI destekli chatbot entegrasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-100">Gelişmiş analitik ve raporlama</span>
+                    <span className="text-[#3e5500]">Gelişmiş analitik ve raporlama</span>
                   </li>
                 </ul>
               </div>
               <div className="text-center">
                 <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full shadow-2xl flex items-center justify-center">
-                  <MessageSquare className="w-16 h-16 text-white" />
+                  <MessageSquare className="w-16 h-16 text-[#5c7a00]" />
                 </div>
-                <p className="text-gray-200">
+                <p className="text-[#3e5500]">
                   Müşteri deneyimi platformunuzu NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

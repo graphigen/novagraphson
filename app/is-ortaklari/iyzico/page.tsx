@@ -130,7 +130,7 @@ export default function IyzicoPage() {
             {/* Back Button */}
             <div className="flex justify-start mb-8">
               <Link href="/is-ortaklari">
-                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-white hover:bg-white/30">
+                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-[#7a0000] hover:bg-white/30">
                   <ArrowLeft className="w-4 h-4" />
                   Geri Dön
                 </Button>
@@ -142,7 +142,7 @@ export default function IyzicoPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
+              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-[#7a0000] px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
             >
               <CreditCard className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortağımız</span>
@@ -153,7 +153,7 @@ export default function IyzicoPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-[#7a0000] mb-6 leading-tight"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-green-100">iyzico</span> ile Ödeme Süreçlerinizi Güçlendirin
             </motion.h1>
@@ -202,7 +202,7 @@ export default function IyzicoPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               iyzico ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#4c0000] max-w-3xl mx-auto">
               Ödeme süreçlerinizi güçlendirmek için ihtiyacınız olan tüm araçlar iyzico'da.
             </p>
           </motion.div>
@@ -219,12 +219,12 @@ export default function IyzicoPage() {
               >
                 <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0 p-8">
                   <div className="w-20 h-20 bg-green-500 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                    <feature.icon className="w-10 h-10 text-white" />
+                    <feature.icon className="w-10 h-10 text-[#7a0000]" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-200">
+                  <p className="text-[#4c0000]">
                     {feature.description}
                   </p>
                 </div>
@@ -244,7 +244,7 @@ export default function IyzicoPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#7a0000] mb-6">
               NovaGraph ile iyzico Çözümleri
             </h2>
             <p className="text-xl text-green-100 max-w-3xl mx-auto">
@@ -263,7 +263,7 @@ export default function IyzicoPage() {
               >
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-white mb-4">
+                    <CardTitle className="text-2xl font-bold text-[#7a0000] mb-4">
                       {solution.title}
                     </CardTitle>
                     <CardDescription className="text-green-100 text-lg">
@@ -305,7 +305,7 @@ export default function IyzicoPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#4c0000] max-w-3xl mx-auto">
               iyzico ile farklı iş modelleriniz için ödeme çözümleri
             </p>
           </motion.div>
@@ -322,12 +322,12 @@ export default function IyzicoPage() {
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-green-500 rounded-2xl shadow-xl flex items-center justify-center">
-                      <useCase.icon className="w-8 h-8 text-white" />
+                      <useCase.icon className="w-8 h-8 text-[#7a0000]" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-200">
+                    <CardDescription className="text-[#4c0000]">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -336,7 +336,7 @@ export default function IyzicoPage() {
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-100">{benefit}</span>
+                          <span className="text-[#4c0000]">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -358,7 +358,7 @@ export default function IyzicoPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#7a0000] mb-6">
               Neden NovaGraph ile iyzico?
             </h2>
             <p className="text-xl text-green-100 max-w-3xl mx-auto">
@@ -394,9 +394,9 @@ export default function IyzicoPage() {
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-green-400 rounded-2xl shadow-xl flex items-center justify-center">
-                      <benefit.icon className="w-8 h-8 text-white" />
+                      <benefit.icon className="w-8 h-8 text-[#7a0000]" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-white">
+                    <CardTitle className="text-xl font-bold text-[#7a0000]">
                       {benefit.title}
                     </CardTitle>
                   </CardHeader>
@@ -425,7 +425,7 @@ export default function IyzicoPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in iyzico Kullanımı
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#4c0000] max-w-3xl mx-auto">
               Ödeme süreçlerinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -436,7 +436,7 @@ export default function IyzicoPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Ödeme Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-100 mb-6">
+                <p className="text-[#4c0000] mb-6">
                   NovaGraph olarak iyzico platformunu kullanarak müşterilerinizin ödeme süreçlerini 
                   dönüştürüyoruz. Güvenli ödeme, hızlı entegrasyon ve müşteri deneyimi ile 
                   satış dönüşümünü artırıyoruz.
@@ -444,27 +444,27 @@ export default function IyzicoPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-100">Ödeme sistemi kurulumu ve entegrasyonu</span>
+                    <span className="text-[#4c0000]">Ödeme sistemi kurulumu ve entegrasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-100">Güvenlik ve uyumluluk çözümleri</span>
+                    <span className="text-[#4c0000]">Güvenlik ve uyumluluk çözümleri</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-100">Müşteri deneyimi optimizasyonu</span>
+                    <span className="text-[#4c0000]">Müşteri deneyimi optimizasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-100">Sürekli destek ve izleme</span>
+                    <span className="text-[#4c0000]">Sürekli destek ve izleme</span>
                   </li>
                 </ul>
               </div>
               <div className="text-center">
                 <div className="w-32 h-32 mx-auto mb-4 bg-green-500 rounded-full shadow-2xl flex items-center justify-center">
-                  <CreditCard className="w-16 h-16 text-white" />
+                  <CreditCard className="w-16 h-16 text-[#7a0000]" />
                 </div>
-                <p className="text-gray-200">
+                <p className="text-[#4c0000]">
                   Ödeme süreçlerinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

@@ -169,7 +169,7 @@ export default function ZohoPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl sm:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl sm:text-2xl text-[#702019] mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Kapsamlı iş uygulamaları platformu Zoho ile müşteri ilişkilerinizi güçlendirin, 
               satış süreçlerinizi optimize edin ve ekip verimliliğinizi artırın.
@@ -184,7 +184,7 @@ export default function ZohoPage() {
             >
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-[#a42a1b] px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
                 onClick={() => openForm("Zoho İş Uygulamaları")}
               >
                 İletişime Geç
@@ -208,7 +208,7 @@ export default function ZohoPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Zoho ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#702019] max-w-3xl mx-auto">
               İş süreçlerinizi dijitalleştirmek için ihtiyacınız olan tüm uygulamalar Zoho'da.
             </p>
           </motion.div>
@@ -224,10 +224,10 @@ export default function ZohoPage() {
                 className="text-center group"
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                  <feature.icon className="w-10 h-10 text-white" />
+                  <feature.icon className="w-10 h-10 text-[#a42a1b]" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-200 leading-relaxed">{feature.description}</p>
+                <p className="text-[#702019] leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -247,7 +247,7 @@ export default function ZohoPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph ile Zoho Çözümleri
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#702019] max-w-3xl mx-auto">
               Zoho'nun güçlü iş uygulamalarını NovaGraph uzmanlığı ile birleştirerek müşterilerinizin iş süreçlerini optimize ediyoruz.
             </p>
           </motion.div>
@@ -268,7 +268,7 @@ export default function ZohoPage() {
                   </div>
                   <div>
                     <h3 className="text-3xl font-bold text-gray-900 mb-2">{solution.title}</h3>
-                    <p className="text-gray-200 text-lg">{solution.description}</p>
+                    <p className="text-[#702019] text-lg">{solution.description}</p>
                   </div>
                 </div>
                 
@@ -279,7 +279,7 @@ export default function ZohoPage() {
                       {solution.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-center gap-3">
                           <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                          <span className="text-gray-100">{benefit}</span>
+                          <span className="text-[#702019]">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -309,7 +309,7 @@ export default function ZohoPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#702019] max-w-3xl mx-auto">
               Zoho ile farklı iş süreçleriniz için yönetim çözümleri
             </p>
           </motion.div>
@@ -329,7 +329,7 @@ export default function ZohoPage() {
                     <useCase.icon className="w-10 h-10 text-blue-600" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{useCase.title}</h3>
-                  <p className="text-gray-200 text-lg">{useCase.description}</p>
+                  <p className="text-[#702019] text-lg">{useCase.description}</p>
                 </div>
                 
                 <div>
@@ -338,7 +338,7 @@ export default function ZohoPage() {
                     {useCase.benefits.map((benefit, benefitIndex) => (
                       <li key={benefitIndex} className="flex items-center gap-3">
                         <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                        <span className="text-gray-100">{benefit}</span>
+                        <span className="text-[#702019]">{benefit}</span>
                       </li>
                     ))}
                   </ul>
@@ -362,7 +362,7 @@ export default function ZohoPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Neden Zoho?
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#702019] max-w-3xl mx-auto">
               Kapsamlı iş uygulamaları platformu olan Zoho'nun avantajları.
             </p>
           </motion.div>
@@ -376,10 +376,10 @@ export default function ZohoPage() {
               className="text-center group"
             >
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                <Settings className="w-10 h-10 text-white" />
+                <Settings className="w-10 h-10 text-[#a42a1b]" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Entegrasyon</h3>
-              <p className="text-gray-200 text-lg">Tüm uygulamalar arasında sorunsuz entegrasyon</p>
+              <p className="text-[#702019] text-lg">Tüm uygulamalar arasında sorunsuz entegrasyon</p>
             </motion.div>
 
             <motion.div
@@ -390,10 +390,10 @@ export default function ZohoPage() {
               className="text-center group"
             >
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                <Shield className="w-10 h-10 text-white" />
+                <Shield className="w-10 h-10 text-[#a42a1b]" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Güvenlik</h3>
-              <p className="text-gray-200 text-lg">Endüstri standardı güvenlik ve veri koruması</p>
+              <p className="text-[#702019] text-lg">Endüstri standardı güvenlik ve veri koruması</p>
             </motion.div>
 
             <motion.div
@@ -404,10 +404,10 @@ export default function ZohoPage() {
               className="text-center group"
             >
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                <TrendingUp className="w-10 h-10 text-white" />
+                <TrendingUp className="w-10 h-10 text-[#a42a1b]" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Ölçeklenebilirlik</h3>
-              <p className="text-gray-200 text-lg">İşletmenizin büyümesine uygun ölçeklenebilir çözümler</p>
+              <p className="text-[#702019] text-lg">İşletmenizin büyümesine uygun ölçeklenebilir çözümler</p>
             </motion.div>
           </div>
         </div>

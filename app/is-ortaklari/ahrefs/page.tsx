@@ -120,11 +120,11 @@ export default function AhrefsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#e6f3ff]">
+    <div className="min-h-screen bg-[#e6f0fa]">
       
       {/* Hero Section - Dark Background */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-[#e6f3ff]">
-        <div className="absolute inset-0 bg-[#e6f3ff]/20"></div>
+      <section className="relative py-20 lg:py-32 overflow-hidden bg-[#e6f0fa]">
+        <div className="absolute inset-0 bg-[#e6f0fa]/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Back Button */}
@@ -135,7 +135,7 @@ export default function AhrefsPage() {
               className="flex justify-start mb-8"
             >
               <Link href="/is-ortaklari">
-                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-white hover:bg-white/30">
+                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-white/20 text-[#003366] hover:bg-white/30">
                   <ArrowLeft className="w-4 h-4" />
                   Geri Dön
                 </Button>
@@ -147,7 +147,7 @@ export default function AhrefsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
+              className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-md text-[#003366] px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-white/20"
             >
               <Search className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortağımız</span>
@@ -158,7 +158,7 @@ export default function AhrefsPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-[#003366] mb-6 leading-tight"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-400">Ahrefs</span> ile SEO Stratejinizi Güçlendirin
             </motion.h1>
@@ -168,7 +168,7 @@ export default function AhrefsPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl sm:text-2xl text-[#33475b] mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Dünyanın en gelişmiş SEO araçlarından biri olan Ahrefs ile web sitenizin arama motoru performansını optimize edin, 
               rakiplerinizi analiz edin ve organik trafiğinizi artırın.
@@ -183,7 +183,7 @@ export default function AhrefsPage() {
             >
               <Button 
                 size="lg" 
-                className="bg-white text-orange-800 hover:bg-[#e6f3ff] px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
+                className="bg-white text-orange-800 hover:bg-[#e6f0fa] px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
                 onClick={() => openForm("Ahrefs SEO Hizmetleri")}
               >
                 İletişime Geç
@@ -207,7 +207,7 @@ export default function AhrefsPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Ahrefs ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#33475b] max-w-3xl mx-auto">
               Dünyanın en gelişmiş SEO araçlarının güçlü özellikleri
             </p>
           </motion.div>
@@ -223,15 +223,15 @@ export default function AhrefsPage() {
               >
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-20 h-20 mx-auto mb-4 bg-orange-400 rounded-3xl shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <feature.icon className="w-10 h-10 text-white" />
+                    <div className="w-20 h-20 mx-auto mb-4 bg-[#cce4ff] rounded-3xl shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <feature.icon className="w-10 h-10 text-[#003366]" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-200 text-center">
+                    <CardDescription className="text-[#33475b] text-center">
                       {feature.description}
                     </CardDescription>
                   </CardContent>
@@ -243,7 +243,7 @@ export default function AhrefsPage() {
       </section>
 
       {/* Solutions Section - Dark Background */}
-      <section className="py-20 bg-[#e6f3ff]">
+      <section className="py-20 bg-[#e6f0fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -252,10 +252,10 @@ export default function AhrefsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#003366] mb-6">
               NovaGraph ile Ahrefs Çözümleri
             </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-xl text-[#33475b] max-w-3xl mx-auto">
               SEO stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -271,10 +271,10 @@ export default function AhrefsPage() {
               >
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-white mb-4">
+                    <CardTitle className="text-2xl font-bold text-[#003366] mb-4">
                       {solution.title}
                     </CardTitle>
-                    <CardDescription className="text-white/90 text-lg">
+                    <CardDescription className="text-[#33475b] text-lg">
                       {solution.description}
                     </CardDescription>
                   </CardHeader>
@@ -282,13 +282,13 @@ export default function AhrefsPage() {
                     <ul className="space-y-3">
                       {solution.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 flex-shrink-0" />
-                          <span className="text-white/90">{benefit}</span>
+                          <CheckCircle className="w-5 h-5 text-[#33475b] mt-0.5 flex-shrink-0" />
+                          <span className="text-[#33475b]">{benefit}</span>
                         </li>
                       ))}
                     </ul>
                     <div className="mt-6 p-4 bg-white backdrop-blur-md rounded-2xl border border-white/20">
-                      <p className="text-white/90 font-medium">
+                      <p className="text-[#33475b] font-medium">
                         <strong>NovaGraph Kullanımı:</strong> {solution.novaGraphUsage}
                       </p>
                     </div>
@@ -313,7 +313,7 @@ export default function AhrefsPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#33475b] max-w-3xl mx-auto">
               Ahrefs ile farklı sektörlerde SEO stratejilerinizi optimize edin
             </p>
           </motion.div>
@@ -329,13 +329,13 @@ export default function AhrefsPage() {
               >
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-orange-400 rounded-2xl shadow-xl flex items-center justify-center">
-                      <useCase.icon className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-[#cce4ff] rounded-2xl shadow-xl flex items-center justify-center">
+                      <useCase.icon className="w-8 h-8 text-[#003366]" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-200">
+                    <CardDescription className="text-[#33475b]">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -343,8 +343,8 @@ export default function AhrefsPage() {
                     <ul className="space-y-3">
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-100">{benefit}</span>
+                          <CheckCircle className="w-5 h-5 text-[#0073e6]" />
+                          <span className="text-[#33475b]">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -357,7 +357,7 @@ export default function AhrefsPage() {
       </section>
 
       {/* Why Choose Section - Dark Background */}
-      <section className="py-20 bg-[#e6f3ff]">
+      <section className="py-20 bg-[#e6f0fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -366,10 +366,10 @@ export default function AhrefsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#003366] mb-6">
               Neden NovaGraph ile Ahrefs?
             </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-xl text-[#33475b] max-w-3xl mx-auto">
               SEO stratejinizi uzman ekibimizle optimize edin
             </p>
           </motion.div>
@@ -401,15 +401,15 @@ export default function AhrefsPage() {
               >
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white transition-all duration-300">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-orange-400 rounded-2xl shadow-xl flex items-center justify-center">
-                      <benefit.icon className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-[#cce4ff] rounded-2xl shadow-xl flex items-center justify-center">
+                      <benefit.icon className="w-8 h-8 text-[#003366]" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-white">
+                    <CardTitle className="text-xl font-bold text-[#003366]">
                       {benefit.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-white/90 text-center">
+                    <CardDescription className="text-[#33475b] text-center">
                       {benefit.description}
                     </CardDescription>
                   </CardContent>
@@ -433,46 +433,46 @@ export default function AhrefsPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in Ahrefs Kullanımı
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-[#33475b] max-w-3xl mx-auto">
               SEO stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
 
-          <div className="bg-[#e6f3ff] rounded-2xl p-8">
+          <div className="bg-[#e6f0fa] rounded-2xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   SEO Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-100 mb-6">
+                <p className="text-[#33475b] mb-6">
                   NovaGraph olarak Ahrefs platformunu kullanarak müşterilerinizin SEO stratejilerini 
                   dönüştürüyoruz. Kapsamlı analitik, rakip analizi ve anahtar kelime araştırması ile 
                   organik trafiği artırıyoruz.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-100">SEO analizi ve strateji geliştirme</span>
+                    <CheckCircle className="w-5 h-5 text-[#0073e6]" />
+                    <span className="text-[#33475b]">SEO analizi ve strateji geliştirme</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-100">Rakip analizi ve fırsat belirleme</span>
+                    <CheckCircle className="w-5 h-5 text-[#0073e6]" />
+                    <span className="text-[#33475b]">Rakip analizi ve fırsat belirleme</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-100">Anahtar kelime araştırması ve optimizasyonu</span>
+                    <CheckCircle className="w-5 h-5 text-[#0073e6]" />
+                    <span className="text-[#33475b]">Anahtar kelime araştırması ve optimizasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-100">Sürekli performans izleme ve raporlama</span>
+                    <CheckCircle className="w-5 h-5 text-[#0073e6]" />
+                    <span className="text-[#33475b]">Sürekli performans izleme ve raporlama</span>
                   </li>
                 </ul>
               </div>
               <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-4 bg-orange-400 rounded-full shadow-2xl flex items-center justify-center">
-                  <Search className="w-16 h-16 text-white" />
+                <div className="w-32 h-32 mx-auto mb-4 bg-[#cce4ff] rounded-full shadow-2xl flex items-center justify-center">
+                  <Search className="w-16 h-16 text-[#003366]" />
                 </div>
-                <p className="text-gray-200">
+                <p className="text-[#33475b]">
                   SEO stratejinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

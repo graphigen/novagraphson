@@ -135,7 +135,7 @@ export default function AmazonAWSPage() {
               className="flex justify-start mb-8"
             >
               <Link href="/is-ortaklari">
-                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-[#fff2cc] text-white hover:bg-white/30">
+                <Button variant="outline" className="flex items-center gap-2 bg-white backdrop-blur-md border-[#fff2cc] text-[#663c00] hover:bg-white/30">
                   <ArrowLeft className="w-4 h-4" />
                   Geri Dön
                 </Button>
@@ -147,7 +147,7 @@ export default function AmazonAWSPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center justify-center space-x-2 bg-[#fff2cc] backdrop-blur-md text-[#663c00] px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-[#fff2cc]"
+              className="inline-flex items-center justify-center space-x-2 bg-[#fff7e6] backdrop-blur-md text-[#663c00] px-6 py-3 rounded-full text-sm font-medium mb-8 shadow-lg border border-[#fff2cc]"
             >
               <Cloud className="w-4 h-4 flex-shrink-0" />
               <span>İş Ortağımız</span>
@@ -223,8 +223,8 @@ export default function AmazonAWSPage() {
               >
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-20 h-20 mx-auto mb-4 bg-[#fff2cc] rounded-3xl shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <feature.icon className="w-10 h-10 text-white" />
+                    <div className="w-20 h-20 mx-auto mb-4 bg-[#fff7e6] rounded-3xl shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <feature.icon className="w-10 h-10 text-[#663c00]" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {feature.title}
@@ -329,7 +329,7 @@ export default function AmazonAWSPage() {
               >
                 <Card className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-[#fff2cc] rounded-2xl shadow-xl flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-[#fff7e6] rounded-2xl shadow-xl flex items-center justify-center">
                       <useCase.icon className="w-8 h-8 text-[#ff9900]" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
@@ -343,7 +343,7 @@ export default function AmazonAWSPage() {
                     <ul className="space-y-3">
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-[#ff9900]" />
                           <span className="text-[#7a5900]">{benefit}</span>
                         </li>
                       ))}
@@ -401,10 +401,10 @@ export default function AmazonAWSPage() {
               >
                 <Card className="h-full bg-white backdrop-blur-md rounded-3xl border border-[#fff2cc] p-8 hover:bg-white transition-all duration-300">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-[#fff2cc] rounded-2xl shadow-xl flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-[#fff7e6] rounded-2xl shadow-xl flex items-center justify-center">
                       <benefit.icon className="w-8 h-8 text-[#ff9900]" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-white">
+                    <CardTitle className="text-xl font-bold text-[#663c00]">
                       {benefit.title}
                     </CardTitle>
                   </CardHeader>
@@ -444,35 +444,35 @@ export default function AmazonAWSPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Bulut Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-100 mb-6">
+                <p className="text-[#7a5900] mb-6">
                   NovaGraph olarak Amazon AWS platformunu kullanarak müşterilerinizin bulut stratejilerini 
                   dönüştürüyoruz. Ölçeklenebilir altyapı, güvenlik ve maliyet optimizasyonu ile 
                   dijital dönüşümü hızlandırıyoruz.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
+                    <CheckCircle className="w-5 h-5 text-[#ff9900]" />
                     <span className="text-[#7a5900]">Bulut altyapısı kurulumu ve yönetimi</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
+                    <CheckCircle className="w-5 h-5 text-[#ff9900]" />
                     <span className="text-[#7a5900]">Güvenlik ve uyumluluk çözümleri</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
+                    <CheckCircle className="w-5 h-5 text-[#ff9900]" />
                     <span className="text-[#7a5900]">Maliyet optimizasyonu ve yönetimi</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500" />
+                    <CheckCircle className="w-5 h-5 text-[#ff9900]" />
                     <span className="text-[#7a5900]">Sürekli destek ve izleme</span>
                   </li>
                 </ul>
               </div>
               <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-4 bg-[#fff2cc] rounded-full shadow-2xl flex items-center justify-center">
+                <div className="w-32 h-32 mx-auto mb-4 bg-[#fff7e6] rounded-full shadow-2xl flex items-center justify-center">
                   <Cloud className="w-16 h-16 text-[#ff9900]" />
                 </div>
-                <p className="text-gray-200">
+                <p className="text-[#7a5900]">
                   Bulut altyapınızı NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>
