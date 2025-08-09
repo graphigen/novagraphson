@@ -377,7 +377,7 @@ export default function CRMSistemleriPage() {
     <div className="min-h-screen bg-white">
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+      <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
         {/* Smooth Transition Overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
         
@@ -408,8 +408,8 @@ export default function CRMSistemleriPage() {
       </section>
 
       {/* CRM'in Faydaları */}
-      <section className="mobile-section bg-white" ref={benefitsRef}>
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white" ref={benefitsRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20 space-y-5">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <TrendingUp className="w-4 h-4 mr-2" />
@@ -453,8 +453,8 @@ export default function CRMSistemleriPage() {
       </section>
 
       {/* Kullandığımız CRM'ler */}
-      <section className="mobile-section bg-gray-50" ref={crmSystemsRef}>
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-gray-50" ref={crmSystemsRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20 space-y-5">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Globe className="w-4 h-4 mr-2" />
@@ -547,8 +547,8 @@ export default function CRMSistemleriPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="mobile-section bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">CRM ile Süreçlerinizi Güçlendirin</h2>

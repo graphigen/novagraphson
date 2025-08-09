@@ -320,7 +320,7 @@ export default function SEOPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+      <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
         {/* Smooth Transition Overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 via-gray-50/80 to-transparent"></div>
         
@@ -356,8 +356,8 @@ export default function SEOPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="mobile-section bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {benefits.map((benefit, index) => (
               <Card key={index} className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col hover:shadow-md transition-shadow duration-300">
@@ -503,8 +503,8 @@ export default function SEOPage() {
       </section>
 
       {/* SEO Process Section */}
-      <section className="mobile-section bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Timeline Container */}
             <div className="relative max-w-4xl mx-auto">
             {/* Vertical Timeline Line */}
@@ -760,8 +760,8 @@ export default function SEOPage() {
       </section>
 
       {/* Performance Graph Section */}
-      <section className="mobile-section bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Modern Card Component */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden" ref={graphRef}>
             {/* Header */}
@@ -808,8 +808,8 @@ export default function SEOPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="mobile-section bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {whyChooseUs.map((item, index) => (
               <Card key={index} className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col">
@@ -995,7 +995,7 @@ export default function SEOPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-4">
             {faqs.map((faq, index) => (
@@ -1018,8 +1018,8 @@ export default function SEOPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="mobile-section bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
             Web Sitenizi Zirveye Taşıyacak Stratejiyi Öğrenin
           </h2>

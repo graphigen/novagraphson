@@ -150,7 +150,7 @@ export default function DijitalPazarlamaPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+      <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
         {/* Smooth Transition Overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
         
@@ -181,8 +181,8 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* Omni-Channel Reklam Stratejisi - Yeniden Tasarlandı */}
-      <section className="mobile-section bg-white" ref={omniChannelRef}>
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white" ref={omniChannelRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Her Kanaldan Erişim: Omni-Channel Yaklaşım</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -300,8 +300,8 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* Raporlama & Ölçümleme - Taşındı */}
-      <section className="mobile-section bg-gray-50 pt-16 sm:pt-20" ref={dashboardRef}>
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-gray-50" ref={dashboardRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Her Tıklama Takibimizde</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -368,8 +368,8 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* Giden Müşteri Geri Gelir - Yeni Tasarım */}
-      <section className="mobile-section bg-white" ref={remarketingRef}>
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white" ref={remarketingRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Giden Müşteri Geri Gelir</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -803,8 +803,8 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* WhatsApp + SMS + Mail Marketing */}
-      <section className="mobile-section bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Direkt Mesajlaşma Kanalları</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -1071,7 +1071,7 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* Dönüşüm Odaklı Kampanyalar */}
-      <section className="py-20 bg-white" ref={funnelRef}>
+      <section className="py-16 bg-white" ref={funnelRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20 space-y-5">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Dönüşüm için Optimizasyon</h2>

@@ -188,7 +188,7 @@ export default function GrafikTasarimPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+      <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
         {/* Smooth Transition Overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 via-gray-50/80 to-transparent"></div>
         
@@ -226,8 +226,8 @@ export default function GrafikTasarimPage() {
       </section>
 
       {/* Tasarım Sürecimiz */}
-      <section className="mobile-section bg-white" ref={designProcessRef}>
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white" ref={designProcessRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Brush className="w-4 h-4 mr-2" />
@@ -368,8 +368,8 @@ export default function GrafikTasarimPage() {
       </section>
 
       {/* Hizmetler Bölümü */}
-      <section className="mobile-section bg-gray-50" ref={servicesRef}>
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-gray-50" ref={servicesRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Palette className="w-4 h-4 mr-2" />
@@ -440,8 +440,8 @@ export default function GrafikTasarimPage() {
       </section>
 
       {/* Tasarım Araçları */}
-      <section className="mobile-section bg-white" ref={toolsRef}>
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white" ref={toolsRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Grid className="w-4 h-4 mr-2" />
@@ -486,8 +486,8 @@ export default function GrafikTasarimPage() {
       </section>
 
       {/* Tasarım Prensipleri */}
-      <section className="mobile-section bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Brain className="w-4 h-4 mr-2" />
@@ -525,8 +525,8 @@ export default function GrafikTasarimPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="mobile-section bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Tasarım Projenizi Başlatmaya Hazır mısınız?</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">

@@ -82,7 +82,7 @@ export default function WebTasarimPage() {
       
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+      <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
         {/* Smooth Transition Overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 via-gray-50/80 to-transparent"></div>
         
@@ -120,8 +120,8 @@ export default function WebTasarimPage() {
       </section>
 
       {/* Web Tasarım Hizmetleri Section - 4 Cards Layout */}
-      <section className="mobile-section bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             
             {/* Mobil Uyumlu Tasarım Card */}
@@ -585,8 +585,8 @@ export default function WebTasarimPage() {
       </section>
 
       {/* Performance Metrics Section */}
-      <section className="mobile-section bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -624,8 +624,8 @@ export default function WebTasarimPage() {
       </section>
 
       {/* Web Tasarım Süreci Section */}
-      <section className="mobile-section bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Timeline Container */}
           <div className="relative max-w-4xl mx-auto">
             {/* Vertical Timeline Line */}
@@ -828,8 +828,8 @@ export default function WebTasarimPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="mobile-section bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Web Tasarım Projenizi Başlatalım</h2>
