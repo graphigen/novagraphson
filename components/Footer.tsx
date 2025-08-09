@@ -383,7 +383,9 @@ export const Footer = () => {
               Kullanım Sözleşmesi
             </Link>
           </div>
-
+          <div className="flex items-center space-x-4">
+            {/* Social Media Icons */}
+            <div className="flex items-center space-x-3">
               <a href="#" className="text-gray-400 hover:text-pink-600 transition-colors" aria-label="Instagram">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
