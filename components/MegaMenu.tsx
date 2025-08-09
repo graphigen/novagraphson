@@ -147,9 +147,10 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
                   </p>
 
                   {/* Price line and countdown */}
-                  <div className="text-sm text-gray-700 mb-3">
-                    <span className="line-through text-gray-400 mr-2">19.000 ₺</span>
-                    <span className="font-semibold text-green-700">0 ₺</span>
+                  <div className="mb-2 flex items-center gap-2">
+                    <span className="text-sm text-gray-400 line-through">19.000 ₺</span>
+                    <span className="text-xs text-gray-400">→</span>
+                    <span className="text-lg font-bold text-green-700">0 ₺</span>
                   </div>
                   <CountdownBadge />
 
@@ -206,8 +207,8 @@ function CountdownBadge() {
   return (
     <div className="inline-flex items-center gap-2 text-xs font-medium text-green-800 bg-green-100 rounded-full px-3 py-1">
       <span>Sınırlı süre ücretsiz</span>
-      <span className="font-semibold">
-        {days}g {pad(hours)}:{pad(minutes)}:{pad(seconds)}
+      <span className="font-semibold tabular-nums">
+        {String(days).padStart(2, "0")}g {pad(hours)}:{pad(minutes)}:{pad(seconds)}
       </span>
     </div>
   )
