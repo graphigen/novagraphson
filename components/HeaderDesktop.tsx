@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef, useCallback } from "react"
+import { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import Link from "next/link"
 import { Search, X, ChevronDown, Globe } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -17,8 +17,8 @@ interface SearchResult {
   category?: string
 }
 
-// Site arama verileri
-const siteSearchData: SearchResult[] = [
+// Statik temel arama verileri (bilinen başlıklar)
+const baseSearchData: SearchResult[] = [
   // Ana Sayfa
   { title: "Ana Sayfa", type: "Sayfa", href: "/", description: "NovaGraph ana sayfası - Dijital güvenlik ve web tasarım çözümleri", category: "Ana Sayfa" },
   
@@ -120,6 +120,15 @@ export const HeaderDesktop = () => {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([])
   const [isSearching, setIsSearching] = useState(false)
   const [activeSolutionGroup, setActiveSolutionGroup] = useState("digital")
+  const [dynamicIndex, setDynamicIndex] = useState<SearchResult[]>([])
+  const allSearchData = useMemo(() => {
+    // href'e göre tekilleştir
+    const map = new Map<string, SearchResult>()
+    ;[...baseSearchData, ...dynamicIndex].forEach(item => {
+      if (!map.has(item.href)) map.set(item.href, item)
+    })
+    return Array.from(map.values())
+  }, [dynamicIndex])
 
   const { language, setLanguage, t } = useLanguage()
 
@@ -218,6 +227,49 @@ export const HeaderDesktop = () => {
     searchInput?.focus()
   }, [])
 
+  // Sitemap'ten dinamik index (sayfa listesi) yükle
+  useEffect(() => {
+    let cancelled = false
+    const load = async () => {
+      try {
+        const res = await fetch('/sitemap.xml', { cache: 'no-store' })
+        const text = await res.text()
+        const parser = new DOMParser()
+        const xml = parser.parseFromString(text, 'application/xml')
+        const locs = Array.from(xml.getElementsByTagName('loc')).map(n => n.textContent || '').filter(Boolean)
+        const toTitle = (path: string) => {
+          try {
+            const url = new URL(path, window.location.origin)
+            const slug = url.pathname.replace(/^\/+|\/+$/g, '')
+            if (!slug) return 'Ana Sayfa'
+            const parts = slug.split('/')
+            const last = parts[parts.length - 1]
+            return last
+              .split('-')
+              .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+              .join(' ')
+          } catch {
+            return path
+          }
+        }
+        const items: SearchResult[] = locs.map(loc => ({
+          title: toTitle(loc),
+          type: 'Sayfa',
+          href: new URL(loc, window.location.origin).pathname,
+          description: undefined,
+          category: 'Sayfa'
+        }))
+        // Filtre: sadece site içi geçerli yollar
+        const filtered = items.filter(i => i.href && i.href.startsWith('/'))
+        if (!cancelled) setDynamicIndex(filtered)
+      } catch (e) {
+        // noop
+      }
+    }
+    load()
+    return () => { cancelled = true }
+  }, [])
+
   // Search functionality
   useEffect(() => {
     if (searchQuery.trim()) {
@@ -228,11 +280,12 @@ export const HeaderDesktop = () => {
       searchTimeoutRef.current = setTimeout(() => {
         const query = searchQuery.toLowerCase()
         
-        // Gelişmiş arama - başlık, açıklama ve kategori araması
-        const filtered: SearchResult[] = siteSearchData.filter((item) =>
+        // Gelişmiş arama - başlık, açıklama, kategori ve yol araması
+        const filtered: SearchResult[] = allSearchData.filter((item) =>
           item.title.toLowerCase().includes(query) ||
           (item.description && item.description.toLowerCase().includes(query)) ||
-          (item.category && item.category.toLowerCase().includes(query))
+          (item.category && item.category.toLowerCase().includes(query)) ||
+          (item.href && item.href.toLowerCase().includes(query))
         )
         
         // Sonuçları kategorilere göre sırala
@@ -264,7 +317,7 @@ export const HeaderDesktop = () => {
       setSearchResults([])
       setIsSearching(false)
     }
-  }, [searchQuery])
+  }, [searchQuery, allSearchData])
 
   // Click outside handlers
   useEffect(() => {
