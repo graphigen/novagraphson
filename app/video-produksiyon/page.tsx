@@ -209,7 +209,7 @@ export default function VideoProduksiyonPage() {
             </div>
 
             {/* Description */}
-            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-6">
               Markanızı güçlendirecek, hedef kitlenizi etkileyecek profesyonel video prodüksiyon çözümleri sunuyoruz. 
               Kurumsal tanıtım filmlerinden sosyal medya içeriklerine kadar tüm ihtiyaçlarınızı karşılıyoruz.
             </p>
@@ -232,7 +232,7 @@ export default function VideoProduksiyonPage() {
       {/* Stats Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -260,12 +260,12 @@ export default function VideoProduksiyonPage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Video Prodüksiyon Hizmetlerimiz
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-2">
               Her türlü video prodüksiyon ihtiyacınız için profesyonel çözümler sunuyoruz.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mobile-grid-gap">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -308,12 +308,12 @@ export default function VideoProduksiyonPage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Neden NovaGraph Video Prodüksiyon?
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-2">
               Profesyonel ekipmanlar ve deneyimli ekibimizle kaliteli video içerikler üretiyoruz.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mobile-grid-gap">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -348,12 +348,12 @@ export default function VideoProduksiyonPage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Çalışma Sürecimiz
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-2">
               Profesyonel video prodüksiyon sürecimiz 4 adımda tamamlanır.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mobile-grid-gap">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {process.map((step, index) => (
               <motion.div
                 key={index}
@@ -391,7 +391,7 @@ export default function VideoProduksiyonPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Video Prodüksiyon Projenizi Başlatalım</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-2">
               Markanızı güçlendirecek profesyonel video içerikler için hemen iletişime geçin.
             </p>
           </div>

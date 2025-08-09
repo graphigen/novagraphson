@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { X, Building2, User, Mail, Phone, MapPin, Briefcase, MessageSquare } from "lucide-react"
+import { X, Building2, User, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -15,66 +15,75 @@ interface ContactFormProps {
 }
 
 const sectors = [
-  "E-Ticaret",
-  "Sağlık",
-  "Eğitim",
-  "Finans",
-  "Teknoloji",
-  "Turizm",
-  "Gıda",
-  "İnşaat",
-  "Otomotiv",
-  "Medya",
-  "Diğer"
+  "E-Ticaret ve Online Perakende",
+  "Sağlık & Estetik",
+  "Yeme-İçme & Restoran",
+  "Sanayi & Üretim",
+  "Gayrimenkul & İnşaat",
+  "Turizm & Otelcilik",
+  "Eğitim & Danışmanlık",
+  "Lojistik & Kargo",
+  "Moda & Tasarım",
+  "Diğer",
 ]
 
-const cities = [
-  "İstanbul",
-  "Ankara",
-  "İzmir",
-  "Bursa",
-  "Antalya",
-  "Adana",
-  "Konya",
-  "Gaziantep",
-  "Kayseri",
-  "Mersin",
-  "Diğer"
+// Removed city selection per request
+
+const serviceCategories = [
+  {
+    value: "digital",
+    label: "Dijital Çözümler",
+    services: [
+      "Web Tasarım",
+      "Dijital Pazarlama",
+      "SEO",
+      "Grafik Tasarım",
+      "Video Prodüksiyon",
+      "CRM Sistemleri",
+    ],
+  },
+  {
+    value: "it-security",
+    label: "IT & Güvenlik Çözümleri",
+    services: [
+      "Altyapı Hizmetleri",
+      "Ağ Çözümleri",
+      "Sunucu Sistemleri",
+      "Bulut & Backup",
+      "Mail & Lisans",
+      "Teknik Servis",
+      "BT Bakım",
+      "Güvenlik Sistemleri",
+    ],
+  },
 ]
 
-const services = [
-  "Web Tasarım",
-  "Dijital Pazarlama",
-  "SEO",
-  "Grafik Tasarım",
-  "CRM Sistemleri",
-  "Video Prodüksiyon"
-]
-
-const contactReasons = [
-  "Toplantı Talebi",
-  "Fiyat Teklifi"
-]
+// Removed contact reason selection per request
 
 export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
   const [formData, setFormData] = useState({
     // Kurumsal Bilgiler
     companyName: "",
     sector: "",
-    city: "",
     // Kişisel Bilgiler
     name: "",
     email: "",
     phone: "",
+    serviceCategory: "",
     selectedService: service || "",
-    contactReason: ""
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const findCategoryByService = (svc: string) => {
+    const matched = serviceCategories.find(cat => cat.services.includes(svc))
+    return matched?.value || ""
+  }
+
   useEffect(() => {
     if (service) {
-      setFormData(prev => ({ ...prev, selectedService: service }))
+      const category = findCategoryByService(service)
+      setFormData(prev => ({ ...prev, selectedService: service, serviceCategory: category }))
     }
   }, [service])
 
@@ -102,17 +111,16 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
     
     setIsSubmitting(false)
     onClose()
-    
+
     // Reset form
     setFormData({
       companyName: "",
       sector: "",
-      city: "",
       name: "",
       email: "",
       phone: "",
+      serviceCategory: service ? findCategoryByService(service) : "",
       selectedService: service || "",
-      contactReason: ""
     })
   }
 
@@ -175,22 +183,7 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
                   </SelectContent>
                 </Select>
               </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="city">Şehir *</Label>
-                <Select value={formData.city} onValueChange={(value) => handleInputChange("city", value)}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Şehir seçin" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {cities.map((city) => (
-                      <SelectItem key={city} value={city}>
-                        {city}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+
             </div>
           </div>
 
@@ -236,37 +229,51 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
                 />
               </div>
               
+              {/* Hizmet Seçimi - Adım 1: Kategori */}
               <div className="space-y-2 md:col-span-2">
-                <Label htmlFor="service">Hizmet *</Label>
-                <Select value={formData.selectedService} onValueChange={(value) => handleInputChange("selectedService", value)}>
+                <Label htmlFor="serviceCategory">Hizmet Kategorisi *</Label>
+                <Select
+                  value={formData.serviceCategory}
+                  onValueChange={(value) => setFormData(prev => ({ ...prev, serviceCategory: value, selectedService: "" }))}
+                >
                   <SelectTrigger>
-                    <SelectValue placeholder="Hizmet seçin" />
+                    <SelectValue placeholder="Kategori seçin" />
                   </SelectTrigger>
                   <SelectContent>
-                    {services.map((service) => (
-                      <SelectItem key={service} value={service}>
-                        {service}
+                    {serviceCategories.map((cat) => (
+                      <SelectItem key={cat.value} value={cat.value}>
+                        {cat.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
+
+              {/* Hizmet Seçimi - Adım 2: Alt Hizmet */}
+              {formData.serviceCategory && (
+                <div className="space-y-2 md:col-span-2">
+                  <Label htmlFor="service">Hizmet *</Label>
+                  <Select
+                    value={formData.selectedService}
+                    onValueChange={(value) => handleInputChange("selectedService", value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Hizmet seçin" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {serviceCategories
+                        .find((cat) => cat.value === formData.serviceCategory)?.services
+                        .map((svc) => (
+                          <SelectItem key={svc} value={svc}>
+                            {svc}
+                          </SelectItem>
+                        ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
               
-              <div className="space-y-2 md:col-span-2">
-                <Label htmlFor="contactReason">İletişim Nedeni *</Label>
-                <Select value={formData.contactReason} onValueChange={(value) => handleInputChange("contactReason", value)}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="İletişim nedenini seçin" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {contactReasons.map((reason) => (
-                      <SelectItem key={reason} value={reason}>
-                        {reason}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+              
             </div>
           </div>
 

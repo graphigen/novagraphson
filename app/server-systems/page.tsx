@@ -146,7 +146,7 @@ export default function ServerSystemsPage() {
             </h1>
             
             {/* Description */}
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 lg:mb-10 max-w-2xl mx-auto px-4">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 max-w-2xl mx-auto px-4">
               İşletmenizin ihtiyaçlarına özel sunucu sistemleri kurulumu ve yönetimi. 
               Güvenilir, ölçeklenebilir ve performanslı çözümler.
             </p>
@@ -178,7 +178,7 @@ export default function ServerSystemsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {operatingSystems.map((os, index) => (
               <motion.div
                 key={index}
@@ -223,7 +223,7 @@ export default function ServerSystemsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -264,7 +264,7 @@ export default function ServerSystemsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-6 items-center ${
                   index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
                 }`}
               >

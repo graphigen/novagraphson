@@ -390,7 +390,7 @@ export default function CRMSistemleriPage() {
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               CRM Sistemleri ile Verimliliğinizi Artırın
               </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
               Satıştan destek süreçlerine kadar tüm işlerinizi tek yerden yönetin. Zoho, Bitrix24, Doktor360 ve daha fazlası ile entegre çözümler sunuyoruz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -410,18 +410,18 @@ export default function CRMSistemleriPage() {
       {/* CRM'in Faydaları */}
       <section className="py-16 bg-white" ref={benefitsRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-16 space-y-4">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <TrendingUp className="w-4 h-4 mr-2" />
               CRM Faydaları
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">CRM Sistemlerinin İşinize Katkıları</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-2">
               Modern CRM sistemleri ile iş süreçlerinizi optimize edin, müşteri memnuniyetini artırın ve satışlarınızı büyütün.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mobile-grid-gap">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.title}
@@ -455,18 +455,18 @@ export default function CRMSistemleriPage() {
       {/* Kullandığımız CRM'ler */}
       <section className="py-16 bg-gray-50" ref={crmSystemsRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-16 space-y-4">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Globe className="w-4 h-4 mr-2" />
               Partner CRM'ler
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Kullandığımız CRM Sistemleri</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-2">
               Yetkili partner olduğumuz önde gelen CRM sistemleri ile işinizi büyütün.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mobile-grid-gap">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {crmSystems.map((system, index) => (
               <motion.div
                 key={system.name}
@@ -507,18 +507,18 @@ export default function CRMSistemleriPage() {
       {/* Neden Biz? */}
       <section className="py-16 sm:py-20 bg-blue-900" ref={whyUsRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-800 rounded-full text-blue-200 text-sm font-medium mb-4">
               <Star className="w-4 h-4 mr-2" />
               Neden Biz?
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">Ajansımızın Partnerlik Avantajları</h2>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-200 max-w-3xl mx-auto mt-2">
               Sadece CRM satışı değil, tam kapsamlı danışmanlık ve destek hizmeti sunuyoruz.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mobile-grid-gap">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyUsFeatures.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -552,7 +552,7 @@ export default function CRMSistemleriPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">CRM ile Süreçlerinizi Güçlendirin</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-2">
               Hangi CRM'in size uygun olduğunu birlikte belirleyelim.
             </p>
           </div>

@@ -151,7 +151,7 @@ export default function TechnicalServicePage() {
             </h1>
             
             {/* Description */}
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 lg:mb-10 max-w-2xl mx-auto px-4">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 max-w-2xl mx-auto px-4">
               Profesyonel teknik servis ve onarım hizmetleri ile cihazlarınızı yeniden hayata döndürüyoruz.
             </p>
 
@@ -182,7 +182,7 @@ export default function TechnicalServicePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <motion.div
                 key={index}

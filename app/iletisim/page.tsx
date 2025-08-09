@@ -89,7 +89,7 @@ export default function IletisimPage() {
       
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-6">
@@ -99,7 +99,7 @@ export default function IletisimPage() {
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               Bizimle İletişime Geçin
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
               Projelerinizi hayata geçirmek için buradayız. Aklınızdaki fikirleri dinleyip, en doğru çözümleri birlikte üretelim.
             </p>
           </div>
@@ -107,9 +107,9 @@ export default function IletisimPage() {
       </section>
 
       {/* Contact Form & Info Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Contact Form */}
             <div className="lg:order-1">
               <Card className="border-0 shadow-lg">
@@ -268,9 +268,9 @@ export default function IletisimPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+            <div className="text-center mb-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

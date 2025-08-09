@@ -118,7 +118,7 @@ export default function HakkimizdaPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-6">
                 {features.map((feature, index) => (
                   <motion.div
                     key={index}
@@ -145,7 +145,7 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* Kurumsal Tanıtım */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -154,7 +154,7 @@ export default function HakkimizdaPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Kurumsal Tanıtım</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Kurumsal Tanıtım</h2>
             
             <div className="prose prose-lg mx-auto text-gray-600 leading-relaxed">
               <p className="mb-6">
@@ -178,7 +178,7 @@ export default function HakkimizdaPage() {
             </div>
 
             {/* Badges */}
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3">
               <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200 px-4 py-2">
                 Kuruluş Yılı: 2006
               </Badge>
@@ -194,7 +194,7 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* Sürekli Kayan Hizmetler */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -203,7 +203,7 @@ export default function HakkimizdaPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Tüm Hizmetlerimiz</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Tüm Hizmetlerimiz</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Dijital dünyada ihtiyacınız olan tüm çözümleri tek bir çatı altında sunuyoruz.
             </p>

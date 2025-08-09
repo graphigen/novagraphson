@@ -338,7 +338,7 @@ export default function SEOPage() {
             </h1>
             
             {/* Description */}
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
               Anahtar kelimelerde üst sıralara yerleşin, organik trafiğinizi artırın.
             </p>
 
@@ -358,7 +358,7 @@ export default function SEOPage() {
       {/* Benefits Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => (
               <Card key={index} className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col hover:shadow-md transition-shadow duration-300">
                 <CardHeader className="flex-shrink-0">
@@ -503,7 +503,7 @@ export default function SEOPage() {
       </section>
 
       {/* SEO Process Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Timeline Container */}
             <div className="relative max-w-4xl mx-auto">
@@ -511,10 +511,10 @@ export default function SEOPage() {
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200 transform -translate-x-1/2 hidden md:block"></div>
             
             {/* Timeline Steps */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               {process.map((step, index) => (
-                <div key={index} className="relative flex items-start group">
-                  <div className="flex-shrink-0 w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mr-6 shadow-sm">
+                <div key={index} className="relative flex flex-col md:flex-row items-start group">
+                  <div className="flex-shrink-0 w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center md:mr-6 shadow-sm mb-4 md:mb-0">
                     <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                       <div className="w-4 h-4 bg-white rounded-sm flex items-center justify-center">
                         <span className="text-xs font-bold text-blue-600">{step.step}</span>
@@ -765,15 +765,15 @@ export default function SEOPage() {
           {/* Modern Card Component */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden" ref={graphRef}>
             {/* Header */}
-            <div className="p-8 border-b border-gray-100">
+            <div className="p-6 border-b border-gray-100">
               <div className="text-center">
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">Organik Trafik Artışı</h3>
-                <p className="text-gray-600 text-lg">SEO stratejileri sonrası elde edilen büyüme</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Organik Trafik Artışı</h3>
+                <p className="text-gray-600 text-base md:text-lg">SEO stratejileri sonrası elde edilen büyüme</p>
               </div>
             </div>
             
             {/* Graph Container */}
-            <div className="p-8">
+            <div className="p-6">
               <PerformanceGraph isInView={isInView} />
               
               {/* Description */}
@@ -810,7 +810,7 @@ export default function SEOPage() {
       {/* Why Choose Us Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {whyChooseUs.map((item, index) => (
               <Card key={index} className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col">
                 <CardHeader className="p-6 flex-shrink-0">

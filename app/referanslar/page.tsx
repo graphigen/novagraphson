@@ -378,7 +378,7 @@ export default function ReferanslarPage() {
             </h1>
             
             {/* Description */}
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
               Farklı sektörlerden müşterilerimizle birlikte başardığımız projeler ve dijital dönüşüm hikayeleri.
             </p>
 
@@ -406,7 +406,7 @@ export default function ReferanslarPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Sektörel Referanslarımız</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-2">
               Farklı sektörlerden müşterilerimizle birlikte başardığımız projeler ve dijital dönüşüm hikayeleri.
             </p>
           </div>

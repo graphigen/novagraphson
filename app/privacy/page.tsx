@@ -133,7 +133,7 @@ export default function PrivacyPage() {
             </h1>
             
             {/* Description */}
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto leading-relaxed">
               NovaGraph olarak, kişisel verilerinizin gizliliğine ve korunmasına önem veriyoruz. 
               Bu gizlilik politikası, web sitemiz üzerinden toplanan kişisel bilgilerin hangi amaçlarla 
               kullanıldığını ve nasıl korunduğunu açıklamaktadır.

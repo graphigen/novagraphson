@@ -100,7 +100,7 @@ export default function WebTasarimPage() {
             </h1>
             
             {/* Description */}
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
               Estetik ve performans odaklı arayüzlerle dijital varlığınızı güçlendirin.
             </p>
 
@@ -122,11 +122,11 @@ export default function WebTasarimPage() {
       {/* Web Tasarım Hizmetleri Section - 4 Cards Layout */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Mobil Uyumlu Tasarım Card */}
             <Card className="border-0 shadow-sm bg-white mobile-card group h-full flex flex-col">
-              <CardHeader className="flex-shrink-0">
+              <CardHeader className="p-6 flex-shrink-0">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl font-bold text-gray-900">Mobil Uyumlu Tasarım</CardTitle>
                   <ArrowUpRight className="w-5 h-5 text-gray-400" />
@@ -587,7 +587,7 @@ export default function WebTasarimPage() {
       {/* Performance Metrics Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-8 h-8 text-blue-600" />
@@ -632,7 +632,7 @@ export default function WebTasarimPage() {
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200 transform -translate-x-1/2 hidden md:block"></div>
             
             {/* Timeline Steps */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               {/* Step 1: İhtiyaç Analizi */}
               <div className="relative flex items-start group">
                 <div className="flex-shrink-0 w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mr-6 shadow-sm">
@@ -839,7 +839,7 @@ export default function WebTasarimPage() {
           </div>
 
           {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gray-50 rounded-lg p-6 text-center">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-6 h-6 text-blue-600" />

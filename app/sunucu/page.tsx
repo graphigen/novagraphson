@@ -31,6 +31,9 @@ import {
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useContactForm } from "@/contexts/ContactFormContext"
+// note: Card already imported above
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Slider } from "@/components/ui/slider"
 
 interface VPSPackage {
   id: string
@@ -214,11 +217,145 @@ export default function SunucuPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const { isOpen, service, closeForm, openForm } = useContactForm()
 
+  // Configurator state
+  const [cpuCores, setCpuCores] = useState<number>(4)
+  const [ramGb, setRamGb] = useState<number>(16)
+  const [storageType, setStorageType] = useState<"SSD" | "NVMe">("NVMe")
+  const [storageGb, setStorageGb] = useState<number>(200)
+  const [bandwidthTb, setBandwidthTb] = useState<number>(5)
+  const [managed, setManaged] = useState<"Unmanaged" | "Managed">("Unmanaged")
+  const [datacenter, setDatacenter] = useState<"TR" | "EU" | "US">("TR")
+
+  const baseMin = 200
+  const baseMax = 4000
+
+  const priceUsd = (() => {
+    // Tutarlı katsayılar (aylık)
+    const cpuCost = cpuCores * 40 // core başına 40$
+    const ramCost = ramGb * 5 // GB başına 5$
+    const storageMultiplier = storageType === "NVMe" ? 0.25 : 0.15 // GB başına $
+    const storageCost = storageGb * storageMultiplier
+    const bandwidthCost = Math.max(0, bandwidthTb - 3) * 10 // 3 TB dahildir, sonrası TB başına 10$
+    const managedCost = managed === "Managed" ? 120 : 0
+    const regionMultiplier = datacenter === "EU" ? 1.1 : datacenter === "US" ? 1.15 : 1.0
+
+    const subtotal = (cpuCost + ramCost + storageCost + bandwidthCost + managedCost) * regionMultiplier
+    const clamped = Math.min(baseMax, Math.max(baseMin, Math.round(subtotal)))
+    return clamped
+  })()
+
+  const Configurator = () => (
+    <Card className="border border-gray-200 rounded-2xl overflow-hidden">
+      <CardHeader className="p-6">
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-xl font-bold text-gray-900">Konfigüratör</CardTitle>
+          <div className="text-right">
+            <div className="text-sm text-gray-600">Aylık Fiyat</div>
+            <div className="text-3xl font-extrabold text-blue-600">${priceUsd} <span className="text-sm text-gray-500">/ ay</span></div>
+            <div className="text-xs text-gray-500">Min ${baseMin} • Max ${baseMax}</div>
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent className="p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-sm font-medium text-gray-900">CPU Çekirdek</label>
+              <span className="text-sm text-gray-600">{cpuCores} Core</span>
+            </div>
+            <Slider value={[cpuCores]} min={1} max={32} step={1} onValueChange={(v) => setCpuCores(v[0])} />
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-sm font-medium text-gray-900">RAM</label>
+              <span className="text-sm text-gray-600">{ramGb} GB</span>
+            </div>
+            <Slider value={[ramGb]} min={2} max={256} step={2} onValueChange={(v) => setRamGb(v[0])} />
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-sm font-medium text-gray-900">Depolama Türü</label>
+              <span className="text-sm text-gray-600">{storageType}</span>
+            </div>
+            <Select value={storageType} onValueChange={(v) => setStorageType(v as any)}>
+              <SelectTrigger>
+                <SelectValue placeholder="Seçin" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="SSD">SSD</SelectItem>
+                <SelectItem value="NVMe">NVMe</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-sm font-medium text-gray-900">Depolama Kapasitesi</label>
+              <span className="text-sm text-gray-600">{storageGb} GB</span>
+            </div>
+            <Slider value={[storageGb]} min={50} max={4000} step={50} onValueChange={(v) => setStorageGb(v[0])} />
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-sm font-medium text-gray-900">Aylık Trafik</label>
+              <span className="text-sm text-gray-600">{bandwidthTb} TB</span>
+            </div>
+            <Slider value={[bandwidthTb]} min={1} max={50} step={1} onValueChange={(v) => setBandwidthTb(v[0])} />
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-sm font-medium text-gray-900">Yönetim</label>
+              <span className="text-sm text-gray-600">{managed}</span>
+            </div>
+            <Select value={managed} onValueChange={(v) => setManaged(v as any)}>
+              <SelectTrigger>
+                <SelectValue placeholder="Seçin" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Unmanaged">Unmanaged</SelectItem>
+                <SelectItem value="Managed">Managed</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-sm font-medium text-gray-900">Veri Merkezi</label>
+              <span className="text-sm text-gray-600">{datacenter}</span>
+            </div>
+            <Select value={datacenter} onValueChange={(v) => setDatacenter(v as any)}>
+              <SelectTrigger>
+                <SelectValue placeholder="Seçin" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="TR">TR (İstanbul)</SelectItem>
+                <SelectItem value="EU">EU (Frankfurt)</SelectItem>
+                <SelectItem value="US">US (Virginia)</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-sm text-gray-600">
+            Seçiminiz: {cpuCores} Core • {ramGb} GB RAM • {storageGb} GB {storageType} • {bandwidthTb} TB trafik • {managed} • {datacenter}
+          </div>
+          <Button className="bg-blue-600 hover:bg-blue-700" onClick={() => openForm("Özel Sunucu Konfigürasyonu")}>Teklif İste</Button>
+        </div>
+      </CardContent>
+    </Card>
+  )
+
+
   return (
     <div className="min-h-screen bg-white">
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
@@ -234,7 +371,7 @@ export default function SunucuPage() {
             </h1>
             
             {/* Description */}
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
               Gelişmiş altyapımız ve %99.9 uptime garantimiz ile projelerinize kesintisiz güç.
             </p>
 
@@ -262,13 +399,13 @@ export default function SunucuPage() {
       </section>
 
       {/* Features Section */}
-      <section className="mobile-section bg-gray-50">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center mb-16">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               Gelişmiş Virtualizor Altyapımız ile Tam Performanslı VPS Paketlerin Tadını Çıkarın
             </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -323,9 +460,9 @@ export default function SunucuPage() {
       </section>
 
       {/* VPS Packages Section */}
-      <section className="mobile-section">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               VPS Sunucuların avantajlı özelliklerini keşfedin!
             </h2>
@@ -334,7 +471,7 @@ export default function SunucuPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 mobile-grid-gap">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {vpsPackages.map((pkg, index) => (
               <motion.div
                 key={pkg.id}
@@ -380,13 +517,7 @@ export default function SunucuPage() {
                         <span className="text-3xl font-bold text-blue-600">{pkg.price}</span>
                         <span className="text-gray-600">/ay</span>
                       </div>
-                      <Button 
-                        className="w-full bg-blue-600 hover:bg-blue-700"
-                        onClick={() => openForm(`VPS ${pkg.name}`)}
-                      >
-                        Paketi Seç
-                        <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
+                      {/* Paketi Seç butonu kaldırıldı */}
                     </div>
                   </CardContent>
                 </Card>
@@ -396,10 +527,22 @@ export default function SunucuPage() {
         </div>
       </section>
 
+      {/* Sunucu Konfigürasyonu */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Sunucu Konfigürasyonu</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">İhtiyacınıza göre sunucunuzu oluşturun; fiyat anında hesaplanır.</p>
+          </div>
+
+          <Configurator />
+        </div>
+      </section>
+
       {/* Advantages Section */}
-      <section className="mobile-section bg-gray-50">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {advantages.map((advantage, index) => (
               <motion.div
                 key={index}
@@ -429,10 +572,10 @@ export default function SunucuPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="mobile-section">
-        <div className="container mx-auto">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                 Sıkça Sorulan Sorular
               </h2>
@@ -441,7 +584,7 @@ export default function SunucuPage() {
               </p>
             </div>
             
-            <div className="space-y-4">
+              <div className="space-y-4">
               {faqs.map((faq, index) => (
                 <motion.div
                   key={index}

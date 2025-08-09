@@ -36,7 +36,7 @@ export default function TermsPage() {
             </h1>
             
             {/* Description */}
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto leading-relaxed">
               Bu web sitesini (novagraph.com.tr) ziyaret ettiğinizde aşağıdaki şartları kabul etmiş sayılırsınız. 
               Lütfen siteyi kullanmadan önce kullanım koşullarını dikkatle okuyunuz.
             </p>

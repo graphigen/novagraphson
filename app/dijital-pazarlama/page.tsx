@@ -152,7 +152,7 @@ export default function DijitalPazarlamaPage() {
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
         {/* Smooth Transition Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -185,7 +185,7 @@ export default function DijitalPazarlamaPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Her Kanaldan Erişim: Omni-Channel Yaklaşım</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-4">
               Müşteriniz hangi platformda olursa olsun, markanız her zaman görünür. Omni-channel stratejimizle reklamlarınız potansiyel müşterinizin çevresini kuşatır.
             </p>
           </div>
@@ -304,7 +304,7 @@ export default function DijitalPazarlamaPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Her Tıklama Takibimizde</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-4">
               Tüm kanallardan alınan verileri analiz ederek detaylı raporlar sunuyoruz. Hangi kampanya ne kadar dönüşüm getirdi, şeffaf biçimde gösteriyoruz.
             </p>
           </div>
@@ -357,7 +357,7 @@ export default function DijitalPazarlamaPage() {
               </div>
               
               {/* Chart Placeholder */}
-              <div className="bg-gray-50 rounded-xl p-8 text-center">
+            <div className="bg-gray-50 rounded-xl p-8 text-center">
                 <BarChart3 className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                 <div className="text-lg font-semibold text-gray-900 mb-2">Performans Grafiği</div>
                 <div className="text-sm text-gray-600">Detaylı analiz ve trend grafikleri burada görüntülenir</div>
@@ -368,11 +368,11 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* Giden Müşteri Geri Gelir - Yeni Tasarım */}
-      <section className="py-16 bg-white" ref={remarketingRef}>
+      <section className="py-16 bg-white overflow-x-hidden" ref={remarketingRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Giden Müşteri Geri Gelir</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-4">
               Ziyaret edip ayrılan kullanıcıları yeniden yakalıyoruz. Etkili yeniden pazarlama stratejilerimizle dönüşüm oranlarını artırıyoruz.
             </p>
           </div>
@@ -381,7 +381,7 @@ export default function DijitalPazarlamaPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Merkez Çizgi */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-200 h-full"></div>
+              <div className="absolute left-1/2 -translate-x-1/2 w-0.5 bg-gray-200 h-full hidden md:block"></div>
 
               {/* Adım 1: Kullanıcı Web Sitesini Terk Eder */}
               <motion.div
@@ -391,9 +391,9 @@ export default function DijitalPazarlamaPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center">
+                <div className="flex flex-col md:flex-row items-center">
                   {/* Sol Taraf - Açıklama */}
-                  <div className="w-1/2 pr-8 text-right">
+                  <div className="w-full md:w-1/2 md:pr-8 md:text-right">
                     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
                       <div className="flex items-center justify-end space-x-3 mb-3">
                         <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
@@ -409,7 +409,7 @@ export default function DijitalPazarlamaPage() {
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-400 rounded-full border-4 border-white shadow-md"></div>
 
                   {/* Sağ Taraf - Web Sitesi Mockup */}
-                  <div className="w-1/2 pl-8">
+                  <div className="w-full md:w-1/2 md:pl-8">
                     <motion.div
                       className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
                       initial={{ scale: 1 }}
@@ -458,9 +458,9 @@ export default function DijitalPazarlamaPage() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center">
+                <div className="flex flex-col md:flex-row items-center">
                   {/* Sol Taraf - Google Ads Mockup */}
-                  <div className="w-1/2 pr-8">
+                  <div className="w-full md:w-1/2 md:pr-8">
                     <motion.div
                       className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
                       initial={{ opacity: 0, y: 20 }}
@@ -500,7 +500,7 @@ export default function DijitalPazarlamaPage() {
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-md"></div>
 
                   {/* Sağ Taraf - Açıklama */}
-                  <div className="w-1/2 pl-8">
+                  <div className="w-full md:w-1/2 md:pl-8">
                     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
                       <div className="flex items-center space-x-3 mb-3">
                         <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
@@ -522,9 +522,9 @@ export default function DijitalPazarlamaPage() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center">
+                <div className="flex flex-col md:flex-row items-center">
                   {/* Sol Taraf - Açıklama */}
-                  <div className="w-1/2 pr-8 text-right">
+                  <div className="w-full md:w-1/2 md:pr-8 md:text-right">
                     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
                       <div className="flex items-center justify-end space-x-3 mb-3">
                         <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
@@ -540,7 +540,7 @@ export default function DijitalPazarlamaPage() {
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-md"></div>
 
                   {/* Sağ Taraf - Instagram Mockup */}
-                  <div className="w-1/2 pl-8">
+                  <div className="w-full md:w-1/2 md:pl-8">
                     <motion.div
                       className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
                       initial={{ opacity: 0, y: 20 }}
@@ -589,9 +589,9 @@ export default function DijitalPazarlamaPage() {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center">
+                <div className="flex flex-col md:flex-row items-center">
                   {/* Sol Taraf - Telefon Mockup */}
-                  <div className="w-1/2 pr-8">
+                  <div className="w-full md:w-1/2 md:pr-8">
                     <motion.div
                       className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
                       initial={{ opacity: 0, y: 20 }}
@@ -635,7 +635,7 @@ export default function DijitalPazarlamaPage() {
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white shadow-md"></div>
 
                   {/* Sağ Taraf - Açıklama */}
-                  <div className="w-1/2 pl-8">
+                  <div className="w-full md:w-1/2 md:pl-8">
                     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
                       <div className="flex items-center space-x-3 mb-3">
                         <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
@@ -657,9 +657,9 @@ export default function DijitalPazarlamaPage() {
                 transition={{ duration: 0.8, delay: 1.0 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center">
+                <div className="flex flex-col md:flex-row items-center">
                   {/* Sol Taraf - Açıklama */}
-                  <div className="w-1/2 pr-8 text-right">
+                  <div className="w-full md:w-1/2 md:pr-8 md:text-right">
                     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
                       <div className="flex items-center justify-end space-x-3 mb-3">
                         <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
@@ -675,7 +675,7 @@ export default function DijitalPazarlamaPage() {
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-700 rounded-full border-4 border-white shadow-md"></div>
 
                   {/* Sağ Taraf - Email Mockup */}
-                  <div className="w-1/2 pl-8">
+                  <div className="w-full md:w-1/2 md:pl-8">
                     <motion.div
                       className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
                       initial={{ opacity: 0, y: 20 }}
@@ -722,9 +722,9 @@ export default function DijitalPazarlamaPage() {
                 transition={{ duration: 0.8, delay: 1.2 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center">
+                <div className="flex flex-col md:flex-row items-center">
                   {/* Sol Taraf - Gelişmiş Site Mockup */}
-                  <div className="w-1/2 pr-8">
+                  <div className="w-full md:w-1/2 md:pr-8">
                     <motion.div
                       className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
                       initial={{ opacity: 0, y: 20 }}
@@ -774,7 +774,7 @@ export default function DijitalPazarlamaPage() {
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-600 rounded-full border-4 border-white shadow-md"></div>
 
                   {/* Sağ Taraf - Başarı Mesajı */}
-                  <div className="w-1/2 pl-8">
+                  <div className="w-full md:w-1/2 md:pl-8">
                     <motion.div
                       className="bg-white rounded-lg p-6 shadow-sm border border-gray-200"
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -807,7 +807,7 @@ export default function DijitalPazarlamaPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Direkt Mesajlaşma Kanalları</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-4">
               Etkileşimi artıran, doğrudan mesaj kanallarıyla hedef kitlenize ulaşın.
             </p>
           </div>
@@ -1073,15 +1073,15 @@ export default function DijitalPazarlamaPage() {
       {/* Dönüşüm Odaklı Kampanyalar */}
       <section className="py-16 bg-white" ref={funnelRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-16 space-y-4">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Dönüşüm için Optimizasyon</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-2">
               Reklam bütçeniz boşa gitmesin. Satış, form doldurma ve diğer dönüşümler için optimize edilmiş kampanyalar kurguluyoruz.
             </p>
           </div>
           
           {/* Optimize Edilmemiş vs Optimize Edilmiş Reklamlar */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 mobile-grid-gap lg:gap-12 mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
             {/* Optimize Edilmemiş Reklamlar */}
             <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
               <div className="flex items-center space-x-3 mb-6">
@@ -1240,18 +1240,18 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* CTA Section - Anasayfadaki gibi yeniden tasarlandı */}
-      <section className="bg-white py-16 lg:py-24">
+          <section className="bg-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-16">
+              <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Dijital Reklamlarınızı Büyütmek İçin Hazır mısınız?</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-2">
               Uzman ekibimizle birlikte markanızı dijital dünyada zirveye taşıyın.
             </p>
           </div>
 
           {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gray-50 rounded-lg p-6 text-center">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-6 h-6 text-blue-600" />

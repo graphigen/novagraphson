@@ -150,7 +150,7 @@ export default function SecuritySystemsPage() {
             </h1>
             
             {/* Description */}
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 lg:mb-10 max-w-2xl mx-auto px-4">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 max-w-2xl mx-auto px-4">
               Güvenilir ve akıllı güvenlik sistemleri ile işletmenizi koruyoruz.
             </p>
 
@@ -181,7 +181,7 @@ export default function SecuritySystemsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {securityTypes.map((security, index) => (
               <motion.div
                 key={index}
@@ -225,7 +225,7 @@ export default function SecuritySystemsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -258,7 +258,7 @@ export default function SecuritySystemsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8">
+          <div className="grid grid-cols-1 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={index}

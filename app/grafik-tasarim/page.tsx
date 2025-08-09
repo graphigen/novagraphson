@@ -206,7 +206,7 @@ export default function GrafikTasarimPage() {
             </h1>
             
             {/* Description */}
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
               Markanızı öne çıkaran etkileyici grafik tasarım çözümleri.
             </p>
 
@@ -234,12 +234,12 @@ export default function GrafikTasarimPage() {
               Profesyonel Süreç
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Tasarım Sürecimiz</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-2">
               Her projede sistematik bir yaklaşım izliyoruz. Keşiften final teslime kadar her adımı profesyonelce yönetiyoruz.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 mobile-grid-gap lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             {/* Sol Taraf - Flat Minimal Açıklama */}
             <div className="space-y-8">
               <div className="space-y-6">
@@ -284,7 +284,7 @@ export default function GrafikTasarimPage() {
               </div>
 
               {/* Flat Minimal İstatistikler */}
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-4">
+              <div className="grid grid-cols-2 gap-4 pt-4">
                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -329,7 +329,7 @@ export default function GrafikTasarimPage() {
             </div>
 
             {/* Sağ Taraf - Flat Minimal Süreç Kartları */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 gap-4">
               {designStages.map((stage, index) => (
                 <motion.div
                   key={stage.stage}
@@ -376,13 +376,13 @@ export default function GrafikTasarimPage() {
               Uzman Hizmetler
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Grafik Tasarım Hizmetlerimiz</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-2">
               Her ihtiyaca uygun, özelleştirilmiş grafik tasarım çözümleri sunuyoruz.
             </p>
           </div>
           
           {/* Flat Minimal Modern Grid Tasarımı */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mobile-grid-gap">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -442,13 +442,13 @@ export default function GrafikTasarimPage() {
       {/* Tasarım Araçları */}
       <section className="py-16 bg-white" ref={toolsRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Grid className="w-4 h-4 mr-2" />
               Profesyonel Araçlar
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Kullandığımız Tasarım Araçları</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-2">
               En güncel ve profesyonel tasarım araçlarını kullanarak kaliteli sonuçlar elde ediyoruz.
             </p>
           </div>
@@ -488,13 +488,13 @@ export default function GrafikTasarimPage() {
       {/* Tasarım Prensipleri */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Brain className="w-4 h-4 mr-2" />
               Tasarım Felsefesi
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Tasarım Prensiplerimiz</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-2">
               Her tasarımda uyguladığımız temel prensiplerle etkili ve anlamlı sonuçlar elde ediyoruz.
             </p>
           </div>
@@ -527,9 +527,9 @@ export default function GrafikTasarimPage() {
       {/* CTA Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Tasarım Projenizi Başlatmaya Hazır mısınız?</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-2">
               Uzman ekibimizle birlikte markanızı görsel olarak güçlendirin.
             </p>
           </div>
