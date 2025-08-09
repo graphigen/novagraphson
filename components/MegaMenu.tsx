@@ -185,17 +185,30 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
 export default MegaMenu
 
 function CountdownBadge() {
-  // 15 günden geriye say, 0'a gelince yeniden 15 günden başla
+  // 15 günden geriye say, 0'a gelince yeniden 15 günden başla (persisted)
   const totalMs = 15 * 24 * 60 * 60 * 1000
+  const STORAGE_KEY = "promoCycleStart"
   const [remaining, setRemaining] = React.useState<number>(totalMs)
 
   React.useEffect(() => {
-    const id = setInterval(() => {
-      setRemaining(prev => {
-        const next = prev - 1000
-        return next <= 0 ? totalMs : next
-      })
-    }, 1000)
+    let start = 0
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY)
+      if (raw) start = parseInt(raw)
+    } catch {}
+    if (!start || Number.isNaN(start)) {
+      start = Date.now()
+      try { localStorage.setItem(STORAGE_KEY, String(start)) } catch {}
+    }
+
+    const tick = () => {
+      const now = Date.now()
+      const elapsed = now - start
+      const rem = totalMs - (elapsed % totalMs)
+      setRemaining(rem)
+    }
+    tick()
+    const id = setInterval(tick, 1000)
     return () => clearInterval(id)
   }, [])
 

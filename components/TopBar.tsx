@@ -5,31 +5,34 @@ import { Phone } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
 
 export const TopBar = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 37,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  })
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
   const { openForm } = useContactForm()
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prevTime => {
-        if (prevTime.seconds > 0) {
-          return { ...prevTime, seconds: prevTime.seconds - 1 }
-        } else if (prevTime.minutes > 0) {
-          return { ...prevTime, minutes: prevTime.minutes - 1, seconds: 59 }
-        } else if (prevTime.hours > 0) {
-          return { ...prevTime, hours: prevTime.hours - 1, minutes: 59, seconds: 59 }
-        } else if (prevTime.days > 0) {
-          return { ...prevTime, days: prevTime.days - 1, hours: 23, minutes: 59, seconds: 59 }
-        }
-        return prevTime
-      })
-    }, 1000)
+    const STORAGE_KEY = "topbarEndsAt"
+    let endsAt = 0
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY)
+      if (raw) endsAt = parseInt(raw)
+    } catch {}
+    if (!endsAt || Number.isNaN(endsAt) || endsAt < Date.now()) {
+      // 15 gün sonrası için ayarla
+      endsAt = Date.now() + 15 * 24 * 60 * 60 * 1000
+      try { localStorage.setItem(STORAGE_KEY, String(endsAt)) } catch {}
+    }
 
-    return () => clearInterval(timer)
+    const tick = () => {
+      const now = Date.now()
+      const diff = Math.max(0, endsAt - now)
+      const days = Math.floor(diff / (24 * 60 * 60 * 1000))
+      const hours = Math.floor((diff % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000))
+      const minutes = Math.floor((diff % (60 * 60 * 1000)) / (60 * 1000))
+      const seconds = Math.floor((diff % (60 * 1000)) / 1000)
+      setTimeLeft({ days, hours, minutes, seconds })
+    }
+    tick()
+    const id = setInterval(tick, 1000)
+    return () => clearInterval(id)
   }, [])
 
   return (
