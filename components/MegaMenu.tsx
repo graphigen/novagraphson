@@ -140,13 +140,20 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
               <div className="col-span-3">
                 <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-6 h-full border border-green-100 shadow-sm">
                   <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 mb-3">Ücretsiz</span>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Ücretsiz Pazarlama Stratejisi</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Pazarlama Stratejisi</h3>
                   <p className="text-gray-700 mb-6 leading-relaxed">
                     İşletmeniz için en uygun dijital kanalları ve bütçe dağılımını içeren ön analiz. Başvurun,
                     48 saat içinde size özel bir plan önerelim.
                   </p>
 
-                  <div className="space-y-3">
+                  {/* Price line and countdown */}
+                  <div className="text-sm text-gray-700 mb-3">
+                    <span className="line-through text-gray-400 mr-2">19.000 ₺</span>
+                    <span className="font-semibold text-green-700">0 ₺</span>
+                  </div>
+                  <CountdownBadge />
+
+                  <div className="space-y-3 mt-3">
                     <button
                       className="w-full bg-green-600 text-white rounded-xl px-6 py-3 font-semibold hover:bg-green-700 transition-colors duration-200 shadow-sm hover:shadow-md"
                       onClick={() => handleServiceClick("/pazarlama-strateji-basvurusu")}
@@ -168,3 +175,40 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
 }
 
 export default MegaMenu
+
+function CountdownBadge() {
+  // 15 günden geriye say, 0'a gelince yeniden 15 günden başla
+  const totalMs = 15 * 24 * 60 * 60 * 1000
+  const [remaining, setRemaining] = React.useState<number>(() => {
+    const now = Date.now()
+    // Sürekli döngü: epoch'a göre mod alarak kalan süreyi bul
+    const mod = now % totalMs
+    return totalMs - mod
+  })
+
+  React.useEffect(() => {
+    const id = setInterval(() => {
+      setRemaining(prev => {
+        const next = prev - 1000
+        return next <= 0 ? totalMs : next
+      })
+    }, 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const days = Math.floor(remaining / (24 * 60 * 60 * 1000))
+  const hours = Math.floor((remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000))
+  const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000))
+  const seconds = Math.floor((remaining % (60 * 1000)) / 1000)
+
+  const pad = (n: number) => String(n).padStart(2, "0")
+
+  return (
+    <div className="inline-flex items-center gap-2 text-xs font-medium text-green-800 bg-green-100 rounded-full px-3 py-1">
+      <span>Sınırlı süre ücretsiz</span>
+      <span className="font-semibold">
+        {days}g {pad(hours)}:{pad(minutes)}:{pad(seconds)}
+      </span>
+    </div>
+  )
+}
