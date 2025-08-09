@@ -120,11 +120,11 @@ export default function AmazonAWSPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-orange-50">
+    <div className="min-h-screen bg-[#ffe8cc]">
       
       {/* Hero Section - Dark Background */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-orange-100">
-        <div className="absolute inset-0 bg-orange-50/20"></div>
+      <section className="relative py-20 lg:py-32 overflow-hidden bg-[#ffe8cc]">
+        <div className="absolute inset-0 bg-[#ffe8cc]/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Back Button */}
@@ -183,7 +183,7 @@ export default function AmazonAWSPage() {
             >
               <Button 
                 size="lg" 
-                className="bg-white text-orange-800 hover:bg-orange-50 px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
+                className="bg-white text-orange-800 hover:bg-[#ffe8cc] px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
                 onClick={() => openForm("Amazon AWS Bulut Hizmetleri")}
               >
                 İletişime Geç
@@ -243,7 +243,7 @@ export default function AmazonAWSPage() {
       </section>
 
       {/* Solutions Section - Dark Background */}
-      <section className="py-20 bg-orange-100">
+      <section className="py-20 bg-[#ffe8cc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -357,7 +357,7 @@ export default function AmazonAWSPage() {
       </section>
 
       {/* Why Choose Section - Dark Background */}
-      <section className="py-20 bg-orange-200">
+      <section className="py-20 bg-[#ffe8cc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -438,7 +438,7 @@ export default function AmazonAWSPage() {
             </p>
           </motion.div>
 
-          <div className="bg-orange-50 rounded-2xl p-8">
+          <div className="bg-[#ffe8cc] rounded-2xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">

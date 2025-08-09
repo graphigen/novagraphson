@@ -120,11 +120,11 @@ export default function SEMrushPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-orange-50">
+    <div className="min-h-screen bg-[#ffe6d6]">
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-orange-100">
-        <div className="absolute inset-0 bg-orange-50/20"></div>
+      <section className="relative py-20 lg:py-32 overflow-hidden bg-[#ffe6d6]">
+        <div className="absolute inset-0 bg-[#ffe6d6]/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Back Button */}
@@ -178,7 +178,7 @@ export default function SEMrushPage() {
             >
               <Button 
                 size="lg" 
-                className="bg-white text-orange-800 hover:bg-orange-50 px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
+                className="bg-white text-orange-800 hover:bg-[#ffe6d6] px-8 py-4 rounded-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 w-full sm:w-auto text-lg"
                 onClick={() => openForm("SEMrush SEO Hizmetleri")}
               >
                 İletişime Geç
@@ -235,7 +235,7 @@ export default function SEMrushPage() {
       </section>
 
       {/* Solutions Section - Dark Background */}
-      <section className="py-20 bg-orange-100">
+      <section className="py-20 bg-[#ffe6d6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -349,7 +349,7 @@ export default function SEMrushPage() {
       </section>
 
       {/* Why Choose Section - Dark Background */}
-      <section className="py-20 bg-orange-200">
+      <section className="py-20 bg-[#ffe6d6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -430,7 +430,7 @@ export default function SEMrushPage() {
             </p>
           </motion.div>
 
-          <div className="bg-orange-50 rounded-2xl p-8">
+          <div className="bg-[#ffe6d6] rounded-2xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
