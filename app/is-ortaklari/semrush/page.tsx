@@ -163,7 +163,7 @@ export default function SEMrushPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl sm:text-2xl text-orange-100 mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Dünyanın en güçlü SEO ve dijital pazarlama platformu SEMrush ile web sitenizin performansını analiz edin, 
               rakiplerinizi takip edin ve SEO stratejilerinizi optimize edin.
@@ -202,7 +202,7 @@ export default function SEMrushPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               SEMrush ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               SEO performansınızı artırmak için ihtiyacınız olan tüm araçlar SEMrush'ta.
             </p>
           </motion.div>
@@ -224,7 +224,7 @@ export default function SEMrushPage() {
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-200">
                     {feature.description}
                   </p>
                 </div>
@@ -247,7 +247,7 @@ export default function SEMrushPage() {
             <h2 className="text-4xl font-bold text-white mb-6">
               NovaGraph ile SEMrush Çözümleri
             </h2>
-            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               SEO stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -266,7 +266,7 @@ export default function SEMrushPage() {
                     <CardTitle className="text-2xl font-bold text-white mb-4">
                       {solution.title}
                     </CardTitle>
-                    <CardDescription className="text-orange-100 text-lg">
+                    <CardDescription className="text-white/90 text-lg">
                       {solution.description}
                     </CardDescription>
                   </CardHeader>
@@ -274,13 +274,13 @@ export default function SEMrushPage() {
                     <ul className="space-y-3">
                       {solution.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
-                          <span className="text-orange-100">{benefit}</span>
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 flex-shrink-0" />
+                          <span className="text-white/90">{benefit}</span>
                         </li>
                       ))}
                     </ul>
                     <div className="mt-6 p-4 bg-white backdrop-blur-md rounded-2xl border border-white/20">
-                      <p className="text-orange-100 font-medium">
+                      <p className="text-white/90 font-medium">
                         <strong>NovaGraph Kullanımı:</strong> {solution.novaGraphUsage}
                       </p>
                     </div>
@@ -305,7 +305,7 @@ export default function SEMrushPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               SEMrush ile farklı sektörlerde SEO stratejilerinizi optimize edin
             </p>
           </motion.div>
@@ -327,7 +327,7 @@ export default function SEMrushPage() {
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardDescription className="text-gray-200">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -336,7 +336,7 @@ export default function SEMrushPage() {
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{benefit}</span>
+                          <span className="text-gray-100">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -361,7 +361,7 @@ export default function SEMrushPage() {
             <h2 className="text-4xl font-bold text-white mb-6">
               Neden NovaGraph ile SEMrush?
             </h2>
-            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               SEO stratejinizi uzman ekibimizle optimize edin
             </p>
           </motion.div>
@@ -401,7 +401,7 @@ export default function SEMrushPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-orange-100 text-center">
+                    <CardDescription className="text-white/90 text-center">
                       {benefit.description}
                     </CardDescription>
                   </CardContent>
@@ -425,7 +425,7 @@ export default function SEMrushPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in SEMrush Kullanımı
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               SEO stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -436,7 +436,7 @@ export default function SEMrushPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   SEO Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-700 mb-6">
+                <p className="text-gray-100 mb-6">
                   NovaGraph olarak SEMrush platformunu kullanarak müşterilerinizin SEO stratejilerini 
                   dönüştürüyoruz. Kapsamlı analitik, rakip analizi ve anahtar kelime araştırması ile 
                   organik trafiği artırıyoruz.
@@ -444,19 +444,19 @@ export default function SEMrushPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-700">SEO analizi ve strateji geliştirme</span>
+                    <span className="text-gray-100">SEO analizi ve strateji geliştirme</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-700">Rakip analizi ve fırsat belirleme</span>
+                    <span className="text-gray-100">Rakip analizi ve fırsat belirleme</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-700">Anahtar kelime araştırması ve optimizasyonu</span>
+                    <span className="text-gray-100">Anahtar kelime araştırması ve optimizasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-700">Sürekli performans izleme ve raporlama</span>
+                    <span className="text-gray-100">Sürekli performans izleme ve raporlama</span>
                   </li>
                 </ul>
               </div>
@@ -464,7 +464,7 @@ export default function SEMrushPage() {
                 <div className="w-32 h-32 mx-auto mb-4 bg-orange-400 rounded-full shadow-2xl flex items-center justify-center">
                   <Search className="w-16 h-16 text-white" />
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-200">
                   SEO stratejinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

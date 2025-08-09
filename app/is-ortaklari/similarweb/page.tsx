@@ -202,7 +202,7 @@ export default function SimilarWebPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               SimilarWeb ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Rakip analizinizi güçlendirmek için ihtiyacınız olan tüm araçlar SimilarWeb'de.
             </p>
           </motion.div>
@@ -224,7 +224,7 @@ export default function SimilarWebPage() {
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-200">
                     {feature.description}
                   </p>
                 </div>
@@ -305,7 +305,7 @@ export default function SimilarWebPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               SimilarWeb ile farklı sektörlerde rakip analizi çözümleri
             </p>
           </motion.div>
@@ -327,7 +327,7 @@ export default function SimilarWebPage() {
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardDescription className="text-gray-200">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -336,7 +336,7 @@ export default function SimilarWebPage() {
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{benefit}</span>
+                          <span className="text-gray-100">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -425,7 +425,7 @@ export default function SimilarWebPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in SimilarWeb Kullanımı
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Rakip analizi stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -436,7 +436,7 @@ export default function SimilarWebPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Rakip Analizi Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-700 mb-6">
+                <p className="text-gray-100 mb-6">
                   NovaGraph olarak SimilarWeb platformunu kullanarak müşterilerinizin rakip analizi stratejilerini 
                   dönüştürüyoruz. Kapsamlı dijital istihbarat, pazar analizi ve fırsat belirleme ile 
                   rekabet avantajı sağlıyoruz.
@@ -444,19 +444,19 @@ export default function SimilarWebPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-700">Rakip analizi ve pazar araştırması</span>
+                    <span className="text-gray-100">Rakip analizi ve pazar araştırması</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-700">Dijital istihbarat ve trend analizi</span>
+                    <span className="text-gray-100">Dijital istihbarat ve trend analizi</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-700">Fırsat belirleme ve strateji geliştirme</span>
+                    <span className="text-gray-100">Fırsat belirleme ve strateji geliştirme</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-700">Sürekli izleme ve raporlama</span>
+                    <span className="text-gray-100">Sürekli izleme ve raporlama</span>
                   </li>
                 </ul>
               </div>
@@ -464,7 +464,7 @@ export default function SimilarWebPage() {
                 <div className="w-32 h-32 mx-auto mb-4 bg-purple-500 rounded-full shadow-2xl flex items-center justify-center">
                   <Globe className="w-16 h-16 text-white" />
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-200">
                   Rakip analizi stratejinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

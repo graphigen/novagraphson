@@ -202,7 +202,7 @@ export default function SalesforcePage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Salesforce ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               İş süreçlerinizi dijitalleştirmek için ihtiyacınız olan tüm araçlar Salesforce'ta.
             </p>
           </motion.div>
@@ -224,7 +224,7 @@ export default function SalesforcePage() {
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-200">
                     {feature.description}
                   </p>
                 </div>
@@ -305,7 +305,7 @@ export default function SalesforcePage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Salesforce ile farklı iş süreçleriniz için CRM çözümleri
             </p>
           </motion.div>
@@ -327,7 +327,7 @@ export default function SalesforcePage() {
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardDescription className="text-gray-200">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -336,7 +336,7 @@ export default function SalesforcePage() {
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{benefit}</span>
+                          <span className="text-gray-100">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -425,7 +425,7 @@ export default function SalesforcePage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in Salesforce Kullanımı
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               CRM stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -436,7 +436,7 @@ export default function SalesforcePage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   CRM Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-700 mb-6">
+                <p className="text-gray-100 mb-6">
                   NovaGraph olarak Salesforce platformunu kullanarak müşterilerinizin CRM stratejilerini 
                   dönüştürüyoruz. Satış süreçleri, müşteri hizmetleri, pazarlama kampanyaları ve özel uygulamalar ile 
                   işletmelerini dijitalleştiriyoruz.
@@ -444,19 +444,19 @@ export default function SalesforcePage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Satış süreçleri optimizasyonu</span>
+                    <span className="text-gray-100">Satış süreçleri optimizasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Müşteri hizmetleri dijitalleştirme</span>
+                    <span className="text-gray-100">Müşteri hizmetleri dijitalleştirme</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Pazarlama kampanyası otomasyonu</span>
+                    <span className="text-gray-100">Pazarlama kampanyası otomasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Özel uygulama geliştirme</span>
+                    <span className="text-gray-100">Özel uygulama geliştirme</span>
                   </li>
                 </ul>
               </div>
@@ -464,7 +464,7 @@ export default function SalesforcePage() {
                 <div className="w-32 h-32 mx-auto mb-4 bg-blue-500 rounded-full shadow-2xl flex items-center justify-center">
                   <Users className="w-16 h-16 text-white" />
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-200">
                   CRM stratejinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

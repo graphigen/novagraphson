@@ -202,7 +202,7 @@ export default function Bitrix24Page() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Bitrix24 ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               İş süreçlerinizi dijitalleştirmek için ihtiyacınız olan tüm araçlar Bitrix24'te.
             </p>
           </motion.div>
@@ -224,7 +224,7 @@ export default function Bitrix24Page() {
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-200">
                     {feature.description}
                   </p>
                 </div>
@@ -305,7 +305,7 @@ export default function Bitrix24Page() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Bitrix24 ile farklı iş süreçleriniz için yönetim çözümleri
             </p>
           </motion.div>
@@ -327,7 +327,7 @@ export default function Bitrix24Page() {
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardDescription className="text-gray-200">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -336,7 +336,7 @@ export default function Bitrix24Page() {
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{benefit}</span>
+                          <span className="text-gray-100">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -425,7 +425,7 @@ export default function Bitrix24Page() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in Bitrix24 Kullanımı
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               İş süreçleri stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -436,7 +436,7 @@ export default function Bitrix24Page() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   İş Süreçleri Dijitalleştirme Stratejisi
                 </h3>
-                <p className="text-gray-700 mb-6">
+                <p className="text-gray-100 mb-6">
                   NovaGraph olarak Bitrix24 platformunu kullanarak müşterilerinizin iş süreçlerini 
                   dijitalleştiriyoruz. CRM sistemleri, ekip iletişimi, proje yönetimi ve doküman yönetimi ile 
                   işletmelerini dönüştürüyoruz.
@@ -444,19 +444,19 @@ export default function Bitrix24Page() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">CRM sistemi ve müşteri yönetimi</span>
+                    <span className="text-gray-100">CRM sistemi ve müşteri yönetimi</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">Ekip iletişimi ve işbirliği</span>
+                    <span className="text-gray-100">Ekip iletişimi ve işbirliği</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">Proje yönetimi ve görev takibi</span>
+                    <span className="text-gray-100">Proje yönetimi ve görev takibi</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">Doküman yönetimi ve bilgi paylaşımı</span>
+                    <span className="text-gray-100">Doküman yönetimi ve bilgi paylaşımı</span>
                   </li>
                 </ul>
               </div>
@@ -464,7 +464,7 @@ export default function Bitrix24Page() {
                 <div className="w-32 h-32 mx-auto mb-4 bg-green-500 rounded-full shadow-2xl flex items-center justify-center">
                   <Users className="w-16 h-16 text-white" />
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-200">
                   İş süreçleri stratejinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

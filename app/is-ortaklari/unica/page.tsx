@@ -202,7 +202,7 @@ export default function UnicaPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Unica ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Müşteri deneyiminizi güçlendirmek için ihtiyacınız olan tüm araçlar Unica'da.
             </p>
           </motion.div>
@@ -224,7 +224,7 @@ export default function UnicaPage() {
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-200">
                     {feature.description}
                   </p>
                 </div>
@@ -305,7 +305,7 @@ export default function UnicaPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Unica ile farklı sektörlerde müşteri deneyimi çözümleri
             </p>
           </motion.div>
@@ -327,7 +327,7 @@ export default function UnicaPage() {
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardDescription className="text-gray-200">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -336,7 +336,7 @@ export default function UnicaPage() {
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{benefit}</span>
+                          <span className="text-gray-100">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -425,7 +425,7 @@ export default function UnicaPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in Unica Kullanımı
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Müşteri deneyimi stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -436,7 +436,7 @@ export default function UnicaPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Müşteri Deneyimi Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-700 mb-6">
+                <p className="text-gray-100 mb-6">
                   NovaGraph olarak Unica platformunu kullanarak müşterilerinizin müşteri deneyimi stratejilerini 
                   dönüştürüyoruz. Kişiselleştirilmiş deneyimler, müşteri analizi ve sadakat programları ile 
                   müşteri memnuniyetini artırıyoruz.
@@ -444,19 +444,19 @@ export default function UnicaPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Müşteri analizi ve segmentasyonu</span>
+                    <span className="text-gray-100">Müşteri analizi ve segmentasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Kişiselleştirilmiş deneyim tasarımı</span>
+                    <span className="text-gray-100">Kişiselleştirilmiş deneyim tasarımı</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Müşteri sadakat programları</span>
+                    <span className="text-gray-100">Müşteri sadakat programları</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Sürekli optimizasyon ve izleme</span>
+                    <span className="text-gray-100">Sürekli optimizasyon ve izleme</span>
                   </li>
                 </ul>
               </div>
@@ -464,7 +464,7 @@ export default function UnicaPage() {
                 <div className="w-32 h-32 mx-auto mb-4 bg-blue-500 rounded-full shadow-2xl flex items-center justify-center">
                   <Users className="w-16 h-16 text-white" />
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-200">
                   Müşteri deneyimi stratejinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

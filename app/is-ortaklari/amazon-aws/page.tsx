@@ -168,7 +168,7 @@ export default function AmazonAWSPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl sm:text-2xl text-orange-100 mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Dünyanın en güvenilir ve ölçeklenebilir bulut altyapısı olan Amazon AWS ile işletmenizin dijital dönüşümünü hızlandırın, 
               maliyetlerinizi optimize edin ve güvenliğinizi artırın.
@@ -207,7 +207,7 @@ export default function AmazonAWSPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Amazon AWS ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Dünyanın en güvenilir bulut altyapısının güçlü özellikleri
             </p>
           </motion.div>
@@ -231,7 +231,7 @@ export default function AmazonAWSPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-600 text-center">
+                    <CardDescription className="text-gray-200 text-center">
                       {feature.description}
                     </CardDescription>
                   </CardContent>
@@ -255,7 +255,7 @@ export default function AmazonAWSPage() {
             <h2 className="text-4xl font-bold text-white mb-6">
               NovaGraph ile Amazon AWS Çözümleri
             </h2>
-            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Bulut altyapınızı NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -274,7 +274,7 @@ export default function AmazonAWSPage() {
                     <CardTitle className="text-2xl font-bold text-white mb-4">
                       {solution.title}
                     </CardTitle>
-                    <CardDescription className="text-orange-100 text-lg">
+                    <CardDescription className="text-white/90 text-lg">
                       {solution.description}
                     </CardDescription>
                   </CardHeader>
@@ -282,13 +282,13 @@ export default function AmazonAWSPage() {
                     <ul className="space-y-3">
                       {solution.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-orange-300 mt-0.5 flex-shrink-0" />
-                          <span className="text-orange-100">{benefit}</span>
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 flex-shrink-0" />
+                          <span className="text-white/90">{benefit}</span>
                         </li>
                       ))}
                     </ul>
                     <div className="mt-6 p-4 bg-white backdrop-blur-md rounded-2xl border border-white/20">
-                      <p className="text-orange-100 font-medium">
+                      <p className="text-white/90 font-medium">
                         <strong>NovaGraph Kullanımı:</strong> {solution.novaGraphUsage}
                       </p>
                     </div>
@@ -313,7 +313,7 @@ export default function AmazonAWSPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Amazon AWS ile farklı iş ihtiyaçlarınız için bulut çözümleri
             </p>
           </motion.div>
@@ -335,7 +335,7 @@ export default function AmazonAWSPage() {
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardDescription className="text-gray-200">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -344,7 +344,7 @@ export default function AmazonAWSPage() {
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{benefit}</span>
+                          <span className="text-gray-100">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -369,7 +369,7 @@ export default function AmazonAWSPage() {
             <h2 className="text-4xl font-bold text-white mb-6">
               Neden NovaGraph ile Amazon AWS?
             </h2>
-            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Bulut altyapınızı uzman ekibimizle optimize edin
             </p>
           </motion.div>
@@ -409,7 +409,7 @@ export default function AmazonAWSPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-orange-100 text-center">
+                    <CardDescription className="text-white/90 text-center">
                       {benefit.description}
                     </CardDescription>
                   </CardContent>
@@ -433,7 +433,7 @@ export default function AmazonAWSPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in Amazon AWS Kullanımı
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Bulut altyapınızı NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -444,7 +444,7 @@ export default function AmazonAWSPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Bulut Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-700 mb-6">
+                <p className="text-gray-100 mb-6">
                   NovaGraph olarak Amazon AWS platformunu kullanarak müşterilerinizin bulut stratejilerini 
                   dönüştürüyoruz. Ölçeklenebilir altyapı, güvenlik ve maliyet optimizasyonu ile 
                   dijital dönüşümü hızlandırıyoruz.
@@ -452,19 +452,19 @@ export default function AmazonAWSPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-700">Bulut altyapısı kurulumu ve yönetimi</span>
+                    <span className="text-gray-100">Bulut altyapısı kurulumu ve yönetimi</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-700">Güvenlik ve uyumluluk çözümleri</span>
+                    <span className="text-gray-100">Güvenlik ve uyumluluk çözümleri</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-700">Maliyet optimizasyonu ve yönetimi</span>
+                    <span className="text-gray-100">Maliyet optimizasyonu ve yönetimi</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-orange-500" />
-                    <span className="text-gray-700">Sürekli destek ve izleme</span>
+                    <span className="text-gray-100">Sürekli destek ve izleme</span>
                   </li>
                 </ul>
               </div>
@@ -472,7 +472,7 @@ export default function AmazonAWSPage() {
                 <div className="w-32 h-32 mx-auto mb-4 bg-orange-400 rounded-full shadow-2xl flex items-center justify-center">
                   <Cloud className="w-16 h-16 text-white" />
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-200">
                   Bulut altyapınızı NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

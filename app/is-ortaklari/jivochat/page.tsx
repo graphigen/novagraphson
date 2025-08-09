@@ -202,7 +202,7 @@ export default function JivoChatPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Jivochat ile Neler Yapabilirsiniz?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Müşteri iletişiminizi güçlendirmek için ihtiyacınız olan tüm araçlar Jivochat'te.
             </p>
           </motion.div>
@@ -224,7 +224,7 @@ export default function JivoChatPage() {
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-200">
                     {feature.description}
                   </p>
                 </div>
@@ -305,7 +305,7 @@ export default function JivoChatPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Jivochat ile farklı sektörlerde canlı sohbet çözümleri
             </p>
           </motion.div>
@@ -327,7 +327,7 @@ export default function JivoChatPage() {
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardDescription className="text-gray-200">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -336,7 +336,7 @@ export default function JivoChatPage() {
                       {useCase.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{benefit}</span>
+                          <span className="text-gray-100">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -425,7 +425,7 @@ export default function JivoChatPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               NovaGraph'in Jivochat Kullanımı
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Müşteri iletişimi stratejinizi NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -436,7 +436,7 @@ export default function JivoChatPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Müşteri İletişimi Stratejisi Dönüşümü
                 </h3>
-                <p className="text-gray-700 mb-6">
+                <p className="text-gray-100 mb-6">
                   NovaGraph olarak Jivochat platformunu kullanarak müşterilerinizin müşteri iletişimi stratejilerini 
                   dönüştürüyoruz. Canlı sohbet, müşteri desteği ve satış optimizasyonu ile 
                   müşteri memnuniyetini artırıyoruz.
@@ -444,19 +444,19 @@ export default function JivoChatPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-700">Canlı sohbet ve müşteri desteği</span>
+                    <span className="text-gray-100">Canlı sohbet ve müşteri desteği</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-700">Satış optimizasyonu ve dönüşüm artırımı</span>
+                    <span className="text-gray-100">Satış optimizasyonu ve dönüşüm artırımı</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-700">Müşteri deneyimi iyileştirme</span>
+                    <span className="text-gray-100">Müşteri deneyimi iyileştirme</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-700">Sürekli destek ve izleme</span>
+                    <span className="text-gray-100">Sürekli destek ve izleme</span>
                   </li>
                 </ul>
               </div>
@@ -464,7 +464,7 @@ export default function JivoChatPage() {
                 <div className="w-32 h-32 mx-auto mb-4 bg-purple-500 rounded-full shadow-2xl flex items-center justify-center">
                   <MessageCircle className="w-16 h-16 text-white" />
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-200">
                   Müşteri iletişimi stratejinizi NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>

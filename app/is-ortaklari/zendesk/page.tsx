@@ -123,7 +123,7 @@ export default function ZendeskPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Zendesk'in Güçlü Özellikleri
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Müşteri deneyimini dönüştüren kapsamlı platform özellikleri
             </p>
           </motion.div>
@@ -177,7 +177,7 @@ export default function ZendeskPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-600 text-center">
+                    <CardDescription className="text-gray-200 text-center">
                       {feature.description}
                     </CardDescription>
                   </CardContent>
@@ -293,7 +293,7 @@ export default function ZendeskPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Kullanım Alanları
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Zendesk ile farklı sektörlerde müşteri hizmetleri çözümleri
             </p>
           </motion.div>
@@ -332,7 +332,7 @@ export default function ZendeskPage() {
                     <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
                       {useCase.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-600 text-lg">
+                    <CardDescription className="text-gray-200 text-lg">
                       {useCase.description}
                     </CardDescription>
                   </CardHeader>
@@ -341,7 +341,7 @@ export default function ZendeskPage() {
                       {useCase.metrics.map((metric, metricIndex) => (
                         <div key={metricIndex} className="flex items-center space-x-3">
                           <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                          <span className="text-gray-700 font-medium">{metric}</span>
+                          <span className="text-gray-100 font-medium">{metric}</span>
                         </div>
                       ))}
                     </div>
@@ -442,7 +442,7 @@ export default function ZendeskPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               NovaGraph'in Zendesk Kullanımı
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Müşteri deneyimi platformunuzu NovaGraph'in uzmanlığı ile optimize edin
             </p>
           </motion.div>
@@ -453,7 +453,7 @@ export default function ZendeskPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Müşteri Deneyimi Dönüşümü
                 </h3>
-                <p className="text-gray-700 mb-6">
+                <p className="text-gray-100 mb-6">
                   NovaGraph olarak Zendesk platformunu kullanarak müşterilerinizin müşteri deneyimi 
                   süreçlerini dönüştürüyoruz. Kapsamlı analitik, AI destekli otomasyon ve 
                   çoklu kanal entegrasyonu ile müşteri memnuniyetini artırıyoruz.
@@ -461,19 +461,19 @@ export default function ZendeskPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Platform kurulumu ve konfigürasyonu</span>
+                    <span className="text-gray-100">Platform kurulumu ve konfigürasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Özelleştirilmiş iş akışları tasarımı</span>
+                    <span className="text-gray-100">Özelleştirilmiş iş akışları tasarımı</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">AI destekli chatbot entegrasyonu</span>
+                    <span className="text-gray-100">AI destekli chatbot entegrasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Gelişmiş analitik ve raporlama</span>
+                    <span className="text-gray-100">Gelişmiş analitik ve raporlama</span>
                   </li>
                 </ul>
               </div>
@@ -481,7 +481,7 @@ export default function ZendeskPage() {
                 <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full shadow-2xl flex items-center justify-center">
                   <MessageSquare className="w-16 h-16 text-white" />
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-200">
                   Müşteri deneyimi platformunuzu NovaGraph'in uzmanlığı ile optimize edin
                 </p>
               </div>
