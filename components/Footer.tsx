@@ -358,15 +358,15 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Quick Links Row */}
-        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 md:gap-3 mb-8">
-          <Link href="/pazarlama-strateji-basvurusu" className="inline-flex items-center px-3 py-1.5 rounded-full bg-green-600 text-white text-xs md:text-sm font-semibold hover:bg-green-700 transition-colors">
+        {/* Quick Links Row (styled like previous badges row) */}
+        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 md:gap-4 mb-8 opacity-80">
+          <Link href="/pazarlama-strateji-basvurusu" className="text-xs md:text-sm text-gray-500 hover:text-blue-600 transition-colors">
             Ücretsiz Pazarlama Stratejisi
           </Link>
-          <Link href="/is-ortaklari" className="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs md:text-sm font-semibold hover:bg-blue-100 transition-colors">
+          <Link href="/is-ortaklari" className="text-xs md:text-sm text-gray-500 hover:text-blue-600 transition-colors">
             İş Ortakları
           </Link>
-          <Link href="/sunucu" className="inline-flex items-center px-3 py-1.5 rounded-full bg-gray-100 text-gray-800 text-xs md:text-sm font-semibold hover:bg-gray-200 transition-colors">
+          <Link href="/sunucu" className="text-xs md:text-sm text-gray-500 hover:text-blue-600 transition-colors">
             NovaXCore
           </Link>
         </div>
