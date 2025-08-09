@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from "react"
 import Link from "next/link"
-import { Menu, ChevronRight, Globe, Home, Users, MessageSquare, ArrowLeft } from "lucide-react"
+import { Menu, ChevronRight, Globe, Home, Users, MessageSquare, ArrowLeft, ArrowRight } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 import { LogoMobile } from "@/components/LogoMobile"
@@ -185,6 +185,47 @@ export const HeaderMobile: React.FC = () => {
               </DropdownMenu>
             </div>
 
+            {/* CTA: Pazarlama Stratejisi (mobil uyumlu) */}
+            <div className="mt-3">
+              <div className="rounded-xl border border-green-200 bg-gradient-to-br from-emerald-50 to-green-50 p-4 shadow-sm">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="inline-flex items-center px-2 py-1 text-[11px] font-bold rounded-full bg-green-100 text-green-800">Ücretsiz</span>
+                  <span className="inline-flex items-center px-2 py-1 text-[11px] font-bold rounded-full bg-green-100 text-green-800">
+                    {"Sınırlı Süre".split("").map((ch, idx) => (
+                      <span key={idx} className="inline-block animate-bounce-slow" style={{ animationDelay: `${idx * 60}ms` }}>
+                        {ch === " " ? "\u00A0" : ch}
+                      </span>
+                    ))}
+                  </span>
+                </div>
+                <div className="mb-1">
+                  <div className="text-[15px] font-semibold text-gray-900">Pazarlama Stratejisi</div>
+                  <p className="text-[12px] text-gray-700 leading-snug mt-1">
+                    Kısa bir başvuru ile işletmeniz için uygun kanallar ve bütçe dağılımını içeren ön analiz alın.
+                  </p>
+                </div>
+                <div className="mt-2 flex items-center gap-2">
+                  <span className="text-xs text-gray-400 line-through">14.000 ₺</span>
+                  <span className="text-[10px] text-gray-400">→</span>
+                  <span className="text-base font-bold text-green-700">0 ₺</span>
+                </div>
+                <div className="mt-2">
+                  <Countdown15d />
+                </div>
+                <div className="mt-3">
+                  <SheetClose asChild>
+                    <Link
+                      href="/pazarlama-strateji-basvurusu"
+                      className="inline-flex w-full items-center justify-center rounded-lg bg-green-600 px-4 py-2.5 text-[13px] font-semibold text-white shadow-sm hover:bg-green-700"
+                    >
+                      Hemen Başvur
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </SheetClose>
+                </div>
+              </div>
+            </div>
+
             {/* Arama kaldırıldı */}
           </div>
         </SheetContent>
@@ -195,4 +236,58 @@ export const HeaderMobile: React.FC = () => {
 
 export default HeaderMobile
 
+
+function Countdown15d() {
+  const totalMs = 15 * 24 * 60 * 60 * 1000
+  const [remaining, setRemaining] = useState<number>(totalMs)
+
+  React.useEffect(() => {
+    const id = setInterval(() => {
+      setRemaining(prev => {
+        const next = prev - 1000
+        return next <= 0 ? totalMs : next
+      })
+    }, 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const days = Math.floor(remaining / (24 * 60 * 60 * 1000))
+  const hours = Math.floor((remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000))
+  const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000))
+  const seconds = Math.floor((remaining % (60 * 1000)) / 1000)
+
+  const pad = (n: number) => String(n).padStart(2, "0")
+
+  return (
+    <div className="flex items-center gap-1 text-green-900">
+      <div className="flex flex-col items-center">
+        <div className="bg-white/70 rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-green-200">
+          <span className="text-[11px] font-bold tabular-nums">{String(days).padStart(2, '0')}</span>
+        </div>
+        <span className="text-[9px] text-green-800">Gün</span>
+      </div>
+      <span className="text-green-700/50">:</span>
+      <div className="flex flex-col items-center">
+        <div className="bg-white/70 rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-green-200">
+          <span className="text-[11px] font-bold tabular-nums">{pad(hours)}</span>
+        </div>
+        <span className="text-[9px] text-green-800">Saat</span>
+      </div>
+      <span className="text-green-700/50">:</span>
+      <div className="flex flex-col items-center">
+        <div className="bg-white/70 rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-green-200">
+          <span className="text-[11px] font-bold tabular-nums">{pad(minutes)}</span>
+        </div>
+        <span className="text-[9px] text-green-800">Dakika</span>
+      </div>
+      <span className="text-green-700/50">:</span>
+      <div className="flex flex-col items-center">
+        <div className="bg-white/70 rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-green-200">
+          <span className="text-[11px] font-bold tabular-nums">{pad(seconds)}</span>
+        </div>
+        <span className="text-[9px] text-green-800">Saniye</span>
+      </div>
+    </div>
+  )
+}
 
