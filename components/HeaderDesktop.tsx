@@ -237,10 +237,22 @@ export const HeaderDesktop = () => {
         const parser = new DOMParser()
         const xml = parser.parseFromString(text, 'application/xml')
         const locs = Array.from(xml.getElementsByTagName('loc')).map(n => n.textContent || '').filter(Boolean)
+        const overrides: Record<string, string> = {
+          '/it-infrastructure': 'Altyapı Hizmetleri',
+          '/network-solutions': 'Ağ Çözümleri',
+          '/server-systems': 'Sunucu Sistemleri',
+          '/cloud-backup': 'Bulut & Backup',
+          '/mail-licenses': 'Mail & Lisans',
+          '/technical-service': 'Teknik Servis',
+          '/it-maintenance': 'BT Bakım',
+          '/security-systems': 'Güvenlik Sistemleri',
+        }
         const toTitle = (path: string) => {
           try {
             const url = new URL(path, window.location.origin)
-            const slug = url.pathname.replace(/^\/+|\/+$/g, '')
+            const pathname = url.pathname
+            if (overrides[pathname]) return overrides[pathname]
+            const slug = pathname.replace(/^\/+|\/+$/g, '')
             if (!slug) return 'Ana Sayfa'
             const parts = slug.split('/')
             const last = parts[parts.length - 1]
