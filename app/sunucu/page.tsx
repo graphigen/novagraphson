@@ -262,8 +262,8 @@ export default function SunucuPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="mobile-section bg-gray-50">
+        <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               Gelişmiş Virtualizor Altyapımız ile Tam Performanslı VPS Paketlerin Tadını Çıkarın
@@ -323,8 +323,8 @@ export default function SunucuPage() {
       </section>
 
       {/* VPS Packages Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4">
+      <section className="mobile-section">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               VPS Sunucuların avantajlı özelliklerini keşfedin!
@@ -334,7 +334,7 @@ export default function SunucuPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 mobile-grid-gap">
             {vpsPackages.map((pkg, index) => (
               <motion.div
                 key={pkg.id}
@@ -342,12 +342,12 @@ export default function SunucuPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full border-2 hover:border-blue-500 transition-all duration-300 hover:shadow-xl">
+                 <Card className="h-full border-2 hover:border-blue-500 transition-all duration-300 hover:shadow-xl mobile-card">
                   <CardHeader className="text-center pb-4">
                     <CardTitle className="text-2xl font-bold text-gray-900">{pkg.name}</CardTitle>
                     <CardDescription className="text-gray-600">{pkg.description}</CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                   <CardContent className="space-y-3">
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
                         <Storage className="w-5 h-5 text-blue-600" />
@@ -397,8 +397,8 @@ export default function SunucuPage() {
       </section>
 
       {/* Advantages Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="mobile-section bg-gray-50">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {advantages.map((advantage, index) => (
               <motion.div
@@ -429,8 +429,8 @@ export default function SunucuPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4">
+      <section className="mobile-section">
+        <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">

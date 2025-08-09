@@ -226,8 +226,8 @@ export default function GrafikTasarimPage() {
       </section>
 
       {/* Tasarım Sürecimiz */}
-      <section className="py-20 bg-white" ref={designProcessRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-white" ref={designProcessRef}>
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Brush className="w-4 h-4 mr-2" />
@@ -239,7 +239,7 @@ export default function GrafikTasarimPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 mobile-grid-gap lg:gap-16 items-center">
             {/* Sol Taraf - Flat Minimal Açıklama */}
             <div className="space-y-8">
               <div className="space-y-6">
@@ -284,7 +284,7 @@ export default function GrafikTasarimPage() {
               </div>
 
               {/* Flat Minimal İstatistikler */}
-              <div className="grid grid-cols-2 gap-4 pt-6">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-4">
                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -329,7 +329,7 @@ export default function GrafikTasarimPage() {
             </div>
 
             {/* Sağ Taraf - Flat Minimal Süreç Kartları */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {designStages.map((stage, index) => (
                 <motion.div
                   key={stage.stage}
@@ -368,8 +368,8 @@ export default function GrafikTasarimPage() {
       </section>
 
       {/* Hizmetler Bölümü */}
-      <section className="py-20 bg-gray-50" ref={servicesRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-gray-50" ref={servicesRef}>
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Palette className="w-4 h-4 mr-2" />
@@ -382,7 +382,7 @@ export default function GrafikTasarimPage() {
           </div>
           
           {/* Flat Minimal Modern Grid Tasarımı */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mobile-grid-gap">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}

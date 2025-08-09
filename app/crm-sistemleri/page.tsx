@@ -408,8 +408,8 @@ export default function CRMSistemleriPage() {
       </section>
 
       {/* CRM'in Faydaları */}
-      <section className="py-20 bg-white" ref={benefitsRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-white" ref={benefitsRef}>
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <TrendingUp className="w-4 h-4 mr-2" />
@@ -421,7 +421,7 @@ export default function CRMSistemleriPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mobile-grid-gap">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.title}
@@ -453,8 +453,8 @@ export default function CRMSistemleriPage() {
       </section>
 
       {/* Kullandığımız CRM'ler */}
-      <section className="py-20 bg-gray-50" ref={crmSystemsRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-gray-50" ref={crmSystemsRef}>
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Globe className="w-4 h-4 mr-2" />
@@ -466,7 +466,7 @@ export default function CRMSistemleriPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mobile-grid-gap">
             {crmSystems.map((system, index) => (
               <motion.div
                 key={system.name}
@@ -505,7 +505,7 @@ export default function CRMSistemleriPage() {
       </section>
 
       {/* Neden Biz? */}
-      <section className="py-20 bg-blue-900" ref={whyUsRef}>
+      <section className="py-16 sm:py-20 bg-blue-900" ref={whyUsRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-blue-800 rounded-full text-blue-200 text-sm font-medium mb-4">
@@ -518,7 +518,7 @@ export default function CRMSistemleriPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mobile-grid-gap">
             {whyUsFeatures.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -547,8 +547,8 @@ export default function CRMSistemleriPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-white">
+        <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">CRM ile Süreçlerinizi Güçlendirin</h2>

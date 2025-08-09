@@ -120,27 +120,27 @@ export default function WebTasarimPage() {
       </section>
 
       {/* Web Tasarım Hizmetleri Section - 4 Cards Layout */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="mobile-section bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 mobile-grid-gap">
             
             {/* Mobil Uyumlu Tasarım Card */}
-            <Card className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col">
-              <CardHeader className="p-6 flex-shrink-0">
+            <Card className="border-0 shadow-sm bg-white mobile-card group h-full flex flex-col">
+              <CardHeader className="flex-shrink-0">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl font-bold text-gray-900">Mobil Uyumlu Tasarım</CardTitle>
                   <ArrowUpRight className="w-5 h-5 text-gray-400" />
                 </div>
               </CardHeader>
-              <CardContent className="p-6 pt-0 flex flex-col h-full">
-                <CardDescription className="text-gray-600 mb-8">
+              <CardContent className="pt-0 flex flex-col h-full">
+                <CardDescription className="text-gray-600 mb-6 mobile-text">
                   Tüm cihazlarda mükemmel görüntüleme deneyimi sunan, responsive yapılar.
                 </CardDescription>
                 
                 {/* Interactive Device Buttons */}
-                <div className="space-y-8 flex-1">
-                  {/* Device Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4 flex-1">
+                  <div className="space-y-6 flex-1">
+                    {/* Device Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3 flex-1">
                     {/* Mobile Button */}
                     <div className="group/device relative flex-1">
                       <button className="w-full h-full min-h-[120px] p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl">
@@ -156,7 +156,7 @@ export default function WebTasarimPage() {
                       </button>
                       
                       {/* Mobile Mockup - Hidden by default, shown on hover */}
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 opacity-0 group-hover/device:opacity-100 transition-all duration-300 pointer-events-none z-10">
+                       <div className="hidden sm:block absolute top-full left-1/2 transform -translate-x-1/2 mt-4 opacity-0 group-hover/device:opacity-100 transition-all duration-300 pointer-events-none z-10">
                         <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-4">
                           <div className="w-20 h-32 bg-gray-900 rounded-2xl p-1">
                             <div className="w-full h-full bg-white rounded-xl p-2">
@@ -187,7 +187,7 @@ export default function WebTasarimPage() {
                       </button>
                       
                       {/* Tablet Mockup - Hidden by default, shown on hover */}
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 opacity-0 group-hover/device:opacity-100 transition-all duration-300 pointer-events-none z-10">
+                       <div className="hidden sm:block absolute top-full left-1/2 transform -translate-x-1/2 mt-4 opacity-0 group-hover/device:opacity-100 transition-all duration-300 pointer-events-none z-10">
                         <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-4">
                           <div className="w-24 h-18 bg-gray-900 rounded-2xl p-1">
                             <div className="w-full h-full bg-white rounded-xl p-2">
@@ -236,9 +236,9 @@ export default function WebTasarimPage() {
                   </div>
                   
                   {/* Responsive Features */}
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6">
+                   <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 sm:p-6">
                     {/* Additional Features */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
                       <div className="text-center p-3 bg-white/60 rounded-lg">
                         <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
                           <Eye className="w-4 h-4 text-blue-600" />
@@ -273,7 +273,7 @@ export default function WebTasarimPage() {
                     </div>
 
                     {/* Performance Metrics */}
-                    <div className="bg-white rounded-lg p-4 shadow-sm">
+                     <div className="bg-white rounded-lg p-4 shadow-sm overflow-hidden">
                       <div className="text-center mb-4">
                         <div className="text-sm font-semibold text-gray-900">Performans Metrikleri</div>
                       </div>
@@ -321,15 +321,15 @@ export default function WebTasarimPage() {
             </Card>
 
             {/* Yüksek Performanslı Kodlama Card */}
-            <Card className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col">
+            <Card className="border-0 shadow-sm bg-white mobile-card group h-full flex flex-col">
               <CardHeader className="p-6 flex-shrink-0">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl font-bold text-gray-900">Yüksek Performanslı Kodlama</CardTitle>
                   <ArrowUpRight className="w-5 h-5 text-gray-400" />
                 </div>
               </CardHeader>
-              <CardContent className="p-6 pt-0 flex flex-col h-full">
-                <CardDescription className="text-gray-600 mb-6">
+              <CardContent className="pt-0 flex flex-col h-full">
+                <CardDescription className="text-gray-600 mb-4 mobile-text">
                   Hızlı yüklenen sayfalar ve temiz, optimize edilmiş kod yapısı.
                 </CardDescription>
                 <div className="space-y-4 h-full flex flex-col">
@@ -366,7 +366,7 @@ export default function WebTasarimPage() {
                   </div>
                   
                   {/* Code Mockup */}
-                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-4 shadow-lg flex-1">
+                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-4 shadow-lg flex-1 overflow-hidden">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex space-x-2">
                         <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -395,20 +395,20 @@ export default function WebTasarimPage() {
             </Card>
 
             {/* Dönüşüm Odaklı Arayüzler Card */}
-            <Card className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col">
+            <Card className="border-0 shadow-sm bg-white mobile-card group h-full flex flex-col">
               <CardHeader className="p-6 flex-shrink-0">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl font-bold text-gray-900">Dönüşüm Odaklı Arayüzler</CardTitle>
                   <ArrowUpRight className="w-5 h-5 text-gray-400" />
                 </div>
               </CardHeader>
-              <CardContent className="p-6 pt-0 flex flex-col h-full">
+              <CardContent className="pt-0 flex flex-col h-full">
                 <CardDescription className="text-gray-600 mb-6">
                   Kullanıcı yolculuğunu takip eden ve dönüşüm oranlarını artıran UX tasarımları.
                 </CardDescription>
                 
                 {/* Modern Hero Section Mockup */}
-                <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 rounded-xl p-6 mb-6 shadow-lg flex-1">
+                <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 rounded-xl p-4 sm:p-6 mb-6 shadow-lg flex-1">
                   <div className="text-center text-white">
                     <div className="text-xl font-bold mb-2">Modern Web Tasarım</div>
                     <div className="text-sm mb-4 opacity-90">Profesyonel ve dönüşüm odaklı çözümler</div>

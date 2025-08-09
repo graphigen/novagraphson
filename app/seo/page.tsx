@@ -356,24 +356,24 @@ export default function SEOPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      <section className="mobile-section bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 mobile-grid-gap lg:gap-12">
             {benefits.map((benefit, index) => (
               <Card key={index} className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col hover:shadow-md transition-shadow duration-300">
-                <CardHeader className="p-8 flex-shrink-0">
+                <CardHeader className="flex-shrink-0">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-xl font-bold text-gray-900">{benefit.title}</CardTitle>
                     <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors duration-200" />
                   </div>
                 </CardHeader>
-                <CardContent className="p-8 pt-0 flex flex-col h-full">
-                  <CardDescription className="text-gray-600 mb-8 text-base leading-relaxed">
+                <CardContent className="pt-0 flex flex-col h-full">
+                  <CardDescription className="text-gray-600 mb-6 mobile-text">
                     {benefit.description}
                   </CardDescription>
                   
                   {/* UI Component */}
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 flex-1">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 sm:p-6 border border-blue-200 flex-1 overflow-hidden">
                     {benefit.title === "Daha Fazla Ziyaretçi" && (
                       <div className="bg-white rounded-lg p-6 shadow-sm">
                         <div className="flex items-center justify-between mb-4">
@@ -503,10 +503,10 @@ export default function SEOPage() {
       </section>
 
       {/* SEO Process Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-white">
+        <div className="max-w-7xl mx-auto">
           {/* Timeline Container */}
-          <div className="relative max-w-4xl mx-auto">
+            <div className="relative max-w-4xl mx-auto">
             {/* Vertical Timeline Line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200 transform -translate-x-1/2 hidden md:block"></div>
             
@@ -760,8 +760,8 @@ export default function SEOPage() {
       </section>
 
       {/* Performance Graph Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-gray-50">
+        <div className="max-w-7xl mx-auto">
           {/* Modern Card Component */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden" ref={graphRef}>
             {/* Header */}
@@ -808,8 +808,8 @@ export default function SEOPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-white">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {whyChooseUs.map((item, index) => (
               <Card key={index} className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col">

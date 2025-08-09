@@ -181,8 +181,8 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* Omni-Channel Reklam Stratejisi - Yeniden Tasarlandı */}
-      <section className="py-20 bg-white" ref={omniChannelRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-white" ref={omniChannelRef}>
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Her Kanaldan Erişim: Omni-Channel Yaklaşım</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -191,7 +191,7 @@ export default function DijitalPazarlamaPage() {
           </div>
           
           {/* Yeni Omni-Channel Tasarım */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 mobile-grid-gap items-center">
             {/* Sol Taraf - Açıklama ve İstatistikler */}
             <div className="space-y-8">
               <div className="space-y-6">
@@ -237,7 +237,7 @@ export default function DijitalPazarlamaPage() {
               </div>
 
               {/* Platform İstatistikleri */}
-              <div className="grid grid-cols-2 gap-4 pt-6">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-4">
                 <div className="text-center p-4 bg-blue-50 rounded-lg">
                   <div className="text-2xl font-bold text-blue-600">6+</div>
                   <div className="text-sm text-gray-600">Platform</div>
@@ -258,7 +258,7 @@ export default function DijitalPazarlamaPage() {
             </div>
 
             {/* Sağ Taraf - Funnel Kartları */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {funnelStages.map((stage, index) => (
                 <motion.div
                   key={stage.stage}
@@ -300,8 +300,8 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* Raporlama & Ölçümleme - Taşındı */}
-      <section className="py-20 bg-gray-50" ref={dashboardRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-gray-50" ref={dashboardRef}>
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Her Tıklama Takibimizde</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -332,7 +332,7 @@ export default function DijitalPazarlamaPage() {
             </div>
             
             {/* Dashboard Content */}
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               {/* Metrics Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 {dashboardData.map((metric, index) => (
@@ -368,8 +368,8 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* Giden Müşteri Geri Gelir - Yeni Tasarım */}
-      <section className="py-20 bg-white" ref={remarketingRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-white" ref={remarketingRef}>
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Giden Müşteri Geri Gelir</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -803,8 +803,8 @@ export default function DijitalPazarlamaPage() {
       </section>
 
       {/* WhatsApp + SMS + Mail Marketing */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="mobile-section bg-gray-50">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Direkt Mesajlaşma Kanalları</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -894,7 +894,7 @@ export default function DijitalPazarlamaPage() {
                 </TabsList>
                 
                 {/* Tab Content Container - Sabit Yükseklik */}
-                <div className="min-h-[500px] relative">
+            <div className="min-h-[420px] sm:min-h-[500px] relative">
                   <TabsContent value="whatsapp" className="absolute inset-0 data-[state=inactive]:hidden">
                     {/* WhatsApp Mockup */}
                     <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden max-w-sm mx-auto h-full flex flex-col">

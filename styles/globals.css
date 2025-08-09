@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global mobile spacing and overflow guards */
+@layer utilities {
+  .mobile-section {
+    @apply py-12 sm:py-16 px-4 sm:px-6;
+  }
+  .mobile-grid-gap {
+    @apply gap-4 sm:gap-6;
+  }
+  .mobile-card {
+    @apply rounded-xl sm:rounded-2xl overflow-hidden;
+  }
+  .mobile-text {
+    @apply text-sm sm:text-base leading-relaxed;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
