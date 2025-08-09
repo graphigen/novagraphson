@@ -180,12 +180,7 @@ export default MegaMenu
 function CountdownBadge() {
   // 15 günden geriye say, 0'a gelince yeniden 15 günden başla
   const totalMs = 15 * 24 * 60 * 60 * 1000
-  const [remaining, setRemaining] = React.useState<number>(() => {
-    const now = Date.now()
-    // Sürekli döngü: epoch'a göre mod alarak kalan süreyi bul
-    const mod = now % totalMs
-    return totalMs - mod
-  })
+  const [remaining, setRemaining] = React.useState<number>(totalMs)
 
   React.useEffect(() => {
     const id = setInterval(() => {
@@ -205,11 +200,39 @@ function CountdownBadge() {
   const pad = (n: number) => String(n).padStart(2, "0")
 
   return (
-    <div className="inline-flex items-center gap-2 text-xs font-medium text-green-800 bg-green-100 rounded-full px-3 py-1">
-      <span>Sınırlı süre ücretsiz</span>
-      <span className="font-semibold tabular-nums">
-        {String(days).padStart(2, "0")}g {pad(hours)}:{pad(minutes)}:{pad(seconds)}
+    <div className="flex items-center gap-3">
+      <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
+        Sınırlı süre ücretsiz
       </span>
+      <div className="flex items-center gap-2 text-green-900">
+        <div className="flex flex-col items-center">
+          <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
+            <span className="text-xs font-bold tabular-nums">{String(days).padStart(2, '0')}</span>
+          </div>
+          <span className="text-[10px] text-green-800">Gün</span>
+        </div>
+        <span className="text-green-700/50">:</span>
+        <div className="flex flex-col items-center">
+          <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
+            <span className="text-xs font-bold tabular-nums">{pad(hours)}</span>
+          </div>
+          <span className="text-[10px] text-green-800">Saat</span>
+        </div>
+        <span className="text-green-700/50">:</span>
+        <div className="flex flex-col items-center">
+          <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
+            <span className="text-xs font-bold tabular-nums">{pad(minutes)}</span>
+          </div>
+          <span className="text-[10px] text-green-800">Dakika</span>
+        </div>
+        <span className="text-green-700/50">:</span>
+        <div className="flex flex-col items-center">
+          <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
+            <span className="text-xs font-bold tabular-nums">{pad(seconds)}</span>
+          </div>
+          <span className="text-[10px] text-green-800">Saniye</span>
+        </div>
+      </div>
     </div>
   )
 }
