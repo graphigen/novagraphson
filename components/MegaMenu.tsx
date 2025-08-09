@@ -138,16 +138,17 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
 
               {/* Right Column - CTA */}
               <div className="col-span-3">
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 h-full border border-blue-100">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Ücretsiz Pazarlama Stratejisi</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-6 h-full border border-green-100 shadow-sm">
+                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 mb-3">Ücretsiz</span>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Ücretsiz Pazarlama Stratejisi</h3>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
                     İşletmeniz için en uygun dijital kanalları ve bütçe dağılımını içeren ön analiz. Başvurun,
                     48 saat içinde size özel bir plan önerelim.
                   </p>
 
                   <div className="space-y-3">
                     <button
-                      className="w-full bg-blue-600 text-white rounded-xl px-6 py-3 font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
+                      className="w-full bg-green-600 text-white rounded-xl px-6 py-3 font-semibold hover:bg-green-700 transition-colors duration-200 shadow-sm hover:shadow-md"
                       onClick={() => handleServiceClick("/pazarlama-strateji-basvurusu")}
                     >
                       Hemen Başvur
