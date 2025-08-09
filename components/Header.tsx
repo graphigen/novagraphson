@@ -1,7 +1,6 @@
 "use client"
 
 import { HeaderDesktop } from "@/components/HeaderDesktop"
-import { HeaderMobile } from "@/components/HeaderMobile"
 import { TopBar } from "@/components/TopBar"
 
 export function Header() {
@@ -15,10 +14,7 @@ export function Header() {
             <HeaderDesktop />
           </div>
 
-          {/* Mobile Header - hidden on desktop */}
-          <div className="md:hidden w-full">
-            <HeaderMobile />
-          </div>
+          {/* Mobile Header removed intentionally */}
         </div>
       </header>
     </>
