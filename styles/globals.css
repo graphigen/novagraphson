@@ -11,6 +11,15 @@
   animation: bounce-slow 1.2s ease-in-out infinite;
 }
 
+@keyframes fade-pulse-slow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.animate-fade-pulse-slow {
+  animation: fade-pulse-slow 1.8s ease-in-out infinite;
+}
+
 /* Global mobile spacing and overflow guards */
 @layer utilities {
   .mobile-section {

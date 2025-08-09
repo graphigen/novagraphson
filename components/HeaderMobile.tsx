@@ -190,13 +190,7 @@ export const HeaderMobile: React.FC = () => {
               <div className="rounded-xl border border-green-200 bg-gradient-to-br from-emerald-50 to-green-50 p-4 shadow-sm">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="inline-flex items-center px-2 py-1 text-[11px] font-bold rounded-full bg-green-100 text-green-800">Ücretsiz</span>
-                  <span className="inline-flex items-center px-2 py-1 text-[11px] font-bold rounded-full bg-green-100 text-green-800">
-                    {"Sınırlı Süre".split("").map((ch, idx) => (
-                      <span key={idx} className="inline-block animate-bounce-slow" style={{ animationDelay: `${idx * 60}ms` }}>
-                        {ch === " " ? "\u00A0" : ch}
-                      </span>
-                    ))}
-                  </span>
+                  <span className="inline-flex items-center px-2 py-1 text-[11px] font-bold rounded-full bg-green-100 text-green-800 animate-fade-pulse-slow">Sınırlı Süre</span>
                 </div>
                 <div className="mb-1">
                   <div className="text-[15px] font-semibold text-gray-900">Pazarlama Stratejisi</div>

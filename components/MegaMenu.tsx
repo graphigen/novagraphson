@@ -242,19 +242,10 @@ function CountdownBadge() {
 }
 
 function LimitedTimeBadge() {
-  // Sınırlı Süre yazısının karakterlerine dikkat çekici bir dalga animasyonu
-  const text = "Sınırlı Süre"
+  // Sınırlı Süre rozeti: yavaş yavaş yanıp sönen animasyon
   return (
-    <span className="inline-flex items-center px-2 py-1 text-xs font-bold rounded-full bg-green-100 text-green-800 overflow-hidden">
-      {text.split("").map((ch, idx) => (
-        <span
-          key={idx}
-          className="inline-block animate-bounce-slow"
-          style={{ animationDelay: `${idx * 60}ms` }}
-        >
-          {ch === " " ? "\u00A0" : ch}
-        </span>
-      ))}
+    <span className="inline-flex items-center px-2 py-1 text-xs font-bold rounded-full bg-green-100 text-green-800 animate-fade-pulse-slow">
+      Sınırlı Süre
     </span>
   )
 }
