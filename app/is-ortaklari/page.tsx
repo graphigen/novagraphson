@@ -182,8 +182,8 @@ export default function IsOrtaklariPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center justify-center space-x-2 bg-white backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 lg:mb-8 shadow-sm border border-white/20">
-              <Users className="w-4 h-4 flex-shrink-0" />
+            <div className="inline-flex items-center justify-center space-x-2 bg-white/90 backdrop-blur-sm text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6 lg:mb-8 shadow-sm border border-white/30">
+              <Users className="w-4 h-4 flex-shrink-0 text-blue-600" />
               <span>İş Ortaklarımız</span>
             </div>
 
@@ -319,8 +319,6 @@ export default function IsOrtaklariPage() {
 
       {/* CTA Section */}
       <CTABanner />
-
-      <Footer />
     </div>
   )
 }
