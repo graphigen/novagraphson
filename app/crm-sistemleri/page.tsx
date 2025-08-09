@@ -550,7 +550,7 @@ export default function CRMSistemleriPage() {
       <section className="mobile-section bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">CRM ile Süreçlerinizi Güçlendirin</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Hangi CRM'in size uygun olduğunu birlikte belirleyelim.

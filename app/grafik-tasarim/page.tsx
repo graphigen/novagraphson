@@ -228,7 +228,7 @@ export default function GrafikTasarimPage() {
       {/* Tasarım Sürecimiz */}
       <section className="mobile-section bg-white" ref={designProcessRef}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Brush className="w-4 h-4 mr-2" />
               Profesyonel Süreç
@@ -370,7 +370,7 @@ export default function GrafikTasarimPage() {
       {/* Hizmetler Bölümü */}
       <section className="mobile-section bg-gray-50" ref={servicesRef}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-4">
               <Palette className="w-4 h-4 mr-2" />
               Uzman Hizmetler

@@ -122,7 +122,7 @@ export default function WebTasarimPage() {
       {/* Web Tasarım Hizmetleri Section - 4 Cards Layout */}
       <section className="mobile-section bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 mobile-grid-gap">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             
             {/* Mobil Uyumlu Tasarım Card */}
             <Card className="border-0 shadow-sm bg-white mobile-card group h-full flex flex-col">
@@ -587,7 +587,7 @@ export default function WebTasarimPage() {
       {/* Performance Metrics Section */}
       <section className="mobile-section bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 mobile-grid-gap">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-8 h-8 text-blue-600" />
@@ -831,7 +831,7 @@ export default function WebTasarimPage() {
       <section className="mobile-section bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Web Tasarım Projenizi Başlatalım</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Uzman ekibimizle birlikte dijital varlığınızı güçlendirin ve işletmenizi bir adım öne taşıyın.
@@ -839,7 +839,7 @@ export default function WebTasarimPage() {
           </div>
 
           {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 mobile-grid-gap mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="bg-gray-50 rounded-lg p-6 text-center">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-6 h-6 text-blue-600" />

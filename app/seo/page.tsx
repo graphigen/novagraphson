@@ -358,7 +358,7 @@ export default function SEOPage() {
       {/* Benefits Section */}
       <section className="mobile-section bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 mobile-grid-gap lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {benefits.map((benefit, index) => (
               <Card key={index} className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col hover:shadow-md transition-shadow duration-300">
                 <CardHeader className="flex-shrink-0">
@@ -810,7 +810,7 @@ export default function SEOPage() {
       {/* Why Choose Us Section */}
       <section className="mobile-section bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 mobile-grid-gap gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {whyChooseUs.map((item, index) => (
               <Card key={index} className="border-0 shadow-sm bg-white rounded-xl overflow-hidden group h-full flex flex-col">
                 <CardHeader className="p-6 flex-shrink-0">

@@ -232,7 +232,7 @@ export default function VideoProduksiyonPage() {
       {/* Stats Section */}
       <section className="mobile-section bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 mobile-grid-gap">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -256,7 +256,7 @@ export default function VideoProduksiyonPage() {
       {/* Services Section */}
       <section className="mobile-section bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Video Prodüksiyon Hizmetlerimiz
             </h2>
@@ -304,7 +304,7 @@ export default function VideoProduksiyonPage() {
       {/* Features Section */}
       <section className="mobile-section bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Neden NovaGraph Video Prodüksiyon?
             </h2>
@@ -344,7 +344,7 @@ export default function VideoProduksiyonPage() {
       {/* Process Section */}
       <section className="mobile-section bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Çalışma Sürecimiz
             </h2>
@@ -389,7 +389,7 @@ export default function VideoProduksiyonPage() {
       <section className="mobile-section bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Video Prodüksiyon Projenizi Başlatalım</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Markanızı güçlendirecek profesyonel video içerikler için hemen iletişime geçin.

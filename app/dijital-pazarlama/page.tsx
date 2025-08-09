@@ -183,7 +183,7 @@ export default function DijitalPazarlamaPage() {
       {/* Omni-Channel Reklam Stratejisi - Yeniden Tasarlandı */}
       <section className="mobile-section bg-white" ref={omniChannelRef}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Her Kanaldan Erişim: Omni-Channel Yaklaşım</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Müşteriniz hangi platformda olursa olsun, markanız her zaman görünür. Omni-channel stratejimizle reklamlarınız potansiyel müşterinizin çevresini kuşatır.
@@ -191,7 +191,7 @@ export default function DijitalPazarlamaPage() {
           </div>
           
           {/* Yeni Omni-Channel Tasarım */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 mobile-grid-gap items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Sol Taraf - Açıklama ve İstatistikler */}
             <div className="space-y-10">
               <div className="space-y-8">
@@ -237,7 +237,7 @@ export default function DijitalPazarlamaPage() {
               </div>
 
               {/* Platform İstatistikleri */}
-              <div className="grid grid-cols-2 gap-4 sm:gap-5 pt-6">
+              <div className="grid grid-cols-2 gap-8 pt-6">
                 <div className="text-center p-4 bg-blue-50 rounded-lg">
                   <div className="text-2xl font-bold text-blue-600">6+</div>
                   <div className="text-sm text-gray-600">Platform</div>
@@ -258,7 +258,7 @@ export default function DijitalPazarlamaPage() {
             </div>
 
             {/* Sağ Taraf - Funnel Kartları */}
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 gap-8">
               {funnelStages.map((stage, index) => (
                 <motion.div
                   key={stage.stage}
@@ -302,7 +302,7 @@ export default function DijitalPazarlamaPage() {
       {/* Raporlama & Ölçümleme - Taşındı */}
       <section className="mobile-section bg-gray-50 pt-16 sm:pt-20" ref={dashboardRef}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Her Tıklama Takibimizde</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Tüm kanallardan alınan verileri analiz ederek detaylı raporlar sunuyoruz. Hangi kampanya ne kadar dönüşüm getirdi, şeffaf biçimde gösteriyoruz.
@@ -370,7 +370,7 @@ export default function DijitalPazarlamaPage() {
       {/* Giden Müşteri Geri Gelir - Yeni Tasarım */}
       <section className="mobile-section bg-white" ref={remarketingRef}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Giden Müşteri Geri Gelir</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Ziyaret edip ayrılan kullanıcıları yeniden yakalıyoruz. Etkili yeniden pazarlama stratejilerimizle dönüşüm oranlarını artırıyoruz.
@@ -805,14 +805,14 @@ export default function DijitalPazarlamaPage() {
       {/* WhatsApp + SMS + Mail Marketing */}
       <section className="mobile-section bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 space-y-5">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Direkt Mesajlaşma Kanalları</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Etkileşimi artıran, doğrudan mesaj kanallarıyla hedef kitlenize ulaşın.
             </p>
           </div>
           
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 sm:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Sol Taraf - Açıklama */}
             <div className="space-y-8">
               <div className="space-y-6">
