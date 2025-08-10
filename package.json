@@ -6,7 +6,7 @@
     "build": "next build",
     "postbuild": "node scripts/fix-standalone-static.js && node scripts/ensure-public.js",
     "prestart": "node scripts/fix-standalone-static.js && node scripts/ensure-public.js",
-    "dev": "next dev -p 3001",
+    "dev": "next dev -p 3002",
     "lint": "next lint",
     "start": "node .next/standalone/server.js"
   },

@@ -5,6 +5,7 @@ import React from "react"
 import Link from "next/link"
 import { useContactForm } from "@/contexts/ContactFormContext"
 import { solutionGroups as groups } from "@/lib/solutions"
+import { useServerCountdown } from "@/hooks/useServerCountdown"
 
 type SolutionGroup = typeof groups[number]
 
@@ -109,13 +110,13 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
                 {/* Bottom Links */}
                 <div className="mt-8 pt-6 border-t border-gray-200">
                   <div className="flex items-center justify-center space-x-8 text-sm text-gray-600">
-                    <button
-                      onClick={() => handleServiceClick("#contact")}
+                    <Link
+                      href="/iletisim"
                       className="flex items-center space-x-2 hover:text-blue-600 transition-colors group"
                     >
                       <div className="w-2 h-2 bg-green-500 rounded-full group-hover:scale-125 transition-transform"></div>
                       <span className="font-medium">Sizi Arayalım</span>
-                    </button>
+                    </Link>
                     <div className="w-px h-6 bg-gray-300"></div>
                     <button
                       onClick={() => handleServiceClick("/hakkimizda")}
@@ -185,37 +186,53 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
 export default MegaMenu
 
 function CountdownBadge() {
-  // 15 günden geriye say, 0'a gelince yeniden 15 günden başla (persisted)
-  const totalMs = 15 * 24 * 60 * 60 * 1000
-  const STORAGE_KEY = "promoCycleStart"
-  const [remaining, setRemaining] = React.useState<number>(totalMs)
+  const { timeLeft, isLoading, error } = useServerCountdown()
 
-  React.useEffect(() => {
-    let start = 0
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY)
-      if (raw) start = parseInt(raw)
-    } catch {}
-    if (!start || Number.isNaN(start)) {
-      start = Date.now()
-      try { localStorage.setItem(STORAGE_KEY, String(start)) } catch {}
-    }
+  if (isLoading) {
+    return (
+      <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 text-green-900">
+          <div className="flex flex-col items-center">
+            <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
+              <span className="text-xs font-bold tabular-nums">--</span>
+            </div>
+            <span className="text-[10px] text-green-800">Gün</span>
+          </div>
+          <span className="text-green-700/50">:</span>
+          <div className="flex flex-col items-center">
+            <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
+              <span className="text-xs font-bold tabular-nums">--</span>
+            </div>
+            <span className="text-[10px] text-green-800">Saat</span>
+          </div>
+          <span className="text-green-700/50">:</span>
+          <div className="flex flex-col items-center">
+            <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
+              <span className="text-xs font-bold tabular-nums">--</span>
+            </div>
+            <span className="text-[10px] text-green-800">Dakika</span>
+          </div>
+          <span className="text-green-700/50">:</span>
+          <div className="flex flex-col items-center">
+            <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
+              <span className="text-xs font-bold tabular-nums">--</span>
+            </div>
+            <span className="text-[10px] text-green-800">Saniye</span>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
-    const tick = () => {
-      const now = Date.now()
-      const elapsed = now - start
-      const rem = totalMs - (elapsed % totalMs)
-      setRemaining(rem)
-    }
-    tick()
-    const id = setInterval(tick, 1000)
-    return () => clearInterval(id)
-  }, [])
+  if (error) {
+    return (
+      <div className="text-red-600 text-xs">
+        Sayaç yüklenemedi
+      </div>
+    )
+  }
 
-  const days = Math.floor(remaining / (24 * 60 * 60 * 1000))
-  const hours = Math.floor((remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000))
-  const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000))
-  const seconds = Math.floor((remaining % (60 * 1000)) / 1000)
+  const { days, hours, minutes, seconds } = timeLeft
 
   const pad = (n: number) => String(n).padStart(2, "0")
 

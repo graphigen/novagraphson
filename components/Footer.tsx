@@ -143,9 +143,9 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                <Link href="/blog" className="text-gray-600 hover:text-blue-600 transition-colors">
                   Blog
-                </a>
+                </Link>
               </li>
                 </ul>
               </details>
@@ -169,9 +169,9 @@ export const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                  <Link href="/blog" className="text-gray-600 hover:text-blue-600 transition-colors">
                     Blog
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -187,35 +187,29 @@ export const Footer = () => {
                 </summary>
                 <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  Web Sitesi Nasıl Yapılır?
-                </a>
+                <Link href="/blog/web-tasarim-10-altin-kural" className="text-gray-600 hover:text-blue-600 transition-colors">
+                  Web Tasarımda 10 Altın Kural
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center">
-                  Web Sitesi Kurma
-                  <span className="ml-2 bg-green-500 text-white text-xs px-2 py-1 rounded font-medium">POPÜLER</span>
-                </a>
+                <Link href="/blog/dijital-pazarlama-baslangic-rehberi" className="text-gray-600 hover:text-blue-600 transition-colors">
+                  Dijital Pazarlama Başlangıç Rehberi
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  Web Yazılımı Nedir?
-                </a>
+                <Link href="/blog/seo-ne-kadar-etkili" className="text-gray-600 hover:text-blue-600 transition-colors">
+                  SEO ne kadar etkili olur?
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  En Çok Satılan Ürünler
-                </a>
+                <Link href="/blog/bulut-yedekleme-nasil-yapilir" className="text-gray-600 hover:text-blue-600 transition-colors">
+                  Bulut Yedekleme Nasıl Yapılır?
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  Mikro İhracat Nedir?
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  Web Sitesi SEO
-                </a>
+                <Link href="/blog/ag-guvenligi-nasil-saglanir" className="text-gray-600 hover:text-blue-600 transition-colors">
+                  Ağ Güvenliği Nasıl Sağlanır?
+                </Link>
               </li>
                 </ul>
               </details>
@@ -224,35 +218,29 @@ export const Footer = () => {
               <h3 className="font-semibold text-gray-900 mb-4">En Çok Okunanlar</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Web Sitesi Nasıl Yapılır?
-                  </a>
+                  <Link href="/blog/web-tasarim-10-altin-kural" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Web Tasarımda 10 Altın Kural
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center">
-                    Web Sitesi Kurma
-                    <span className="ml-2 bg-green-500 text-white text-xs px-2 py-1 rounded font-medium">POPÜLER</span>
-                  </a>
+                  <Link href="/blog/dijital-pazarlama-baslangic-rehberi" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Dijital Pazarlama Başlangıç Rehberi
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Web Yazılımı Nedir?
-                  </a>
+                  <Link href="/blog/seo-ne-kadar-etkili" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    SEO ne kadar etkili olur?
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    En Çok Satılan Ürünler
-                  </a>
+                  <Link href="/blog/bulut-yedekleme-nasil-yapilir" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Bulut Yedekleme Nasıl Yapılır?
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Mikro İhracat Nedir?
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Web Sitesi SEO
-                  </a>
+                  <Link href="/blog/ag-guvenligi-nasil-saglanir" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Ağ Güvenliği Nasıl Sağlanır?
+                  </Link>
                 </li>
               </ul>
             </div>
