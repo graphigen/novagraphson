@@ -24,8 +24,12 @@ import {
   Link as LinkIcon,
   Plus,
   Trash2,
-  ShieldCheck
+  ShieldCheck,
+  AlertCircle,
+  ArrowRight,
+  ArrowLeft
 } from "lucide-react"
+import { validateEmail, validatePhone, validateText, validateUrl, validateBudget, validateArray, sanitizeInput } from "@/lib/validation"
 
 type Currency = "TL" | "USD" | "EUR"
 
@@ -161,6 +165,7 @@ export default function MarketingStrategyApplicationPage() {
   )
   const [step, setStep] = useState<number>(1)
   const [showSuccess, setShowSuccess] = useState(false)
+  const [validationErrors, setValidationErrors] = useState<string[]>([])
 
   const totalSteps = 4
   const progress = Math.round(((step - 1) / totalSteps) * 100)
@@ -174,40 +179,113 @@ export default function MarketingStrategyApplicationPage() {
     })
   }
 
-  const handleNext = () => {
-    if (step < totalSteps) setStep(step + 1)
-  }
-  const handlePrev = () => {
-    if (step > 1) setStep(step - 1)
+  const validateStep = (stepNumber: number): boolean => {
+    const errors: string[] = []
+    
+    switch (stepNumber) {
+      case 1:
+        if (formData.selectedPlatforms.length === 0 && !formData.unsureAskForSuggest) {
+          errors.push("En az bir platform seçmelisiniz veya öneri istemelisiniz")
+        }
+        break
+        
+      case 2:
+        const companyNameResult = validateText(formData.companyName, "Firma adı", 2, 100)
+        errors.push(...companyNameResult.errors)
+        
+        const sectorResult = validateText(formData.sector, "Sektör", 2, 50)
+        errors.push(...sectorResult.errors)
+        
+        const productResult = validateText(formData.productDescription, "Ürün açıklaması", 10, 500)
+        errors.push(...productResult.errors)
+        
+        if (formData.websiteUrl) {
+          const urlResult = validateUrl(formData.websiteUrl)
+          errors.push(...urlResult.errors)
+        }
+        
+        if (formData.socialAccounts.length > 0) {
+          const socialResult = validateArray(formData.socialAccounts, "Sosyal medya hesapları", 0, 10)
+          errors.push(...socialResult.errors)
+        }
+        break
+        
+      case 3:
+        const budgetResult = validateBudget(formData.monthlyBudget, formData.budgetCurrency)
+        errors.push(...budgetResult.errors)
+        
+        if (formData.targetAges.length === 0) {
+          errors.push("En az bir hedef yaş grubu seçmelisiniz")
+        }
+        
+        if (!formData.targetGender) {
+          errors.push("Hedef cinsiyet seçmelisiniz")
+        }
+        
+        if (formData.targetRegions.length === 0) {
+          errors.push("En az bir hedef bölge seçmelisiniz")
+        }
+        break
+        
+      case 4:
+        const nameResult = validateText(formData.fullName, "Ad soyad", 2, 50)
+        errors.push(...nameResult.errors)
+        
+        const emailResult = validateEmail(formData.email)
+        errors.push(...emailResult.errors)
+        
+        const phoneResult = validatePhone(formData.phone)
+        errors.push(...phoneResult.errors)
+        
+        if (!formData.kvkkAccepted) {
+          errors.push("KVKK metnini kabul etmelisiniz")
+        }
+        break
+    }
+    
+    setValidationErrors(errors)
+    return errors.length === 0
   }
 
-  const isStepValid = (s: number): boolean => {
-    if (s === 1) {
-      return (
-        formData.selectedPlatforms.length > 0 || formData.unsureAskForSuggest === true
-      )
+  const handleNext = () => {
+    if (validateStep(step)) {
+      setStep(prev => Math.min(prev + 1, totalSteps))
+      setValidationErrors([])
     }
-    if (s === 2) {
-      return formData.companyName.trim() !== "" && formData.sector.trim() !== ""
-    }
-    if (s === 3) {
-      return formData.monthlyBudget > 0 && ["TL", "USD", "EUR"].includes(formData.budgetCurrency)
-    }
-    if (s === 4) {
-      const emailOk = /.+@.+\..+/.test(formData.email)
-      const phoneOk = formData.phone.trim().length >= 7
-      return (
-        formData.fullName.trim() !== "" && emailOk && phoneOk && formData.kvkkAccepted === true
-      )
-    }
-    return true
+  }
+
+  const handlePrev = () => {
+    setStep(prev => Math.max(prev - 1, 1))
+    setValidationErrors([])
   }
 
   const handleSubmit = async () => {
-    // Simulate submission
-    await new Promise(resolve => setTimeout(resolve, 600))
-    setShowSuccess(true)
-    clear()
+    if (validateStep(step)) {
+      try {
+        // Simulate submission
+        await new Promise(resolve => setTimeout(resolve, 600))
+        setShowSuccess(true)
+        clear()
+        setValidationErrors([])
+      } catch (error) {
+        console.error("Form submission error:", error)
+        setValidationErrors(["Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin."])
+      }
+    }
+  }
+
+  const handleInputChange = (field: keyof FormData, value: any) => {
+    // Sanitize string inputs
+    if (typeof value === 'string') {
+      value = sanitizeInput(value)
+    }
+    
+    setFormData(prev => ({ ...prev, [field]: value }))
+    
+    // Clear validation errors when user starts typing
+    if (validationErrors.length > 0) {
+      setValidationErrors([])
+    }
   }
 
   if (showSuccess) {
@@ -248,6 +326,24 @@ export default function MarketingStrategyApplicationPage() {
           </h1>
           <p className="text-gray-600">Kısa adımlarla ihtiyacınızı anlayıp, en doğru stratejiyi önerelim.</p>
         </div>
+
+        {/* Validation Errors */}
+        {validationErrors.length > 0 && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertCircle className="w-5 h-5 text-red-600" />
+              <span className="text-sm font-medium text-red-800">Lütfen aşağıdaki hataları düzeltin:</span>
+            </div>
+            <ul className="text-sm text-red-700 space-y-1">
+              {validationErrors.map((error, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-red-600 rounded-full"></span>
+                  {error}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Progress + Steps */}
         <div className="mb-8">
@@ -293,20 +389,15 @@ export default function MarketingStrategyApplicationPage() {
                 </div>
 
                 <div className="flex items-center justify-between mt-4">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => {
-                      setFormData(prev => ({ ...prev, unsureAskForSuggest: true }))
-                      setStep(2)
-                    }}
-                  >
-                    Emin değilim, bana öner
-                  </Button>
-                  <Button type="button" disabled={!isStepValid(1)} onClick={handleNext}>
-                    Devam
-                    <ChevronRight className="w-4 h-4 ml-2" />
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <Checkbox
+                      checked={formData.unsureAskForSuggest}
+                      onCheckedChange={() => {
+                        handleInputChange("unsureAskForSuggest", !formData.unsureAskForSuggest)
+                      }}
+                    />
+                    <span className="text-sm text-gray-600">Hangi platformları kullanacağımı bilmiyorum, öneri verin</span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -323,7 +414,7 @@ export default function MarketingStrategyApplicationPage() {
                     <Label>Firma Ünvanı *</Label>
                     <Input
                       value={formData.companyName}
-                      onChange={e => setFormData(prev => ({ ...prev, companyName: e.target.value }))}
+                      onChange={e => handleInputChange("companyName", e.target.value)}
                       placeholder="Örn. NovaGraph Teknoloji A.Ş."
                     />
                   </div>
@@ -331,7 +422,7 @@ export default function MarketingStrategyApplicationPage() {
                     <Label>Sektör *</Label>
                     <Select
                       value={formData.sector}
-                      onValueChange={(v) => setFormData(prev => ({ ...prev, sector: v, sectorSuggestedPlatforms: [] }))}
+                      onValueChange={(v) => handleInputChange("sector", v)}
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="Sektör seçin" />
@@ -348,7 +439,7 @@ export default function MarketingStrategyApplicationPage() {
                     <Label>Ürün / Hizmet Açıklaması</Label>
                     <Textarea
                       value={formData.productDescription}
-                      onChange={e => setFormData(prev => ({ ...prev, productDescription: e.target.value }))}
+                      onChange={e => handleInputChange("productDescription", e.target.value)}
                       placeholder="Kısaca ürün ve hizmetlerinizi anlatın"
                     />
                   </div>
@@ -356,7 +447,7 @@ export default function MarketingStrategyApplicationPage() {
                     <Label>Web Sitesi (URL)</Label>
                     <Input
                       value={formData.websiteUrl}
-                      onChange={e => setFormData(prev => ({ ...prev, websiteUrl: e.target.value }))}
+                      onChange={e => handleInputChange("websiteUrl", e.target.value)}
                       placeholder="https://..."
                     />
                   </div>
@@ -446,7 +537,7 @@ export default function MarketingStrategyApplicationPage() {
                   <Button type="button" variant="outline" onClick={handlePrev}>
                     <ChevronLeft className="w-4 h-4 mr-2" /> Geri
                   </Button>
-                  <Button type="button" disabled={!isStepValid(2)} onClick={handleNext}>
+                  <Button type="button" disabled={!validateStep(2)} onClick={handleNext}>
                     Devam <ChevronRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
@@ -466,7 +557,7 @@ export default function MarketingStrategyApplicationPage() {
                     <div className="flex items-center gap-2">
                       <Select
                         value={formData.budgetCurrency}
-                        onValueChange={(v: Currency) => setFormData(prev => ({ ...prev, budgetCurrency: v }))}
+                        onValueChange={(v: Currency) => handleInputChange("budgetCurrency", v)}
                       >
                         <SelectTrigger className="w-28">
                           <SelectValue />
@@ -481,7 +572,7 @@ export default function MarketingStrategyApplicationPage() {
                         type="number"
                         min={0}
                         value={Number.isFinite(formData.monthlyBudget) ? formData.monthlyBudget : 0}
-                        onChange={e => setFormData(prev => ({ ...prev, monthlyBudget: Number(e.target.value) }))}
+                        onChange={e => handleInputChange("monthlyBudget", Number(e.target.value))}
                         placeholder="Örn. 25000"
                         className="flex-1"
                       />
@@ -495,7 +586,7 @@ export default function MarketingStrategyApplicationPage() {
                         <button
                           key={g}
                           type="button"
-                          onClick={() => setFormData(prev => ({ ...prev, targetGender: g as FormData["targetGender"] }))}
+                          onClick={() => handleInputChange("targetGender", g as FormData["targetGender"])}
                           className={`border rounded-md py-2 text-sm ${formData.targetGender===g?"border-blue-600 bg-blue-50":"border-gray-200 hover:bg-gray-50"}`}
                         >
                           {g}
@@ -524,7 +615,7 @@ export default function MarketingStrategyApplicationPage() {
                     <Label>Hedef Bölge (ülke/şehir)</Label>
                     <RegionEditor
                       regions={formData.targetRegions}
-                      onChange={(regions) => setFormData(prev => ({ ...prev, targetRegions: regions }))}
+                      onChange={(regions) => handleInputChange("targetRegions", regions)}
                     />
                   </div>
                 </div>
@@ -533,7 +624,7 @@ export default function MarketingStrategyApplicationPage() {
                   <Button type="button" variant="outline" onClick={handlePrev}>
                     <ChevronLeft className="w-4 h-4 mr-2" /> Geri
                   </Button>
-                  <Button type="button" disabled={!isStepValid(3)} onClick={handleNext}>
+                  <Button type="button" disabled={!validateStep(3)} onClick={handleNext}>
                     Devam <ChevronRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
@@ -552,7 +643,7 @@ export default function MarketingStrategyApplicationPage() {
                     <Label>Ad Soyad *</Label>
                     <Input
                       value={formData.fullName}
-                      onChange={e => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
+                      onChange={e => handleInputChange("fullName", e.target.value)}
                       placeholder="Adınız Soyadınız"
                     />
                   </div>
@@ -561,7 +652,7 @@ export default function MarketingStrategyApplicationPage() {
                     <Input
                       type="email"
                       value={formData.email}
-                      onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                      onChange={e => handleInputChange("email", e.target.value)}
                       placeholder="ornek@firma.com"
                     />
                   </div>
@@ -569,7 +660,7 @@ export default function MarketingStrategyApplicationPage() {
                     <Label>Telefon *</Label>
                     <Input
                       value={formData.phone}
-                      onChange={e => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                      onChange={e => handleInputChange("phone", e.target.value)}
                       placeholder="05xx xxx xx xx"
                     />
                   </div>
@@ -579,7 +670,7 @@ export default function MarketingStrategyApplicationPage() {
                   <label className="flex items-start gap-3 text-sm">
                     <Checkbox
                       checked={formData.kvkkAccepted}
-                      onCheckedChange={(v) => setFormData(prev => ({ ...prev, kvkkAccepted: Boolean(v) }))}
+                      onCheckedChange={(v) => handleInputChange("kvkkAccepted", Boolean(v))}
                     />
                     <span>
                       Kişisel verilerimin <a className="text-blue-600 hover:underline" href="/privacy" target="_blank" rel="noopener noreferrer">gizlilik politikası</a> kapsamında işlenmesini kabul ediyorum.
@@ -588,7 +679,7 @@ export default function MarketingStrategyApplicationPage() {
                   <label className="flex items-start gap-3 text-sm">
                     <Checkbox
                       checked={formData.marketingAccepted}
-                      onCheckedChange={(v) => setFormData(prev => ({ ...prev, marketingAccepted: Boolean(v) }))}
+                      onCheckedChange={(v) => handleInputChange("marketingAccepted", Boolean(v))}
                     />
                     <span>Tarafıma pazarlama ve kampanya iletişimi yapılmasına izin veriyorum. (Opsiyonel)</span>
                   </label>
@@ -598,12 +689,43 @@ export default function MarketingStrategyApplicationPage() {
                   <Button type="button" variant="outline" onClick={handlePrev}>
                     <ChevronLeft className="w-4 h-4 mr-2" /> Geri
                   </Button>
-                  <Button type="button" disabled={!isStepValid(4)} onClick={handleSubmit}>
+                  <Button type="button" disabled={!validateStep(4)} onClick={handleSubmit}>
                     Danışmanlık Talebini Gönder
                   </Button>
                 </div>
               </CardContent>
             </Card>
+          )}
+        </div>
+
+        {/* Navigation */}
+        <div className="flex justify-between mt-8">
+          <Button
+            variant="outline"
+            onClick={handlePrev}
+            disabled={step === 1}
+            className="flex items-center gap-2"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Önceki
+          </Button>
+
+          {step < totalSteps ? (
+            <Button
+              onClick={handleNext}
+              className="flex items-center gap-2"
+            >
+              Sonraki
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          ) : (
+            <Button
+              onClick={handleSubmit}
+              className="flex items-center gap-2"
+            >
+              Başvuruyu Tamamla
+              <CheckCircle2 className="w-4 h-4" />
+            </Button>
           )}
         </div>
       </div>

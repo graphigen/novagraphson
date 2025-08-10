@@ -1,12 +1,13 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { X, Building2, User, Mail, Phone } from "lucide-react"
+import { X, Building2, User, CheckCircle2, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import { validateContactForm, sanitizeInput } from "@/lib/validation"
 
 interface ContactFormProps {
   isOpen: boolean
@@ -74,6 +75,8 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [validationErrors, setValidationErrors] = useState<string[]>([])
+  const [showSuccess, setShowSuccess] = useState(false)
 
   const findCategoryByService = (svc: string) => {
     const matched = serviceCategories.find(cat => cat.services.includes(svc))
@@ -101,31 +104,77 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Form validation
+    const validation = validateContactForm(formData)
+    if (!validation.isValid) {
+      setValidationErrors(validation.errors)
+      return
+    }
+    
+    // Clear previous errors
+    setValidationErrors([])
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", formData)
-    
-    setIsSubmitting(false)
-    onClose()
-
-    // Reset form
-    setFormData({
-      companyName: "",
-      sector: "",
-      name: "",
-      email: "",
-      phone: "",
-      serviceCategory: service ? findCategoryByService(service) : "",
-      selectedService: service || "",
-    })
+    try {
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      // Here you would typically send the data to your backend
+      console.log("Form submitted:", formData)
+      
+      setShowSuccess(true)
+      
+      // Auto-close success message after 3 seconds
+      setTimeout(() => {
+        setShowSuccess(false)
+        onClose()
+      }, 3000)
+      
+    } catch (error) {
+      console.error("Form submission error:", error)
+      setValidationErrors(["Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin."])
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
+    // Sanitize input
+    const sanitizedValue = sanitizeInput(value)
+    
+    setFormData(prev => ({ ...prev, [field]: sanitizedValue }))
+    
+    // Clear validation errors when user starts typing
+    if (validationErrors.length > 0) {
+      setValidationErrors([])
+    }
+  }
+
+  if (showSuccess) {
+    return (
+      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[200] p-3">
+        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg md:max-w-xl p-6 text-center">
+          <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Teşekkürler!</h2>
+          <p className="text-gray-600 mb-4">Form başarıyla gönderildi. En kısa sürede size dönüş yapacağız.</p>
+          
+          <div className="space-y-2 text-sm text-gray-600">
+            <p><strong>Firma:</strong> {formData.companyName}</p>
+            <p><strong>Ad Soyad:</strong> {formData.name}</p>
+            <p><strong>Hizmet:</strong> {formData.selectedService}</p>
+          </div>
+          
+          <Button 
+            onClick={onClose} 
+            className="mt-6 w-full"
+            variant="outline"
+          >
+            Kapat
+          </Button>
+        </div>
+      </div>
+    )
   }
 
   if (!isOpen) return null
@@ -147,6 +196,24 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
           </button>
         </div>
 
+        {/* Validation Errors */}
+        {validationErrors.length > 0 && (
+          <div className="mx-4 mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertCircle className="w-4 h-4 text-red-600" />
+              <span className="text-sm font-medium text-red-800">Lütfen aşağıdaki hataları düzeltin:</span>
+            </div>
+            <ul className="text-sm text-red-700 space-y-1">
+              {validationErrors.map((error, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-red-600 rounded-full"></span>
+                  {error}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-4 space-y-5 text-sm">
           {/* Kurumsal Bilgiler */}
@@ -165,6 +232,8 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
                   onChange={(e) => handleInputChange("companyName", e.target.value)}
                   placeholder="Firma adınızı girin"
                   required
+                  maxLength={100}
+                  minLength={2}
                 />
               </div>
               
@@ -183,7 +252,6 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
                   </SelectContent>
                 </Select>
               </div>
-
             </div>
           </div>
 
@@ -203,6 +271,8 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
                   onChange={(e) => handleInputChange("name", e.target.value)}
                   placeholder="Adınızı ve soyadınızı girin"
                   required
+                  maxLength={50}
+                  minLength={2}
                 />
               </div>
               
@@ -215,6 +285,7 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
                   onChange={(e) => handleInputChange("email", e.target.value)}
                   placeholder="E-posta adresinizi girin"
                   required
+                  maxLength={254}
                 />
               </div>
               
@@ -226,6 +297,8 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
                   onChange={(e) => handleInputChange("phone", e.target.value)}
                   placeholder="Telefon numaranızı girin"
                   required
+                  maxLength={15}
+                  minLength={8}
                 />
               </div>
               
@@ -234,25 +307,25 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
                 <Label htmlFor="serviceCategory">Hizmet Kategorisi *</Label>
                 <Select
                   value={formData.serviceCategory}
-                  onValueChange={(value) => setFormData(prev => ({ ...prev, serviceCategory: value, selectedService: "" }))}
+                  onValueChange={(value) => handleInputChange("serviceCategory", value)}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Kategori seçin" />
+                    <SelectValue placeholder="Hizmet kategorisi seçin" />
                   </SelectTrigger>
                   <SelectContent>
-                    {serviceCategories.map((cat) => (
-                      <SelectItem key={cat.value} value={cat.value}>
-                        {cat.label}
+                    {serviceCategories.map((category) => (
+                      <SelectItem key={category.value} value={category.value}>
+                        {category.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
 
-              {/* Hizmet Seçimi - Adım 2: Alt Hizmet */}
+              {/* Hizmet Seçimi - Adım 2: Spesifik Hizmet */}
               {formData.serviceCategory && (
                 <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="service">Hizmet *</Label>
+                  <Label htmlFor="selectedService">Hizmet *</Label>
                   <Select
                     value={formData.selectedService}
                     onValueChange={(value) => handleInputChange("selectedService", value)}
@@ -262,37 +335,27 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
                     </SelectTrigger>
                     <SelectContent>
                       {serviceCategories
-                        .find((cat) => cat.value === formData.serviceCategory)?.services
-                        .map((svc) => (
-                          <SelectItem key={svc} value={svc}>
-                            {svc}
+                        .find(cat => cat.value === formData.serviceCategory)
+                        ?.services.map((service) => (
+                          <SelectItem key={service} value={service}>
+                            {service}
                           </SelectItem>
                         ))}
                     </SelectContent>
                   </Select>
                 </div>
               )}
-              
-              
             </div>
           </div>
 
           {/* Submit Button */}
-          <div className="flex justify-end space-x-3 pt-5 border-t border-gray-200">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={onClose}
-              className="px-5 py-2"
-            >
-              İptal
-            </Button>
+          <div className="pt-4">
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="px-5 py-2 bg-blue-600 hover:bg-blue-700"
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
             >
-              {isSubmitting ? "Gönderiliyor..." : "Gönder"}
+              {isSubmitting ? "Gönderiliyor..." : "Formu Gönder"}
             </Button>
           </div>
         </form>

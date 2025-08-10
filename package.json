@@ -39,6 +39,7 @@
     "@radix-ui/react-toggle": "latest",
     "@radix-ui/react-toggle-group": "latest",
     "@radix-ui/react-tooltip": "latest",
+    "@supabase/supabase-js": "^2.54.0",
     "@tailwindcss/aspect-ratio": "latest",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "latest",
