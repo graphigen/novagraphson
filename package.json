@@ -6,9 +6,12 @@
     "build": "next build",
     "postbuild": "node scripts/fix-standalone-static.js && node scripts/ensure-public.js",
     "prestart": "node scripts/fix-standalone-static.js && node scripts/ensure-public.js",
-    "dev": "next dev -p 3002",
+    "dev": "next dev -p 3000",
+    "dev:staging": "NODE_ENV=staging next dev -p 3001",
+    "dev:prod": "NODE_ENV=production next dev -p 3002",
     "lint": "next lint",
-    "start": "node .next/standalone/server.js"
+    "start": "NODE_ENV=production node .next/standalone/server.js",
+    "start:staging": "NODE_ENV=staging node .next/standalone/server.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -43,6 +46,8 @@
     "@tailwindcss/aspect-ratio": "latest",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "latest",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "autoprefixer": "10.4.21",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

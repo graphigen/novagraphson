@@ -5,6 +5,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 import { ContactFormProvider } from '@/contexts/ContactFormContext'
 import { Chrome } from '@/components/Chrome'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
  
 import { Toaster } from '@/components/ui/toaster'
 import { CookieConsent } from '@/components/CookieConsent'
@@ -90,6 +92,8 @@ export default function RootLayout({
             <ContactFormWrapper />
             <CookieConsent />
             <Toaster />
+            <Analytics />
+            <SpeedInsights />
           </ContactFormProvider>
         </LanguageProvider>
       </body>

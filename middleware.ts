@@ -95,71 +95,86 @@ function isSuspiciousRequest(request: NextRequest): boolean {
 }
 
 export function middleware(request: NextRequest) {
-  // Development ortamında middleware'i devre dışı bırak
-  if (process.env.NODE_ENV === 'development') {
-    return NextResponse.next()
-  }
-
-  const response = NextResponse.next()
+  // Environment detection
+  const isDev = process.env.NODE_ENV === 'development'
+  const isStaging = process.env.NODE_ENV === 'test'
+  const isProd = process.env.NODE_ENV === 'production'
   
-  // IP adresini al
-  const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown'
-  const userAgent = request.headers.get('user-agent') || ''
+  // Development ortamında sadece temel güvenlik
+  if (isDev) {
+    // Sadece temel security headers
+    const response = NextResponse.next()
+    response.headers.set('X-Content-Type-Options', 'nosniff')
+    response.headers.set('X-Frame-Options', 'DENY')
+    return response
+  }
+  
+  // Staging ve Production'da tam güvenlik
+  if (isStaging || isProd) {
+    const response = NextResponse.next()
+    
+    // IP adresini al
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
+    const userAgent = request.headers.get('user-agent') || ''
 
-  // Bot detection
-  if (isBot(userAgent)) {
-    // Bot'ları rate limit'e tabi tut
-    if (isRateLimited(`bot-${ip}`)) {
+    // Bot detection
+    if (isBot(userAgent)) {
+      // Bot'ları rate limit'e tabi tut
+      if (isRateLimited(`bot-${ip}`)) {
+        return new NextResponse('Too Many Requests', { status: 429 })
+      }
+    }
+
+    // Suspicious request detection
+    if (isSuspiciousRequest(request)) {
+      console.warn(`Suspicious request detected from ${ip}: ${request.nextUrl.pathname}`)
+      return new NextResponse('Forbidden', { status: 403 })
+    }
+
+    // Rate limiting
+    if (isRateLimited(ip)) {
       return new NextResponse('Too Many Requests', { status: 429 })
     }
-  }
 
-  // Suspicious request detection
-  if (isSuspiciousRequest(request)) {
-    console.warn(`Suspicious request detected from ${ip}: ${request.nextUrl.pathname}`)
-    return new NextResponse('Forbidden', { status: 403 })
-  }
+    // Security headers
+    response.headers.set('X-Content-Type-Options', 'nosniff')
+    response.headers.set('X-Frame-Options', 'DENY')
+    response.headers.set('X-XSS-Protection', '1; mode=block')
+    response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
+    response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
+    response.headers.set('X-Powered-By', 'NovaGraph')
+    
+    // Content Security Policy (CSP)
+    const csp = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: https:",
+      "font-src 'self' data:",
+      "connect-src 'self' https:",
+      "frame-ancestors 'none'",
+      "base-uri 'self'",
+      "form-action 'self'"
+    ].join('; ')
+    
+    response.headers.set('Content-Security-Policy', csp)
 
-  // Rate limiting
-  if (isRateLimited(ip)) {
-    return new NextResponse('Too Many Requests', { status: 429 })
-  }
+    // Cache headers
+    if (request.nextUrl.pathname.startsWith('/_next/static/')) {
+      response.headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+    } else if (request.nextUrl.pathname.startsWith('/_next/image/')) {
+      response.headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+    } else if (request.nextUrl.pathname.startsWith('/api/')) {
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+    } else {
+      response.headers.set('Cache-Control', 'public, max-age=3600, must-revalidate')
+    }
 
-  // Security headers
-  response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('X-Frame-Options', 'DENY')
-  response.headers.set('X-XSS-Protection', '1; mode=block')
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
-  response.headers.set('X-Powered-By', 'NovaGraph')
+    return response
+  }
   
-  // Content Security Policy (CSP)
-  const csp = [
-    "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-    "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: https:",
-    "font-src 'self' data:",
-    "connect-src 'self' https:",
-    "frame-ancestors 'none'",
-    "base-uri 'self'",
-    "form-action 'self'"
-  ].join('; ')
-  
-  response.headers.set('Content-Security-Policy', csp)
-
-  // Cache headers
-  if (request.nextUrl.pathname.startsWith('/_next/static/')) {
-    response.headers.set('Cache-Control', 'public, max-age=31536000, immutable')
-  } else if (request.nextUrl.pathname.startsWith('/_next/image/')) {
-    response.headers.set('Cache-Control', 'public, max-age=31536000, immutable')
-  } else if (request.nextUrl.pathname.startsWith('/api/')) {
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate')
-  } else {
-    response.headers.set('Cache-Control', 'public, max-age=3600, must-revalidate')
-  }
-
-  return response
+  // Development ortamında NextResponse.next() döndür
+  return NextResponse.next()
 }
 
 export const config = {
