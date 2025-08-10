@@ -262,8 +262,50 @@ export default function MarketingStrategyApplicationPage() {
   const handleSubmit = async () => {
     if (validateStep(step)) {
       try {
-        // Simulate submission
-        await new Promise(resolve => setTimeout(resolve, 600))
+        // Mail gönderme API'sine istek
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.companyName,
+            service: 'Pazarlama Strateji Danışmanlığı',
+            message: `
+Pazarlama Strateji Başvurusu Detayları:
+
+Şirket: ${formData.companyName}
+Sektör: ${formData.sector}
+Ürün/Hizmet: ${formData.productDescription}
+Website: ${formData.websiteUrl}
+
+Seçilen Platformlar: ${formData.selectedPlatforms.join(', ')}
+Aylık Bütçe: ${formData.monthlyBudget} ${formData.budgetCurrency}
+
+Hedef Kitle:
+- Yaş: ${formData.targetAges.join(', ')}
+- Cinsiyet: ${formData.targetGender}
+- Bölgeler: ${formData.targetRegions.join(', ')}
+
+Sosyal Medya Hesapları:
+${formData.socialAccounts.map(acc => `${acc.platform}: ${acc.url}`).join('\n')}
+
+KVKK Onayı: ${formData.kvkkAccepted ? 'Evet' : 'Hayır'}
+Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
+            `,
+            formType: 'marketing'
+          }),
+        });
+
+        const result = await response.json();
+        
+        if (!result.success) {
+          throw new Error(result.message || 'Mail gönderilemedi');
+        }
+        
         setShowSuccess(true)
         clear()
         setValidationErrors([])

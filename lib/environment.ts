@@ -30,7 +30,7 @@ export const config = {
     apiUrl: 'http://localhost:3001',
     debug: true,
     hotReload: true,
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
+    googleMapsAPiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
   },
   production: {
     apiUrl: 'https://novagraph.com.tr',
@@ -38,6 +38,27 @@ export const config = {
     hotReload: false,
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
   }
+}
+
+// Mail konfigürasyonu
+export const mailConfig = {
+  host: 'mail.novagraph.com.tr',
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.MAIL_USER || 'info@novagraph.com.tr',
+    pass: process.env.MAIL_PASS || 'Qx%l-j0wvSiM'
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
+}
+
+// Mail alıcı bilgileri
+export const mailRecipients = {
+  contact: 'cagatay@novagraph.com.tr',
+  marketing: 'cagatay@novagraph.com.tr',
+  general: 'cagatay@novagraph.com.tr'
 }
 
 export const getCurrentConfig = () => {

@@ -117,11 +117,28 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
     setIsSubmitting(true)
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Mail gönderme API'sine istek
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.companyName,
+          service: formData.selectedService,
+          message: `${formData.companyName} firmasından ${formData.name} kişisi ${formData.selectedService} hizmeti için başvuru yapmıştır.`,
+          formType: 'popup'
+        }),
+      });
+
+      const result = await response.json();
       
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", formData)
+      if (!result.success) {
+        throw new Error(result.message || 'Mail gönderilemedi');
+      }
       
       setShowSuccess(true)
       

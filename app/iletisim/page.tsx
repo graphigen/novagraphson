@@ -45,23 +45,49 @@ export default function IletisimPage() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    setIsSubmitted(true)
-    setIsSubmitting(false)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        message: ""
-      })
-    }, 3000)
+    try {
+      // Mail gönderme API'sine istek
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
+          formType: 'contact'
+        }),
+      });
+
+      const result = await response.json();
+      
+      if (!result.success) {
+        throw new Error(result.message || 'Mail gönderilemedi');
+      }
+      
+      setIsSubmitted(true)
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: ""
+        })
+      }, 3000)
+      
+    } catch (error) {
+      console.error("Form submission error:", error)
+      // Hata durumunda kullanıcıya bilgi ver
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
