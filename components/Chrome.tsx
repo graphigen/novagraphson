@@ -8,8 +8,8 @@ import { Footer } from "@/components/Footer"
 export function Chrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
-  // Hide header/footer on partner brand pages under /is-ortaklari/* (but not the index page)
-  const hideChrome = pathname.startsWith("/is-ortaklari/")
+  // Hide header/footer on specific pages if needed
+  const hideChrome = false
 
   return (
     <>

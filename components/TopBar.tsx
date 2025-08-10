@@ -3,10 +3,34 @@
 import { Phone } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
 import { useServerCountdown } from "@/hooks/useServerCountdown"
+import { useState, useEffect } from "react"
 
 export const TopBar = () => {
   const { timeLeft, isLoading, error } = useServerCountdown()
   const { openForm } = useContactForm()
+  const [showDiscount, setShowDiscount] = useState(false)
+
+  useEffect(() => {
+    // Sayfa yüklendiğinde 1 saniye sonra animasyonu başlat
+    console.log('TopBar: Animasyon başlatılıyor...')
+    const timer = setTimeout(() => {
+      console.log('TopBar: showDiscount true yapılıyor')
+      setShowDiscount(true)
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    // Sürekli döngü için interval
+    const interval = setInterval(() => {
+      setShowDiscount(prev => !prev)
+    }, 3000) // Her 3 saniyede bir değişsin
+
+    return () => clearInterval(interval)
+  }, [])
+
+  console.log('TopBar render - showDiscount:', showDiscount)
 
   return (
     <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white border-b border-blue-500 z-[80] relative">
@@ -19,9 +43,15 @@ export const TopBar = () => {
             <span className="text-sm font-medium whitespace-nowrap hidden sm:inline">
               Özel Tasarım Web Sitelerinde %30 İndirim
             </span>
-            <span className="text-sm font-medium sm:hidden">
-              %30 İndirim
-            </span>
+            
+            {/* Mobil Animasyonlu Metin */}
+            <div className="sm:hidden">
+              {showDiscount ? (
+                <span className="text-sm font-medium">Sınırlı Süre Geçerli %30 İndirim</span>
+              ) : (
+                <span className="text-sm font-medium">Özel Tasarım Web Sitelerinde</span>
+              )}
+            </div>
           </div>
 
           {/* Zaman Sayacı (Desktop) */}

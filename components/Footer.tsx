@@ -246,94 +246,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* İş Ortakları */}
-          <div>
-            <div className="md:hidden">
-              <details>
-                <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none">
-                  <span>İş Ortakları</span>
-                  <svg className="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                </summary>
-                <ul className="space-y-3">
-              <li>
-                <Link href="/is-ortaklari/ahrefs" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  Ahrefs
-                </Link>
-              </li>
-              <li>
-                <Link href="/is-ortaklari/amazon-aws" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  Amazon AWS
-                </Link>
-              </li>
-              <li>
-                <Link href="/is-ortaklari/cloudflare" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  Cloudflare
-                </Link>
-              </li>
-              <li>
-                <Link href="/is-ortaklari/zoho" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  Zoho
-                </Link>
-              </li>
-              <li>
-                <Link href="/is-ortaklari/bitrix24" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  Bitrix24
-                </Link>
-              </li>
-              <li>
-                <Link href="/is-ortaklari/jivochat" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  JivoChat
-                </Link>
-              </li>
-              <li>
-                <Link href="/is-ortaklari/paypal" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  PayPal
-                </Link>
-              </li>
-                </ul>
-              </details>
-            </div>
-            <div className="hidden md:block">
-              <h3 className="font-semibold text-gray-900 mb-4">İş Ortakları</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/is-ortaklari/ahrefs" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Ahrefs
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/is-ortaklari/amazon-aws" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Amazon AWS
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/is-ortaklari/cloudflare" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Cloudflare
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/is-ortaklari/zoho" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Zoho
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/is-ortaklari/bitrix24" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Bitrix24
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/is-ortaklari/jivochat" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    JivoChat
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/is-ortaklari/paypal" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    PayPal
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
+          
         </div>
 
         {/* Company Info */}
@@ -351,9 +264,7 @@ export const Footer = () => {
           <Link href="/pazarlama-strateji-basvurusu" className="text-xs md:text-sm text-gray-500 hover:text-blue-600 transition-colors">
             Ücretsiz Pazarlama Stratejisi
           </Link>
-          <Link href="/is-ortaklari" className="text-xs md:text-sm text-gray-500 hover:text-blue-600 transition-colors">
-            İş Ortakları
-          </Link>
+
           <Link href="/sunucu" className="text-xs md:text-sm text-gray-500 hover:text-blue-600 transition-colors">
             NovaXCore
           </Link>
