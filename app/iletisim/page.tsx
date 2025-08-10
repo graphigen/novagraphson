@@ -23,6 +23,7 @@ import {
 } from "lucide-react"
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { getGoogleMapsApiKey } from "@/lib/environment"
 
 export default function IletisimPage() {
   const { isOpen, service, closeForm, openForm } = useContactForm()
@@ -321,7 +322,7 @@ export default function IletisimPage() {
                 {/* Google Maps */}
                 <div className="relative h-80">
                   <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk&q=Atakent,243.Sk.No:6,34307+Küçükçekmece/İstanbul&zoom=14"
+                    src={`https://www.google.com/maps/embed/v1/place?key=${getGoogleMapsApiKey()}&q=Atakent,243.Sk.No:6,34307+Küçükçekmece/İstanbul&zoom=14`}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -404,7 +405,7 @@ export default function IletisimPage() {
                 {/* Google Maps */}
                 <div className="relative h-80">
                   <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk&q=Kemalpaşa,Osmanbey+Sk.No:60/B,34295+Küçükçekmece/İstanbul&zoom=14"
+                    src={`https://www.google.com/maps/embed/v1/place?key=${getGoogleMapsApiKey()}&q=Kemalpaşa,Osmanbey+Sk.No:60/B,34295+Küçükçekmece/İstanbul&zoom=14`}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

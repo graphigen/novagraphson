@@ -23,21 +23,34 @@ export const config = {
   development: {
     apiUrl: 'http://localhost:3000',
     debug: true,
-    hotReload: true
+    hotReload: true,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
   },
   staging: {
     apiUrl: 'http://localhost:3001',
     debug: true,
-    hotReload: true
+    hotReload: true,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
   },
   production: {
     apiUrl: 'https://novagraph.com.tr',
     debug: false,
-    hotReload: false
+    hotReload: false,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
   }
 }
 
 export const getCurrentConfig = () => {
   const env = getEnvironment()
   return config[env as keyof typeof config] || config.development
+}
+
+// Google Maps API key getter
+export const getGoogleMapsApiKey = (): string => {
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+  if (!apiKey) {
+    console.warn('Google Maps API key bulunamadı. Environment variable NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ayarlanmalı.')
+    return 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk' // Fallback key
+  }
+  return apiKey
 }
