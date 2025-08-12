@@ -142,7 +142,7 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
                 <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-6 h-full border border-green-100 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="inline-flex items-center px-2 py-1 text-xs font-bold rounded-full bg-green-100 text-green-800">Ücretsiz</span>
-                    <LimitedTimeBadge />
+                    <span className="inline-flex items-center px-2 py-1 text-xs font-bold rounded-full bg-red-100 text-red-800 animate-pulse">Sınırlı Süre</span>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Pazarlama Stratejisi</h3>
                   <p className="text-gray-700 mb-6 leading-relaxed">
@@ -155,10 +155,6 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
                     <span className="text-sm text-gray-400 line-through">14.000 ₺</span>
                     <span className="text-xs text-gray-400">→</span>
                     <span className="text-lg font-bold text-green-700">0 ₺</span>
-                  </div>
-                  {/* Countdown above button */}
-                  <div className="mt-2">
-                    <CountdownBadge />
                   </div>
 
                   <div className="space-y-3 mt-3">
@@ -184,12 +180,3 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
 }
 
 export default MegaMenu
-
-function CountdownBadge() {
-  // Sınırlı Süre rozeti: yavaş yavaş yanıp sönen animasyon
-  return (
-    <span className="inline-flex items-center px-2 py-1 text-xs font-bold limited-badge-anim">
-      Sınırlı Süre
-    </span>
-  )
-}
