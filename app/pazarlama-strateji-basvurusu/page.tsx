@@ -431,21 +431,13 @@ ${formData.socialAccounts.length > 0 ? `
             Teşekkürler! Talebiniz başarıyla alındı.
           </h1>
           <p className="text-gray-600 mb-6">En geç 48 saat içinde size dönüş yapacağız.</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button asChild className="bg-green-600 hover:bg-green-700">
-              <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/905456642302" target="_blank" rel="noopener noreferrer">
                 WhatsApp üzerinden hızlı destek
               </a>
             </Button>
-            <Button variant="outline" asChild>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                Takvimden randevu al
-              </a>
-            </Button>
           </div>
-          <a className="text-blue-600 hover:underline" href="#" target="_blank" rel="noopener noreferrer">
-            Size özel dijital pazarlama rehberini indir
-          </a>
         </div>
       </section>
     )
