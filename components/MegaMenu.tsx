@@ -5,7 +5,7 @@ import React from "react"
 import Link from "next/link"
 import { useContactForm } from "@/contexts/ContactFormContext"
 import { solutionGroups as groups } from "@/lib/solutions"
-import { useServerCountdown } from "@/hooks/useServerCountdown"
+// import { useServerCountdown } from "@/hooks/useServerCountdown" // Removed to prevent infinite re-renders
 
 type SolutionGroup = typeof groups[number]
 
@@ -186,92 +186,6 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
 export default MegaMenu
 
 function CountdownBadge() {
-  const { timeLeft, isLoading, error } = useServerCountdown()
-
-  if (isLoading) {
-    return (
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2 text-green-900">
-          <div className="flex flex-col items-center">
-            <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
-              <span className="text-xs font-bold tabular-nums">--</span>
-            </div>
-            <span className="text-[10px] text-green-800">Gün</span>
-          </div>
-          <span className="text-green-700/50">:</span>
-          <div className="flex flex-col items-center">
-            <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
-              <span className="text-xs font-bold tabular-nums">--</span>
-            </div>
-            <span className="text-[10px] text-green-800">Saat</span>
-          </div>
-          <span className="text-green-700/50">:</span>
-          <div className="flex flex-col items-center">
-            <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
-              <span className="text-xs font-bold tabular-nums">--</span>
-            </div>
-            <span className="text-[10px] text-green-800">Dakika</span>
-          </div>
-          <span className="text-green-700/50">:</span>
-          <div className="flex flex-col items-center">
-            <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
-              <span className="text-xs font-bold tabular-nums">--</span>
-            </div>
-            <span className="text-[10px] text-green-800">Saniye</span>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="text-red-600 text-xs">
-        Sayaç yüklenemedi
-      </div>
-    )
-  }
-
-  const { days, hours, minutes, seconds } = timeLeft
-
-  const pad = (n: number) => String(n).padStart(2, "0")
-
-  return (
-    <div className="flex items-center gap-3">
-      <div className="flex items-center gap-2 text-green-900">
-        <div className="flex flex-col items-center">
-          <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
-            <span className="text-xs font-bold tabular-nums">{String(days).padStart(2, '0')}</span>
-          </div>
-          <span className="text-[10px] text-green-800">Gün</span>
-        </div>
-        <span className="text-green-700/50">:</span>
-        <div className="flex flex-col items-center">
-          <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
-            <span className="text-xs font-bold tabular-nums">{pad(hours)}</span>
-          </div>
-          <span className="text-[10px] text-green-800">Saat</span>
-        </div>
-        <span className="text-green-700/50">:</span>
-        <div className="flex flex-col items-center">
-          <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
-            <span className="text-xs font-bold tabular-nums">{pad(minutes)}</span>
-          </div>
-          <span className="text-[10px] text-green-800">Dakika</span>
-        </div>
-        <span className="text-green-700/50">:</span>
-        <div className="flex flex-col items-center">
-          <div className="bg-white/70 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-green-200 shadow-sm">
-            <span className="text-xs font-bold tabular-nums">{pad(seconds)}</span>
-          </div>
-          <span className="text-[10px] text-green-800">Saniye</span>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function LimitedTimeBadge() {
   // Sınırlı Süre rozeti: yavaş yavaş yanıp sönen animasyon
   return (
     <span className="inline-flex items-center px-2 py-1 text-xs font-bold limited-badge-anim">
