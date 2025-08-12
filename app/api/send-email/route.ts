@@ -7,7 +7,11 @@ const transporter = nodemailer.createTransport(mailConfig);
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('📧 Mail gönderme API çağrıldı');
+    
     const body = await request.json();
+    console.log('📋 Request body:', JSON.stringify(body, null, 2));
+    
     const { 
       name, 
       email, 
@@ -15,8 +19,32 @@ export async function POST(request: NextRequest) {
       company, 
       message, 
       service,
-      formType 
+      formType,
+      formData
     } = body;
+
+    console.log('🔍 Form tipi:', formType);
+    console.log('👤 Kullanıcı adı:', name);
+    console.log('📧 Kullanıcı email:', email);
+    console.log('📱 Telefon:', phone);
+    console.log('🏢 Şirket:', company);
+    console.log('⭐ Hizmet:', service);
+
+    // Mail sunucusu bağlantısını test et
+    try {
+      console.log('🔧 Mail sunucusu bağlantısı test ediliyor...');
+      await transporter.verify();
+      console.log('✅ Mail sunucusu bağlantısı başarılı');
+    } catch (verifyError) {
+      console.error('❌ Mail sunucusu bağlantı hatası:', verifyError);
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: 'Mail sunucusu bağlantısı kurulamadı' 
+        },
+        { status: 500 }
+      );
+    }
 
     // Form tipine göre subject belirleme
     let subject = '';
@@ -382,14 +410,45 @@ export async function POST(request: NextRequest) {
     };
 
     // Her iki maili de gönder
-    await Promise.all([
-      transporter.sendMail(companyMailOptions),
-      transporter.sendMail(thankYouMailOptions)
-    ]);
+    console.log('📤 Mail gönderme başlıyor...');
+    console.log('🏢 Şirket maili:', {
+      from: mailConfig.auth.user,
+      to: mailRecipients.general,
+      subject: subject
+    });
+    console.log('👤 Teşekkür maili:', {
+      from: mailConfig.auth.user,
+      to: email,
+      subject: thankYouSubject
+    });
+    console.log('🔧 Mail konfigürasyonu:', {
+      host: mailConfig.host,
+      port: mailConfig.port,
+      secure: mailConfig.secure,
+      user: mailConfig.auth.user
+    });
 
+    // Mailleri ayrı ayrı gönder ve hataları yakala
+    try {
+      console.log('📧 Şirket maili gönderiliyor...');
+      const companyResult = await transporter.sendMail(companyMailOptions);
+      console.log('✅ Şirket maili gönderildi:', companyResult.messageId);
+    } catch (companyError) {
+      console.error('❌ Şirket maili gönderme hatası:', companyError);
+    }
+
+    try {
+      console.log('📧 Teşekkür maili gönderiliyor...');
+      const thankYouResult = await transporter.sendMail(thankYouMailOptions);
+      console.log('✅ Teşekkür maili gönderildi:', thankYouResult.messageId);
+    } catch (thankYouError) {
+      console.error('❌ Teşekkür maili gönderme hatası:', thankYouError);
+    }
+
+    console.log('✅ Mail gönderme süreci tamamlandı');
     return NextResponse.json({ 
       success: true, 
-      message: 'E-postalar başarıyla gönderildi' 
+      message: 'E-postalar gönderildi' 
     });
 
   } catch (error) {

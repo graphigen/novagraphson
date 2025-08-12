@@ -1,17 +1,14 @@
 // Environment detection ve port yönetimi
 export const isProduction = process.env.NODE_ENV === 'production'
 export const isDevelopment = process.env.NODE_ENV === 'development'
-export const isStaging = process.env.NODE_ENV === 'staging'
 
 export const getPort = (): number => {
   if (isProduction) return 80
-  if (isStaging) return 3001
   return 3000 // development default
 }
 
 export const getEnvironment = (): string => {
   if (isProduction) return 'production'
-  if (isStaging) return 'staging'
   return 'development'
 }
 
@@ -22,12 +19,6 @@ export const isClient = !isServer
 export const config = {
   development: {
     apiUrl: 'http://localhost:3000',
-    debug: true,
-    hotReload: true,
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
-  },
-  staging: {
-    apiUrl: 'http://localhost:3001',
     debug: true,
     hotReload: true,
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
@@ -43,8 +34,8 @@ export const config = {
 // Mail konfigürasyonu
 export const mailConfig = {
   host: process.env.MAIL_HOST || 'mail.novagraph.com.tr',
-  port: parseInt(process.env.MAIL_PORT || '587'),
-  secure: process.env.MAIL_SECURE === 'true',
+  port: parseInt(process.env.MAIL_PORT || '465'), // SSL port
+  secure: true, // SSL kullan
   auth: {
     user: process.env.MAIL_USER || 'info@novagraph.com.tr',
     pass: process.env.MAIL_PASS || 'Qx%l-j0wvSiM'
