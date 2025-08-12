@@ -2,12 +2,10 @@
 
 import { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import Link from "next/link"
-import { Search, X, ChevronDown, Globe } from "lucide-react"
+import { Search, X, ChevronDown } from "lucide-react"
 
 import MegaMenu from "@/components/MegaMenu"
 import { LogoHeader } from "@/components/LogoHeader"
-
-type Language = "en" | "tr"
 
 interface SearchResult {
   title: string
@@ -86,36 +84,9 @@ const baseSearchData: SearchResult[] = [
   { title: "Video Prodüksiyon", type: "Arama", href: "/video-produksiyon", description: "Profesyonel video prodüksiyon hizmetleri", category: "Popüler" },
 ]
 
-// Flat SVG Bayraklar
-const FlagIcons = {
-  tr: (
-    <svg viewBox="0 0 24 16" className="w-4 h-4">
-      <rect width="24" height="16" fill="#E30A17"/>
-      <circle cx="12" cy="8" r="3" fill="#ffffff"/>
-      <circle cx="12" cy="8" r="2" fill="#E30A17"/>
-      <polygon points="12,6 13,8 12,10 11,8" fill="#ffffff"/>
-      <polygon points="12,6 13,8 12,10 11,8" fill="#E30A17" transform="rotate(72 12 8)"/>
-      <polygon points="12,6 13,8 12,10 11,8" fill="#E30A17" transform="rotate(144 12 8)"/>
-      <polygon points="12,6 13,8 12,10 11,8" fill="#E30A17" transform="rotate(216 12 8)"/>
-      <polygon points="12,6 13,8 12,10 11,8" fill="#E30A17" transform="rotate(288 12 8)"/>
-    </svg>
-  ),
-  en: (
-    <svg viewBox="0 0 24 16" className="w-4 h-4">
-      <rect width="24" height="16" fill="#012169"/>
-      <path d="M0,0 L24,16 M24,0 L0,16" stroke="#ffffff" strokeWidth="2"/>
-      <path d="M0,0 L24,16 M24,0 L0,16" stroke="#C8102E" strokeWidth="1"/>
-      <path d="M12,0 L12,16 M0,8 L24,8" stroke="#ffffff" strokeWidth="3"/>
-      <path d="M12,0 L12,16 M0,8 L24,8" stroke="#C8102E" strokeWidth="1.5"/>
-      <path d="M0,0 L24,0 L24,16 L0,16 Z" fill="none" stroke="#ffffff" strokeWidth="1"/>
-    </svg>
-  )
-}
-
-export const HeaderDesktop = () => {
+export const HeaderDesktop: React.FC = () => {
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState<SearchResult[]>([])
   const [isSearching, setIsSearching] = useState(false)
@@ -130,12 +101,8 @@ export const HeaderDesktop = () => {
     return Array.from(map.values())
   }, [dynamicIndex])
 
-  const [language, setLanguage] = useState<Language>("tr")
-  const t = (key: string) => key // Basit çeviri fonksiyonu
-
   const megaMenuRef = useRef<HTMLDivElement>(null)
   const searchRef = useRef<HTMLDivElement>(null)
-  const languageRef = useRef<HTMLDivElement>(null)
   const solutionsRef = useRef<HTMLDivElement>(null)
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -211,21 +178,6 @@ export const HeaderDesktop = () => {
     setIsSearchOpen(false)
     setSearchQuery("")
     setSearchResults([])
-  }, [])
-
-  const handleLanguageChange = useCallback((newLanguage: Language) => {
-    setLanguage(newLanguage)
-    setIsLanguageOpen(false)
-  }, [setLanguage])
-
-  const handleLanguageToggle = useCallback(() => {
-    setIsLanguageOpen(!isLanguageOpen)
-  }, [isLanguageOpen])
-
-  const handlePopularSearchClick = useCallback((term: string) => {
-    setSearchQuery(term)
-    const searchInput = searchRef.current?.querySelector('input')
-    searchInput?.focus()
   }, [])
 
   // Sitemap + DOM iç linklerinden dinamik index (sayfa listesi) yükle
@@ -351,9 +303,6 @@ export const HeaderDesktop = () => {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
         setIsSearchOpen(false)
       }
-      if (languageRef.current && !languageRef.current.contains(event.target as Node)) {
-        setIsLanguageOpen(false)
-      }
       if (
         megaMenuRef.current &&
         !megaMenuRef.current.contains(event.target as Node) &&
@@ -375,7 +324,6 @@ export const HeaderDesktop = () => {
     const handleEscapeKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsSearchOpen(false)
-        setIsLanguageOpen(false)
         setIsMegaMenuOpen(false)
         setSearchQuery("")
         setSearchResults([])
@@ -478,7 +426,7 @@ export const HeaderDesktop = () => {
           {isSearchOpen && (
             <div className="absolute right-0 top-full mt-2 w-[500px] bg-white rounded-lg shadow-xl border border-gray-200 p-4 z-50 max-h-[600px] overflow-hidden">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">{t("search")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Arama</h3>
                 <button
                   onClick={handleSearchToggle}
                   className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
@@ -492,7 +440,7 @@ export const HeaderDesktop = () => {
                   <Search className="w-5 h-5 text-gray-400" />
                   <input
                     type="text"
-                    placeholder={t("searchPlaceholder")}
+                    placeholder="Arama yapın..."
                     value={searchQuery}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
                     className="flex-1 bg-transparent text-sm focus:outline-none placeholder:text-gray-500"
@@ -507,11 +455,11 @@ export const HeaderDesktop = () => {
                   {isSearching ? (
                     <div className="flex items-center justify-center py-4">
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600"></div>
-                      <span className="ml-2 text-sm text-gray-500">{t("searching")}</span>
+                      <span className="ml-2 text-sm text-gray-500">Aranıyor...</span>
                     </div>
                   ) : searchResults.length > 0 ? (
                     <div className="space-y-2 max-h-80 overflow-y-auto">
-                      <p className="text-xs text-gray-500 mb-2 font-medium">{t("results")}</p>
+                      <p className="text-xs text-gray-500 mb-2 font-medium">Sonuçlar</p>
                       {searchResults.map((result, index) => (
                         <button
                           key={index}
@@ -551,7 +499,7 @@ export const HeaderDesktop = () => {
                     </div>
                   ) : (
                     <div className="py-4 text-center">
-                      <p className="text-sm text-gray-500 mb-2">{t("noResults")}</p>
+                      <p className="text-sm text-gray-500 mb-2">Sonuç bulunamadı</p>
                       <p className="text-xs text-gray-400">
                         Farklı anahtar kelimeler deneyin veya popüler aramaları kullanın
                       </p>
@@ -563,7 +511,7 @@ export const HeaderDesktop = () => {
               {/* Popular Searches */}
               {!searchQuery.trim() && (
                 <div className="mt-4 pt-3 border-t border-gray-100">
-                  <p className="text-xs text-gray-500 mb-2 font-medium">{t("popularSearches")}</p>
+                  <p className="text-xs text-gray-500 mb-2 font-medium">Popüler Aramalar</p>
                   <div className="flex flex-wrap gap-2">
                     {popularSearchTerms.map((term) => (
                       <button
@@ -581,113 +529,7 @@ export const HeaderDesktop = () => {
           )}
         </div>
 
-        {/* Language Switcher */}
-        <div className="relative" ref={languageRef}>
-          <button
-            onClick={handleLanguageToggle}
-            className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-lg transition-all duration-200 group"
-            aria-label="Dil değiştir"
-          >
-            <Globe className="w-4 h-4 group-hover:scale-110 transition-transform" />
-            <span className="text-sm font-medium">{language.toUpperCase()}</span>
-            <ChevronDown
-              className={`w-3 h-3 transition-transform duration-200 ${isLanguageOpen ? "rotate-180" : ""}`}
-            />
-          </button>
-
-          {/* Language Popup */}
-          {isLanguageOpen && (
-            <>
-              {/* Backdrop - Header'ın altından başlar */}
-              <div 
-                className="fixed top-16 left-0 right-0 bottom-0 bg-black/20 backdrop-blur-sm z-40 animate-in fade-in duration-200"
-                onClick={() => setIsLanguageOpen(false)}
-              />
-              
-              {/* Popup */}
-              <div 
-                className="absolute right-0 top-full mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-200 py-4 z-50 animate-in slide-in-from-top-2 duration-200"
-                style={{
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-                }}
-              >
-                {/* Header */}
-                <div className="flex items-center justify-between px-4 pb-3 border-b border-gray-100">
-                  <h3 className="text-sm font-semibold text-gray-900">Dil Seçimi</h3>
-                  <button
-                    onClick={() => setIsLanguageOpen(false)}
-                    className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200 hover:scale-110"
-                    aria-label="Kapat"
-                  >
-                    <X className="w-4 h-4 text-gray-500" />
-                  </button>
-                </div>
-
-                {/* Language Options */}
-                <div className="py-2">
-                  <button
-                    onClick={() => handleLanguageChange("tr")}
-                    className={`w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-all duration-200 rounded-lg mx-2 ${
-                      language === "tr" ? "bg-blue-50 border-r-2 border-blue-600" : ""
-                    }`}
-                  >
-                    <div className="flex items-center space-x-3">
-                      <div className="flex-shrink-0">
-                        {FlagIcons.tr}
-                      </div>
-                      <div className="text-left">
-                        <div className="text-sm font-medium text-gray-900">Türkçe</div>
-                        <div className="text-xs text-gray-500">Turkish</div>
-                      </div>
-                    </div>
-                    {language === "tr" && (
-                      <div className="flex-shrink-0">
-                        <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center animate-in fade-in duration-200">
-                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                      </div>
-                    )}
-                  </button>
-
-                  <button
-                    onClick={() => handleLanguageChange("en")}
-                    className={`w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-all duration-200 rounded-lg mx-2 ${
-                      language === "en" ? "bg-blue-50 border-r-2 border-blue-600" : ""
-                    }`}
-                  >
-                    <div className="flex items-center space-x-3">
-                      <div className="flex-shrink-0">
-                        {FlagIcons.en}
-                      </div>
-                      <div className="text-left">
-                        <div className="text-sm font-medium text-gray-900">English</div>
-                        <div className="text-xs text-gray-500">İngilizce</div>
-                      </div>
-                    </div>
-                    {language === "en" && (
-                      <div className="flex-shrink-0">
-                        <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center animate-in fade-in duration-200">
-                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                      </div>
-                    )}
-                  </button>
-                </div>
-
-                {/* Footer */}
-                <div className="px-4 pt-3 border-t border-gray-100">
-                  <p className="text-xs text-gray-500">
-                    Dil değişikliği tüm sayfalarda geçerli olacaktır
-                  </p>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
+        {/* Language Switcher - REMOVED */}
       </div>
     </div>
   )

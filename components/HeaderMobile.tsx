@@ -2,8 +2,8 @@
 
 import React, { useState, useCallback } from "react"
 import Link from "next/link"
-import { Menu, ChevronRight, Globe, Home, Users, MessageSquare, ArrowLeft, ArrowRight } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Menu, ChevronRight, Home, Users, MessageSquare, ArrowLeft, ArrowRight } from "lucide-react"
+
 
 import { LogoMobile } from "@/components/LogoMobile"
 import { Sheet, SheetTrigger, SheetContent, SheetClose, SheetHeader, SheetTitle } from "@/components/ui/sheet"
@@ -150,37 +150,7 @@ export const HeaderMobile: React.FC = () => {
 
           {/* Dil ve Arama - CTA alanının yerinde */}
           <div className="mt-1 px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 border-t border-gray-100 bg-white/80 supports-[backdrop-filter]:backdrop-blur">
-            {/* Dil Seçimi - modern dropdown */}
-            <div className="inline-flex">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <button className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3.5 py-2 text-[13px] shadow-sm hover:bg-gray-50">
-                    <Globe className="h-4 w-4 text-gray-600" />
-                    <span className="font-medium text-gray-800">{language === "tr" ? "Türkçe" : "English"}</span>
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-56 rounded-xl">
-                  <DropdownMenuItem onSelect={() => setLanguage("tr")}> 
-                    <span className="mr-2 inline-flex h-5 w-5 items-center justify-center overflow-hidden rounded-sm">
-                      <svg viewBox="0 0 24 16" className="w-5 h-5"><rect width="24" height="16" fill="#E30A17"/><circle cx="10" cy="8" r="3" fill="#ffffff"/><polygon points="12,8 13,8.5 12,9 11,8.5" fill="#ffffff"/></svg>
-                    </span>
-                    <div className="flex flex-col leading-tight">
-                      <span className="text-sm font-medium text-gray-900">Türkçe</span>
-                      <span className="text-xs text-gray-500">Turkish</span>
-                    </div>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onSelect={() => setLanguage("en")}>
-                    <span className="mr-2 inline-flex h-5 w-5 items-center justify-center overflow-hidden rounded-sm">
-                      <svg viewBox="0 0 24 16" className="w-5 h-5"><rect width="24" height="16" fill="#012169"/><path d="M0,0 L24,16 M24,0 L0,16" stroke="#ffffff" strokeWidth="2"/><path d="M0,0 L24,16 M24,0 L0,16" stroke="#C8102E" strokeWidth="1"/><path d="M12,0 L12,16 M0,8 L24,8" stroke="#ffffff" strokeWidth="3"/><path d="M12,0 L12,16 M0,8 L24,8" stroke="#C8102E" strokeWidth="1.5"/></svg>
-                    </span>
-                    <div className="flex flex-col leading-tight">
-                      <span className="text-sm font-medium text-gray-900">English</span>
-                      <span className="text-xs text-gray-500">İngilizce</span>
-                    </div>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
+            {/* Dil Seçimi - REMOVED */}
 
             {/* CTA: Pazarlama Stratejisi (mobil uyumlu) */}
             <div className="mt-3">
