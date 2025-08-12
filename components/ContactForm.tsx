@@ -118,7 +118,7 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
     
     try {
       // Mail gönderme API'sine istek
-      const response = await fetch('/api/send-email', {
+      const emailResponse = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -134,11 +134,13 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
         }),
       });
 
-      const result = await response.json();
+      const emailResult = await emailResponse.json();
       
-      if (!result.success) {
-        throw new Error(result.message || 'Mail gönderilemedi');
+      if (!emailResult.success) {
+        throw new Error(emailResult.message || 'Mail gönderilemedi');
       }
+
+
       
       setShowSuccess(true)
       
@@ -180,7 +182,10 @@ export function ContactForm({ isOpen, onClose, service }: ContactFormProps) {
             <p><strong>Firma:</strong> {formData.companyName}</p>
             <p><strong>Ad Soyad:</strong> {formData.name}</p>
             <p><strong>Hizmet:</strong> {formData.selectedService}</p>
+            <p><strong>Telefon:</strong> {formData.phone}</p>
           </div>
+          
+
           
           <Button 
             onClick={onClose} 

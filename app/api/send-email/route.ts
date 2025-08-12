@@ -409,40 +409,50 @@ export async function POST(request: NextRequest) {
       `
     };
 
-    // Her iki maili de gönder
-    console.log('📤 Mail gönderme başlıyor...');
-    console.log('🏢 Şirket maili:', {
-      from: mailConfig.auth.user,
-      to: mailRecipients.general,
-      subject: subject
-    });
-    console.log('👤 Teşekkür maili:', {
-      from: mailConfig.auth.user,
-      to: email,
-      subject: thankYouSubject
-    });
-    console.log('🔧 Mail konfigürasyonu:', {
-      host: mailConfig.host,
-      port: mailConfig.port,
-      secure: mailConfig.secure,
-      user: mailConfig.auth.user
-    });
-
     // Mailleri ayrı ayrı gönder ve hataları yakala
     try {
       console.log('📧 Şirket maili gönderiliyor...');
+      console.log('📤 Şirket mail detayları:', {
+        from: mailConfig.auth.user,
+        to: mailRecipients.general,
+        subject: subject,
+        host: mailConfig.host,
+        port: mailConfig.port
+      });
       const companyResult = await transporter.sendMail(companyMailOptions);
       console.log('✅ Şirket maili gönderildi:', companyResult.messageId);
     } catch (companyError) {
       console.error('❌ Şirket maili gönderme hatası:', companyError);
+      if (companyError && typeof companyError === 'object' && 'code' in companyError) {
+        console.error('❌ Hata detayları:', {
+          code: (companyError as any).code,
+          response: (companyError as any).response,
+          command: (companyError as any).command
+        });
+      }
     }
 
     try {
       console.log('📧 Teşekkür maili gönderiliyor...');
+      console.log('📤 Teşekkür mail detayları:', {
+        from: mailConfig.auth.user,
+        to: email,
+        subject: thankYouSubject,
+        host: mailConfig.host,
+        port: mailConfig.port
+      });
       const thankYouResult = await transporter.sendMail(thankYouMailOptions);
       console.log('✅ Teşekkür maili gönderildi:', thankYouResult.messageId);
+      console.log('📧 Teşekkür maili alıcısı:', email);
     } catch (thankYouError) {
       console.error('❌ Teşekkür maili gönderme hatası:', thankYouError);
+      if (thankYouError && typeof thankYouError === 'object' && 'code' in thankYouError) {
+        console.error('❌ Hata detayları:', {
+          code: (thankYouError as any).code,
+          response: (thankYouError as any).response,
+          command: (thankYouError as any).command
+        });
+      }
     }
 
     console.log('✅ Mail gönderme süreci tamamlandı');
