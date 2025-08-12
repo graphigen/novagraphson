@@ -110,6 +110,7 @@ function usePersistentForm<T>(key: string, initial: T) {
   const [value, setValue] = useState<T>(initial)
   const isInitializedRef = useRef(false)
   const lastSavedValueRef = useRef<string>('')
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Load from localStorage only once on mount
   useEffect(() => {
@@ -126,22 +127,30 @@ function usePersistentForm<T>(key: string, initial: T) {
     }
   }, [key, initial])
 
-  // Create a stable setValue function that also saves to localStorage
+  // Create a stable setValue function that also saves to localStorage with debouncing
   const setValueAndSave = useCallback((newValue: T | ((prev: T) => T)) => {
     setValue(prev => {
       const result = typeof newValue === 'function' ? (newValue as (prev: T) => T)(prev) : newValue
       
-      // Save to localStorage with debouncing
+      // Save to localStorage with debouncing to prevent excessive writes
       if (isInitializedRef.current) {
-        const serialized = JSON.stringify(result)
-        if (serialized !== lastSavedValueRef.current) {
-          lastSavedValueRef.current = serialized
+        // Clear existing timeout
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current)
+        }
+        
+        // Set new timeout for debounced save
+        timeoutRef.current = setTimeout(() => {
           try {
-            localStorage.setItem(key, serialized)
+            const serialized = JSON.stringify(result)
+            if (serialized !== lastSavedValueRef.current) {
+              lastSavedValueRef.current = serialized
+              localStorage.setItem(key, serialized)
+            }
           } catch (error) {
             console.error('Error saving to localStorage:', error)
           }
-        }
+        }, 300) // 300ms debounce
       }
       
       return result
@@ -150,12 +159,25 @@ function usePersistentForm<T>(key: string, initial: T) {
 
   const clear = useCallback(() => {
     try {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = null
+      }
       localStorage.removeItem(key)
       lastSavedValueRef.current = ''
     } catch (error) {
       console.error('Error clearing localStorage:', error)
     }
   }, [key])
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
 
   return { value, setValue: setValueAndSave, clear }
 }
