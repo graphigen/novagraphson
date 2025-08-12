@@ -177,6 +177,95 @@ export const Footer = () => {
             </div>
           </div>
 
+          {/* İş Ortakları */}
+          <div>
+            <div className="md:hidden">
+              <details>
+                <summary className="group flex items-center justify-between font-semibold text-gray-900 mb-4 list-none cursor-pointer select-none">
+                  <span>İş Ortakları</span>
+                  <svg className="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <ul className="space-y-3">
+                  <li>
+                    <Link href="/is-ortaklari/amazon-aws" className="text-gray-600 hover:text-blue-600 transition-colors">
+                      Amazon AWS
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/is-ortaklari/azure" className="text-gray-600 hover:text-blue-600 transition-colors">
+                      Microsoft Azure
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/is-ortaklari/cloudflare" className="text-gray-600 hover:text-blue-600 transition-colors">
+                      Cloudflare
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/is-ortaklari/google-ads" className="text-gray-600 hover:text-blue-600 transition-colors">
+                      Google Ads
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/is-ortaklari/semrush" className="text-gray-600 hover:text-blue-600 transition-colors">
+                      Semrush
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/is-ortaklari/shopify" className="text-gray-600 hover:text-blue-600 transition-colors">
+                      Shopify
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/is-ortaklari/wordpress" className="text-gray-600 hover:text-blue-600 transition-colors">
+                      WordPress
+                    </Link>
+                  </li>
+                </ul>
+              </details>
+            </div>
+            <div className="hidden md:block">
+              <h3 className="font-semibold text-gray-900 mb-4">İş Ortakları</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/is-ortaklari/amazon-aws" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Amazon AWS
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/azure" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Microsoft Azure
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/cloudflare" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Cloudflare
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/google-ads" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Google Ads
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/semrush" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Semrush
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/shopify" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    Shopify
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/is-ortaklari/wordpress" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    WordPress
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
           {/* En Çok Okunanlar */}
           <div>
             <div className="md:hidden">
@@ -246,7 +335,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          
+
         </div>
 
         {/* Company Info */}
@@ -259,12 +348,16 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Quick Links Row (styled like previous badges row) */}
+        {/* İş Ortakları Badges */}
         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 md:gap-4 mb-8 opacity-80">
+          <Link href="/is-ortaklari" className="text-xs md:text-sm text-gray-500 hover:text-blue-600 transition-colors">
+            İş Ortakları
+          </Link>
+          <span className="text-xs md:text-sm text-gray-400">•</span>
           <Link href="/pazarlama-strateji-basvurusu" className="text-xs md:text-sm text-gray-500 hover:text-blue-600 transition-colors">
             Ücretsiz Pazarlama Stratejisi
           </Link>
-
+          <span className="text-xs md:text-sm text-gray-400">•</span>
           <Link href="/sunucu" className="text-xs md:text-sm text-gray-500 hover:text-blue-600 transition-colors">
             NovaXCore
           </Link>
