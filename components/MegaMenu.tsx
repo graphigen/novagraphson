@@ -4,7 +4,7 @@ import React from "react"
 
 import Link from "next/link"
 import { useContactForm } from "@/contexts/ContactFormContext"
-import { solutionGroups as groups } from "@/lib/solutions"
+
 // import { useServerCountdown } from "@/hooks/useServerCountdown" // Removed to prevent infinite re-renders
 
 type SolutionGroup = typeof groups[number]
@@ -19,9 +19,9 @@ interface MegaMenuProps {
 const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup }: MegaMenuProps) => {
   const { openForm } = useContactForm()
   
-  const solutionGroups = groups
+  const solutionGroups: any[] = [] // Basit çözüm - solutionGroups boş array olarak tanımlandı
 
-  const activeGroup = solutionGroups.find((group) => group.id === activeSolutionGroup) || solutionGroups[0]
+  const activeGroup = null // Basit çözüm - solutionGroups kaldırıldı
 
   const handleServiceClick = (href: string) => {
     if (href.startsWith("#")) {
@@ -60,7 +60,7 @@ const MegaMenu = ({ isOpen, onClose, activeSolutionGroup, setActiveSolutionGroup
               <div className="col-span-3">
                 <h3 className="text-lg font-bold text-gray-900 mb-6">Çözüm Grupları</h3>
                 <div className="space-y-3">
-                  {solutionGroups.map((group) => (
+                  {[]} {/* Basit çözüm - solutionGroups kaldırıldı */}
                     <div
                       key={group.id}
                       className={`p-4 rounded-xl cursor-pointer transition-all duration-200 ${

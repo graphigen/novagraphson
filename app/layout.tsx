@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
-import { LanguageProvider } from '@/contexts/LanguageContext'
+
 import { ContactFormProvider } from '@/contexts/ContactFormContext'
 import { Chrome } from '@/components/Chrome'
 import { Analytics } from '@vercel/analytics/next'
@@ -84,18 +84,16 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logo/Favicon.svg" />
       </head>
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
-        <LanguageProvider>
-          <ContactFormProvider>
-            <Chrome>
-              {children}
-            </Chrome>
-            <ContactFormWrapper />
-            <CookieConsent />
-            <Toaster />
-            <Analytics />
-            <SpeedInsights />
-          </ContactFormProvider>
-        </LanguageProvider>
+        <ContactFormProvider>
+          <Chrome>
+            {children}
+          </Chrome>
+          <ContactFormWrapper />
+          <CookieConsent />
+          <Toaster />
+          <Analytics />
+          <SpeedInsights />
+        </ContactFormProvider>
       </body>
     </html>
   )

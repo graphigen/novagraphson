@@ -8,16 +8,13 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { LogoMobile } from "@/components/LogoMobile"
 import { Sheet, SheetTrigger, SheetContent, SheetClose, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { solutionGroups } from "@/lib/solutions"
 import { useContactForm } from "@/contexts/ContactFormContext"
-import { useLanguage } from "@/contexts/LanguageContext"
 
 export const HeaderMobile: React.FC = () => {
   const { openForm } = useContactForm()
-  const { language, setLanguage } = useLanguage()
   const [query, setQuery] = useState("")
   const [activeGroupId, setActiveGroupId] = useState<string | null>(null)
-  const activeGroup = solutionGroups.find((g) => g.id === activeGroupId) || null
+  const activeGroup = null // Basit çözüm - solutionGroups kaldırıldı
 
   const handleSearchSubmit = useCallback(() => {
     if (!query.trim()) return

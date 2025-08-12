@@ -2,7 +2,7 @@ import React from "react"
 import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
-import { LanguageProvider } from "@/contexts/LanguageContext"
+
 
 const geistSans = localFont({
   src: [
@@ -124,7 +124,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning={true}
       >
-        <LanguageProvider>{children}</LanguageProvider>
+        {children}
       </body>
     </html>
   )

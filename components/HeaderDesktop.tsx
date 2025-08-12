@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import Link from "next/link"
 import { Search, X, ChevronDown, Globe } from "lucide-react"
-import { useLanguage } from "@/contexts/LanguageContext"
+
 import MegaMenu from "@/components/MegaMenu"
 import { LogoHeader } from "@/components/LogoHeader"
 
@@ -130,7 +130,8 @@ export const HeaderDesktop = () => {
     return Array.from(map.values())
   }, [dynamicIndex])
 
-  const { language, setLanguage, t } = useLanguage()
+  const [language, setLanguage] = useState<Language>("tr")
+  const t = (key: string) => key // Basit çeviri fonksiyonu
 
   const megaMenuRef = useRef<HTMLDivElement>(null)
   const searchRef = useRef<HTMLDivElement>(null)
