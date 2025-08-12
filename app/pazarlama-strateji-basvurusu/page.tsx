@@ -295,6 +295,10 @@ export default function MarketingStrategyApplicationPage() {
   }
 
   // Memoized validation results to prevent infinite re-renders
+  const step1Valid = useMemo(() => {
+    return formData.selectedPlatforms.length > 0 || formData.unsureAskForSuggest
+  }, [formData.selectedPlatforms, formData.unsureAskForSuggest])
+
   const step2Valid = useMemo(() => {
     return formData.companyName.length >= 2 && 
            formData.sector.length >= 2 && 
@@ -509,6 +513,14 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                   </div>
                 </div>
               </CardContent>
+              <div className="flex items-center justify-between mt-4">
+                <Button type="button" variant="outline" onClick={handlePrev} disabled={step === 1}>
+                  <ChevronLeft className="w-4 h-4 mr-2" /> Geri
+                </Button>
+                <Button type="button" disabled={!step1Valid} onClick={handleNext}>
+                  Devam <ChevronRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
             </Card>
           )}
 
@@ -807,36 +819,7 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
           )}
         </div>
 
-        {/* Navigation */}
-        <div className="flex justify-between mt-8">
-          <Button
-            variant="outline"
-            onClick={handlePrev}
-            disabled={step === 1}
-            className="flex items-center gap-2"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Önceki
-          </Button>
-
-          {step < totalSteps ? (
-            <Button
-              onClick={handleNext}
-              className="flex items-center gap-2"
-            >
-              Sonraki
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          ) : (
-            <Button
-              onClick={handleSubmit}
-              className="flex items-center gap-2"
-            >
-              Başvuruyu Tamamla
-              <CheckCircle2 className="w-4 h-4" />
-            </Button>
-          )}
-        </div>
+        {/* Navigation - Removed duplicate buttons, keeping only step-specific buttons */}
       </div>
     </section>
   )
