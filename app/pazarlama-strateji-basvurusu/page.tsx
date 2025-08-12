@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useState, useRef, useCallback } from "react"
+import { useState, useCallback, useEffect, useMemo, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -291,9 +291,28 @@ export default function MarketingStrategyApplicationPage() {
         break
     }
     
-    setValidationErrors(errors)
     return errors.length === 0
   }
+
+  // Memoized validation results to prevent infinite re-renders
+  const step2Valid = useMemo(() => {
+    return formData.companyName.length >= 2 && 
+           formData.sector.length >= 2 && 
+           formData.productDescription.length >= 10
+  }, [formData.companyName, formData.sector, formData.productDescription])
+
+  const step3Valid = useMemo(() => {
+    return formData.targetAges.length > 0 && 
+           formData.targetGender && 
+           formData.targetRegions.length > 0
+  }, [formData.targetAges, formData.targetGender, formData.targetRegions])
+
+  const step4Valid = useMemo(() => {
+    return formData.fullName.length >= 2 && 
+           formData.email.includes('@') && 
+           formData.phone.length >= 10 && 
+           formData.kvkkAccepted
+  }, [formData.fullName, formData.email, formData.phone, formData.kvkkAccepted])
 
   const handleNext = () => {
     if (validateStep(step)) {
@@ -627,7 +646,7 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                   <Button type="button" variant="outline" onClick={handlePrev}>
                     <ChevronLeft className="w-4 h-4 mr-2" /> Geri
                   </Button>
-                  <Button type="button" disabled={!validateStep(2)} onClick={handleNext}>
+                  <Button type="button" disabled={!step2Valid} onClick={handleNext}>
                     Devam <ChevronRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
@@ -714,7 +733,7 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                   <Button type="button" variant="outline" onClick={handlePrev}>
                     <ChevronLeft className="w-4 h-4 mr-2" /> Geri
                   </Button>
-                  <Button type="button" disabled={!validateStep(3)} onClick={handleNext}>
+                  <Button type="button" disabled={!step3Valid} onClick={handleNext}>
                     Devam <ChevronRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
@@ -779,7 +798,7 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                   <Button type="button" variant="outline" onClick={handlePrev}>
                     <ChevronLeft className="w-4 h-4 mr-2" /> Geri
                   </Button>
-                  <Button type="button" disabled={!validateStep(4)} onClick={handleSubmit}>
+                  <Button type="button" disabled={!step4Valid} onClick={handleSubmit}>
                     Danışmanlık Talebini Gönder
                   </Button>
                 </div>
