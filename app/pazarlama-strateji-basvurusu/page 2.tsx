@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useEffect, useMemo, useRef } from "react"
+import { useEffect, useMemo, useState, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -110,7 +110,6 @@ function usePersistentForm<T>(key: string, initial: T) {
   const [value, setValue] = useState<T>(initial)
   const isInitializedRef = useRef(false)
   const lastSavedValueRef = useRef<string>('')
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Load from localStorage only once on mount
   useEffect(() => {
@@ -127,57 +126,36 @@ function usePersistentForm<T>(key: string, initial: T) {
     }
   }, [key, initial])
 
-  // Create a stable setValue function that also saves to localStorage with debouncing
+  // Create a stable setValue function that also saves to localStorage
   const setValueAndSave = useCallback((newValue: T | ((prev: T) => T)) => {
-    setValue(prev => {
-      const result = typeof newValue === 'function' ? (newValue as (prev: T) => T)(prev) : newValue
+    setValue(prevValue => {
+      const finalValue = typeof newValue === 'function' ? (newValue as (prev: T) => T)(prevValue) : newValue
       
-      // Save to localStorage with debouncing to prevent excessive writes
+      // Save to localStorage after state update
       if (isInitializedRef.current) {
-        // Clear existing timeout
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current)
-        }
-        
-        // Set new timeout for debounced save
-        timeoutRef.current = setTimeout(() => {
-          try {
-            const serialized = JSON.stringify(result)
-            if (serialized !== lastSavedValueRef.current) {
-              lastSavedValueRef.current = serialized
-              localStorage.setItem(key, serialized)
-            }
-          } catch (error) {
-            console.error('Error saving to localStorage:', error)
+        try {
+          const serialized = JSON.stringify(finalValue)
+          if (serialized !== lastSavedValueRef.current) {
+            localStorage.setItem(key, serialized)
+            lastSavedValueRef.current = serialized
           }
-        }, 300) // 300ms debounce
+        } catch (error) {
+          console.error('Error saving to localStorage:', error)
+        }
       }
       
-      return result
+      return finalValue
     })
   }, [key])
 
   const clear = useCallback(() => {
     try {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-        timeoutRef.current = null
-      }
       localStorage.removeItem(key)
       lastSavedValueRef.current = ''
     } catch (error) {
       console.error('Error clearing localStorage:', error)
     }
   }, [key])
-
-  // Cleanup timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-    }
-  }, [])
 
   return { value, setValue: setValueAndSave, clear }
 }
@@ -291,45 +269,9 @@ export default function MarketingStrategyApplicationPage() {
         break
     }
     
+    setValidationErrors(errors)
     return errors.length === 0
   }
-
-  // Memoized validation results to prevent infinite re-renders
-  const step1Valid = useMemo(() => {
-    return formData.selectedPlatforms.length > 0 || formData.unsureAskForSuggest
-  }, [formData.selectedPlatforms, formData.unsureAskForSuggest])
-
-  const step2Valid = useMemo(() => {
-    // Debug için console.log ekleyelim
-    console.log('Step 2 Validation Debug:', {
-      companyName: formData.companyName,
-      companyNameLength: formData.companyName.length,
-      sector: formData.sector,
-      sectorLength: formData.sector.length,
-      productDescription: formData.productDescription,
-      productDescriptionLength: formData.productDescription.length,
-      isValid: formData.companyName.length >= 2 && 
-               formData.sector.length >= 2 && 
-               formData.productDescription.length >= 10
-    })
-    
-    return formData.companyName.length >= 2 && 
-           formData.sector.length >= 2 && 
-           formData.productDescription.length >= 10
-  }, [formData.companyName, formData.sector, formData.productDescription])
-
-  const step3Valid = useMemo(() => {
-    return formData.targetAges.length > 0 && 
-           formData.targetGender && 
-           formData.targetRegions.length > 0
-  }, [formData.targetAges, formData.targetGender, formData.targetRegions])
-
-  const step4Valid = useMemo(() => {
-    return formData.fullName.length >= 2 && 
-           formData.email.includes('@') && 
-           formData.phone.length >= 10 && 
-           formData.kvkkAccepted
-  }, [formData.fullName, formData.email, formData.phone, formData.kvkkAccepted])
 
   const handleNext = () => {
     if (validateStep(step)) {
@@ -526,14 +468,6 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                   </div>
                 </div>
               </CardContent>
-              <div className="flex items-center justify-between mt-4">
-                <Button type="button" variant="outline" onClick={handlePrev} disabled={step === 1}>
-                  <ChevronLeft className="w-4 h-4 mr-2" /> Geri
-                </Button>
-                <Button type="button" disabled={!step1Valid} onClick={handleNext}>
-                  Devam <ChevronRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
             </Card>
           )}
 
@@ -551,9 +485,6 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                       onChange={e => handleInputChange("companyName", e.target.value)}
                       placeholder="Örn. NovaGraph Teknoloji A.Ş."
                     />
-                    <p className="text-xs text-gray-500">
-                      En az 2 karakter, sadece harf, rakam, boşluk ve - . karakterleri
-                    </p>
                   </div>
                   <div className="space-y-2">
                     <Label>Sektör *</Label>
@@ -570,33 +501,23 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                         ))}
                       </SelectContent>
                     </Select>
-                    <p className="text-xs text-gray-500">
-                      Lütfen sektörünüzü listeden seçin
-                    </p>
                   </div>
                   
                   <div className="space-y-2 md:col-span-2">
-                    <Label>Ürün / Hizmet Açıklaması *</Label>
+                    <Label>Ürün / Hizmet Açıklaması</Label>
                     <Textarea
                       value={formData.productDescription}
                       onChange={e => handleInputChange("productDescription", e.target.value)}
-                      placeholder="Kısaca ürün ve hizmetlerinizi anlatın (en az 10 karakter)"
-                      rows={3}
+                      placeholder="Kısaca ürün ve hizmetlerinizi anlatın"
                     />
-                    <p className="text-xs text-gray-500">
-                      En az 10 karakter, en fazla 500 karakter. Sadece harf, rakam, boşluk ve - . karakterleri
-                    </p>
                   </div>
                   <div className="space-y-2">
-                    <Label>Web Sitesi (URL) - Opsiyonel</Label>
+                    <Label>Web Sitesi (URL)</Label>
                     <Input
                       value={formData.websiteUrl}
                       onChange={e => handleInputChange("websiteUrl", e.target.value)}
-                      placeholder="https://www.firmaadi.com"
+                      placeholder="https://..."
                     />
-                    <p className="text-xs text-gray-500">
-                      Geçerli bir URL girin (http:// veya https:// ile başlamalı)
-                    </p>
                   </div>
                   <div className="space-y-2">
                     <Label>Sosyal Medya Hesapları</Label>
@@ -684,31 +605,10 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                   <Button type="button" variant="outline" onClick={handlePrev}>
                     <ChevronLeft className="w-4 h-4 mr-2" /> Geri
                   </Button>
-                  <Button type="button" disabled={!step2Valid} onClick={handleNext}>
+                  <Button type="button" disabled={!validateStep(2)} onClick={handleNext}>
                     Devam <ChevronRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
-
-                {/* Step 2 Validation Status */}
-                {!step2Valid && (
-                  <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-                    <div className="flex items-center gap-2 mb-2">
-                      <AlertCircle className="w-4 h-4 text-yellow-600" />
-                      <span className="text-sm font-medium text-yellow-800">Lütfen aşağıdaki alanları doldurun:</span>
-                    </div>
-                    <ul className="text-sm text-yellow-700 space-y-1">
-                      {formData.companyName.length < 2 && (
-                        <li>• Firma adı en az 2 karakter olmalıdır</li>
-                      )}
-                      {formData.sector.length < 2 && (
-                        <li>• Sektör seçimi yapmalısınız</li>
-                      )}
-                      {formData.productDescription.length < 10 && (
-                        <li>• Ürün açıklaması en az 10 karakter olmalıdır</li>
-                      )}
-                    </ul>
-                  </div>
-                )}
               </CardContent>
             </Card>
           )}
@@ -792,7 +692,7 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                   <Button type="button" variant="outline" onClick={handlePrev}>
                     <ChevronLeft className="w-4 h-4 mr-2" /> Geri
                   </Button>
-                  <Button type="button" disabled={!step3Valid} onClick={handleNext}>
+                  <Button type="button" disabled={!validateStep(3)} onClick={handleNext}>
                     Devam <ChevronRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
@@ -857,7 +757,7 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                   <Button type="button" variant="outline" onClick={handlePrev}>
                     <ChevronLeft className="w-4 h-4 mr-2" /> Geri
                   </Button>
-                  <Button type="button" disabled={!step4Valid} onClick={handleSubmit}>
+                  <Button type="button" disabled={!validateStep(4)} onClick={handleSubmit}>
                     Danışmanlık Talebini Gönder
                   </Button>
                 </div>
@@ -866,7 +766,36 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
           )}
         </div>
 
-        {/* Navigation - Removed duplicate buttons, keeping only step-specific buttons */}
+        {/* Navigation */}
+        <div className="flex justify-between mt-8">
+          <Button
+            variant="outline"
+            onClick={handlePrev}
+            disabled={step === 1}
+            className="flex items-center gap-2"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Önceki
+          </Button>
+
+          {step < totalSteps ? (
+            <Button
+              onClick={handleNext}
+              className="flex items-center gap-2"
+            >
+              Sonraki
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          ) : (
+            <Button
+              onClick={handleSubmit}
+              className="flex items-center gap-2"
+            >
+              Başvuruyu Tamamla
+              <CheckCircle2 className="w-4 h-4" />
+            </Button>
+          )}
+        </div>
       </div>
     </section>
   )
@@ -915,3 +844,5 @@ function RegionEditor({ regions, onChange }: { regions: string[]; onChange: (v: 
     </div>
   )
 }
+
+
