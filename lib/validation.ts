@@ -9,7 +9,6 @@ export function sanitizeInput(input: string): string {
   if (typeof input !== 'string') return ''
   
   return input
-    .trim()
     .replace(/[<>]/g, '') // HTML tag'leri kaldır
     .replace(/javascript:/gi, '') // JavaScript protokolü engelle
     .replace(/data:/gi, '') // Data URI engelle
@@ -104,10 +103,10 @@ export function validateText(text: string, fieldName: string, minLength: number 
     errors.push(`${fieldName} en fazla ${maxLength} karakter olabilir`)
   }
   
-  // Sadece harf, rakam, boşluk ve Türkçe karakterlere izin ver
-  const textRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ0-9\s\-\.&]+$/
+  // Sadece harf, rakam, boşluk ve yaygın karakterlere izin ver
+  const textRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ0-9\s\-\.&,()]+$/
   if (!textRegex.test(sanitizedText)) {
-    errors.push(`${fieldName} sadece harf, rakam, boşluk, - . & karakterleri içerebilir`)
+    errors.push(`${fieldName} sadece harf, rakam, boşluk ve yaygın karakterler içerebilir`)
   }
   
   return {

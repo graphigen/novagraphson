@@ -539,7 +539,7 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                       placeholder="Örn. NovaGraph Teknoloji A.Ş."
                     />
                     <p className="text-xs text-gray-500">
-                      En az 2 karakter, sadece harf, rakam, boşluk ve - . & karakterleri
+                      En az 2 karakter giriniz
                     </p>
                   </div>
                   <div className="space-y-2">
@@ -571,7 +571,7 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                       rows={3}
                     />
                     <p className="text-xs text-gray-500">
-                      En az 10 karakter, en fazla 500 karakter. Sadece harf, rakam, boşluk ve - . & karakterleri
+                      En az 10 karakter giriniz
                     </p>
                   </div>
                   <div className="space-y-2">
