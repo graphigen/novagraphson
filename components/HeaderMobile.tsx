@@ -9,12 +9,13 @@ import { LogoMobile } from "@/components/LogoMobile"
 import { Sheet, SheetTrigger, SheetContent, SheetClose, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { useContactForm } from "@/contexts/ContactFormContext"
+import { solutionGroups } from "@/lib/solutions"
 
 export const HeaderMobile: React.FC = () => {
   const { openForm } = useContactForm()
   const [query, setQuery] = useState("")
   const [activeGroupId, setActiveGroupId] = useState<string | null>(null)
-  const activeGroup = null // Basit çözüm - solutionGroups kaldırıldı
+  const activeGroup = solutionGroups.find(group => group.id === activeGroupId)
 
   const handleSearchSubmit = useCallback(() => {
     if (!query.trim()) return
