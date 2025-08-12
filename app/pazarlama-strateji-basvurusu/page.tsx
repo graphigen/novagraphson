@@ -110,6 +110,7 @@ function usePersistentForm<T>(key: string, initial: T) {
   const [value, setValue] = useState<T>(initial)
   const isInitializedRef = useRef(false)
   const lastSavedValueRef = useRef<string>('')
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Load from localStorage only once on mount
   useEffect(() => {
@@ -126,31 +127,36 @@ function usePersistentForm<T>(key: string, initial: T) {
     }
   }, [key, initial])
 
-  // Save to localStorage only when value actually changes
-  const saveToStorage = useCallback((newValue: T) => {
-    if (!isInitializedRef.current) return
-    
-    try {
-      const serialized = JSON.stringify(newValue)
-      if (serialized !== lastSavedValueRef.current) {
-        localStorage.setItem(key, serialized)
-        lastSavedValueRef.current = serialized
-      }
-    } catch (error) {
-      console.error('Error saving to localStorage:', error)
-    }
-  }, [key])
-
-  // Debounced save effect
+  // Save to localStorage with debouncing
   useEffect(() => {
     if (!isInitializedRef.current) return
     
-    const timeoutId = setTimeout(() => {
-      saveToStorage(value)
-    }, 100)
+    // Clear previous timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+      timeoutRef.current = null
+    }
+    
+    // Set new timeout
+    timeoutRef.current = setTimeout(() => {
+      try {
+        const serialized = JSON.stringify(value)
+        if (serialized !== lastSavedValueRef.current) {
+          localStorage.setItem(key, serialized)
+          lastSavedValueRef.current = serialized
+        }
+      } catch (error) {
+        console.error('Error saving to localStorage:', error)
+      }
+    }, 300)
 
-    return () => clearTimeout(timeoutId)
-  }, [value, saveToStorage])
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = null
+      }
+    }
+  }, [key, value])
 
   const clear = useCallback(() => {
     try {
