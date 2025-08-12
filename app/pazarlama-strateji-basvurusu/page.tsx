@@ -587,15 +587,12 @@ ${formData.socialAccounts.length > 0 ? `
                     </p>
                   </div>
                   <div className="space-y-2">
-                    <Label>Web Sitesi (URL) - Opsiyonel</Label>
+                    <Label>Web Sitesi (URL)</Label>
                     <Input
                       value={formData.websiteUrl}
                       onChange={e => handleInputChange("websiteUrl", e.target.value)}
                       placeholder="https://www.firmaadi.com"
                     />
-                    <p className="text-xs text-gray-500">
-                      Geçerli bir URL girin (http:// veya https:// ile başlamalı)
-                    </p>
                   </div>
                   <div className="space-y-2">
                     <Label>Sosyal Medya Hesapları</Label>

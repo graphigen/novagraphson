@@ -125,26 +125,22 @@ export function validateUrl(url: string): ValidationResult {
   
   const sanitizedUrl = sanitizeInput(url)
   
-  try {
-    const urlObj = new URL(sanitizedUrl)
-    
-    // Sadece HTTP ve HTTPS protokollerine izin ver
-    if (!['http:', 'https:'].includes(urlObj.protocol)) {
-      errors.push('Sadece HTTP ve HTTPS protokolleri desteklenir')
-    }
-    
-    // URL length kontrolü
-    if (sanitizedUrl.length > 2048) {
-      errors.push('URL çok uzun')
-    }
-    
-  } catch {
-    errors.push('Geçerli bir URL giriniz')
+  // URL çok uzunsa hata ver
+  if (sanitizedUrl.length > 2048) {
+    errors.push('URL çok uzun')
+    return { isValid: false, errors }
   }
   
+  // Boş string kontrolü
+  if (sanitizedUrl.trim().length === 0) {
+    return { isValid: true, errors: [] }
+  }
+  
+  // Eğer URL'de protokol yoksa, geçerli kabul et (kullanıcı istediği gibi yazabilir)
+  // Sadece çok uzun olmaması yeterli
   return {
-    isValid: errors.length === 0,
-    errors
+    isValid: true,
+    errors: []
   }
 }
 
