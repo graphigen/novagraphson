@@ -105,9 +105,9 @@ export function validateText(text: string, fieldName: string, minLength: number 
   }
   
   // Sadece harf, rakam, boşluk ve Türkçe karakterlere izin ver
-  const textRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ0-9\s\-\.]+$/
+  const textRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ0-9\s\-\.&]+$/
   if (!textRegex.test(sanitizedText)) {
-    errors.push(`${fieldName} sadece harf, rakam, boşluk ve - . karakterleri içerebilir`)
+    errors.push(`${fieldName} sadece harf, rakam, boşluk, - . & karakterleri içerebilir`)
   }
   
   return {

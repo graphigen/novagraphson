@@ -300,19 +300,6 @@ export default function MarketingStrategyApplicationPage() {
   }, [formData.selectedPlatforms, formData.unsureAskForSuggest])
 
   const step2Valid = useMemo(() => {
-    // Debug için console.log ekleyelim
-    console.log('Step 2 Validation Debug:', {
-      companyName: formData.companyName,
-      companyNameLength: formData.companyName.length,
-      sector: formData.sector,
-      sectorLength: formData.sector.length,
-      productDescription: formData.productDescription,
-      productDescriptionLength: formData.productDescription.length,
-      isValid: formData.companyName.length >= 2 && 
-               formData.sector.length >= 2 && 
-               formData.productDescription.length >= 10
-    })
-    
     return formData.companyName.length >= 2 && 
            formData.sector.length >= 2 && 
            formData.productDescription.length >= 10
@@ -552,7 +539,7 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                       placeholder="Örn. NovaGraph Teknoloji A.Ş."
                     />
                     <p className="text-xs text-gray-500">
-                      En az 2 karakter, sadece harf, rakam, boşluk ve - . karakterleri
+                      En az 2 karakter, sadece harf, rakam, boşluk ve - . & karakterleri
                     </p>
                   </div>
                   <div className="space-y-2">
@@ -584,7 +571,7 @@ Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
                       rows={3}
                     />
                     <p className="text-xs text-gray-500">
-                      En az 10 karakter, en fazla 500 karakter. Sadece harf, rakam, boşluk ve - . karakterleri
+                      En az 10 karakter, en fazla 500 karakter. Sadece harf, rakam, boşluk ve - . & karakterleri
                     </p>
                   </div>
                   <div className="space-y-2">
