@@ -333,48 +333,43 @@ export default function MarketingStrategyApplicationPage() {
   const handleSubmit = async () => {
     if (validateStep(step)) {
       try {
-        // Mail gönderme API'sine istek
-        const response = await fetch('/api/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: formData.fullName,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.companyName,
-            service: 'Pazarlama Strateji Danışmanlığı',
-            message: `
+        // Sanitize form data before sending
+        const sanitizedData = {
+          name: sanitizeInput(formData.fullName),
+          email: sanitizeInput(formData.email),
+          phone: sanitizeInput(formData.phone),
+          company: sanitizeInput(formData.companyName),
+          service: 'Pazarlama Strateji Danışmanlığı',
+          message: `
 <h2 style="color: #1f2937; font-size: 24px; font-weight: bold; margin-bottom: 20px; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">
 🎯 Pazarlama Strateji Başvurusu Detayları
 </h2>
 
 <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
   <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">🏢 Şirket Bilgileri</h3>
-  <div style="margin-bottom: 10px;"><strong>Şirket Adı:</strong> ${formData.companyName}</div>
-  <div style="margin-bottom: 10px;"><strong>Sektör:</strong> ${formData.sector}</div>
-  <div style="margin-bottom: 10px;"><strong>Ürün/Hizmet:</strong> ${formData.productDescription}</div>
-  ${formData.websiteUrl ? `<div style="margin-bottom: 10px;"><strong>Website:</strong> <a href="${formData.websiteUrl}" style="color: #3b82f6;">${formData.websiteUrl}</a></div>` : ''}
+  <div style="margin-bottom: 10px;"><strong>Şirket Adı:</strong> ${sanitizeInput(formData.companyName)}</div>
+  <div style="margin-bottom: 10px;"><strong>Sektör:</strong> ${sanitizeInput(formData.sector)}</div>
+  <div style="margin-bottom: 10px;"><strong>Ürün/Hizmet:</strong> ${sanitizeInput(formData.productDescription)}</div>
+  ${formData.websiteUrl ? `<div style="margin-bottom: 10px;"><strong>Website:</strong> <a href="${sanitizeInput(formData.websiteUrl)}" style="color: #3b82f6;">${sanitizeInput(formData.websiteUrl)}</a></div>` : ''}
 </div>
 
 <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
   <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">📱 Seçilen Platformlar</h3>
-  <div style="margin-bottom: 10px;"><strong>Platformlar:</strong> ${formData.selectedPlatforms.join(', ')}</div>
+  <div style="margin-bottom: 10px;"><strong>Platformlar:</strong> ${formData.selectedPlatforms.map(p => sanitizeInput(p)).join(', ')}</div>
   <div style="margin-bottom: 10px;"><strong>Aylık Bütçe:</strong> ${formData.monthlyBudget} ${formData.budgetCurrency}</div>
 </div>
 
 <div style="background: #fef3c7; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
   <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">🎯 Hedef Kitle</h3>
-  <div style="margin-bottom: 8px;"><strong>Yaş Aralığı:</strong> ${formData.targetAges.join(', ')}</div>
-  <div style="margin-bottom: 8px;"><strong>Cinsiyet:</strong> ${formData.targetGender}</div>
-  <div style="margin-bottom: 8px;"><strong>Hedef Bölgeler:</strong> ${formData.targetRegions.join(', ')}</div>
+  <div style="margin-bottom: 8px;"><strong>Yaş Aralığı:</strong> ${formData.targetAges.map(age => sanitizeInput(age)).join(', ')}</div>
+  <div style="margin-bottom: 8px;"><strong>Cinsiyet:</strong> ${sanitizeInput(formData.targetGender)}</div>
+  <div style="margin-bottom: 8px;"><strong>Hedef Bölgeler:</strong> ${formData.targetRegions.map(region => sanitizeInput(region)).join(', ')}</div>
 </div>
 
 ${formData.socialAccounts.length > 0 ? `
 <div style="background: #ecfdf5; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
   <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">📱 Sosyal Medya Hesapları</h3>
-  ${formData.socialAccounts.map(acc => `<div style="margin-bottom: 8px;"><strong>${acc.platform}:</strong> <a href="${acc.url}" style="color: #3b82f6;">${acc.url}</a></div>`).join('')}
+  ${formData.socialAccounts.map(acc => `<div style="margin-bottom: 8px;"><strong>${sanitizeInput(acc.platform)}:</strong> <a href="${sanitizeInput(acc.url)}" style="color: #3b82f6;">${sanitizeInput(acc.url)}</a></div>`).join('')}
 </div>
 ` : ''}
 
@@ -389,7 +384,15 @@ ${formData.socialAccounts.length > 0 ? `
 </div>
             `,
             formType: 'marketing'
-          }),
+          };
+
+        // Mail gönderme API'sine istek
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(sanitizedData),
         });
 
         const result = await response.json();
@@ -398,22 +401,18 @@ ${formData.socialAccounts.length > 0 ? `
           throw new Error(result.message || 'Mail gönderilemedi');
         }
         
-        setShowSuccess(true)
-        clear()
-        setValidationErrors([])
+        setShowSuccess(true);
+        clear();
+        setValidationErrors([]);
       } catch (error) {
-        console.error("Form submission error:", error)
-        setValidationErrors(["Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin."])
+        console.error("Form submission error:", error);
+        setValidationErrors(["Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin."]);
       }
     }
-  }
+  };
 
   const handleInputChange = (field: keyof FormData, value: any) => {
-    // Sanitize string inputs
-    if (typeof value === 'string') {
-      value = sanitizeInput(value)
-    }
-    
+    // Remove sanitizeInput call to allow spaces and normal typing
     setFormData(prev => ({ ...prev, [field]: value }))
     
     // Clear validation errors when user starts typing
