@@ -51,9 +51,9 @@ export const mailConfig = {
 
 // Mail alıcı bilgileri
 export const mailRecipients = {
-  contact: 'cagatayyumlu@gmail.com',
-  marketing: 'cagatayyumlu@gmail.com',
-  general: 'cagatayyumlu@gmail.com'
+  contact: 'cagatayyumlu@gmail.com, cagatay@novagraph.com.tr',
+  marketing: 'cagatayyumlu@gmail.com, cagatay@novagraph.com.tr',
+  general: 'cagatayyumlu@gmail.com, cagatay@novagraph.com.tr'
 }
 
 export const getCurrentConfig = () => {
