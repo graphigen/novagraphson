@@ -346,26 +346,47 @@ export default function MarketingStrategyApplicationPage() {
             company: formData.companyName,
             service: 'Pazarlama Strateji Danışmanlığı',
             message: `
-Pazarlama Strateji Başvurusu Detayları:
+<h2 style="color: #1f2937; font-size: 24px; font-weight: bold; margin-bottom: 20px; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">
+🎯 Pazarlama Strateji Başvurusu Detayları
+</h2>
 
-Şirket: ${formData.companyName}
-Sektör: ${formData.sector}
-Ürün/Hizmet: ${formData.productDescription}
-Website: ${formData.websiteUrl}
+<div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">🏢 Şirket Bilgileri</h3>
+  <div style="margin-bottom: 10px;"><strong>Şirket Adı:</strong> ${formData.companyName}</div>
+  <div style="margin-bottom: 10px;"><strong>Sektör:</strong> ${formData.sector}</div>
+  <div style="margin-bottom: 10px;"><strong>Ürün/Hizmet:</strong> ${formData.productDescription}</div>
+  ${formData.websiteUrl ? `<div style="margin-bottom: 10px;"><strong>Website:</strong> <a href="${formData.websiteUrl}" style="color: #3b82f6;">${formData.websiteUrl}</a></div>` : ''}
+</div>
 
-Seçilen Platformlar: ${formData.selectedPlatforms.join(', ')}
-Aylık Bütçe: ${formData.monthlyBudget} ${formData.budgetCurrency}
+<div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">📱 Seçilen Platformlar</h3>
+  <div style="margin-bottom: 10px;"><strong>Platformlar:</strong> ${formData.selectedPlatforms.join(', ')}</div>
+  <div style="margin-bottom: 10px;"><strong>Aylık Bütçe:</strong> ${formData.monthlyBudget} ${formData.budgetCurrency}</div>
+</div>
 
-Hedef Kitle:
-- Yaş: ${formData.targetAges.join(', ')}
-- Cinsiyet: ${formData.targetGender}
-- Bölgeler: ${formData.targetRegions.join(', ')}
+<div style="background: #fef3c7; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">🎯 Hedef Kitle</h3>
+  <div style="margin-bottom: 8px;"><strong>Yaş Aralığı:</strong> ${formData.targetAges.join(', ')}</div>
+  <div style="margin-bottom: 8px;"><strong>Cinsiyet:</strong> ${formData.targetGender}</div>
+  <div style="margin-bottom: 8px;"><strong>Hedef Bölgeler:</strong> ${formData.targetRegions.join(', ')}</div>
+</div>
 
-Sosyal Medya Hesapları:
-${formData.socialAccounts.map(acc => `${acc.platform}: ${acc.url}`).join('\n')}
+${formData.socialAccounts.length > 0 ? `
+<div style="background: #ecfdf5; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">📱 Sosyal Medya Hesapları</h3>
+  ${formData.socialAccounts.map(acc => `<div style="margin-bottom: 8px;"><strong>${acc.platform}:</strong> <a href="${acc.url}" style="color: #3b82f6;">${acc.url}</a></div>`).join('')}
+</div>
+` : ''}
 
-KVKK Onayı: ${formData.kvkkAccepted ? 'Evet' : 'Hayır'}
-Pazarlama İletişimi: ${formData.marketingAccepted ? 'Evet' : 'Hayır'}
+<div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">✅ Onaylar</h3>
+  <div style="margin-bottom: 8px;"><strong>KVKK Onayı:</strong> ${formData.kvkkAccepted ? '✅ Evet' : '❌ Hayır'}</div>
+  <div style="margin-bottom: 8px;"><strong>Pazarlama İletişimi:</strong> ${formData.marketingAccepted ? '✅ Evet' : '❌ Hayır'}</div>
+</div>
+
+<div style="background: #3b82f6; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: 600;">
+  🚀 Bu başvuru ${new Date().toLocaleDateString('tr-TR')} tarihinde alınmıştır.
+</div>
             `,
             formType: 'marketing'
           }),
