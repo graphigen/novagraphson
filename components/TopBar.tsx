@@ -2,35 +2,26 @@
 
 import { Phone } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
-import { useServerCountdown } from "@/hooks/useServerCountdown"
+// import { useServerCountdown } from "@/hooks/useServerCountdown" // Removed to prevent infinite re-renders
 import { useState, useEffect } from "react"
 
 export const TopBar = () => {
-  const { timeLeft, isLoading, error } = useServerCountdown()
+  // const { timeLeft, isLoading, error } = useServerCountdown() // Removed to prevent infinite re-renders
   const { openForm } = useContactForm()
   const [showDiscount, setShowDiscount] = useState(false)
 
   useEffect(() => {
     // Sayfa yüklendiğinde 1 saniye sonra animasyonu başlat
-    console.log('TopBar: Animasyon başlatılıyor...')
     const timer = setTimeout(() => {
-      console.log('TopBar: showDiscount true yapılıyor')
       setShowDiscount(true)
     }, 1000)
 
     return () => clearTimeout(timer)
   }, [])
 
-  useEffect(() => {
-    // Sürekli döngü için interval
-    const interval = setInterval(() => {
-      setShowDiscount(prev => !prev)
-    }, 3000) // Her 3 saniyede bir değişsin
+  // Problematic interval useEffect removed - this was causing infinite re-renders
 
-    return () => clearInterval(interval)
-  }, [])
-
-  console.log('TopBar render - showDiscount:', showDiscount)
+  // console.log('TopBar render - showDiscount:', showDiscount) // Removed to reduce console noise
 
   return (
     <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white border-b border-blue-500 z-[80] relative">
@@ -56,122 +47,63 @@ export const TopBar = () => {
 
           {/* Zaman Sayacı (Desktop) */}
           <div className="hidden xl:flex items-center space-x-2">
-            {isLoading ? (
-              <>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">--</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Gün</span>
+            {/* isLoading and error removed */}
+            <>
+              <div className="flex flex-col items-center space-y-0.5">
+                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
+                  <span className="text-xs font-bold">--</span>
                 </div>
-                <span className="text-white text-opacity-40">:</span>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">--</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Saat</span>
+                <span className="text-xs text-blue-100">Gün</span>
+              </div>
+              <span className="text-white text-opacity-40">:</span>
+              <div className="flex flex-col items-center space-y-0.5">
+                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
+                  <span className="text-xs font-bold">--</span>
                 </div>
-                <span className="text-white text-opacity-40">:</span>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">--</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Dakika</span>
+                <span className="text-xs text-blue-100">Saat</span>
+              </div>
+              <span className="text-white text-opacity-40">:</span>
+              <div className="flex flex-col items-center space-y-0.5">
+                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
+                  <span className="text-xs font-bold">--</span>
                 </div>
-                <span className="text-white text-opacity-40">:</span>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">--</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Saniye</span>
+                <span className="text-xs text-blue-100">Dakika</span>
+              </div>
+              <span className="text-white text-opacity-40">:</span>
+              <div className="flex flex-col items-center space-y-0.5">
+                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
+                  <span className="text-xs font-bold">--</span>
                 </div>
-              </>
-            ) : error ? (
-              <span className="text-red-200 text-xs">Sayaç yüklenemedi</span>
-            ) : (
-              <>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">{timeLeft.days.toString().padStart(2, '0')}</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Gün</span>
-                </div>
-                <span className="text-white text-opacity-40">:</span>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">{timeLeft.hours.toString().padStart(2, '0')}</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Saat</span>
-                </div>
-                <span className="text-white text-opacity-40">:</span>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">{timeLeft.minutes.toString().padStart(2, '0')}</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Dakika</span>
-                </div>
-                <span className="text-white text-opacity-40">:</span>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">{timeLeft.seconds.toString().padStart(2, '0')}</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Saniye</span>
-                </div>
-              </>
-            )}
+                <span className="text-xs text-blue-100">Saniye</span>
+              </div>
+            </>
           </div>
 
           {/* Tablet - Kısa Geri Sayım */}
           <div className="hidden lg:flex xl:hidden items-center space-x-1.5">
-            {isLoading ? (
-              <>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">--</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Gün</span>
+            {/* isLoading and error removed */}
+            <>
+              <div className="flex flex-col items-center space-y-0.5">
+                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
+                  <span className="text-xs font-bold">--</span>
                 </div>
-                <span className="text-white text-opacity-40">:</span>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">--</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Saat</span>
+                <span className="text-xs text-blue-100">Gün</span>
+              </div>
+              <span className="text-white text-opacity-40">:</span>
+              <div className="flex flex-col items-center space-y-0.5">
+                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
+                  <span className="text-xs font-bold">--</span>
                 </div>
-                <span className="text-white text-opacity-40">:</span>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">--</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Dakika</span>
+                <span className="text-xs text-blue-100">Saat</span>
+              </div>
+              <span className="text-white text-opacity-40">:</span>
+              <div className="flex flex-col items-center space-y-0.5">
+                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
+                  <span className="text-xs font-bold">--</span>
                 </div>
-              </>
-            ) : error ? (
-              <span className="text-red-200 text-xs">Sayaç yüklenemedi</span>
-            ) : (
-              <>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">{timeLeft.days.toString().padStart(2, '0')}</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Gün</span>
-                </div>
-                <span className="text-white text-opacity-40">:</span>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">{timeLeft.hours.toString().padStart(2, '0')}</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Saat</span>
-                </div>
-                <span className="text-white text-opacity-40">:</span>
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
-                    <span className="text-xs font-bold">{timeLeft.minutes.toString().padStart(2, '0')}</span>
-                  </div>
-                  <span className="text-xs text-blue-100">Dakika</span>
-                </div>
-              </>
-            )}
+                <span className="text-xs text-blue-100">Dakika</span>
+              </div>
+            </>
           </div>
         </div>
 

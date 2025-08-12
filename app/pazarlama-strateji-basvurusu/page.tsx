@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -108,28 +108,58 @@ const ageOptions = ["18–24", "25–34", "35–44", "45+"]
 
 function usePersistentForm<T>(key: string, initial: T) {
   const [value, setValue] = useState<T>(initial)
+  const isInitializedRef = useRef(false)
+  const lastSavedValueRef = useRef<string>('')
 
+  // Load from localStorage only once on mount
   useEffect(() => {
     try {
       const raw = localStorage.getItem(key)
       if (raw) {
-        setValue({ ...initial, ...JSON.parse(raw) })
+        const parsed = JSON.parse(raw)
+        setValue({ ...initial, ...parsed })
       }
-    } catch {}
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+      isInitializedRef.current = true
+    } catch (error) {
+      console.error('Error loading from localStorage:', error)
+      isInitializedRef.current = true
+    }
+  }, [key, initial])
 
-  useEffect(() => {
+  // Save to localStorage only when value actually changes
+  const saveToStorage = useCallback((newValue: T) => {
+    if (!isInitializedRef.current) return
+    
     try {
-      localStorage.setItem(key, JSON.stringify(value))
-    } catch {}
-  }, [key, value])
+      const serialized = JSON.stringify(newValue)
+      if (serialized !== lastSavedValueRef.current) {
+        localStorage.setItem(key, serialized)
+        lastSavedValueRef.current = serialized
+      }
+    } catch (error) {
+      console.error('Error saving to localStorage:', error)
+    }
+  }, [key])
 
-  const clear = () => {
+  // Debounced save effect
+  useEffect(() => {
+    if (!isInitializedRef.current) return
+    
+    const timeoutId = setTimeout(() => {
+      saveToStorage(value)
+    }, 100)
+
+    return () => clearTimeout(timeoutId)
+  }, [value, saveToStorage])
+
+  const clear = useCallback(() => {
     try {
       localStorage.removeItem(key)
-    } catch {}
-  }
+      lastSavedValueRef.current = ''
+    } catch (error) {
+      console.error('Error clearing localStorage:', error)
+    }
+  }, [key])
 
   return { value, setValue, clear }
 }
