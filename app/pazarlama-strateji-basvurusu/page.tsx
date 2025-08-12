@@ -110,7 +110,6 @@ function usePersistentForm<T>(key: string, initial: T) {
   const [value, setValue] = useState<T>(initial)
   const isInitializedRef = useRef(false)
   const lastSavedValueRef = useRef<string>('')
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Load from localStorage only once on mount
   useEffect(() => {
@@ -127,36 +126,27 @@ function usePersistentForm<T>(key: string, initial: T) {
     }
   }, [key, initial])
 
-  // Save to localStorage with debouncing
-  useEffect(() => {
-    if (!isInitializedRef.current) return
-    
-    // Clear previous timeout
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-      timeoutRef.current = null
-    }
-    
-    // Set new timeout
-    timeoutRef.current = setTimeout(() => {
-      try {
-        const serialized = JSON.stringify(value)
-        if (serialized !== lastSavedValueRef.current) {
-          localStorage.setItem(key, serialized)
-          lastSavedValueRef.current = serialized
+  // Create a stable setValue function that also saves to localStorage
+  const setValueAndSave = useCallback((newValue: T | ((prev: T) => T)) => {
+    setValue(prevValue => {
+      const finalValue = typeof newValue === 'function' ? (newValue as (prev: T) => T)(prevValue) : newValue
+      
+      // Save to localStorage after state update
+      if (isInitializedRef.current) {
+        try {
+          const serialized = JSON.stringify(finalValue)
+          if (serialized !== lastSavedValueRef.current) {
+            localStorage.setItem(key, serialized)
+            lastSavedValueRef.current = serialized
+          }
+        } catch (error) {
+          console.error('Error saving to localStorage:', error)
         }
-      } catch (error) {
-        console.error('Error saving to localStorage:', error)
       }
-    }, 300)
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-        timeoutRef.current = null
-      }
-    }
-  }, [key, value])
+      
+      return finalValue
+    })
+  }, [key])
 
   const clear = useCallback(() => {
     try {
@@ -167,7 +157,7 @@ function usePersistentForm<T>(key: string, initial: T) {
     }
   }, [key])
 
-  return { value, setValue, clear }
+  return { value, setValue: setValueAndSave, clear }
 }
 
 export default function MarketingStrategyApplicationPage() {
