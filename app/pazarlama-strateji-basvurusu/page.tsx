@@ -405,6 +405,16 @@ ${formData.socialAccounts.length > 0 ? `
           throw new Error(result.message || 'Mail gönderilemedi');
         }
         
+        // Teşekkür maili gönderilip gönderilmediğini kontrol et
+        if (result.thankYouSent === false) {
+          console.warn('⚠️ Teşekkür maili gönderilemedi, ama form alındı');
+          // Kullanıcıya bilgi ver
+          setValidationErrors([
+            "Form başarızla alındı! Ancak teşekkür maili gönderilemedi. Lütfen spam kutusunu kontrol edin veya bizimle iletişime geçin."
+          ]);
+          return;
+        }
+        
         setShowSuccess(true);
         clear();
         setValidationErrors([]);

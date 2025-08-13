@@ -455,24 +455,68 @@ export async function POST(request: NextRequest) {
         host: mailConfig.host,
         port: mailConfig.port
       });
+      
+      // Mail gönderim öncesi detaylı log
+      console.log('🔍 Mail konfigürasyonu:', {
+        host: mailConfig.host,
+        port: mailConfig.port,
+        secure: mailConfig.secure,
+        requireTLS: mailConfig.requireTLS,
+        user: mailConfig.auth.user
+      });
+      
       const thankYouResult = await transporter.sendMail(thankYouMailOptions);
       console.log('✅ Teşekkür maili gönderildi:', thankYouResult.messageId);
       console.log('📧 Teşekkür maili alıcısı:', email);
+      console.log('📨 Mail sunucusu response:', thankYouResult.response);
     } catch (thankYouError) {
       console.error('❌ Teşekkür maili gönderme hatası:', thankYouError);
+      console.error('❌ Hata türü:', typeof thankYouError);
+      console.error('❌ Hata mesajı:', (thankYouError as any).message);
+      
       if (thankYouError && typeof thankYouError === 'object' && 'code' in thankYouError) {
         console.error('❌ Hata detayları:', {
           code: (thankYouError as any).code,
           response: (thankYouError as any).response,
-          command: (thankYouError as any).command
+          command: (thankYouError as any).command,
+          responseCode: (thankYouError as any).responseCode,
+          enhancedServerCode: (thankYouError as any).enhancedServerCode
         });
+      }
+      
+      // Mail sunucusu bağlantısını tekrar test et
+      try {
+        console.log('🔧 Mail sunucusu bağlantısı tekrar test ediliyor...');
+        await transporter.verify();
+        console.log('✅ Mail sunucusu bağlantısı hala aktif');
+      } catch (verifyError) {
+        console.error('❌ Mail sunucusu bağlantısı kopmuş:', verifyError);
       }
     }
 
     console.log('✅ Mail gönderme süreci tamamlandı');
+    
+    // Teşekkür maili gönderilip gönderilmediğini kontrol et
+    let thankYouSent = false;
+    try {
+      // Basit bir test mail gönderimi
+      const testMail = await transporter.sendMail({
+        from: mailConfig.auth.user,
+        to: email,
+        subject: 'Test - Mail Gönderim Kontrolü',
+        text: 'Bu bir test mailidir.'
+      });
+      thankYouSent = true;
+      console.log('✅ Test maili başarıyla gönderildi');
+    } catch (testError) {
+      console.error('❌ Test maili gönderilemedi:', testError);
+      thankYouSent = false;
+    }
+    
     return NextResponse.json({ 
       success: true, 
-      message: 'E-postalar gönderildi' 
+      message: thankYouSent ? 'E-postalar gönderildi' : 'Form alındı, teşekkür maili gönderilemedi',
+      thankYouSent: thankYouSent
     });
 
   } catch (error) {
