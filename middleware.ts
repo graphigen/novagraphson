@@ -272,11 +272,11 @@ export function middleware(request: NextRequest) {
     // Content Security Policy (CSP) - geliştirildi
     const csp = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://va.vercel-scripts.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://va.vercel-scripts.com https://va.vercel-scripts.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "img-src 'self' data: https: blob:",
       "font-src 'self' data: https://fonts.gstatic.com",
-      "connect-src 'self' https: wss:",
+      "connect-src 'self' https: wss: https://va.vercel-scripts.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
@@ -303,8 +303,29 @@ export function middleware(request: NextRequest) {
     return response
   }
   
-  // Development ortamında NextResponse.next() döndür
-  return NextResponse.next()
+  // Development ortamında da CSP ekle
+  const response = NextResponse.next()
+  
+  // Development için daha esnek CSP
+  const devCsp = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://va.vercel-scripts.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "img-src 'self' data: https: blob:",
+    "font-src 'self' data: https://fonts.gstatic.com",
+    "connect-src 'self' https: wss: https://va.vercel-scripts.com",
+    "frame-ancestors 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "object-src 'none'",
+    "media-src 'self'",
+    "worker-src 'self' blob:",
+    "child-src 'self' blob:",
+    "frame-src 'self'"
+  ].join('; ')
+  
+  response.headers.set('Content-Security-Policy', devCsp)
+  return response
 }
 
 export const config = {
