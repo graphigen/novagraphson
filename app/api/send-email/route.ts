@@ -284,7 +284,7 @@ export async function POST(request: NextRequest) {
 
     // Bize giden mail (mevcut)
     const companyMailOptions = {
-      from: mailConfig.auth.user,
+      from: `"NovaGraph Teknoloji" <${mailConfig.auth.user}>`,
       to: mailRecipients.general,
       subject: subject,
       html: `
@@ -319,7 +319,7 @@ export async function POST(request: NextRequest) {
 
     // Form gönderen kişiye giden teşekkür maili
     const thankYouMailOptions = {
-      from: mailConfig.auth.user,
+      from: `"NovaGraph Teknoloji" <${mailConfig.auth.user}>`,
       to: email,
       subject: thankYouSubject,
       html: `
