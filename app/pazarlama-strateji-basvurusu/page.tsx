@@ -214,6 +214,7 @@ export default function MarketingStrategyApplicationPage() {
   const [step, setStep] = useState<number>(1)
   const [showSuccess, setShowSuccess] = useState(false)
   const [validationErrors, setValidationErrors] = useState<string[]>([])
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const totalSteps = 4
   const progress = Math.round(((step - 1) / totalSteps) * 100)
@@ -332,6 +333,9 @@ export default function MarketingStrategyApplicationPage() {
 
   const handleSubmit = async () => {
     if (validateStep(step)) {
+      setIsSubmitting(true)
+      setValidationErrors([])
+      
       try {
         // Sanitize form data before sending
         const sanitizedData = {
@@ -407,6 +411,8 @@ ${formData.socialAccounts.length > 0 ? `
       } catch (error) {
         console.error("Form submission error:", error);
         setValidationErrors(["Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin."]);
+      } finally {
+        setIsSubmitting(false);
       }
     }
   };
@@ -482,6 +488,19 @@ ${formData.socialAccounts.length > 0 ? `
               <div key={n} className={`h-1.5 rounded ${n <= step ? "bg-blue-600" : "bg-gray-200"}`} />
             ))}
           </div>
+          
+          {/* Submit Progress Indicator */}
+          {isSubmitting && (
+            <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="flex items-center gap-3">
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600"></div>
+                <div>
+                  <p className="text-sm font-medium text-blue-800">Form gönderiliyor...</p>
+                  <p className="text-xs text-blue-600">Lütfen bekleyin, bu işlem birkaç saniye sürebilir.</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Steps */}
@@ -849,12 +868,45 @@ ${formData.socialAccounts.length > 0 ? `
                   </label>
                 </div>
 
+                {/* Validation Errors for Step 4 */}
+                {validationErrors.length > 0 && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <div className="flex items-center gap-2 mb-2">
+                      <AlertCircle className="w-5 h-5 text-red-600" />
+                      <span className="text-sm font-medium text-red-800">Lütfen aşağıdaki hataları düzeltin:</span>
+                    </div>
+                    <ul className="text-sm text-red-700 space-y-1">
+                      {validationErrors.map((error, index) => (
+                        <li key={index} className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 bg-red-600 rounded-full"></span>
+                          {error}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between">
                   <Button type="button" variant="outline" onClick={handlePrev}>
                     <ChevronLeft className="w-4 h-4 mr-2" /> Geri
                   </Button>
-                  <Button type="button" disabled={!step4Valid} onClick={handleSubmit}>
-                    Danışmanlık Talebini Gönder
+                  <Button 
+                    type="button" 
+                    disabled={!step4Valid || isSubmitting} 
+                    onClick={handleSubmit}
+                    className="min-w-[200px]"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Gönderiliyor...
+                      </>
+                    ) : (
+                      <>
+                        <ArrowRight className="w-4 h-4 mr-2" />
+                        Danışmanlık Talebini Gönder
+                      </>
+                    )}
                   </Button>
                 </div>
               </CardContent>
