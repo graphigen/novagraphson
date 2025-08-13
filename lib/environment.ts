@@ -31,20 +31,20 @@ export const config = {
   }
 }
 
-// Mail konfigürasyonu
+// Mail konfigürasyonu - Güncellenmiş ayarlar
 export const mailConfig = {
   host: process.env.MAIL_HOST || 'mail.novagraph.com.tr',
-  port: parseInt(process.env.MAIL_PORT || '587'), // STARTTLS port
-  secure: false, // Non-SSL başlangıç, STARTTLS ile yükseltme
+  port: parseInt(process.env.MAIL_PORT || '587'), // SMTP Port 587
+  secure: false, // STARTTLS kullan
   auth: {
     user: process.env.MAIL_USER || 'info@novagraph.com.tr',
-    pass: process.env.MAIL_PASS || '159.Com.tr'
+    pass: process.env.MAIL_PASS || '0907CGTY..'
   },
   tls: {
     rejectUnauthorized: false,
-    ciphers: 'TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384'
+    ciphers: 'TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256'
   },
-  requireTLS: false, // STARTTLS kullandığımız için false
+  requireTLS: true, // STARTTLS kullandığımız için true
   logger: true,
   debug: true,
   connectionTimeout: 60000, // 60 saniye

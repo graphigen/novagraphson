@@ -319,6 +319,8 @@ export default function MarketingStrategyApplicationPage() {
            formData.kvkkAccepted
   }, [formData.fullName, formData.email, formData.phone, formData.kvkkAccepted])
 
+
+
   const handleNext = () => {
     if (validateStep(step)) {
       setStep(prev => Math.min(prev + 1, totalSteps))
@@ -337,13 +339,55 @@ export default function MarketingStrategyApplicationPage() {
       setValidationErrors([])
       
       try {
+        // Form validation
+        if (!formData.fullName || formData.fullName.trim().length < 2) {
+          setValidationErrors(['Lütfen geçerli bir isim giriniz (en az 2 karakter)']);
+          return;
+        }
+        
+        if (!formData.email || !formData.email.includes('@')) {
+          setValidationErrors(['Lütfen geçerli bir email adresi giriniz']);
+          return;
+        }
+        
+        if (!formData.phone || formData.phone.trim().length < 10) {
+          setValidationErrors(['Lütfen geçerli bir telefon numarası giriniz (en az 10 karakter)']);
+          return;
+        }
+        
+        if (!formData.kvkkAccepted) {
+          setValidationErrors(['KVKK şartlarını kabul etmelisiniz']);
+          return;
+        }
+        
+        // Form verilerini güvenli hale getir
+        const safeFormData = {
+          fullName: formData.fullName || '',
+          email: formData.email || '',
+          phone: formData.phone || '',
+          companyName: formData.companyName || '',
+          sector: formData.sector || '',
+          productDescription: formData.productDescription || '',
+          websiteUrl: formData.websiteUrl || '',
+          selectedPlatforms: Array.isArray(formData.selectedPlatforms) ? formData.selectedPlatforms : [],
+          monthlyBudget: formData.monthlyBudget || '',
+          budgetCurrency: formData.budgetCurrency || '',
+          targetAges: Array.isArray(formData.targetAges) ? formData.targetAges : [],
+          targetGender: formData.targetGender || '',
+          targetRegions: Array.isArray(formData.targetRegions) ? formData.targetRegions : [],
+          socialAccounts: Array.isArray(formData.socialAccounts) ? formData.socialAccounts : [],
+          kvkkAccepted: Boolean(formData.kvkkAccepted),
+          marketingAccepted: Boolean(formData.marketingAccepted)
+        };
+
         // Sanitize form data before sending
         const sanitizedData = {
-          name: sanitizeInput(formData.fullName),
-          email: sanitizeInput(formData.email),
-          phone: sanitizeInput(formData.phone),
-          company: sanitizeInput(formData.companyName),
+          name: sanitizeInput(safeFormData.fullName),
+          email: sanitizeInput(safeFormData.email),
+          phone: sanitizeInput(safeFormData.phone),
+          company: sanitizeInput(safeFormData.companyName),
           service: 'Pazarlama Strateji Danışmanlığı',
+          formType: 'strategy', // API için zorunlu alan
           message: `
 <h2 style="color: #1f2937; font-size: 24px; font-weight: bold; margin-bottom: 20px; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">
 🎯 Pazarlama Strateji Başvurusu Detayları
@@ -351,46 +395,47 @@ export default function MarketingStrategyApplicationPage() {
 
 <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
   <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">🏢 Şirket Bilgileri</h3>
-  <div style="margin-bottom: 10px;"><strong>Şirket Adı:</strong> ${sanitizeInput(formData.companyName)}</div>
-  <div style="margin-bottom: 10px;"><strong>Sektör:</strong> ${sanitizeInput(formData.sector)}</div>
-  <div style="margin-bottom: 10px;"><strong>Ürün/Hizmet:</strong> ${sanitizeInput(formData.productDescription)}</div>
-  ${formData.websiteUrl ? `<div style="margin-bottom: 10px;"><strong>Website:</strong> <a href="${sanitizeInput(formData.websiteUrl)}" style="color: #3b82f6;">${sanitizeInput(formData.websiteUrl)}</a></div>` : ''}
+  <div style="margin-bottom: 10px;"><strong>Şirket Adı:</strong> ${sanitizeInput(safeFormData.companyName)}</div>
+  <div style="margin-bottom: 10px;"><strong>Sektör:</strong> ${sanitizeInput(safeFormData.sector)}</div>
+  <div style="margin-bottom: 10px;"><strong>Ürün/Hizmet:</strong> ${sanitizeInput(safeFormData.productDescription)}</div>
+  ${safeFormData.websiteUrl ? `<div style="margin-bottom: 10px;"><strong>Website:</strong> <a href="${sanitizeInput(safeFormData.websiteUrl)}" style="color: #3b82f6;">${sanitizeInput(safeFormData.websiteUrl)}</a></div>` : ''}
 </div>
 
 <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
   <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">📱 Seçilen Platformlar</h3>
-  <div style="margin-bottom: 10px;"><strong>Platformlar:</strong> ${formData.selectedPlatforms.map(p => sanitizeInput(p)).join(', ')}</div>
-  <div style="margin-bottom: 10px;"><strong>Aylık Bütçe:</strong> ${formData.monthlyBudget} ${formData.budgetCurrency}</div>
+  <div style="margin-bottom: 10px;"><strong>Platformlar:</strong> ${safeFormData.selectedPlatforms.map(p => sanitizeInput(p)).join(', ')}</div>
+  <div style="margin-bottom: 10px;"><strong>Aylık Bütçe:</strong> ${safeFormData.monthlyBudget} ${safeFormData.budgetCurrency}</div>
 </div>
 
 <div style="background: #fef3c7; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
   <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">🎯 Hedef Kitle</h3>
-  <div style="margin-bottom: 8px;"><strong>Yaş Aralığı:</strong> ${formData.targetAges.map(age => sanitizeInput(age)).join(', ')}</div>
-  <div style="margin-bottom: 8px;"><strong>Cinsiyet:</strong> ${sanitizeInput(formData.targetGender)}</div>
-  <div style="margin-bottom: 8px;"><strong>Hedef Bölgeler:</strong> ${formData.targetRegions.map(region => sanitizeInput(region)).join(', ')}</div>
+  <div style="margin-bottom: 8px;"><strong>Yaş Aralığı:</strong> ${safeFormData.targetAges.map(age => sanitizeInput(age)).join(', ')}</div>
+  <div style="margin-bottom: 8px;"><strong>Cinsiyet:</strong> ${sanitizeInput(safeFormData.targetGender)}</div>
+  <div style="margin-bottom: 8px;"><strong>Hedef Bölgeler:</strong> ${safeFormData.targetRegions.map(region => sanitizeInput(region)).join(', ')}</div>
 </div>
 
-${formData.socialAccounts.length > 0 ? `
+${safeFormData.socialAccounts.length > 0 ? `
 <div style="background: #ecfdf5; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
   <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">📱 Sosyal Medya Hesapları</h3>
-  ${formData.socialAccounts.map(acc => `<div style="margin-bottom: 8px;"><strong>${sanitizeInput(acc.platform)}:</strong> <a href="${sanitizeInput(acc.url)}" style="color: #3b82f6;">${sanitizeInput(acc.url)}</a></div>`).join('')}
+  ${safeFormData.socialAccounts.map(acc => `<div style="margin-bottom: 8px;"><strong>${sanitizeInput(acc.platform)}:</strong> <a href="${sanitizeInput(acc.url)}" style="color: #3b82f6;">${sanitizeInput(acc.url)}</a></div>`).join('')}
 </div>
 ` : ''}
 
 <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
   <h3 style="color: #374151; font-size: 18px; font-weight: 600; margin-bottom: 15px;">✅ Onaylar</h3>
-  <div style="margin-bottom: 8px;"><strong>KVKK Onayı:</strong> ${formData.kvkkAccepted ? '✅ Evet' : '❌ Hayır'}</div>
-  <div style="margin-bottom: 8px;"><strong>Pazarlama İletişimi:</strong> ${formData.marketingAccepted ? '✅ Evet' : '❌ Hayır'}</div>
+  <div style="margin-bottom: 8px;"><strong>KVKK Onayı:</strong> ${safeFormData.kvkkAccepted ? '✅ Evet' : '❌ Hayır'}</div>
+  <div style="margin-bottom: 8px;"><strong>Pazarlama İletişimi:</strong> ${safeFormData.marketingAccepted ? '✅ Evet' : '❌ Hayır'}</div>
 </div>
 
 <div style="background: #3b82f6; color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: 600;">
   🚀 Bu başvuru ${new Date().toLocaleDateString('tr-TR')} tarihinde alınmıştır.
 </div>
-            `,
-            formType: 'marketing'
+            `
           };
 
         // Mail gönderme API'sine istek
+        console.log('📧 Form verisi gönderiliyor:', sanitizedData);
+        
         const response = await fetch('/api/send-email', {
           method: 'POST',
           headers: {
@@ -399,7 +444,14 @@ ${formData.socialAccounts.length > 0 ? `
           body: JSON.stringify(sanitizedData),
         });
 
+        console.log('📧 API yanıtı:', response.status, response.statusText);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
         const result = await response.json();
+        console.log('📧 API sonucu:', result);
         
         if (!result.success) {
           throw new Error(result.message || 'Mail gönderilemedi');
@@ -420,7 +472,21 @@ ${formData.socialAccounts.length > 0 ? `
         setValidationErrors([]);
       } catch (error) {
         console.error("Form submission error:", error);
-        setValidationErrors(["Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin."]);
+        
+        // Daha detaylı hata mesajı
+        let errorMessage = "Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.";
+        
+        if (error instanceof Error) {
+          if (error.message.includes('Mail gönderilemedi')) {
+            errorMessage = "Mail gönderilemedi. Lütfen daha sonra tekrar deneyin.";
+          } else if (error.message.includes('fetch')) {
+            errorMessage = "Sunucu bağlantısı kurulamadı. Lütfen internet bağlantınızı kontrol edin.";
+          } else {
+            errorMessage = error.message;
+          }
+        }
+        
+        setValidationErrors([errorMessage]);
       } finally {
         setIsSubmitting(false);
       }

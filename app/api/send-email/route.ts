@@ -45,8 +45,8 @@ function validateAndSanitizeInput(data: any) {
     errors.push('Şirket adı çok uzun (max 100 karakter)');
   }
   
-  if (data.message && data.message.length > 2000) {
-    errors.push('Mesaj çok uzun (max 2000 karakter)');
+  if (data.message && data.message.length > 10000) {
+    errors.push('Mesaj çok uzun (max 10000 karakter)');
   }
   
   // XSS protection - HTML tag removal
