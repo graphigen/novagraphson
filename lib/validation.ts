@@ -174,7 +174,7 @@ export function validateBudget(budget: number, currency: string): ValidationResu
 }
 
 // Array validation (platforms, regions, ages)
-export function validateArray(array: any[], fieldName: string, minItems: number = 1, maxItems: number = 20): ValidationResult {
+export function validateArray(array: unknown[], fieldName: string, minItems: number = 1, maxItems: number = 20): ValidationResult {
   const errors: string[] = []
   
   if (!Array.isArray(array)) {
@@ -207,28 +207,48 @@ export function validateArray(array: any[], fieldName: string, minItems: number 
 }
 
 // Form data validation
-export function validateContactForm(data: any): ValidationResult {
+interface ContactFormData {
+  companyName?: string;
+  sector?: string;
+  name?: string;
+  email?: string;
+  phone?: string;
+  serviceCategory?: string;
+  selectedService?: string;
+}
+
+export function validateContactForm(data: ContactFormData): ValidationResult {
   const errors: string[] = []
   
   // Company name validation
-  const companyNameResult = validateText(data.companyName, 'Firma adı', 2, 100)
-  errors.push(...companyNameResult.errors)
+  if (data.companyName) {
+    const companyNameResult = validateText(data.companyName, 'Firma adı', 2, 100)
+    errors.push(...companyNameResult.errors)
+  }
   
   // Sector validation
-  const sectorResult = validateText(data.sector, 'Sektör', 2, 50)
-  errors.push(...sectorResult.errors)
+  if (data.sector) {
+    const sectorResult = validateText(data.sector, 'Sektör', 2, 50)
+    errors.push(...sectorResult.errors)
+  }
   
   // Name validation
-  const nameResult = validateText(data.name, 'Ad soyad', 2, 50)
-  errors.push(...nameResult.errors)
+  if (data.name) {
+    const nameResult = validateText(data.name, 'Ad soyad', 2, 50)
+    errors.push(...nameResult.errors)
+  }
   
   // Email validation
-  const emailResult = validateEmail(data.email)
-  errors.push(...emailResult.errors)
+  if (data.email) {
+    const emailResult = validateEmail(data.email)
+    errors.push(...emailResult.errors)
+  }
   
   // Phone validation
-  const phoneResult = validatePhone(data.phone)
-  errors.push(...phoneResult.errors)
+  if (data.phone) {
+    const phoneResult = validatePhone(data.phone)
+    errors.push(...phoneResult.errors)
+  }
   
   // Service validation
   if (!data.serviceCategory || !data.selectedService) {

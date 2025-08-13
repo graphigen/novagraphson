@@ -9,7 +9,7 @@ export interface SlotProps extends React.HTMLAttributes<HTMLElement> {
 
 const SlotComponent = React.forwardRef<HTMLElement, SlotProps>(
   ({ asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "div"
+    const Comp = asChild ? Slot : "span"
     return <Comp ref={ref} {...props} />
   }
 )

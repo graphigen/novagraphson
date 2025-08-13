@@ -96,8 +96,7 @@ export function isRateLimited(
  * IP adresi al
  */
 export function getClientIP(request: NextRequest): string {
-  return request.ip || 
-         request.headers.get('x-forwarded-for')?.split(',')[0] || 
+  return request.headers.get('x-forwarded-for')?.split(',')[0] || 
          request.headers.get('x-real-ip') || 
          'unknown';
 }
@@ -371,7 +370,7 @@ export function detectPathTraversal(input: string): boolean {
  */
 export function logSecurityEvent(
   event: string,
-  details: Record<string, any>,
+  details: Record<string, unknown>,
   severity: 'low' | 'medium' | 'high' | 'critical' = 'medium'
 ): void {
   const logEntry = {

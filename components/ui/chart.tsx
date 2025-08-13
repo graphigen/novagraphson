@@ -104,14 +104,7 @@ const ChartTooltip = RechartsPrimitive.Tooltip
 
 const ChartTooltipContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-    React.ComponentProps<"div"> & {
-      hideLabel?: boolean
-      hideIndicator?: boolean
-      indicator?: "line" | "dot" | "dashed"
-      nameKey?: string
-      labelKey?: string
-    }
+  any
 >(
   (
     {
@@ -128,6 +121,26 @@ const ChartTooltipContent = React.forwardRef<
       color,
       nameKey,
       labelKey,
+    }: {
+      active?: boolean;
+      payload?: Array<{
+        dataKey?: string;
+        name?: string;
+        value?: number;
+        payload: { fill?: string };
+        color?: string;
+      }>;
+      className?: string;
+      indicator?: string;
+      hideLabel?: boolean;
+      hideIndicator?: boolean;
+      label?: string;
+      labelFormatter?: (value: React.ReactNode, payload: unknown[]) => React.ReactNode;
+      labelClassName?: string;
+      formatter?: (value: number, name: string, item: unknown, index: number, payload: unknown) => React.ReactNode;
+      color?: string;
+      nameKey?: string;
+      labelKey?: string;
     },
     ref
   ) => {
@@ -185,7 +198,7 @@ const ChartTooltipContent = React.forwardRef<
       >
         {!nestLabel ? tooltipLabel : null}
         <div className="grid gap-1.5">
-          {payload.map((item, index) => {
+          {payload?.map((item, index) => {
             const key = `${nameKey || item.name || item.dataKey || "value"}`
             const itemConfig = getPayloadConfigFromPayload(config, item, key)
             const indicatorColor = color || item.payload.fill || item.color
@@ -260,11 +273,16 @@ const ChartLegend = RechartsPrimitive.Legend
 
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<"div"> &
-    Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
-      hideIcon?: boolean
-      nameKey?: string
-    }
+  React.ComponentProps<"div"> & {
+    hideIcon?: boolean
+    nameKey?: string
+    payload?: Array<{
+      dataKey?: string;
+      value?: string | number;
+      color?: string;
+    }>;
+    verticalAlign?: "top" | "bottom";
+  }
 >(
   (
     { className, hideIcon = false, payload, verticalAlign = "bottom", nameKey },

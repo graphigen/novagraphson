@@ -6,7 +6,18 @@ import { mailConfig, mailRecipients } from '@/lib/environment';
 const transporter = nodemailer.createTransport(mailConfig);
 
 // Input validation ve sanitization
-function validateAndSanitizeInput(data: any) {
+interface FormData {
+  email?: string;
+  name?: string;
+  phone?: string;
+  company?: string;
+  message?: string;
+  service?: string;
+  formType?: string;
+  formData?: Record<string, unknown>;
+}
+
+function validateAndSanitizeInput(data: FormData) {
   const errors: string[] = [];
   
   // Required fields validation
@@ -172,15 +183,15 @@ export async function POST(request: NextRequest) {
     } catch (verifyError) {
       console.error('❌ Mail sunucusu bağlantı hatası:', verifyError);
       console.error('❌ Hata detayları:', {
-        message: (verifyError as any).message,
-        code: (verifyError as any).code,
-        response: (verifyError as any).response
+        message: verifyError instanceof Error ? verifyError.message : 'Unknown error',
+        code: 'VERIFY_FAILED',
+        response: 'Mail sunucusu doğrulaması başarısız'
       });
       
       return NextResponse.json(
         { 
           success: false, 
-          message: `Mail sunucusu bağlantısı kurulamadı: ${(verifyError as any).message}` 
+          message: `Mail sunucusu bağlantısı kurulamadı: ${verifyError instanceof Error ? verifyError.message : 'Unknown error'}` 
         },
         { status: 500 }
       );
@@ -530,9 +541,9 @@ export async function POST(request: NextRequest) {
       console.error('❌ Şirket maili gönderme hatası:', companyError);
       if (companyError && typeof companyError === 'object' && 'code' in companyError) {
         console.error('❌ Hata detayları:', {
-          code: (companyError as any).code,
-          response: (companyError as any).response,
-          command: (companyError as any).command
+                  code: companyError instanceof Error ? 'COMPANY_MAIL_ERROR' : 'UNKNOWN_ERROR',
+        response: companyError instanceof Error ? companyError.message : 'Unknown error',
+        command: 'SEND_MAIL'
         });
       }
     }
@@ -563,15 +574,15 @@ export async function POST(request: NextRequest) {
     } catch (thankYouError) {
       console.error('❌ Teşekkür maili gönderme hatası:', thankYouError);
       console.error('❌ Hata türü:', typeof thankYouError);
-      console.error('❌ Hata mesajı:', (thankYouError as any).message);
+      console.error('❌ Hata mesajı:', thankYouError instanceof Error ? thankYouError.message : 'Unknown error');
       
       if (thankYouError && typeof thankYouError === 'object' && 'code' in thankYouError) {
         console.error('❌ Hata detayları:', {
-          code: (thankYouError as any).code,
-          response: (thankYouError as any).response,
-          command: (thankYouError as any).command,
-          responseCode: (thankYouError as any).responseCode,
-          enhancedServerCode: (thankYouError as any).enhancedServerCode
+          code: thankYouError instanceof Error ? 'THANK_YOU_MAIL_ERROR' : 'UNKNOWN_ERROR',
+          response: thankYouError instanceof Error ? thankYouError.message : 'Unknown error',
+          command: 'SEND_MAIL',
+          responseCode: 'ERROR',
+          enhancedServerCode: 'ERROR'
         });
       }
       

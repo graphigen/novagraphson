@@ -493,7 +493,7 @@ ${safeFormData.socialAccounts.length > 0 ? `
     }
   };
 
-  const handleInputChange = (field: keyof FormData, value: any) => {
+  const handleInputChange = (field: keyof FormData, value: string | string[] | boolean | number) => {
     // Remove sanitizeInput call to allow spaces and normal typing
     setFormData(prev => ({ ...prev, [field]: value }))
     

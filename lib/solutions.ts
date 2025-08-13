@@ -22,7 +22,7 @@ import {
 export interface Service {
   name: string
   href: string
-  icon: any
+  icon: React.ComponentType<{ className?: string }>
   description?: string
 }
 

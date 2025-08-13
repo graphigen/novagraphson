@@ -279,7 +279,7 @@ export default function SunucuPage() {
               <label className="text-sm font-medium text-gray-900">Depolama Türü</label>
               <span className="text-sm text-gray-600">{storageType}</span>
             </div>
-            <Select value={storageType} onValueChange={(v) => setStorageType(v as any)}>
+            <Select value={storageType} onValueChange={(v: "SSD" | "NVMe") => setStorageType(v)}>
               <SelectTrigger>
                 <SelectValue placeholder="Seçin" />
               </SelectTrigger>
@@ -311,7 +311,7 @@ export default function SunucuPage() {
               <label className="text-sm font-medium text-gray-900">Yönetim</label>
               <span className="text-sm text-gray-600">{managed}</span>
             </div>
-            <Select value={managed} onValueChange={(v) => setManaged(v as any)}>
+            <Select value={managed} onValueChange={(v: "Unmanaged" | "Managed") => setManaged(v)}>
               <SelectTrigger>
                 <SelectValue placeholder="Seçin" />
               </SelectTrigger>
@@ -327,7 +327,7 @@ export default function SunucuPage() {
               <label className="text-sm font-medium text-gray-900">Veri Merkezi</label>
               <span className="text-sm text-gray-600">{datacenter}</span>
             </div>
-            <Select value={datacenter} onValueChange={(v) => setDatacenter(v as any)}>
+            <Select value={datacenter} onValueChange={(v: "TR" | "EU" | "US") => setDatacenter(v)}>
               <SelectTrigger>
                 <SelectValue placeholder="Seçin" />
               </SelectTrigger>

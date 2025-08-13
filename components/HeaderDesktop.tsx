@@ -180,6 +180,10 @@ export const HeaderDesktop: React.FC = () => {
     setSearchResults([])
   }, [])
 
+  const handlePopularSearchClick = useCallback((term: string) => {
+    setSearchQuery(term)
+  }, [])
+
   // Sitemap + DOM iç linklerinden dinamik index (sayfa listesi) yükle
   useEffect(() => {
     let cancelled = false
@@ -296,6 +300,10 @@ export const HeaderDesktop: React.FC = () => {
       setIsSearching(false)
     }
   }, [searchQuery, allSearchData])
+
+
+
+
 
   // Click outside handlers
   useEffect(() => {

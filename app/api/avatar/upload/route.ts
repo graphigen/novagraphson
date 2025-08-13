@@ -168,7 +168,7 @@ export async function POST(request: NextRequest) {
     console.log('📤 Avatar upload API çağrıldı');
     
     // IP adresi al
-    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
     console.log('🌐 IP adresi:', ip);
     
     // Rate limiting kontrolü
