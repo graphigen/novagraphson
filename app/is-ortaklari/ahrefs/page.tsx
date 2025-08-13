@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Ahrefs İş Ortağı',
+  description: 'Ahrefs ile NovaGraph iş birliği. SEO analiz aracı, backlink analizi, anahtar kelime araştırması ve site denetimi hizmetleri.',
+  keywords: 'Ahrefs, SEO analiz aracı, backlink analizi, anahtar kelime araştırması, site denetimi, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Ahrefs İş Ortağı - NovaGraph',
+    description: 'Ahrefs ile NovaGraph iş birliği. SEO analiz aracı ve site denetimi hizmetleri.',
+    url: 'https://novagraph.com.tr/is-ortaklari/ahrefs',
+    type: 'website',
+  },
+}
 
 export default function AhrefsPage() {
   return (

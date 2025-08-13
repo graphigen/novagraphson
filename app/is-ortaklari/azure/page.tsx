@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Microsoft Azure İş Ortağı',
+  description: 'Microsoft Azure ile NovaGraph iş birliği. Kurumsal bulut platformu, hibrit bulut çözümleri, AI ve IoT hizmetleri.',
+  keywords: 'Microsoft Azure, bulut platformu, hibrit bulut, AI hizmetleri, IoT, kurumsal güvenlik, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Microsoft Azure İş Ortağı - NovaGraph',
+    description: 'Microsoft Azure ile NovaGraph iş birliği. Kurumsal bulut platformu ve hibrit bulut çözümleri.',
+    url: 'https://novagraph.com.tr/is-ortaklari/azure',
+    type: 'website',
+  },
+}
 
 export default function AzurePage() {
   return (

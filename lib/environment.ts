@@ -21,13 +21,15 @@ export const config = {
     apiUrl: 'http://localhost:3000',
     debug: true,
     hotReload: true,
-    googleMapsApiKey: 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
+    // Development için localhost kısıtlaması olmayan API key
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY_DEV || 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
   },
   production: {
     apiUrl: 'https://novagraph.com.tr',
     debug: false,
     hotReload: false,
-    googleMapsApiKey: 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
+    // Production için novagraph.com.tr kısıtlı API key
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY_PROD || 'AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk'
   }
 }
 
@@ -64,12 +66,22 @@ export const getCurrentConfig = () => {
   return config[env as keyof typeof config] || config.development
 }
 
-// Google Maps API key getter - Güncellenmiş
+// Google Maps API key getter - Gelişmiş
 export const getGoogleMapsApiKey = (): string => {
-  // Önce environment variable'ı kontrol et
-  const envApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
-  if (envApiKey) {
-    return envApiKey
+  // Development için özel API key
+  if (isDevelopment) {
+    const devApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY_DEV
+    if (devApiKey) {
+      return devApiKey
+    }
+  }
+  
+  // Production için özel API key
+  if (isProduction) {
+    const prodApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY_PROD
+    if (prodApiKey) {
+      return prodApiKey
+    }
   }
   
   // Fallback olarak config'den al

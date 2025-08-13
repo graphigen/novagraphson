@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Google Ads İş Ortağı',
+  description: 'Google Ads ile NovaGraph iş birliği. Dijital reklamcılık, kampanya yönetimi, performans optimizasyonu ve profesyonel danışmanlık.',
+  keywords: 'Google Ads, dijital reklamcılık, kampanya yönetimi, performans optimizasyonu, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Google Ads İş Ortağı - NovaGraph',
+    description: 'Google Ads ile NovaGraph iş birliği. Dijital reklamcılık ve kampanya yönetimi.',
+    url: 'https://novagraph.com.tr/is-ortaklari/google-ads',
+    type: 'website',
+  },
+}
 
 export default function GoogleAdsPage() {
   return (

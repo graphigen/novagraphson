@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'WordPress İş Ortağı',
+  description: 'WordPress ile NovaGraph iş birliği. Web sitesi tasarımı, özelleştirilmiş tema geliştirme, SEO optimizasyonu ve bakım hizmetleri.',
+  keywords: 'WordPress, CMS, web sitesi tasarımı, tema geliştirme, SEO optimizasyonu, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'WordPress İş Ortağı - NovaGraph',
+    description: 'WordPress ile NovaGraph iş birliği. Web sitesi tasarımı ve tema geliştirme.',
+    url: 'https://novagraph.com.tr/is-ortaklari/wordpress',
+    type: 'website',
+  },
+}
 
 export default function WordPressPage() {
   return (

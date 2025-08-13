@@ -2,11 +2,10 @@
 
 import { Phone } from "lucide-react"
 import { useContactForm } from "@/contexts/ContactFormContext"
-// import { useServerCountdown } from "@/hooks/useServerCountdown" // Removed to prevent infinite re-renders
+import { CountdownTimer } from "@/components/CountdownTimer"
 import { useState, useEffect } from "react"
 
 export const TopBar = () => {
-  // const { timeLeft, isLoading, error } = useServerCountdown() // Removed to prevent infinite re-renders
   const { openForm } = useContactForm()
   const [showDiscount, setShowDiscount] = useState(false)
 
@@ -18,10 +17,6 @@ export const TopBar = () => {
 
     return () => clearTimeout(timer)
   }, [])
-
-  // Problematic interval useEffect removed - this was causing infinite re-renders
-
-  // console.log('TopBar render - showDiscount:', showDiscount) // Removed to reduce console noise
 
   return (
     <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white border-b border-blue-500 z-[80] relative">
@@ -46,64 +41,13 @@ export const TopBar = () => {
           </div>
 
           {/* Zaman Sayacı (Desktop) */}
-          <div className="hidden xl:flex items-center space-x-2">
-            {/* isLoading and error removed */}
-            <>
-              <div className="flex flex-col items-center space-y-0.5">
-                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                  <span className="text-xs font-bold">--</span>
-                </div>
-                <span className="text-xs text-blue-100">Gün</span>
-              </div>
-              <span className="text-white text-opacity-40">:</span>
-              <div className="flex flex-col items-center space-y-0.5">
-                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                  <span className="text-xs font-bold">--</span>
-                </div>
-                <span className="text-xs text-blue-100">Saat</span>
-              </div>
-              <span className="text-white text-opacity-40">:</span>
-              <div className="flex flex-col items-center space-y-0.5">
-                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                  <span className="text-xs font-bold">--</span>
-                </div>
-                <span className="text-xs text-blue-100">Dakika</span>
-              </div>
-              <span className="text-white text-opacity-40">:</span>
-              <div className="flex flex-col items-center space-y-0.5">
-                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1.5 py-0.5 min-w-[1.75rem] text-center border border-white border-opacity-20 shadow-sm">
-                  <span className="text-xs font-bold">--</span>
-                </div>
-                <span className="text-xs text-blue-100">Saniye</span>
-              </div>
-            </>
+          <div className="hidden xl:flex items-center">
+            <CountdownTimer variant="desktop" />
           </div>
 
           {/* Tablet - Kısa Geri Sayım */}
-          <div className="hidden lg:flex xl:hidden items-center space-x-1.5">
-            {/* isLoading and error removed */}
-            <>
-              <div className="flex flex-col items-center space-y-0.5">
-                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
-                  <span className="text-xs font-bold">--</span>
-                </div>
-                <span className="text-xs text-blue-100">Gün</span>
-              </div>
-              <span className="text-white text-opacity-40">:</span>
-              <div className="flex flex-col items-center space-y-0.5">
-                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
-                  <span className="text-xs font-bold">--</span>
-                </div>
-                <span className="text-xs text-blue-100">Saat</span>
-              </div>
-              <span className="text-white text-opacity-40">:</span>
-              <div className="flex flex-col items-center space-y-0.5">
-                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-white border-opacity-20 shadow-sm">
-                  <span className="text-xs font-bold">--</span>
-                </div>
-                <span className="text-xs text-blue-100">Dakika</span>
-              </div>
-            </>
+          <div className="hidden lg:flex xl:hidden items-center">
+            <CountdownTimer variant="tablet" />
           </div>
         </div>
 

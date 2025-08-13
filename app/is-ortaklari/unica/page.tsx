@@ -1,5 +1,18 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, CheckCircle, ExternalLink } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Unica İş Ortağı',
+  description: 'Unica ile NovaGraph iş birliği. Müşteri deneyimi, pazarlama otomasyonu, kişiselleştirilmiş kampanyalar ve müşteri segmentasyonu.',
+  keywords: 'Unica, müşteri deneyimi, pazarlama otomasyonu, kişiselleştirilmiş kampanyalar, müşteri segmentasyonu, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Unica İş Ortağı - NovaGraph',
+    description: 'Unica ile NovaGraph iş birliği. Müşteri deneyimi ve pazarlama otomasyonu.',
+    url: 'https://novagraph.com.tr/is-ortaklari/unica',
+    type: 'website',
+  },
+}
 
 export default function UnicaPage() {
   return (

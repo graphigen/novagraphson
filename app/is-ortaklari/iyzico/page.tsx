@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'iyzico İş Ortağı',
+  description: 'iyzico ile NovaGraph iş birliği. Güvenli ödeme sistemi entegrasyonu, e-ticaret mağazası kurulumu ve ödeme güvenliği danışmanlığı.',
+  keywords: 'iyzico, ödeme sistemi, e-ticaret entegrasyonu, güvenli ödeme, PCI DSS, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'iyzico İş Ortağı - NovaGraph',
+    description: 'iyzico ile NovaGraph iş birliği. Güvenli ödeme sistemi entegrasyonu ve e-ticaret çözümleri.',
+    url: 'https://novagraph.com.tr/is-ortaklari/iyzico',
+    type: 'website',
+  },
+}
 
 export default function IyzicoPage() {
   return (

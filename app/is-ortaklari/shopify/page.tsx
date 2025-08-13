@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Shopify İş Ortağı',
+  description: 'Shopify ile NovaGraph iş birliği. E-ticaret mağaza tasarımı, özelleştirilmiş tema geliştirme ve e-ticaret optimizasyonu.',
+  keywords: 'Shopify, e-ticaret platformu, mağaza tasarımı, tema geliştirme, e-ticaret optimizasyonu, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Shopify İş Ortağı - NovaGraph',
+    description: 'Shopify ile NovaGraph iş birliği. E-ticaret mağaza tasarımı ve tema geliştirme.',
+    url: 'https://novagraph.com.tr/is-ortaklari/shopify',
+    type: 'website',
+  },
+}
 
 export default function ShopifyPage() {
   return (

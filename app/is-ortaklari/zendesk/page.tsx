@@ -1,5 +1,18 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, CheckCircle, ExternalLink } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Zendesk İş Ortağı',
+  description: 'Zendesk ile NovaGraph iş birliği. Müşteri hizmetleri yönetimi, ticket yönetimi, canlı chat ve self-service portal çözümleri.',
+  keywords: 'Zendesk, müşteri hizmetleri, ticket yönetimi, canlı chat, self-service portal, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Zendesk İş Ortağı - NovaGraph',
+    description: 'Zendesk ile NovaGraph iş birliği. Müşteri hizmetleri yönetimi ve destek çözümleri.',
+    url: 'https://novagraph.com.tr/is-ortaklari/zendesk',
+    type: 'website',
+  },
+}
 
 export default function ZendeskPage() {
   return (

@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Amazon AWS İş Ortağı',
+  description: 'Amazon AWS ile NovaGraph iş birliği. Bulut altyapı kurulumu, güvenlik danışmanlığı, maliyet optimizasyonu ve 7/24 teknik destek.',
+  keywords: 'Amazon AWS, bulut altyapı, AWS kurulumu, bulut güvenliği, maliyet optimizasyonu, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Amazon AWS İş Ortağı - NovaGraph',
+    description: 'Amazon AWS ile NovaGraph iş birliği. Bulut altyapı kurulumu ve güvenlik danışmanlığı.',
+    url: 'https://novagraph.com.tr/is-ortaklari/amazon-aws',
+    type: 'website',
+  },
+}
 
 export default function AmazonAWSPage() {
   return (

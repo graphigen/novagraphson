@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'SEMrush İş Ortağı',
+  description: 'SEMrush ile NovaGraph iş birliği. SEO araştırması, anahtar kelime analizi, rakip analizi ve site denetimi çözümleri.',
+  keywords: 'SEMrush, SEO araştırması, anahtar kelime analizi, rakip analizi, site denetimi, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'SEMrush İş Ortağı - NovaGraph',
+    description: 'SEMrush ile NovaGraph iş birliği. SEO araştırması ve anahtar kelime analizi.',
+    url: 'https://novagraph.com.tr/is-ortaklari/semrush',
+    type: 'website',
+  },
+}
 
 export default function SemrushPage() {
   return (

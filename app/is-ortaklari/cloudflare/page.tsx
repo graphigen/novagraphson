@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Cloudflare İş Ortağı',
+  description: 'Cloudflare ile NovaGraph iş birliği. CDN, DDoS koruması, web uygulama güvenlik duvarı ve SSL sertifika yönetimi.',
+  keywords: 'Cloudflare, CDN, DDoS koruması, WAF, SSL sertifika, web güvenliği, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Cloudflare İş Ortağı - NovaGraph',
+    description: 'Cloudflare ile NovaGraph iş birliği. CDN, DDoS koruması ve web güvenliği.',
+    url: 'https://novagraph.com.tr/is-ortaklari/cloudflare',
+    type: 'website',
+  },
+}
 
 export default function CloudflarePage() {
   return (

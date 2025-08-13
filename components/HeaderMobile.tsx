@@ -10,6 +10,7 @@ import { Sheet, SheetTrigger, SheetContent, SheetClose, SheetHeader, SheetTitle 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { useContactForm } from "@/contexts/ContactFormContext"
 import { solutionGroups } from "@/lib/solutions"
+import { CountdownTimer } from "@/components/CountdownTimer"
 
 export const HeaderMobile: React.FC = () => {
   const { openForm } = useContactForm()
@@ -172,7 +173,7 @@ export const HeaderMobile: React.FC = () => {
                   <span className="text-base font-bold text-green-700">0 ₺</span>
                 </div>
                 <div className="mt-2">
-                  <Countdown15d />
+                  <CountdownTimer variant="mobile" />
                 </div>
                 <div className="mt-3">
                   <SheetClose asChild>
@@ -197,72 +198,4 @@ export const HeaderMobile: React.FC = () => {
 }
 
 export default HeaderMobile
-
-
-function Countdown15d() {
-  const totalMs = 15 * 24 * 60 * 60 * 1000
-  const STORAGE_KEY = "promoCycleStart"
-  const [remaining, setRemaining] = useState<number>(totalMs)
-
-  React.useEffect(() => {
-    let start = 0
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY)
-      if (raw) start = parseInt(raw)
-    } catch {}
-    if (!start || Number.isNaN(start)) {
-      start = Date.now()
-      try { localStorage.setItem(STORAGE_KEY, String(start)) } catch {}
-    }
-
-    const tick = () => {
-      const now = Date.now()
-      const elapsed = now - start
-      const rem = totalMs - (elapsed % totalMs)
-      setRemaining(rem)
-    }
-    tick()
-    const id = setInterval(tick, 1000)
-    return () => clearInterval(id)
-  }, [])
-
-  const days = Math.floor(remaining / (24 * 60 * 60 * 1000))
-  const hours = Math.floor((remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000))
-  const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000))
-  const seconds = Math.floor((remaining % (60 * 1000)) / 1000)
-
-  const pad = (n: number) => String(n).padStart(2, "0")
-
-  return (
-    <div className="flex items-center gap-1 text-green-900">
-      <div className="flex flex-col items-center">
-        <div className="bg-white/70 rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-green-200">
-          <span className="text-[11px] font-bold tabular-nums">{String(days).padStart(2, '0')}</span>
-        </div>
-        <span className="text-[9px] text-green-800">Gün</span>
-      </div>
-      <span className="text-green-700/50">:</span>
-      <div className="flex flex-col items-center">
-        <div className="bg-white/70 rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-green-200">
-          <span className="text-[11px] font-bold tabular-nums">{pad(hours)}</span>
-        </div>
-        <span className="text-[9px] text-green-800">Saat</span>
-      </div>
-      <span className="text-green-700/50">:</span>
-      <div className="flex flex-col items-center">
-        <div className="bg-white/70 rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-green-200">
-          <span className="text-[11px] font-bold tabular-nums">{pad(minutes)}</span>
-        </div>
-        <span className="text-[9px] text-green-800">Dakika</span>
-      </div>
-      <span className="text-green-700/50">:</span>
-      <div className="flex flex-col items-center">
-        <div className="bg-white/70 rounded px-1 py-0.5 min-w-[1.5rem] text-center border border-green-200">
-          <span className="text-[11px] font-bold tabular-nums">{pad(seconds)}</span>
-        </div>
-        <span className="text-[9px] text-green-800">Saniye</span>
-      </div>
-    </div>
-  )
-}
 

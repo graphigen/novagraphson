@@ -1,6 +1,18 @@
-"use client"
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Salesforce İş Ortağı',
+  description: 'Salesforce ile NovaGraph iş birliği. CRM platformu, müşteri ilişkileri yönetimi, satış otomasyonu ve pazarlama otomasyonu çözümleri.',
+  keywords: 'Salesforce, CRM platformu, müşteri ilişkileri, satış otomasyonu, pazarlama otomasyonu, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Salesforce İş Ortağı - NovaGraph',
+    description: 'Salesforce ile NovaGraph iş birliği. CRM platformu ve müşteri ilişkileri yönetimi.',
+    url: 'https://novagraph.com.tr/is-ortaklari/salesforce',
+    type: 'website',
+  },
+}
 
 export default function SalesforcePage() {
   return (

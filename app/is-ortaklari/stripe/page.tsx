@@ -1,6 +1,18 @@
-"use client"
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Stripe İş Ortağı',
+  description: 'Stripe ile NovaGraph iş birliği. Dijital ödeme altyapısı, global ödeme çözümleri ve güvenlik danışmanlığı.',
+  keywords: 'Stripe, dijital ödeme, global ödeme, fintech platformu, güvenlik, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Stripe İş Ortağı - NovaGraph',
+    description: 'Stripe ile NovaGraph iş birliği. Dijital ödeme altyapısı ve global ödeme çözümleri.',
+    url: 'https://novagraph.com.tr/is-ortaklari/stripe',
+    type: 'website',
+  },
+}
 
 export default function StripePage() {
   return (

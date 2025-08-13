@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Google Analytics İş Ortağı',
+  description: 'Google Analytics ile NovaGraph iş birliği. Web analitik kurulumu, veri analizi, kullanıcı davranış analizi ve profesyonel danışmanlık.',
+  keywords: 'Google Analytics, web analitik, veri analizi, kullanıcı davranış analizi, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Google Analytics İş Ortağı - NovaGraph',
+    description: 'Google Analytics ile NovaGraph iş birliği. Web analitik kurulumu ve veri analizi.',
+    url: 'https://novagraph.com.tr/is-ortaklari/google-analytics',
+    type: 'website',
+  },
+}
 
 export default function GoogleAnalyticsPage() {
   return (

@@ -182,7 +182,7 @@ function usePersistentForm<T>(key: string, initial: T) {
   return { value, setValue: setValueAndSave, clear }
 }
 
-export default function MarketingStrategyApplicationPage() {
+export default function PazarlamaStratejiBasvurusuPage() {
   const initialData: FormData = useMemo(
     () => ({
       selectedPlatforms: [],

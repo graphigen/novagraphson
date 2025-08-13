@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'JivoChat İş Ortağı',
+  description: 'JivoChat ile NovaGraph iş birliği. Canlı sohbet sistemi kurulumu, müşteri hizmetleri optimizasyonu ve çok dilli destek çözümleri.',
+  keywords: 'JivoChat, canlı sohbet, müşteri hizmetleri, chatbot, canlı destek, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'JivoChat İş Ortağı - NovaGraph',
+    description: 'JivoChat ile NovaGraph iş birliği. Canlı sohbet sistemi kurulumu ve müşteri hizmetleri.',
+    url: 'https://novagraph.com.tr/is-ortaklari/jivochat',
+    type: 'website',
+  },
+}
 
 export default function JivoChatPage() {
   return (

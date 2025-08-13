@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Bitrix24 İş Ortağı',
+  description: 'Bitrix24 ile NovaGraph iş birliği. CRM, proje yönetimi ve iletişimi tek platformda. KOBİ\'ler için kapsamlı iş yönetimi çözümleri.',
+  keywords: 'Bitrix24, CRM, proje yönetimi, iş yönetimi, KOBİ çözümleri, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Bitrix24 İş Ortağı - NovaGraph',
+    description: 'Bitrix24 ile NovaGraph iş birliği. CRM, proje yönetimi ve iletişimi tek platformda.',
+    url: 'https://novagraph.com.tr/is-ortaklari/bitrix24',
+    type: 'website',
+  },
+}
 
 export default function Bitrix24Page() {
   return (

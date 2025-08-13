@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'PayPal İş Ortağı',
+  description: 'PayPal ile NovaGraph iş birliği. Küresel ödeme sistemi entegrasyonu, çok dilli destek ve güvenlik danışmanlığı.',
+  keywords: 'PayPal, küresel ödeme, online ödeme, e-ticaret entegrasyonu, güvenlik, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'PayPal İş Ortağı - NovaGraph',
+    description: 'PayPal ile NovaGraph iş birliği. Küresel ödeme sistemi entegrasyonu ve güvenlik.',
+    url: 'https://novagraph.com.tr/is-ortaklari/paypal',
+    type: 'website',
+  },
+}
 
 export default function PayPalPage() {
   return (

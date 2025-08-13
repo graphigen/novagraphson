@@ -1,6 +1,18 @@
-"use client"
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'SimilarWeb İş Ortağı',
+  description: 'SimilarWeb ile NovaGraph iş birliği. Dijital istihbarat, rakip analizi, pazar araştırması ve dijital strateji geliştirme.',
+  keywords: 'SimilarWeb, dijital istihbarat, rakip analizi, pazar araştırması, dijital strateji, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'SimilarWeb İş Ortağı - NovaGraph',
+    description: 'SimilarWeb ile NovaGraph iş birliği. Dijital istihbarat ve rakip analizi.',
+    url: 'https://novagraph.com.tr/is-ortaklari/similarweb',
+    type: 'website',
+  },
+}
 
 export default function SimilarwebPage() {
   return (

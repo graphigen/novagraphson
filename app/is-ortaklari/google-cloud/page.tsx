@@ -1,7 +1,18 @@
-"use client"
-
+import { Metadata } from 'next'
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Google Cloud İş Ortağı',
+  description: 'Google Cloud ile NovaGraph iş birliği. Bulut altyapısı, AI servisleri, makine öğrenmesi ve veri analizi çözümleri.',
+  keywords: 'Google Cloud, bulut altyapısı, AI servisleri, makine öğrenmesi, veri analizi, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Google Cloud İş Ortağı - NovaGraph',
+    description: 'Google Cloud ile NovaGraph iş birliği. Bulut altyapısı ve AI servisleri.',
+    url: 'https://novagraph.com.tr/is-ortaklari/google-cloud',
+    type: 'website',
+  },
+}
 
 export default function GoogleCloudPage() {
   return (

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev -p 3001",
+    "dev": "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY_DEV=AIzaSyDWE8krTb17oA3BI_nwlo7LyOTuhrSFCPk next dev -p 3001",
     "dev:staging": "NODE_ENV=staging next dev -p 3001",
     "dev:prod": "NODE_ENV=production next dev -p 3002",
     "lint": "next lint",

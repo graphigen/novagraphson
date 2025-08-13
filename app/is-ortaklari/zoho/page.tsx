@@ -1,5 +1,18 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, CheckCircle, ExternalLink } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Zoho İş Ortağı',
+  description: 'Zoho ile NovaGraph iş birliği. CRM, e-posta, ofis uygulamaları, proje yönetimi ve muhasebe çözümleri.',
+  keywords: 'Zoho, CRM, iş yazılımları, proje yönetimi, muhasebe, ofis uygulamaları, NovaGraph iş ortağı',
+  openGraph: {
+    title: 'Zoho İş Ortağı - NovaGraph',
+    description: 'Zoho ile NovaGraph iş birliği. CRM ve iş yazılımları çözümleri.',
+    url: 'https://novagraph.com.tr/is-ortaklari/zoho',
+    type: 'website',
+  },
+}
 
 export default function ZohoPage() {
   return (
