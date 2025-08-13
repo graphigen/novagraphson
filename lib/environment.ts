@@ -33,7 +33,7 @@ export const config = {
 
 // Mail konfigürasyonu
 export const mailConfig = {
-  host: process.env.MAIL_HOST || 'novagraph.com.tr',
+  host: process.env.MAIL_HOST || 'mail.novagraph.com.tr',
   port: parseInt(process.env.MAIL_PORT || '587'), // TLS port (daha güvenilir)
   secure: false, // TLS kullan (Port 587 için)
   auth: {
