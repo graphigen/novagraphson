@@ -4,6 +4,7 @@ import path from 'path'
 const nextConfig = {
   experimental: {
     // optimizePackageImports can cause runtime/vendor chunk mismatches with some libraries in dev
+    optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react', 'framer-motion'],
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -11,43 +12,25 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Performance optimizations
+  poweredByHeader: false,
+  trailingSlash: false,
+  basePath: '',
+  assetPrefix: '',
+  
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'novagraph.com.tr' },
-      { protocol: 'https', hostname: 'www.novagraph.com.tr' },
+      { protocol: 'https', hostname: 'fonts.googleapis.com' },
+      { protocol: 'https', hostname: 'fonts.gstatic.com' },
+      { protocol: 'https', hostname: 'vercel.live' },
     ],
-    unoptimized: false,
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
-  // Production output configuration
-  output: 'standalone',
-  // Remove powered by header
-  poweredByHeader: false,
-  // Remove trailing slash
-  trailingSlash: false,
-  // Base path configuration
-  basePath: '',
-  // Asset prefix
-  assetPrefix: '',
-  // Webpack configuration for module resolution
-  webpack: (config, { isServer, dev }) => {
-    // Add module resolution
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(process.cwd()),
-      '@/components': path.resolve(process.cwd(), 'components'),
-      '@/contexts': path.resolve(process.cwd(), 'contexts'),
-      '@/lib': path.resolve(process.cwd(), 'lib'),
-      '@/app': path.resolve(process.cwd(), 'app'),
-      '@/hooks': path.resolve(process.cwd(), 'hooks'),
-      '@/styles': path.resolve(process.cwd(), 'styles'),
-    }
-
-    // Avoid ambiguous resolution that can confuse Next's dev bundler
-    // Leave default modules resolution
-    
-    return config
-  },
-  // Production headers for security and performance
+  
+  // Security headers
   async headers() {
     return [
       {
@@ -65,7 +48,6 @@ const nextConfig = {
             key: 'X-Frame-Options',
             value: 'DENY',
           },
-          // X-XSS-Protection modern tarayıcılarda etkisiz, kaldırıldı
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
@@ -74,58 +56,18 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
-          // Temel bir CSP (görseli bozmayacak şekilde gevşek bırakıldı)
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
           {
             key: 'Content-Security-Policy',
             value: "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none'",
           },
         ],
       },
-      {
-        source: '/_next/static/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/_next/image/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/api/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
     ]
   },
-  // Redirects for production
-  async redirects() {
-    return [
-      {
-        source: '/home',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/index.html',
-        destination: '/',
-        permanent: true,
-      },
-    ]
-  },
-
 }
 
 export default nextConfig

@@ -348,7 +348,7 @@ export default function IletisimPage() {
                 {/* Google Maps */}
                 <div className="relative h-80">
                   <iframe
-                    src={`https://www.google.com/maps/embed/v1/place?key=${getGoogleMapsApiKey()}&q=Atakent,243.Sk.No:6,34307+Küçükçekmece/İstanbul&zoom=14`}
+                    src={`https://www.google.com/maps/embed/v1/place?key=${getGoogleMapsApiKey()}&q=Istanbul,Turkey&zoom=12`}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

@@ -75,9 +75,12 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.4.6",
     "@types/node": "22.17.1",
     "@types/react": "19.1.10",
     "@types/react-dom": "^19",
+    "core-js": "^3.45.0",
+    "cssnano": "^7.1.0",
     "eslint": "^9.33.0",
     "eslint-config-next": "^15.4.6",
     "postcss": "8.4.47",
