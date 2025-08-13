@@ -34,19 +34,22 @@ export const config = {
 // Mail konfigürasyonu
 export const mailConfig = {
   host: process.env.MAIL_HOST || 'novagraph.com.tr',
-  port: parseInt(process.env.MAIL_PORT || '465'), // SSL port
-  secure: true, // SSL kullan (Port 465 için)
+  port: parseInt(process.env.MAIL_PORT || '587'), // TLS port (daha güvenilir)
+  secure: false, // TLS kullan (Port 587 için)
   auth: {
     user: process.env.MAIL_USER || 'info@novagraph.com.tr',
     pass: process.env.MAIL_PASS || '159.Com.tr'
   },
   tls: {
     rejectUnauthorized: false,
-    ciphers: 'SSLv3'
+    ciphers: 'TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384'
   },
-  requireTLS: false, // SSL kullandığımız için false
+  requireTLS: true, // TLS kullandığımız için true
   logger: true,
-  debug: true
+  debug: true,
+  connectionTimeout: 60000, // 60 saniye
+  greetingTimeout: 30000, // 30 saniye
+  socketTimeout: 60000 // 60 saniye
 }
 
 // Mail alıcı bilgileri

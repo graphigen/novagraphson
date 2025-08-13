@@ -33,14 +33,28 @@ export async function POST(request: NextRequest) {
     // Mail sunucusu bağlantısını test et
     try {
       console.log('🔧 Mail sunucusu bağlantısı test ediliyor...');
+      console.log('🔧 Mail konfigürasyonu:', {
+        host: mailConfig.host,
+        port: mailConfig.port,
+        secure: mailConfig.secure,
+        user: mailConfig.auth.user,
+        requireTLS: mailConfig.requireTLS
+      });
+      
       await transporter.verify();
       console.log('✅ Mail sunucusu bağlantısı başarılı');
     } catch (verifyError) {
       console.error('❌ Mail sunucusu bağlantı hatası:', verifyError);
+      console.error('❌ Hata detayları:', {
+        message: (verifyError as any).message,
+        code: (verifyError as any).code,
+        response: (verifyError as any).response
+      });
+      
       return NextResponse.json(
         { 
           success: false, 
-          message: 'Mail sunucusu bağlantısı kurulamadı' 
+          message: `Mail sunucusu bağlantısı kurulamadı: ${(verifyError as any).message}` 
         },
         { status: 500 }
       );
