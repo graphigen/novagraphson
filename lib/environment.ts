@@ -33,18 +33,18 @@ export const config = {
 
 // Mail konfigürasyonu
 export const mailConfig = {
-  host: process.env.MAIL_HOST || 'smtp.gmail.com',
-  port: parseInt(process.env.MAIL_PORT || '587'), // TLS port
-  secure: false, // TLS kullan
+  host: process.env.MAIL_HOST || 'novagraph.com.tr',
+  port: parseInt(process.env.MAIL_PORT || '465'), // SSL port
+  secure: true, // SSL kullan (Port 465 için)
   auth: {
-    user: process.env.MAIL_USER || 'cagatayyumlu@gmail.com',
-    pass: process.env.MAIL_PASS || process.env.GMAIL_APP_PASSWORD || ''
+    user: process.env.MAIL_USER || 'info@novagraph.com.tr',
+    pass: process.env.MAIL_PASS || '159.Com.tr'
   },
   tls: {
     rejectUnauthorized: false,
-    ciphers: 'TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256'
+    ciphers: 'SSLv3'
   },
-  requireTLS: true,
+  requireTLS: false, // SSL kullandığımız için false
   logger: true,
   debug: true
 }
