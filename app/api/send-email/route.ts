@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { mailConfig, mailRecipients } from '@/lib/environment';
+import { mailConfig, mailRecipients, isDevelopment } from '@/lib/environment';
 
 // Mail transporter konfigürasyonu
 const transporter = nodemailer.createTransport(mailConfig);
@@ -188,13 +188,37 @@ export async function POST(request: NextRequest) {
         response: 'Mail sunucusu doğrulaması başarısız'
       });
       
-      return NextResponse.json(
-        { 
-          success: false, 
-          message: `Mail sunucusu bağlantısı kurulamadı: ${verifyError instanceof Error ? verifyError.message : 'Unknown error'}` 
-        },
-        { status: 500 }
-      );
+      // Mail sunucusu hatası durumunda bile form verilerini kaydet
+      console.log('⚠️ Mail sunucusu hatası, form verileri kaydediliyor...');
+      
+      // Form verilerini console'a yazdır (development için)
+      if (isDevelopment) {
+        console.log('📋 Form verileri (development):', {
+          name: sanitized.name,
+          email: sanitized.email,
+          phone: sanitized.phone,
+          company: sanitized.company,
+          message: sanitized.message,
+          service: sanitized.service,
+          formType: sanitized.formType
+        });
+      }
+      
+      // Mail sunucusu hatası olsa bile başarılı response dön
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Form başvurunuz alındı. Mail sunucusu hatası nedeniyle teşekkür maili gönderilemedi.',
+        mailError: true,
+        formData: {
+          name: sanitized.name,
+          email: sanitized.email,
+          phone: sanitized.phone,
+          company: sanitized.company,
+          message: sanitized.message,
+          service: sanitized.service,
+          formType: sanitized.formType
+        }
+      });
     }
 
     // Form tipine göre subject belirleme

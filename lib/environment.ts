@@ -46,12 +46,15 @@ export const mailConfig = {
     rejectUnauthorized: false,
     ciphers: 'TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256'
   },
-  requireTLS: true, // STARTTLS kullandığımız için true
+  requireTLS: false, // STARTTLS kullandığımız için false yapıldı
   logger: true,
   debug: true,
   connectionTimeout: 60000, // 60 saniye
   greetingTimeout: 30000, // 30 saniye
-  socketTimeout: 60000 // 60 saniye
+  socketTimeout: 60000, // 60 saniye
+  pool: false, // Connection pooling'i kapat
+  maxConnections: 1, // Tek connection kullan
+  maxMessages: 1 // Tek mail gönder
 }
 
 // Mail alıcı bilgileri
