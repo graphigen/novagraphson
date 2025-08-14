@@ -264,6 +264,13 @@ export async function POST(request: NextRequest) {
               </div>
               ` : ''}
               
+              ${sanitized.service ? `
+              <div style="display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
+                <span style="color: #4a5568; font-weight: 500;">Hizmet:</span>
+                <span style="color: #1a202c; font-weight: 600;">${sanitized.service}</span>
+              </div>
+              ` : ''}
+              
               ${sanitized.message ? `
               <div style="display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
                 <span style="color: #4a5568; font-weight: 500;">Mesaj:</span>
@@ -309,6 +316,13 @@ export async function POST(request: NextRequest) {
               <div style="display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
                 <span style="color: #4a5568; font-weight: 500;">Şirket:</span>
                 <span style="color: #1a202c; font-weight: 600;">${sanitized.company}</span>
+              </div>
+              ` : ''}
+              
+              ${sanitized.service ? `
+              <div style="display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
+                <span style="color: #4a5568; font-weight: 500;">Hizmet:</span>
+                <span style="color: #1a202c; font-weight: 600;">${sanitized.service}</span>
               </div>
               ` : ''}
               
@@ -366,6 +380,13 @@ export async function POST(request: NextRequest) {
                 <span style="color: #1a202c; font-weight: 600;">${sanitized.service}</span>
               </div>
               ` : ''}
+              
+              ${sanitized.message ? `
+              <div style="display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
+                <span style="color: #4a5568; font-weight: 500;">Mesaj:</span>
+                <span style="color: #1a202c; font-weight: 600;">${sanitized.message}</span>
+              </div>
+              ` : ''}
             </div>
           </div>
         `;
@@ -414,6 +435,13 @@ export async function POST(request: NextRequest) {
                 <span style="color: #1a202c; font-weight: 600;">${sanitized.service}</span>
               </div>
               ` : ''}
+              
+              ${sanitized.message ? `
+              <div style="display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
+                <span style="color: #4a5568; font-weight: 500;">Mesaj:</span>
+                <span style="color: #1a202c; font-weight: 600;">${sanitized.message}</span>
+              </div>
+              ` : ''}
             </div>
           </div>
         `;
@@ -453,6 +481,13 @@ export async function POST(request: NextRequest) {
               <div style="display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
                 <span style="color: #4a5568; font-weight: 500;">Şirket:</span>
                 <span style="color: #1a202c; font-weight: 600;">${sanitized.company}</span>
+              </div>
+              ` : ''}
+              
+              ${sanitized.service ? `
+              <div style="display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
+                <span style="color: #4a5568; font-weight: 500;">Hizmet:</span>
+                <span style="color: #1a202c; font-weight: 600;">${sanitized.service}</span>
               </div>
               ` : ''}
               
@@ -622,27 +657,18 @@ export async function POST(request: NextRequest) {
 
     console.log('✅ Mail gönderme süreci tamamlandı');
     
-    // Teşekkür maili gönderilip gönderilmediğini kontrol et
-    let thankYouSent = false;
-    try {
-      // Basit bir test mail gönderimi
-      const testMail = await transporter.sendMail({
-        from: mailConfig.auth.user,
-        to: sanitized.email,
-        subject: 'Test - Mail Gönderim Kontrolü',
-        text: 'Bu bir test mailidir.'
-      });
-      thankYouSent = true;
-      console.log('✅ Test maili başarıyla gönderildi');
-    } catch (testError) {
-      console.error('❌ Test maili gönderilemedi:', testError);
-      thankYouSent = false;
-    }
-    
     return NextResponse.json({ 
       success: true, 
-      message: thankYouSent ? 'E-postalar gönderildi' : 'Form alındı, teşekkür maili gönderilemedi',
-      thankYouSent: thankYouSent
+      message: 'E-postalar başarıyla gönderildi',
+      formData: {
+        name: sanitized.name,
+        email: sanitized.email,
+        phone: sanitized.phone,
+        company: sanitized.company,
+        message: sanitized.message,
+        service: sanitized.service,
+        formType: sanitized.formType
+      }
     });
 
   } catch (error) {
