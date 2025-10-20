@@ -263,7 +263,7 @@ export default function TermsPage() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Telefon</p>
-                    <p className="font-semibold text-gray-900">0545 664 2302</p>
+                    <p className="font-semibold text-gray-900">+90 545 664 2302</p>
                   </div>
                 </div>
                 

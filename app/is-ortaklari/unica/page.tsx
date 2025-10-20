@@ -299,7 +299,7 @@ export default function UnicaPage() {
                   </a>
                 </p>
                 <p>
-                  <strong>Telefon:</strong> +90 (212) XXX XX XX
+                  <strong>Telefon:</strong> +90 545 664 2302
                 </p>
                 <p>
                   <strong>Adres:</strong> İstanbul, Türkiye

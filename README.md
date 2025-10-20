@@ -315,7 +315,7 @@ Settings:
 
 - **Website**: https://novagraph.com.tr
 - **Email**: info@novagraph.com.tr
-- **Phone**: +90 (212) 555 0123
+- **Phone**: +90 545 664 2302
 
 ## 📄 Lisans
 

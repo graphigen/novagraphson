@@ -253,7 +253,7 @@ export default function GoogleAdsPage() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-blue-50 p-6 rounded-xl">
               <h4 className="font-semibold text-blue-900 mb-2">Telefon</h4>
-              <p className="text-blue-800">+90 (212) XXX XX XX</p>
+              <p className="text-blue-800">+90 545 664 2302</p>
             </div>
             <div className="bg-blue-50 p-6 rounded-xl">
               <h4 className="font-semibold text-blue-900 mb-2">E-posta</h4>

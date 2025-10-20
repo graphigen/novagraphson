@@ -569,7 +569,7 @@ export async function POST(request: NextRequest) {
               Sorularınız için bizimle iletişime geçebilirsiniz:
             </p>
             <div style="display: flex; justify-content: center; gap: 16px;">
-              <a href="tel:+902125550123" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 500;">📞 Ara</a>
+              <a href="tel:+905456642302" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 500;">📞 Ara</a>
               <a href="mailto:info@novagraph.com.tr" style="background: #3b82f6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 500;">✉️ E-posta</a>
             </div>
           </div>

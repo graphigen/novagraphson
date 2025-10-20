@@ -540,7 +540,7 @@ export default function GrafikTasarimPage() {
                 <Phone className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Telefon</h3>
-              <p className="text-gray-600 mb-4">+90 (212) 555 0123</p>
+              <p className="text-gray-600 mb-4">+90 545 664 2302</p>
               <button className="text-blue-600 hover:text-blue-700 font-medium">Hemen Ara</button>
             </div>
 
@@ -558,7 +558,7 @@ export default function GrafikTasarimPage() {
                 <MessageCircle className="w-6 h-6 text-emerald-600" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">WhatsApp</h3>
-              <p className="text-gray-600 mb-4">+90 (555) 123 4567</p>
+              <p className="text-gray-600 mb-4">+90 545 664 2302</p>
               <button className="text-emerald-600 hover:text-emerald-700 font-medium">WhatsApp'tan Yaz</button>
             </div>
           </div>

@@ -94,8 +94,8 @@ export default function IletisimPage() {
     {
       icon: Phone,
       title: "Telefon",
-      value: "+90 (212) 555 0123",
-      link: "tel:+902125550123"
+      value: "+90 545 664 2302",
+      link: "tel:+905456642302"
     },
     {
       icon: Mail,
