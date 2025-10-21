@@ -54,7 +54,7 @@ export const TopBar = () => {
         {/* Sağ Taraf - Telefon Numarası ve Sizi Arayalım */}
         <div className="flex items-center space-x-3 flex-shrink-0">
           <div className="flex items-center space-x-2">
-            <span className="text-sm font-medium hidden sm:inline">0545 664 2302</span>
+            <span className="text-sm font-medium hidden sm:inline">+90 545 664 2302</span>
             <span className="text-white text-opacity-60">|</span>
             <button
               onClick={() => openForm("Sizi Arayalım")}
